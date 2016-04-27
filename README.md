@@ -1,13 +1,11 @@
 This is a Java REST Webservice example using JPA MySQL persitence
 
+Persistence occurs on a Cloud based mysql Docker instance
+
+
 Install
 ========
 
-* MySQL
-
-Ubuntu: apt-get install mysql-server
-
-Mac OS X: brew install mysql
 
 * Maven
 
