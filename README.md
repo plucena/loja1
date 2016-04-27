@@ -30,6 +30,8 @@ Follow these instrunctions: http://www.mkyong.com/maven/how-to-deploy-maven-base
 Run 
 ====
 mvn tomcat7:deploy 
+
 mvn tomcat7:undeploy 
+
 mvn tomcat7:redeploy 
 
