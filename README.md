@@ -15,6 +15,19 @@ Ubuntu: sudo apt-get install maven
 
 Mac OS X: brew install maven 
 
+* Tomcat 7
+
+Ubuntu: sudo apt-get install tomcat7
+
+Mac Os X: brew install homebrew/versions/tomcat7
+
+
+Configure Tomcat
+=================
+
+Lambda ...
+
+
 Run 
 ====
 
