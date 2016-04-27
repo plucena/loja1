@@ -4,7 +4,7 @@ Persistence occurs on a Cloud based mysql Docker instance
 
 This project is associated to CI server: https://hub.jazz.net/pipeline/plucena/ECMApp
 
-Commits triggers builds and automatic to http://ecmapp.mybluemix.net
+Commits triggers builds and automatic deploys to http://ecmapp.mybluemix.net
 
 
 Local Install 
