@@ -19,7 +19,7 @@ Mac OS X: brew install maven
 
 Ubuntu: sudo apt-get install tomcat7
 
-Mac Os X: brew install homebrew/versions/tomcat7
+Mac Os X: download and install tomcat 7 or latter https://tomcat.apache.org/download-70.cgi
 
 
 Configure Tomcat
@@ -29,6 +29,7 @@ Follow these instrunctions: http://www.mkyong.com/maven/how-to-deploy-maven-base
 
 Run 
 ====
-
-mvn compile clean
+mvn tomcat7:deploy 
+mvn tomcat7:undeploy 
+mvn tomcat7:redeploy 
 
