@@ -1,8 +1,9 @@
 This is a Java REST Webservice example using JPA MySQL persitence
 
-* Install
+Install
+========
 
-MySQL
+* MySQL
 
 Ubuntu: apt-get install mysql-server
 
@@ -14,7 +15,8 @@ Ubuntu: sudo apt-get install maven
 
 Mac OS X: brew install maven 
 
-* Run 
+Run 
+====
 
 mvn compile clean
 
