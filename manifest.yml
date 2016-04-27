@@ -1,9 +1,9 @@
 applications:
-- path: target/TomcatHelloWorldApp.war
+- path: target/ECMApp-1.0-SNAPSHOT.war
   memory: 256M
   instances: 1
   domain: mybluemix.net
-  name: loja
-  host: loja
+  name: ECMApp
+  host: ECMApp
   disk_quota: 1024M
   buildpack: java_buildpack
