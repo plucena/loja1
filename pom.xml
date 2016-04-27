@@ -45,7 +45,7 @@
 				<version>2.6</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
-					<warName>TomcatHelloWorldApp</warName>
+					<warName>ECMApp-1.0-SNAPSHOT</warName>
 				</configuration>
 			</plugin>
 			<plugin>
@@ -56,6 +56,16 @@
 					<target>1.7</target>
 				</configuration>
 			</plugin>
+			<plugin>
+		<groupId>org.apache.tomcat.maven</groupId>
+		<artifactId>tomcat7-maven-plugin</artifactId>
+		<version>2.2</version>
+		<configuration>
+			<url>http://localhost:8080/manager/text</url>
+			<server>TomcatServer</server>
+			<path>/ecm</path>
+		</configuration>
+	</plugin>
 		</plugins>
 	</build>
 	
