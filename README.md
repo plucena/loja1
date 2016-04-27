@@ -25,8 +25,7 @@ Mac Os X: brew install homebrew/versions/tomcat7
 Configure Tomcat
 =================
 
-Lambda ...
-
+Follow these instrunctions: http://www.mkyong.com/maven/how-to-deploy-maven-based-war-file-to-tomcat/
 
 Run 
 ====
