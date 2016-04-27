@@ -40,8 +40,8 @@ public class SimpleServlet extends HttpServlet {
 	List<Employee> resultList =  this.listEmployees();
 	String listemployees = "Employees <BR><BR>";
 
-	for (Employee e : resultList) {
-    		listemployees += e + "<BR>"	
+	for (Employee e : resultList) 
+    		listemployees = listemployees + e + "<BR>";	
 
     	System.out.println(".. done");
     	
