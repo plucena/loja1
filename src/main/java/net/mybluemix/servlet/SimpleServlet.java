@@ -37,13 +37,17 @@ public class SimpleServlet extends HttpServlet {
     	
     	this.createEmployees();
     	
-    	this.listEmployees();
+	List<Employee> resultList =  this.listEmployees();
+	String listemployees = "Employees <BR><BR>";
+
+	for (Employee e : resultList) {
+    		listemployees += e + "<BR>"	
 
     	System.out.println(".. done");
     	
     	
     	response.setContentType("text/html");
-        response.getWriter().print("Hello World!");
+        response.getWriter().print(listemployees);
         
 
 }
@@ -66,12 +70,9 @@ private void createEmployees() {
 //}
 }
 
-private void listEmployees() {
+private List<Employee> listEmployees() {
 List<Employee> resultList = (List<Employee>) edao.createQuery("Select a From Employee a", Employee.class);
-System.out.println("num of employess:" + resultList.size());
-for (Employee next : resultList) {
-    System.out.println("next employee: " + next);
-}
+return resultList;
 }
 
 }
