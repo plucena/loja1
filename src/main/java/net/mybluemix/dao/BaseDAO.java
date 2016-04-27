@@ -18,6 +18,10 @@ public class BaseDAO<T>{
     
     public BaseDAO(Class<T> classType) {
 		_classType = classType; 
+    	this.connect();
+    }
+
+    private void connect() {
     	EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistenceUnit");
         manager = factory.createEntityManager();
     }
