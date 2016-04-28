@@ -11,7 +11,7 @@ public class RestExample {
 
     @GET
     public String employeeList(){
-    	return "{'All you need is love'}";
+    	return "{'Ola'}";
     }
     
     //@Path("{name}")
