@@ -58,4 +58,10 @@ public class Employee {
                 + department.getName() + "]";
     }
  
+    public boolean equals(Employee e){
+    	if ( (e.name == this.name) && (e.department == this.department))
+    			return true;
+    	return false;
+    }
+    
 }
