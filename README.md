@@ -1,14 +1,15 @@
 This is a Java REST Webservice example using JPA MySQL persitence
 
-Persistence occurs on a Cloud based mysql Docker instance
+Persistence occurs on a Cloud based mysql Docker instance defined on resources/META-INF/persistence.xml
 
-This project is associated to CI server: https://hub.jazz.net/pipeline/plucena/ECMApp
+This project is associated to Continuos Integration Server: https://hub.jazz.net/pipeline/plucena/ECMApp
+
+Commits to API are automatically published to - http://loja.mybluemix.net/api/
 
 ScrumBoard is https://hub.jazz.net/ccm38/web/projects/plucena%20%7C%20ECMApp#action=com.ibm.team.dashboard.viewDashboard
 
 Communication channel is: https://estoqueapp.slack.com
 
-All successful Commits triggers builds and automatic deploys to http://ecmapp.mybluemix.net
 
 
 Local Install 
