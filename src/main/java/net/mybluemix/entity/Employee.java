@@ -5,9 +5,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
  
-@Entity
 public class Employee {
-    @Id
+/*
+	@Id
     @GeneratedValue
     private Long id;
  
@@ -63,5 +63,5 @@ public class Employee {
     			return true;
     	return false;
     }
-    
+*/    
 }

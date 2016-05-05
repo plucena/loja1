@@ -6,7 +6,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
 
-@Path("employee")
+@Path("materiaprima")
 public class RestExample {
 
     @GET
