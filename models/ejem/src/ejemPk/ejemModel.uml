@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_ny6ZUBLpEea9efrRax81fA" name="">
+  <packageImport xmi:id="_n9USgBLpEea9efrRax81fA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_tsnXoBLpEea9efrRax81fA" name="ejemPk">
+    <packagedElement xmi:type="uml:Class" xmi:id="_3v9E0BLpEea9efrRax81fA" name="ejem">
+      <ownedAttribute xmi:id="_5A42UBLrEea9efrRax81fA" name="state" type="_AN5FABLrEea9efrRax81fA"/>
+      <ownedAttribute xmi:id="_8gqI0BLrEea9efrRax81fA" name="status">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_ny-qwBLpEea9efrRax81fA" name="ejemStateMachine">
+        <region xmi:id="_nzBHABLpEea9efrRax81fA" name="ejemRegion">
+          <transition xmi:id="_lQiGsBLqEea9efrRax81fA" name="init2idle" source="_T9pCkBLqEea9efrRax81fA" target="_WOrREBLqEea9efrRax81fA"/>
+          <transition xmi:id="_oE5EsBLqEea9efrRax81fA" name="idle2idle" source="_WOrREBLqEea9efrRax81fA" target="_WOrREBLqEea9efrRax81fA">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_JF8_8BLtEea9efrRax81fA" name="inicializar" specification="_yPtoABLsEea9efrRax81fA"/>
+            <trigger xmi:id="_E-h3kBLtEea9efrRax81fA" event="_ssmkwBLsEea9efrRax81fA"/>
+          </transition>
+          <transition xmi:id="_rwInYBLqEea9efrRax81fA" name="idle2activo" source="_WOrREBLqEea9efrRax81fA" target="_dDSYcBLqEea9efrRax81fA">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_u6bRwBLtEea9efrRax81fA" name="activar" specification="_pn4aEBLtEea9efrRax81fA"/>
+            <trigger xmi:id="_uUGRkBLtEea9efrRax81fA" event="_nILdcBLtEea9efrRax81fA"/>
+          </transition>
+          <transition xmi:id="_vNgGIBLqEea9efrRax81fA" name="activo2verdadero" guard="_fyz88BLuEea9efrRax81fA" source="_dDSYcBLqEea9efrRax81fA" target="_epzDQBLqEea9efrRax81fA">
+            <ownedRule xmi:id="_fyz88BLuEea9efrRax81fA">
+              <specification xmi:type="uml:LiteralString" xmi:id="_gnapsBLuEea9efrRax81fA" value="status=true"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_Or8ioBLuEea9efrRax81fA" name="verdadero" specification="_FB1NwBLuEea9efrRax81fA"/>
+            <trigger xmi:id="_OBvIABLuEea9efrRax81fA" event="_ANyP8BLuEea9efrRax81fA"/>
+          </transition>
+          <transition xmi:id="_xl4SwBLqEea9efrRax81fA" name="activo2falso" guard="_jwjk4BLuEea9efrRax81fA" source="_dDSYcBLqEea9efrRax81fA" target="_gG8WsBLqEea9efrRax81fA">
+            <ownedRule xmi:id="_jwjk4BLuEea9efrRax81fA">
+              <specification xmi:type="uml:LiteralString" xmi:id="_kepZ8BLuEea9efrRax81fA" value="status=false"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_QA900BLuEea9efrRax81fA" name="falso" specification="_FzpFMBLuEea9efrRax81fA"/>
+            <trigger xmi:id="_PN71YBLuEea9efrRax81fA" name="" event="_BZvswBLuEea9efrRax81fA"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_T9pCkBLqEea9efrRax81fA" name="init"/>
+          <subvertex xmi:type="uml:State" xmi:id="_WOrREBLqEea9efrRax81fA" name="idle" stateInvariant="_eGuV8BLrEea9efrRax81fA">
+            <ownedRule xmi:id="_eGuV8BLrEea9efrRax81fA">
+              <specification xmi:type="uml:LiteralString" xmi:id="_fNg-4BLrEea9efrRax81fA" value="state=State::idle"/>
+            </ownedRule>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_dDSYcBLqEea9efrRax81fA" name="activo" stateInvariant="_qaE98BLrEea9efrRax81fA">
+            <ownedRule xmi:id="_qaE98BLrEea9efrRax81fA">
+              <specification xmi:type="uml:LiteralString" xmi:id="_rLvEYBLrEea9efrRax81fA" value="state=State::activo"/>
+            </ownedRule>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_epzDQBLqEea9efrRax81fA" name="verdadero" stateInvariant="_thGZQBLrEea9efrRax81fA">
+            <ownedRule xmi:id="_thGZQBLrEea9efrRax81fA">
+              <specification xmi:type="uml:LiteralString" xmi:id="_ukmdoBLrEea9efrRax81fA" value="state=State::verdadero"/>
+            </ownedRule>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_gG8WsBLqEea9efrRax81fA" name="falso" stateInvariant="_x1YR4BLrEea9efrRax81fA">
+            <ownedRule xmi:id="_x1YR4BLrEea9efrRax81fA">
+              <specification xmi:type="uml:LiteralString" xmi:id="_yzGeYBLrEea9efrRax81fA" value="state=State::falso"/>
+            </ownedRule>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_yPtoABLsEea9efrRax81fA" name="inicializarOp" method="_JF8_8BLtEea9efrRax81fA" postcondition="_9ZL20BLsEea9efrRax81fA">
+        <ownedRule xmi:id="_9ZL20BLsEea9efrRax81fA">
+          <specification xmi:type="uml:LiteralString" xmi:id="_-XR2wBLsEea9efrRax81fA" value="status=statusVal"/>
+        </ownedRule>
+        <ownedParameter xmi:id="_3EmTUBLsEea9efrRax81fA" name="statusVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_pn4aEBLtEea9efrRax81fA" name="activarOp" method="_u6bRwBLtEea9efrRax81fA"/>
+      <ownedOperation xmi:id="_FB1NwBLuEea9efrRax81fA" name="verdaderoOp" method="_Or8ioBLuEea9efrRax81fA"/>
+      <ownedOperation xmi:id="_FzpFMBLuEea9efrRax81fA" name="falsoOp" method="_QA900BLuEea9efrRax81fA"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_AN5FABLrEea9efrRax81fA" name="State">
+      <ownedLiteral xmi:id="_GCWW8BLrEea9efrRax81fA" name="idle"/>
+      <ownedLiteral xmi:id="_H4UaEBLrEea9efrRax81fA" name="activo"/>
+      <ownedLiteral xmi:id="_IqXiEBLrEea9efrRax81fA" name="verdadero"/>
+      <ownedLiteral xmi:id="_JVSuYBLrEea9efrRax81fA" name="falso"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_ssmkwBLsEea9efrRax81fA" name="inicializarEvent" operation="_yPtoABLsEea9efrRax81fA"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_nILdcBLtEea9efrRax81fA" name="activarEvent" operation="_pn4aEBLtEea9efrRax81fA"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_ANyP8BLuEea9efrRax81fA" name="verdaderoEvent" operation="_FB1NwBLuEea9efrRax81fA"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_BZvswBLuEea9efrRax81fA" name="falsoEvent" operation="_FzpFMBLuEea9efrRax81fA"/>
+  </packagedElement>
+</uml:Model>
