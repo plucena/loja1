@@ -56,7 +56,7 @@ GET http://loja.mybluemix.net/api/materiaprima/sku
 
 POST http://loja.mybluemix.net/api/materiaprima/create
 
-Content-Type: applicataion/json
+Content-Type: application/json
 
 {
 "sku": 1,
