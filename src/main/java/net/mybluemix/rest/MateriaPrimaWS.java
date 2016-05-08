@@ -18,12 +18,20 @@ import net.mybluemix.entity.MateriaPrima;
 public class MateriaPrimaWS {
 
     @GET
-    public List<MateriaPrima> employeeList(){
+    public List<MateriaPrima> MateriaPrimaList(){
     	MateriaPrimaDAO mpd = new MateriaPrimaDAO();
     	List<MateriaPrima> mpl = mpd.createQuery("Select a From MateriaPrima a", MateriaPrima.class);
     	return  mpl;
     }
     
+    @GET
+    @Path("{sku}")
+    public MateriaPrima  MateriaPrima(@PathParam("sku") String sku){
+    	int x = Integer.parseInt(sku);
+    	MateriaPrimaDAO mpd = new MateriaPrimaDAO();
+    	return mpd.find(x);
+    }
+
     /*
     @Path("{name}")
     public String sayHello(@PathParam("name") String name){
