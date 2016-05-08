@@ -19,6 +19,7 @@
         <link rel="shortcut icon" href="images/favicon.png">
 
         <link rel="stylesheet" type="text/css" href="css/lib/angular-material.min.css">
+        <link rel="stylesheet" type="text/css" href="css/lib/md-data-table.min.css">
         <link rel="stylesheet" type="text/css" href="css/styles.css">
     </head>
 
@@ -31,18 +32,17 @@
                   
                 <md-divider></md-divider>
 
-                <md-list class="usuario">
+                <!-- <md-list class="usuario">
                     <md-list-item class="md-3-line"> 
-                        <!-- <md-icon class="md-avatar" hide-sm md-svg-icon="avatars:svg-1"></md-icon> -->
                         <div class="md-list-item-text">
                             <div class="md-body-3">Raquel</div>
                             <div class="md-body-2">raquel@empresa.com</div>
                             <a class="md-body-1" ng-href="#pagina-inicial"><md-icon md-svg-icon="action:ic_exit_to_app_24px" aria-label="Sair"></md-icon> Sair</a>
                         </div>
                     </md-list-item>
-                </md-list>
+                </md-list> -->
 
-                <md-divider></md-divider>
+                <!-- <md-divider></md-divider> -->
 
                 <md-list class="navegacao">
                     <md-list-item class="md-2-line" ng-repeat="item in navegacao" role="link" ng-href="{{item.link}}" md-ink-ripple>
@@ -67,6 +67,10 @@
                             <md-icon md-svg-icon="navigation:ic_arrow_back_24px" aria-label="Voltar"></md-icon>
                         </md-button>
 
+                        <md-button ng-if="$root.title == 'Cadastrar Nova Matéria-prima' || $root.title == 'Editar Matéria-prima'" class="md-icon-button" ng-href="#materia-prima" aria-label="Voltar">
+                            <md-icon md-svg-icon="navigation:ic_arrow_back_24px" aria-label="Voltar"></md-icon>
+                        </md-button>
+
                         <h2 ng-bind="$root.title"></h2>
                         <span flex></span>
                     </div>     
@@ -84,7 +88,9 @@
         <script src="js/lib/angular-route.min.js" type="text/javascript" ></script>
         <script src="js/lib/angular-messages.min.js" type="text/javascript" ></script>
         <script src="js/lib/angular-material.min.js" type="text/javascript" ></script>
+        <script src="js/lib/md-data-table.min.js" type="text/javascript" ></script>
         <script src="js/GestaoFitnessApp.js" type="text/javascript" ></script>
         <script src="js/Fornecedor.js" type="text/javascript" ></script>
+        <script src="js/Materia-prima.js" type="text/javascript" ></script>
     </body>
 </html>

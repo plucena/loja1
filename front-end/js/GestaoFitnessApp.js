@@ -3,7 +3,8 @@ var app = angular.module('GestaoFitnessApp',
         'ngMaterial',
         'ngRoute',
         'ngMessages',
-        'ngAnimate'
+        'ngAnimate',
+        'md.data.table'
     ]
 );
 
@@ -80,7 +81,7 @@ app.controller('mainController', ['$scope', '$mdSidenav', '$mdDialog', function(
             link : '#materia-prima',
             title: 'Matéria-prima',
             icon: 'maps:ic_layers_24px'
-        },
+        }
     ];
   
 }]);
