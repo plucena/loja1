@@ -42,3 +42,13 @@ mvn tomcat7:undeploy
 
 mvn tomcat7:redeploy 
 
+
+API
+==========
+
+List all MateriaPrima
+GET http://loja.mybluemix.net/api/materiaprima
+
+List a MateriaPrima
+GET http://loja.mybluemix.net/api/materiaprima/sku
+
