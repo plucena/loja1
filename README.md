@@ -57,7 +57,9 @@ GET http://loja.mybluemix.net/api/materiaprima/{$sku}
 * Create MateriaPrima
 
     POST http://loja.mybluemix.net/api/materiaprima/create
+    
     Content-Type: application/json
+    
     {
    "sku": 1,
    "nome": "Tecido Florido Verao 2016",
