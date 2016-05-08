@@ -46,6 +46,8 @@ mvn tomcat7:redeploy
 API
 ==========
 
+**MateriaPrima **
+
 * List all MateriaPrima
 GET http://loja.mybluemix.net/api/materiaprima
 
@@ -68,4 +70,12 @@ Content-Type: application/json
 "dataEntrada": "2016-10-15",
 "dataSaida": "2016-10-29"
 }
+
+** Fornecedor **
+
+* List all Fornecedor
+GET http://loja.mybluemix.net/api/fornecedor
+
+* List a MateriaPrima
+GET http://loja.mybluemix.net/api/fornecedor/{$id}
 
