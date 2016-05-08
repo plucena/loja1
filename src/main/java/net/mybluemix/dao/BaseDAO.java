@@ -11,7 +11,7 @@ import javax.persistence.Persistence;
 
 public class BaseDAO<T>{
 
-    private EntityManager manager;
+    protected EntityManager manager;
 	private Class<T> _classType;
 
     
@@ -35,4 +35,9 @@ public class BaseDAO<T>{
     public List<T> createQuery(String SQL, Class c) {
     	 return  manager.createQuery(SQL, c).getResultList();
     }
+    
+    public T createSingleQuery(String SQL, Class c) {
+   	 return  (T) manager.createQuery(SQL, c).getSingleResult();
+    }
+    
 }

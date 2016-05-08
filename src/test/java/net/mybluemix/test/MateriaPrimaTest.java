@@ -44,6 +44,14 @@ public class MateriaPrimaTest
 	 }
     
 	@Test
+	public void testMateriaPrima() throws Exception {
+			MateriaPrima p = mpd.find(1);
+			if(p.equals(elist.get(0)))
+				Assert.assertEquals(true, true);
+	}	
+	
+	
+	@Test
 	public void testValidMateriaPrima() throws Exception {
 		MateriaPrimaTest.createMateriaPrima();
 		List<MateriaPrima> mp = MateriaPrimaTest.listMateriaPrima();
@@ -51,7 +59,7 @@ public class MateriaPrimaTest
 			if(p.equals(elist.get(0)))
 				Assert.assertEquals(true, true);
 		}
-	}	
+	}
 	
 	@Test
 	public void testInvalidMateriaPrima() throws Exception {
@@ -78,7 +86,9 @@ public class MateriaPrimaTest
 	        return resultList;
 	    }
 	 
-	 
+
+	   
+
 	 
 	 
 }

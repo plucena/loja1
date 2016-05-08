@@ -24,8 +24,8 @@ public class MateriaPrimaWS {
     	return  mpl;
     }
     
-    //@Path("{name}")
-   /*
+    /*
+    @Path("{name}")
     public String sayHello(@PathParam("name") String name){
         StringBuilder stringBuilder = new StringBuilder("SandBox | Hello ");
         stringBuilder.append(name).append("!");
