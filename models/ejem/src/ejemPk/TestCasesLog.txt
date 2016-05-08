@@ -1,0 +1,63 @@
+### Test Case Generation Statistics
+### Test Goal Satisfaction
+ - defined 12 test goals
+ - satisfied 12 test goals (100.0 %)
+
+### unsatisfied test goals
+
+
+### satisfied test goals
+
+ - satisfied: (test goal #1 - traversed transition) 
+   from node ejemStateMachine::ejemRegion::activo
+   to node tmp4
+   triggered by falsoEvent
+   with condition truth: true
+((status = false))
+ - satisfied: (test goal #2 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::activo
+   call event verdaderoEvent
+   with condition truth: true
+((status = true))
+ - satisfied: (test goal #3 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::activo
+   call event falsoEvent
+   with condition truth: true
+((status = false))
+ - satisfied: (test goal #4 - traversed transition) 
+   from node ejemStateMachine::ejemRegion::activo
+   to node tmp3
+   triggered by verdaderoEvent
+   with condition truth: true
+((status = true))
+ - satisfied: (test goal #5 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::activo
+   call event verdaderoEvent
+   with condition truth: false
+((status <> true))
+ - satisfied: (test goal #6 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::activo
+   call event falsoEvent
+   with condition truth: false
+((status <> false))
+ - satisfied: (test goal #7 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::idle
+   call event activarEvent
+ - satisfied: (test goal #8 - traversed transition) 
+   from node ejemStateMachine::ejemRegion::idle
+   to node tmp2
+   triggered by activarEvent
+ - satisfied: (test goal #9 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::idle
+   call event inicializarEvent
+ - satisfied: (test goal #10 - traversed transition) 
+   from node ejemStateMachine::ejemRegion::idle
+   to node tmp1
+   triggered by inicializarEvent
+ - satisfied: (test goal #11 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::init
+   call event default
+ - satisfied: (test goal #12 - traversed transition) 
+   from node ejemStateMachine::ejemRegion::init
+   to node ejemStateMachine::ejemRegion::idle
+   triggered by default
