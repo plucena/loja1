@@ -55,6 +55,7 @@ GET http://loja.mybluemix.net/api/materiaprima/sku
 Create MateriaPrima
 
 POST http://loja.mybluemix.net/api/materiaprima/create
+
 Content-Type: applicataion/json
 
 {
@@ -66,5 +67,5 @@ Content-Type: applicataion/json
 "valorUnidade": 10,
 "dataEntrada": "2016-10-15",
 "dataSaida": "2016-10-29"
-},
+}
 
