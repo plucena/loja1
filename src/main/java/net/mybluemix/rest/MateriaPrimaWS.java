@@ -18,10 +18,10 @@ import net.mybluemix.entity.MateriaPrima;
 public class MateriaPrimaWS {
 
     @GET
-    public MateriaPrima employeeList(){
+    public List<MateriaPrima> employeeList(){
     	MateriaPrimaDAO mpd = new MateriaPrimaDAO();
     	List<MateriaPrima> mpl = mpd.createQuery("Select a From MateriaPrima a", MateriaPrima.class);
-    	return  mpl.get(0);
+    	return  mpl;
     }
     
     //@Path("{name}")

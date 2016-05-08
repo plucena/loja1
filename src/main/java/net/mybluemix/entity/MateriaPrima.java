@@ -124,6 +124,19 @@ public class MateriaPrima {
 	}
 
 	
+	public boolean equals(MateriaPrima p) {
+		if(this.nome.equals(p.nome) &&
+		   this.tipo.equals(p.tipo) &&
+		   this.descricao.equals(p.descricao) &&
+		   this.unidade.equals(p.unidade) &&
+		   this.valorUnidade == p.valorUnidade &&
+		   this.dataEntrada.equals(p.dataEntrada) &&
+		   this.dataSaida.equals(p.dataSaida)
+		   )
+			return true;
+		return false;
+	}
+
 	
 	
 }
