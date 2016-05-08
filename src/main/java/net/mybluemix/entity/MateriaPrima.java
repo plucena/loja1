@@ -3,8 +3,13 @@ package net.mybluemix.entity;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlRootElement;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 
 @Entity
+@XmlRootElement
 
 public class MateriaPrima {
 
@@ -20,55 +25,88 @@ public class MateriaPrima {
 	private String dataEntrada;
 	private String dataSaida;
 	
-	public void MateriaPrima(){
+	public MateriaPrima(){
 	}
 	
+    @JsonProperty
 	public Long getSku() {
 		return sku;
 	}
+
+    @JsonProperty
 	public void setSku(Long sku) {
 		this.sku = sku;
 	}
+
+    @JsonProperty
 	public String getNome() {
 		return nome;
 	}
-	public void setNome(String nome) {
+	
+    @JsonProperty
+    public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public String getTipo() {
+
+    @JsonProperty
+    public String getTipo() {
 		return tipo;
 	}
-	public void setTipo(String tipo) {
+
+    @JsonProperty
+    public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public String getDescricao() {
+
+    @JsonProperty
+    public String getDescricao() {
 		return descricao;
 	}
-	public void setDescricao(String descricao) {
+
+
+    @JsonProperty
+    public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
+    
+    @JsonProperty
 	public String getUnidade() {
 		return unidade;
 	}
-	public void setUnidade(String unidade) {
+
+    @JsonProperty
+    public void setUnidade(String unidade) {
 		this.unidade = unidade;
 	}
-	public float getValorUnidade() {
+
+    @JsonProperty
+    public float getValorUnidade() {
 		return valorUnidade;
 	}
-	public void setValorUnidade(float valorUnidade) {
+
+    @JsonProperty
+    public void setValorUnidade(float valorUnidade) {
 		this.valorUnidade = valorUnidade;
 	}
-	public String getDataEntrada() {
+
+    @JsonProperty
+    public String getDataEntrada() {
 		return dataEntrada;
 	}
-	public void setDataEntrada(String dataEntrada) {
+
+    @JsonProperty
+    public void setDataEntrada(String dataEntrada) {
 		this.dataEntrada = dataEntrada;
 	}
-	public String getDataSaida() {
+
+    
+    @JsonProperty
+    public String getDataSaida() {
 		return dataSaida;
 	}
-	public void setDataSaida(String dataSaida) {
+
+    @JsonProperty
+    public void setDataSaida(String dataSaida) {
 		this.dataSaida = dataSaida;
 	}
 

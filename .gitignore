@@ -1,3 +1,4 @@
 target/*
 |target/TomcatHelloWorldApp.war
 /target/
+/.apt_generated/

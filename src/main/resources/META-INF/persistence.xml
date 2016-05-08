@@ -15,7 +15,7 @@
             <property name="hbm2ddl.auto" value="create" />
  
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
 
         </properties>
  
