@@ -61,7 +61,6 @@ GET http://loja.mybluemix.net/api/materiaprima/{$sku}
     Content-Type: application/json
     
     {
-   "sku": 1,
    "nome": "Tecido Florido Verao 2016",
    "tipo": "Tecido",
    "descricao": "Cool stuff guys",
