@@ -46,13 +46,13 @@ mvn tomcat7:redeploy
 API
 ==========
 
-List all MateriaPrima
+* List all MateriaPrima
 GET http://loja.mybluemix.net/api/materiaprima
 
-List a MateriaPrima
+* List a MateriaPrima
 GET http://loja.mybluemix.net/api/materiaprima/sku
 
-Create MateriaPrima
+* Create MateriaPrima
 
 POST http://loja.mybluemix.net/api/materiaprima/create
 
