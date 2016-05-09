@@ -5,6 +5,7 @@ public enum State {
 	idle,
 	activo,
 	verdadero,
-	falso
+	falso,
+	mayor
 
 }
