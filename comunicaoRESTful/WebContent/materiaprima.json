@@ -1,0 +1,25 @@
+[
+  {
+    "nome": "tecido_A",
+    "tipo": "ABC",
+    "descricao": "qqq", 
+	"unidade": "metro",
+	"valorUnidade": "10"
+  },
+  
+  {
+    "nome": "tecido_B",
+    "tipo": "DEF",
+    "descricao": "www", 
+	"unidade": "metro",
+	"valorUnidade": "20"
+  },
+  
+    {
+    "nome": "tecido_C",
+    "tipo": "GHI",
+    "descricao": "eee", 
+	"unidade": "metro",
+	"valorUnidade": "30"
+  }
+]

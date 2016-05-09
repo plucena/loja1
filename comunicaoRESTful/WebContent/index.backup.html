@@ -1,0 +1,39 @@
+<!DOCTYPE html >
+<html data-ng-app="App">
+<head>
+<meta charset="UTF-8">
+<title>Primeiro Exemplo usando AngularJS</title>
+<script type="text/javascript" src="lib/angular.min.js"></script>
+<script type="text/javascript" src="lib/angular-resource.min.js"></script>
+<script>
+	var app = angular.module('App', []);
+	app.controller('MateriaPrimaController', function($scope, $http) {
+		$http.get('materia_prima.json').success(function(data) {
+			$scope.funcionarios = data;
+		});
+	});
+
+</script>
+</head>
+<body data-ng-controller="MateriaPrimaController">
+	<table>
+		<tr>
+			<th>Nome</th>
+			<th>Tipo</th>
+			<th>Descrição</th>
+			<th>Nome</th>
+			<th>Tipo</th>
+			<th>Descrição</th>
+			<th>Nome</th>
+			<th>Tipo</th>
+			<th>Descrição</th>
+			
+		</tr>
+		<tr data-ng-repeat="funcionario in funcionarios">
+		        <td>{{funcionario.nome}}</td>
+        		<td>{{funcionario.idade}}</td>
+        </tr>		
+	</table>	
+	
+</body>
+</html>
