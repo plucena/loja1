@@ -84,5 +84,14 @@ POST http://loja.mybluemix.net/api/fornecedor/create
 
 Content-Type: application/json
 
-{
-}
+        { "CNPJ": "222.222.222/0000-0",
+        "nome": "odebrecht tecidos",
+        "email": "odebrecht@dezporcentoamais.com",
+        "telefone": "11 4444-2211",
+        "PrazoEntregaDias": 100,
+        "Endereco_Pais": "Brasil",
+        "Endereco_Estado": "DF",
+        "Endereco_Cidade": "Brasilia",
+        "Endereco_Logradouro": "Rua Doze, 50 - Sala 3",
+        "Endereco_CEP": "33333-721"
+        }
