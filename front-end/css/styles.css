@@ -79,18 +79,8 @@ md-content md-card {
     margin:24px;
 }
 
-md-content md-card md-list-item a {
-    margin: 0 !important;
-    padding-top: 12px !important;
-}
-
-md-content md-card p md-icon {
-    width: 14px;
-    height: 14px;
-}
-
 md-content md-card .md-secondary md-icon {
-    padding: 0 12px 0 0;
+    padding: 0 6px 0 0;
     width: 18px;
     height: 18px;
 }

@@ -1,24 +1,31 @@
 <md-card>
     <md-card-content>
 
-    <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add" ng-href="#fornecedores/novo">
-        <md-icon md-svg-icon="content:ic_add_24px" aria-label="Plus"></md-icon>
-    </md-button>
-        
-        <md-list>
-            <md-list-item class="md-2-line" ng-repeat="item in fornecedores" ng-href="#fornecedores">
+        <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add" ng-href="#fornecedores/novo">
+            <md-icon md-svg-icon="content:ic_add_24px" aria-label="Plus"></md-icon>
+        </md-button>
 
-                <div class="md-list-item-text">
-                    <h3>{{item.nome}}</h3>
-                    <p><md-icon md-svg-icon="communication:ic_phone_24px" aria-label="Telefone"></md-icon> {{item.telefone}}</p>
-                    <!-- <p><md-icon md-svg-icon="maps:ic_place_24px" aria-label="Endereço"></md-icon> {{item.endereco}}</p> -->
-                </div>
-
-                <md-button class="md-secondary md-accent md-raised" ng-href="#fornecedores/editar"><md-icon md-svg-icon="editor:ic_mode_edit_24px" aria-label="Editar"></md-icon>Editar</md-button>
-
-                <md-divider ng-if="!$last"></md-divider>
-            </md-list-item>
-    </md-list>
+        <md-table-container>
+            <table md-table>
+                <thead md-head>
+                    <tr md-row>
+                        <th md-column><span>Nome</span></th>
+                        <th md-column><span>Telefone</span></th>
+                        <th md-column><span>Endereço</span></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="fornecedor in fornecedores">
+                        <td md-cell>{{fornecedor.nome}}</td>
+                        <td md-cell>{{fornecedor.telefone}}</td>
+                        <td md-cell>{{fornecedor.endereco}}</td>
+                        <td md-cell>
+                            <md-button class="md-secondary md-accent md-raised" ng-href="#fornecedores/editar"><md-icon md-svg-icon="editor:ic_mode_edit_24px" aria-label="Editar"></md-icon>Editar</md-button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
 
     </md-card-content>
 </md-card>
