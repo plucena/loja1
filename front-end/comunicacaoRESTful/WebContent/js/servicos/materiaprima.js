@@ -4,6 +4,9 @@ angular.module('App.services', []).factory('MateriaPrima', function($resource) {
 		{ 
 			update : {
 				method : 'PUT'
+			},
+			save : {
+				method : 'PUT'
 			}
 		});
 });

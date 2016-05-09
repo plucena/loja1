@@ -4,7 +4,7 @@ angular.module('App.controllers', []).controller('MateriaPrimaListController', f
   $scope.deletarMateriaPrima = function(materiaprima) { // Deletar matéria. Issues a DELETE to URI
    // if (popupService.showPopup('Quer mesmo deletar?')) {
   materiaprima.$delete(function() {
-  $window.location.href = ''; //redirect to home
+	  $window.location.href = ''; //redirect to home
   });
     //}
   };

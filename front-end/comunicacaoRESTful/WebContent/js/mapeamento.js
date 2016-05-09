@@ -3,7 +3,7 @@ angular.module('App', ['ui.router', 'ngResource', 'App.controllers', 'App.servic
 //#######################
 angular.module('App').config(function($stateProvider, $urlRouterProvider) {
   //$urlRouterProvider.otherwise("\materiasprimas");
-  $stateProvider.state('ListarMateriasPrimas', { // estado para mostrar todas matérias primas
+  $stateProvider.state('listarMateriasPrimas', { // estado para mostrar todas matérias primas
     url: '/materiasprimas',
     //template: "<p>HELLO!</p>"
     templateUrl: 'templates/materiaprima/materiaprima.html',
