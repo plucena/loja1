@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+  <html>
+    <title>ECMApp</title>
+    <script type="text/javascript" src="lib/angular.min.js"></script>
+    <script type="text/javascript" src="js/mapeamento.js"></script>
+    <script type="text/javascript" src="js/controladores/materiaprima.js"></script>
+    <script type="text/javascript" src="js/servicos/materiaprima.js"></script>
+    <script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="lib/angular-resource.min.js"></script>
+  </head>
+  <body data-ng-app="App">
+	    <a ui-sref="listarMateriasPrimas">Listar Materias Primas</a>
+	    <a ui-sref="novaMateriaPrima">Nova Materia Prima</a>
+
+    <div ui-view></div>
+  </body>
+</html>
