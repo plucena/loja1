@@ -2,6 +2,7 @@ package net.mybluemix.dao;
 
 import java.util.List;
 
+import javax.persistence.TypedQuery;
 import javax.ws.rs.GET;
 
 import net.mybluemix.entity.Fornecedor;
@@ -18,4 +19,9 @@ public class FornecedorDAO extends BaseDAO{
 		return this.createQuery("Select a From Fornecedor a", Fornecedor.class);  
 	}
 
+	public Fornecedor find(String cnpj) {
+		TypedQuery<Fornecedor> query = manager.createQuery(
+		        "SELECT c FROM Fornecedor c WHERE c.cnoj = :cnpj", Fornecedor.class);
+		    return query.setParameter("cnpj", cnpj).getSingleResult();
+	}
 }
