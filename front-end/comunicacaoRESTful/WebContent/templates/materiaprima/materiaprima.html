@@ -1,0 +1,16 @@
+<a ui-sref="novaMateriaPrima" class="btn-primary btn-lg nodecoration">Adicionar Matéria Prima</a>
+<table>
+  <tr>
+    <td><h3>Todas Matérias Primas</h3></td>
+    <td></td>
+  </tr>
+  <tr ng-repeat="materiaprima in materiasprimas">
+    <td>{{materiaprima.nome}}</td>
+    <td>
+      <a class="btn btn-primary" ui-sref="verMateriaPrima({sku:materiaprima.sku})">Ver</a>
+      <a class="btn btn-danger"  ng-click="deletarMateriaPrima(materiaprima)">
+      	<font color="red">Deletar</font>
+      </a>
+    </td>
+  </tr>
+</table>
