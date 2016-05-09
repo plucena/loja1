@@ -1,63 +1,79 @@
 ### Test Case Generation Statistics
 ### Test Goal Satisfaction
- - defined 12 test goals
- - satisfied 12 test goals (100.0 %)
+ - defined 15 test goals
+ - satisfied 15 test goals (100.0 %)
 
 ### unsatisfied test goals
 
 
 ### satisfied test goals
 
- - satisfied: (test goal #1 - traversed transition) 
-   from node ejemStateMachine::ejemRegion::activo
-   to node tmp4
-   triggered by falsoEvent
+ - satisfied: (test goal #1 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::verdadero
+   call event mayorEvent
    with condition truth: true
-((status = false))
- - satisfied: (test goal #2 - satisfied guard) 
-   from node ejemStateMachine::ejemRegion::activo
-   call event verdaderoEvent
+((numero > 10))
+ - satisfied: (test goal #2 - traversed transition) 
+   from node ejemStateMachine::ejemRegion::verdadero
+   to node tmp5
+   triggered by mayorEvent
    with condition truth: true
-((status = true))
+((numero > 10))
  - satisfied: (test goal #3 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::verdadero
+   call event mayorEvent
+   with condition truth: false
+((numero <= 10))
+ - satisfied: (test goal #4 - satisfied guard) 
    from node ejemStateMachine::ejemRegion::activo
    call event falsoEvent
    with condition truth: true
 ((status = false))
- - satisfied: (test goal #4 - traversed transition) 
+ - satisfied: (test goal #5 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::activo
+   call event falsoEvent
+   with condition truth: false
+((status <> false))
+ - satisfied: (test goal #6 - traversed transition) 
    from node ejemStateMachine::ejemRegion::activo
    to node tmp3
    triggered by verdaderoEvent
    with condition truth: true
 ((status = true))
- - satisfied: (test goal #5 - satisfied guard) 
+ - satisfied: (test goal #7 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::activo
+   call event verdaderoEvent
+   with condition truth: true
+((status = true))
+ - satisfied: (test goal #8 - satisfied guard) 
    from node ejemStateMachine::ejemRegion::activo
    call event verdaderoEvent
    with condition truth: false
 ((status <> true))
- - satisfied: (test goal #6 - satisfied guard) 
+ - satisfied: (test goal #9 - traversed transition) 
    from node ejemStateMachine::ejemRegion::activo
-   call event falsoEvent
-   with condition truth: false
-((status <> false))
- - satisfied: (test goal #7 - satisfied guard) 
+   to node tmp4
+   triggered by falsoEvent
+   with condition truth: true
+((status = false))
+ - satisfied: (test goal #10 - satisfied guard) 
    from node ejemStateMachine::ejemRegion::idle
    call event activarEvent
- - satisfied: (test goal #8 - traversed transition) 
-   from node ejemStateMachine::ejemRegion::idle
-   to node tmp2
-   triggered by activarEvent
- - satisfied: (test goal #9 - satisfied guard) 
-   from node ejemStateMachine::ejemRegion::idle
-   call event inicializarEvent
- - satisfied: (test goal #10 - traversed transition) 
+ - satisfied: (test goal #11 - traversed transition) 
    from node ejemStateMachine::ejemRegion::idle
    to node tmp1
    triggered by inicializarEvent
- - satisfied: (test goal #11 - satisfied guard) 
-   from node ejemStateMachine::ejemRegion::init
-   call event default
- - satisfied: (test goal #12 - traversed transition) 
+ - satisfied: (test goal #12 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::idle
+   call event inicializarEvent
+ - satisfied: (test goal #13 - traversed transition) 
+   from node ejemStateMachine::ejemRegion::idle
+   to node tmp2
+   triggered by activarEvent
+ - satisfied: (test goal #14 - traversed transition) 
    from node ejemStateMachine::ejemRegion::init
    to node ejemStateMachine::ejemRegion::idle
    triggered by default
+ - satisfied: (test goal #15 - satisfied guard) 
+   from node ejemStateMachine::ejemRegion::init
+   call event default
