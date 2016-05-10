@@ -96,6 +96,10 @@ app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialo
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
+
+    $scope.closeSidenav = function(menuId) {
+        $mdSidenav(menuId).close();
+    }
   
     $scope.navegacao = [
         {

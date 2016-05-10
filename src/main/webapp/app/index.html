@@ -33,7 +33,7 @@
                 <md-divider></md-divider>
 
                 <md-list class="navegacao">
-                    <md-list-item class="md-2-line" ng-class="isActive('{{item.title}}')" ng-repeat="item in navegacao" role="link" ng-href="#{{item.link}}" md-ink-ripple>
+                    <md-list-item class="md-2-line" ng-class="isActive('{{item.title}}')" ng-repeat="item in navegacao" role="link" ng-href="#{{item.link}}" ng-click="closeSidenav('left')" md-ink-ripple>
                         <md-icon md-svg-icon="{{item.icon}}" aria-label="{{item.title}}"></md-icon>
                         <div class="md-list-item-text">
                             <span class="md-body-2">{{item.title}}</span>
