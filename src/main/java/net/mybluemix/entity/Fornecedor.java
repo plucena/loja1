@@ -16,95 +16,74 @@ public class Fornecedor {
 	public String nome;
 	public String email;
 	public String telefone;
-	public int PrazoEntregaDias;
-	public String Endereco_Pais;
-	public String Endereco_Estado;
-	public String Endereco_Cidade;
-	public String Endereco_Logradouro;
-	public String Endereco_CEP;
-	
-    
+	public int prazoEntregaDias;
+	public String endereco_Pais;
+	public String endereco_Estado;
+	public String endereco_Cidade;
+	public String endereco_Logradouro;
+	public String endereco_CEP;
 	public String getCNPJ() {
 		return CNPJ;
 	}
-	
-    public void setCNPJ(String cNPJ) {
+	public void setCNPJ(String cNPJ) {
 		CNPJ = cNPJ;
 	}
-	
-    public String getNome() {
+	public String getNome() {
 		return nome;
 	}
-	
-    public void setNome(String nome) {
+	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	
-    public String getEmail() {
+	public String getEmail() {
 		return email;
 	}
-	
-    public void setEmail(String email) {
+	public void setEmail(String email) {
 		this.email = email;
 	}
-	
-    public String getTelefone() {
+	public String getTelefone() {
 		return telefone;
 	}
-	
-    
 	public void setTelefone(String telefone) {
 		this.telefone = telefone;
 	}
-	
-    public int getPrazoEntregaDias() {
-		return PrazoEntregaDias;
+	public int getPrazoEntregaDias() {
+		return prazoEntregaDias;
 	}
-	
-    public void setPrazoEntregaDias(int prazoEntregaDias) {
-		PrazoEntregaDias = prazoEntregaDias;
+	public void setPrazoEntregaDias(int prazoEntregaDias) {
+		this.prazoEntregaDias = prazoEntregaDias;
 	}
-	
-    public String getEndereco_Pais() {
-		return Endereco_Pais;
+	public String getEndereco_Pais() {
+		return endereco_Pais;
 	}
-	
-    public void setEndereco_Pais(String endereco_Pais) {
-		Endereco_Pais = endereco_Pais;
+	public void setEndereco_Pais(String endereco_Pais) {
+		this.endereco_Pais = endereco_Pais;
 	}
-	
 	public String getEndereco_Estado() {
-		return Endereco_Estado;
+		return endereco_Estado;
 	}
-	
-    public void setEndereco_Estado(String endereco_Estado) {
-		Endereco_Estado = endereco_Estado;
+	public void setEndereco_Estado(String endereco_Estado) {
+		this.endereco_Estado = endereco_Estado;
 	}
-	
-    public String getEndereco_Cidade() {
-		return Endereco_Cidade;
+	public String getEndereco_Cidade() {
+		return endereco_Cidade;
 	}
-	
-    
 	public void setEndereco_Cidade(String endereco_Cidade) {
-		Endereco_Cidade = endereco_Cidade;
+		this.endereco_Cidade = endereco_Cidade;
 	}
-	
 	public String getEndereco_Logradouro() {
-		return Endereco_Logradouro;
+		return endereco_Logradouro;
 	}
-	
 	public void setEndereco_Logradouro(String endereco_Logradouro) {
-		Endereco_Logradouro = endereco_Logradouro;
+		this.endereco_Logradouro = endereco_Logradouro;
+	}
+	public String getEndereco_CEP() {
+		return endereco_CEP;
+	}
+	public void setEndereco_CEP(String endereco_CEP) {
+		this.endereco_CEP = endereco_CEP;
 	}
 	
-	public String getEndereco_CEP() {
-		return Endereco_CEP;
-	}
     
-	public void setEndereco_CEP(String endereco_CEP) {
-		Endereco_CEP = endereco_CEP;
-	}
 	
 	
 }
