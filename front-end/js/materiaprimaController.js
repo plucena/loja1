@@ -52,7 +52,7 @@ app.controller('materiaprimaController', ['$scope', '$location', '$http', '$mdDi
         }, function() {
             //
         });
-      };
+    };
 
     // $scope.materiasPrimas = [
     //     {

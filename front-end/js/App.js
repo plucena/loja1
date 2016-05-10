@@ -32,13 +32,25 @@ app.config(function($routeProvider) {
     .when('/fornecedores', {
         templateUrl : 'views/fornecedores.html',
         controller  : 'fornecedorController',
-        title       : 'Fornecedoress'
+        title       : 'Fornecedores'
+    })
+
+    .when('/fornecedores/ficha/:cnpj', {
+        templateUrl : 'views/fornecedores.ficha.html',
+        controller  : 'fornecedorController',
+        title       : 'Ficha de Fornecedor'
     })
 
     .when('/fornecedores/novo', {
         templateUrl : 'views/fornecedores.form.html',
         controller  : 'fornecedorController',
         title       : 'Cadastrar Novo Fornecedor'
+    })
+
+    .when('/fornecedores/editar/:cnpj', {
+        templateUrl : 'views/fornecedores.form.html',
+        controller  : 'fornecedorController',
+        title       : 'Editar Fornecedor'
     })
 
     .when('/materias-primas', {

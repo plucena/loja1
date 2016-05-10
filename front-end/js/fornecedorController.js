@@ -1,17 +1,35 @@
-app.controller('fornecedorController', ['$scope', function($scope) {
+app.controller('fornecedorController', ['$scope', '$location', '$http', '$mdDialog', function($scope, $location, $http, $mdDialog) {
 
-    $scope.fornecedores = [
-        {
-            nome: 'Fornecedor 01',
-            telefone: '(00) 0000-0000',
-            endereco: 'Cidade Universitária, Distrito de Barão Geraldo, 13083-970 - Campinas - SP'
-        },
-        {
-            nome: 'Fornecedor 01',
-            telefone: '(00) 0000-0000',
-            endereco: 'Cidade Universitária, Distrito de Barão Geraldo, 13083-970 - Campinas - SP'
-        },
-    ];
+    $scope.isLoading = true;
+
+    $http.get('http://loja.mybluemix.net/api/fornecedor')
+        .success(function(data, status, headers, config) {
+            $scope.isLoading = false;
+            $scope.fornecedores = data;
+        })
+        .error(function(data, status, headers, config) {
+            //log do erro
+        }
+    );
+
+    $scope.fornecedor = {"cnpj":"2356325656113","nome":"odebrecht tecidos","email":"odebrecht@dezporcentoamais.com","telefone":"11 4444-2211","prazoEntregaDias":100,"endereco_Pais":"Brasil","endereco_Estado":"DF","endereco_Cidade":"Brasilia","endereco_Logradouro":"Rua Doze, 50 - Sala 3","endereco_CEP":"33333-721"}
+
+    $scope.ficha = function(fornecedor) {
+        $location.path('fornecedores/ficha/' + fornecedor.cnpj);
+    };
+
+    // $scope.fornecedores = [
+    //     {
+    //         nome: 'Fornecedor 01',
+    //         telefone: '(00) 0000-0000',
+    //         endereco: 'Cidade Universitária, Distrito de Barão Geraldo, 13083-970 - Campinas - SP'
+    //     },
+    //     {
+    //         nome: 'Fornecedor 01',
+    //         telefone: '(00) 0000-0000',
+    //         endereco: 'Cidade Universitária, Distrito de Barão Geraldo, 13083-970 - Campinas - SP'
+    //     },
+    // ];
 
     $scope.fornecedor = {
         nome: '',
@@ -130,5 +148,21 @@ app.controller('fornecedorController', ['$scope', function($scope) {
             nome: 'Tocantins'
         }
     ];
+
+    $scope.showConfirm = function(ev) {
+        var confirm = $mdDialog.confirm()
+            .title('Excluir Fornecedor')
+            .textContent('Atenção! Essa ação não pode ser desfeita, deseja continuar?')
+            .ariaLabel('Excluir Fornecedor')
+            .targetEvent(ev)
+            .ok('Excluir')
+            .cancel('Cancelar');
+        
+        $mdDialog.show(confirm).then(function() {
+            //
+        }, function() {
+            //
+        });
+    };
 
 }]);
