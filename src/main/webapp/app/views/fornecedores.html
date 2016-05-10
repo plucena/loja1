@@ -1,7 +1,7 @@
 <md-card>
     <md-card-content>
 
-        <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add" ng-href="#fornecedores/novo">
+        <md-button class="md-fab md-fab-bottom-right md-primary" aria-label="Add" ng-click="novoFornecedor()">
             <md-icon md-svg-icon="content:ic_add_24px" aria-label="Plus"></md-icon>
         </md-button>
 
@@ -18,7 +18,7 @@
                     </tr>
                 </thead>
                 <tbody md-body>
-                    <tr md-row ng-repeat="fornecedor in fornecedores" ng-click="ficha(fornecedor)">
+                    <tr md-row ng-repeat="fornecedor in fornecedores" ng-click="editarFornecedor(fornecedor.cnpj)">
                         <td md-cell>{{fornecedor.cnpj}}</td>
                         <td md-cell>{{fornecedor.nome}}</td>
                         <td md-cell>{{fornecedor.email}}</td>
@@ -29,7 +29,6 @@
                 </tbody>
             </table>
         </md-table-container>
-
 
         <md-progress-linear md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
 

@@ -1,42 +1,49 @@
-app.controller('fornecedorController', ['$scope', '$location', '$http', '$mdDialog', function($scope, $location, $http, $mdDialog) {
+app.controller('fornecedorController', ['$scope', '$location', '$http', '$mdDialog', 'FornecedorFactory', function($scope, $location, $http, $mdDialog, FornecedorFactory) {
 
     $scope.isLoading = true;
-
-    $http.get('http://loja.mybluemix.net/api/fornecedor')
-        .success(function(data, status, headers, config) {
+    $scope.fornecedores = FornecedorFactory.listar(
+        {},
+        function success() {
             $scope.isLoading = false;
-            $scope.fornecedores = data;
-        })
-        .error(function(data, status, headers, config) {
-            //log do erro
-        }
-    );
+        },
+        function err() {
+            console.log('Erro ao buscar fornecedores!');
+        });
 
-    $scope.fornecedor = {"cnpj":"2356325656113","nome":"odebrecht tecidos","email":"odebrecht@dezporcentoamais.com","telefone":"11 4444-2211","prazoEntregaDias":100,"endereco_Pais":"Brasil","endereco_Estado":"DF","endereco_Cidade":"Brasilia","endereco_Logradouro":"Rua Doze, 50 - Sala 3","endereco_CEP":"33333-721"}
-
-    $scope.ficha = function(fornecedor) {
-        $location.path('fornecedores/ficha/' + fornecedor.cnpj);
+    $scope.editarFornecedor = function (fornecedorCNPJ) {
+        $location.path('/fornecedores/editar/' + fornecedorCNPJ);
     };
 
-    // $scope.fornecedores = [
-    //     {
-    //         nome: 'Fornecedor 01',
-    //         telefone: '(00) 0000-0000',
-    //         endereco: 'Cidade Universitária, Distrito de Barão Geraldo, 13083-970 - Campinas - SP'
-    //     },
-    //     {
-    //         nome: 'Fornecedor 01',
-    //         telefone: '(00) 0000-0000',
-    //         endereco: 'Cidade Universitária, Distrito de Barão Geraldo, 13083-970 - Campinas - SP'
-    //     },
-    // ];
-
-    $scope.fornecedor = {
-        nome: '',
-        CNPJ: '',
-        telefone: '',
-        endereco: ''
+    $scope.novoFornecedor = function () {
+        $location.path('/fornecedores/novo');
     };
+
+}]);
+
+app.controller('novoFornecedorController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', 'FornecedorFactory', function($scope, $routeParams, $location, $http, $mdDialog, FornecedorFactory) {
+
+    if($routeParams.cnpj) {
+        $scope.fornecedor = FornecedorFactory.fornecedor(
+            {cnpj: $routeParams.cnpj},
+            function success() {
+                $scope.edicao = true;
+            },
+            function err() {
+                console.log('Erro ao buscar fornecedor!');
+            });
+    }
+
+
+    $scope.criarNovoFornecedor = function () {
+        FornecedorFactory.novo(
+            $scope.fornecedor,
+            function success() {
+                $location.path('/fornecedores');
+            },
+            function err() {
+                console.log('Erro ao criar novo fornecedor!');
+            });
+    }
 
     $scope.estados = [
         {
@@ -148,21 +155,5 @@ app.controller('fornecedorController', ['$scope', '$location', '$http', '$mdDial
             nome: 'Tocantins'
         }
     ];
-
-    $scope.showConfirm = function(ev) {
-        var confirm = $mdDialog.confirm()
-            .title('Excluir Fornecedor')
-            .textContent('Atenção! Essa ação não pode ser desfeita, deseja continuar?')
-            .ariaLabel('Excluir Fornecedor')
-            .targetEvent(ev)
-            .ok('Excluir')
-            .cancel('Cancelar');
-        
-        $mdDialog.show(confirm).then(function() {
-            //
-        }, function() {
-            //
-        });
-    };
 
 }]);

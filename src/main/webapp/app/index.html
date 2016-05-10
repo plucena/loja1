@@ -32,18 +32,6 @@
                   
                 <md-divider></md-divider>
 
-                <!-- <md-list class="usuario">
-                    <md-list-item class="md-3-line"> 
-                        <div class="md-list-item-text">
-                            <div class="md-body-3">Raquel</div>
-                            <div class="md-body-2">raquel@empresa.com</div>
-                            <a class="md-body-1" ng-href="#pagina-inicial"><md-icon md-svg-icon="action:ic_exit_to_app_24px" aria-label="Sair"></md-icon> Sair</a>
-                        </div>
-                    </md-list-item>
-                </md-list> -->
-
-                <!-- <md-divider></md-divider> -->
-
                 <md-list class="navegacao">
                     <md-list-item class="md-2-line" ng-class="isActive('{{item.title}}')" ng-repeat="item in navegacao" role="link" ng-href="#{{item.link}}" md-ink-ripple>
                         <md-icon md-svg-icon="{{item.icon}}" aria-label="{{item.title}}"></md-icon>
@@ -63,11 +51,7 @@
                             <md-icon md-svg-icon="navigation:ic_menu_24px" aria-label="Menu"></md-icon>
                         </md-button>
 
-                        <md-button ng-if="$root.title == 'Cadastrar Novo Fornecedor' || $root.title == 'Editar Fornecedor'|| $root.title == 'Ficha de Fornecedor'" class="md-icon-button" ng-href="#fornecedores" aria-label="Voltar">
-                            <md-icon md-svg-icon="navigation:ic_arrow_back_24px" aria-label="Voltar"></md-icon>
-                        </md-button>
-
-                        <md-button ng-if="$root.title == 'Cadastrar Nova Matéria-prima' || $root.title == 'Editar Matéria-prima'|| $root.title == 'Ficha de Matéria-prima'" class="md-icon-button" ng-href="#materias-primas" aria-label="Voltar">
+                        <md-button ng-if="$root.title == 'Cadastrar Novo Fornecedor' || $root.title == 'Editar Fornecedor'" class="md-icon-button" ng-href="#fornecedores" aria-label="Voltar">
                             <md-icon md-svg-icon="navigation:ic_arrow_back_24px" aria-label="Voltar"></md-icon>
                         </md-button>
 
@@ -91,7 +75,7 @@
         <script src="js/lib/angular-material.min.js" type="text/javascript" ></script>
         <script src="js/lib/md-data-table.min.js" type="text/javascript" ></script>
         <script src="js/App.js" type="text/javascript" ></script>
+        <script src="js/fornecedorService.js" type="text/javascript" ></script>
         <script src="js/fornecedorController.js" type="text/javascript" ></script>
-        <script src="js/materiaprimaController.js" type="text/javascript" ></script>
     </body>
 </html>

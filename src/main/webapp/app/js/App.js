@@ -9,6 +9,11 @@ var app = angular.module('App',
     ]
 );
 
+// app.config(['$httpProvider', function($httpProvider) {
+//     $httpProvider.defaults.useXDomain = true;
+//     delete $httpProvider.defaults.headers.common['X-Requested-With'];
+// }]);
+
 app.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('purple')
@@ -43,13 +48,13 @@ app.config(function($routeProvider) {
 
     .when('/fornecedores/novo', {
         templateUrl : 'views/fornecedores.form.html',
-        controller  : 'fornecedorController',
+        controller  : 'novoFornecedorController',
         title       : 'Cadastrar Novo Fornecedor'
     })
 
     .when('/fornecedores/editar/:cnpj', {
         templateUrl : 'views/fornecedores.form.html',
-        controller  : 'fornecedorController',
+        controller  : 'novoFornecedorController',
         title       : 'Editar Fornecedor'
     })
 
@@ -101,12 +106,12 @@ app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialo
             link : 'fornecedores',
             title: 'Fornecedores',
             icon: 'maps:ic_local_shipping_24px'
-        },
-        {
-            link : 'materias-primas',
-            title: 'Matérias-primas',
-            icon: 'maps:ic_layers_24px'
         }
+        // {
+        //     link : 'materias-primas',
+        //     title: 'Matérias-primas',
+        //     icon: 'maps:ic_layers_24px'
+        // }
     ];
   
 }]);
