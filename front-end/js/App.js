@@ -1,9 +1,10 @@
-var app = angular.module('GestaoFitnessApp',
+var app = angular.module('App',
     [
         'ngMaterial',
         'ngRoute',
         'ngMessages',
         'ngAnimate',
+        'ngResource',
         'md.data.table'
     ]
 );
@@ -23,33 +24,45 @@ app.config(function($routeProvider) {
     })
 
     .when('/pagina-inicial', {
-        templateUrl : 'pages/pagina-inicial.html',
+        templateUrl : 'views/pagina-inicial.html',
         controller  : 'mainController',
         title       : 'Página Inicial'
     })
 
     .when('/fornecedores', {
-        templateUrl : 'pages/fornecedores.html',
+        templateUrl : 'views/fornecedores.html',
         controller  : 'fornecedorController',
         title       : 'Fornecedoress'
     })
 
     .when('/fornecedores/novo', {
-        templateUrl : 'pages/fornecedores.form.html',
-        controller  : 'formFornecedorController',
+        templateUrl : 'views/fornecedores.form.html',
+        controller  : 'fornecedorController',
         title       : 'Cadastrar Novo Fornecedor'
     })
 
-    .when('/fornecedores/editar', {
-        templateUrl : 'pages/fornecedores.form.html',
-        controller  : 'formFornecedorController',
-        title       : 'Editar Fornecedor'
+    .when('/materias-primas', {
+        templateUrl : 'views/materias-primas.html',
+        controller  : 'materiaprimaController',
+        title       : 'Matérias-primas'
     })
 
-    .when('/materia-prima', {
-        templateUrl : 'pages/materia-prima.html',
-        controller  : 'materia-primaController',
-        title       : 'Matéria-prima'
+    .when('/materias-primas/ficha/:sku', {
+        templateUrl : 'views/materias-primas.ficha.html',
+        controller  : 'materiaprimaController',
+        title       : 'Ficha de Matéria-prima'
+    })
+
+    .when('/materias-primas/novo', {
+        templateUrl : 'views/materias-primas.form.html',
+        controller  : 'materiaprimaController',
+        title       : 'Cadastrar Nova Matéria-prima'
+    })
+
+    .when('/materias-primas/editar/:sku', {
+        templateUrl : 'views/materias-primas.form.html',
+        controller  : 'materiaprimaController',
+        title       : 'Editar Matéria-prima'
     });
 
 });
@@ -60,26 +73,26 @@ app.run(['$rootScope', function($rootScope) {
     });
 }]);
 
-app.controller('mainController', ['$scope', '$mdSidenav', '$mdDialog', function($scope, $mdSidenav, $mdDialog) {
+app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialog', function($scope, $location, $mdSidenav, $mdDialog) {
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
   
     $scope.navegacao = [
-        // {
-        //     link : '#pagina-inicial',
-        //     title: 'Página Inicial',
-        //     icon: 'action:ic_home_24px'
-        // },
         {
-            link : '#fornecedores',
+            link : 'pagina-inicial',
+            title: 'Página Inicial',
+            icon: 'action:ic_home_24px'
+        },
+        {
+            link : 'fornecedores',
             title: 'Fornecedores',
             icon: 'maps:ic_local_shipping_24px'
         },
         {
-            link : '#materia-prima',
-            title: 'Matéria-prima',
+            link : 'materias-primas',
+            title: 'Matérias-primas',
             icon: 'maps:ic_layers_24px'
         }
     ];

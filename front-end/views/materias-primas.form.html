@@ -1,0 +1,77 @@
+<md-card>
+    <md-card-content>      
+
+        <form name="">
+
+            <md-input-container class="md-icon-float md-block">
+                <label>SKU</label>
+                <!-- <md-icon md-svg-icon="social:ic_person_24px" aria-label="Nome"></md-icon> -->
+                <input required ng-model="materiaPrima.sku" type="text" disabled>
+            </md-input-container>
+
+            <div layout-gt-sm="row" div class="md-inline-form">
+
+                <md-input-container class="md-icon-float" flex>
+                    <label>Nome</label>
+                    <!-- <md-icon md-svg-icon="social:ic_person_24px" aria-label="Nome"></md-icon> -->
+                    <input required ng-model="materiaPrima.nome" type="text">
+                </md-input-container>
+
+                <md-datepicker md-placeholder="Data de Entrada" required ng-model="materiaPrima.dataEntrada"></md-datepicker>
+
+                <md-datepicker md-placeholder="Data de Saída" ng-model="materiaPrima.dataSaida"></md-datepicker>
+
+            </div>
+
+            <md-input-container class="md-icon-float md-block">
+                <label>Descrição</label>
+                <!-- <md-icon md-svg-icon="social:ic_person_24px" aria-label="Descrição"></md-icon> -->
+                <textarea rows="3" required ng-model="materiaPrima.descricao"></textarea>
+            </md-input-container>
+
+            <md-input-container class="md-icon-float md-block">
+                <label>Fornecedor</label>
+                <!-- <md-icon md-svg-icon="social:ic_person_24px" aria-label="Fornecedor"></md-icon> -->
+                <md-select required ng-model="materiaPrima.fornecedor">
+                    <md-option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.cnpj}}">
+                        {{fornecedor.nome}}
+                    </md-option>
+                </md-select>
+            </md-input-container>
+
+            <div layout-gt-sm="row">
+
+                <md-input-container class="md-icon-float flex-gt-sm">
+                    <label>Tipo</label>
+                    <!-- <md-icon md-svg-icon="action:ic_credit_card_24px" aria-label="Tipo"></md-icon> -->
+                    <md-select required ng-model="materiaPrima.tipo">
+                        <md-option ng-repeat="tipo in tipos" value="{{tipo.tipo}}">
+                            {{tipo.tipo}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-icon-float flex-gt-sm">
+                    <label>Unidade</label>
+                    <!-- <md-icon md-svg-icon="communication:ic_phone_24px" aria-label="Unidade"></md-icon> -->
+                    <md-select required ng-model="materiaPrima.unidade">
+                        <md-option ng-repeat="unidade in unidades" value="{{unidade.unidade}}">
+                            {{unidade.unidade}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container class="md-icon-float flex-gt-sm">
+                    <label>Valor Unitário</label>
+                    <!-- <md-icon md-svg-icon="communication:ic_phone_24px" aria-label="Unidade"></md-icon> -->
+                    <input required ng-model="materiaPrima.valorUnidade" type="number">
+                </md-input-container>
+
+            </div>
+
+            <md-button class="md-raised md-primary" aria-label="Salvar" type="submit">Salvar</md-button>
+
+        </form>
+
+    </md-card-content>
+</md-card>
