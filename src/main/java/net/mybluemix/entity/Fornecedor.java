@@ -12,7 +12,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Fornecedor {
 	
 	@Id
-	public String  CNPJ;
+	public String  cnpj;
 	public String nome;
 	public String email;
 	public String telefone;
@@ -22,11 +22,14 @@ public class Fornecedor {
 	public String endereco_Cidade;
 	public String endereco_Logradouro;
 	public String endereco_CEP;
-	public String getCNPJ() {
-		return CNPJ;
+	
+
+	public String getCnpj() {
+		return cnpj;
 	}
-	public void setCNPJ(String cNPJ) {
-		CNPJ = cNPJ;
+
+	public void setCnpj(String cnpj) {
+		this.cnpj = cnpj;
 	}
 	public String getNome() {
 		return nome;
