@@ -25,7 +25,8 @@ app.config(function($routeProvider) {
     $routeProvider
 
     .otherwise({
-        redirectTo  : '/pagina-inicial'
+        // redirectTo  : '/pagina-inicial'
+        redirectTo  : '/fornecedores'
     })
 
     .when('/pagina-inicial', {
