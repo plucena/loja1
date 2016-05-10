@@ -73,7 +73,6 @@ public class Fornecedor {
 		Endereco_Pais = endereco_Pais;
 	}
 	
-    @JsonProperty
 	public String getEndereco_Estado() {
 		return Endereco_Estado;
 	}
