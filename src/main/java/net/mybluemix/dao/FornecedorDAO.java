@@ -21,7 +21,7 @@ public class FornecedorDAO extends BaseDAO{
 
 	public Fornecedor find(String cnpj) {
 		TypedQuery<Fornecedor> query = manager.createQuery(
-		        "SELECT c FROM Fornecedor c WHERE c.cnoj = :cnpj", Fornecedor.class);
+		        "SELECT c FROM Fornecedor c WHERE c.cnpj = :cnpj", Fornecedor.class);
 		    return query.setParameter("cnpj", cnpj).getSingleResult();
 	}
 }
