@@ -1,10 +1,10 @@
-angular.module('App.controllers', []).controller('FornecedorListController', function($scope, $state, Fornecedor) {
+angular.module('ModuloFornecedor.controllers', []).controller('FornecedorListController', function($scope, $state, Fornecedor) {
   $scope.fornecedores = Fornecedor.query(); //Busca todos funcionários.
 
-  $scope.inativarFornecedor = function(fornecedor) { // Inativar fornecedor.
+  //$scope.inativarFornecedor = function(fornecedor) { // Inativar fornecedor.
 	  //Inativar fornecedor, comunicar com o Controlador de Atualização.
 	  
-  };
+  //};
 }).controller('FornecedorViewController', function($scope, $stateParams, Fornecedor) {
   $scope.fornecedor = Fornecedor.get({id: $stateParams.id }); //Mostrar as propriedades do fornecedor
 }).controller('FornecedorCreateController', function($scope, $state, $stateParams, Fornecedor) { //Adicionar fornecedor

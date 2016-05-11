@@ -1,4 +1,4 @@
-angular.module('App.controllers', []).controller('MateriaPrimaListController', function($scope, $state, /*popupService, $window,*/ MateriaPrima) {
+angular.module('ModuloMateriaPrima.controllers', []).controller('MateriaPrimaListController', function($scope, $state, /*popupService, $window,*/ MateriaPrima) {
   $scope.materiasprimas = MateriaPrima.query(); //Busca todas matérias primas. Issues a GET to URI
 
   $scope.deletarMateriaPrima = function(materiaprima) { // Deletar matéria. Issues a DELETE to URI
