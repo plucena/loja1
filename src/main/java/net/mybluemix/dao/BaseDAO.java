@@ -7,6 +7,8 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
 
+import net.mybluemix.entity.Fornecedor;
+
 
 
 public class BaseDAO<T>{
@@ -31,6 +33,15 @@ public class BaseDAO<T>{
     	manager.persist(beanObject);
     	tx.commit();
     }	
+    
+    public void update(Object f, Object key) throws Exception {
+    	EntityTransaction tx = manager.getTransaction();
+    	tx.begin();
+    	Object fbd = manager.find(_classType, key);
+    	fbd = f;
+    	tx.commit();
+    }
+    	
     
     public List<T> createQuery(String SQL, Class c) {
     	 return  manager.createQuery(SQL, c).getResultList();

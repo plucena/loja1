@@ -46,4 +46,14 @@ public class FornecedorWS {
 	    	fd.create(f);
 	    }
 	    
+		
+		@POST
+		@Path("/update")
+		@Consumes("application/json")
+	    public void update(String json) throws Exception{
+	    	Gson gson = new Gson();
+			Fornecedor f=  gson.fromJson(json, Fornecedor.class);
+	    	FornecedorDAO fd = new FornecedorDAO();
+	    	fd.update(f, f.cnpj);
+	    }
 }
