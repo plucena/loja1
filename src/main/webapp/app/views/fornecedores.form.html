@@ -5,49 +5,49 @@
 
             <md-input-container class="md-block">
                 <label>CNPJ</label>
-                <input required ng-model="fornecedor.cnpj" type="text" ng-disabled="edicao">
+                <input id="input-cnpj" required ng-model="fornecedor.cnpj" type="text" ng-disabled="edicao">
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>Nome</label>
-                <input required ng-model="fornecedor.nome" type="text">
+                <input id="input-nome" required ng-model="fornecedor.nome" type="text">
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>E-mail</label>
-                <input required ng-model="fornecedor.email" type="email">
+                <input id="input-email" required ng-model="fornecedor.email" type="email">
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>Telefone</label>
-                <input required ng-model="fornecedor.telefone" type="tel">
+                <input id="input-telefone" required ng-model="fornecedor.telefone" type="tel">
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>Prazo de Entrega em Dias</label>
-                <input required ng-model="fornecedor.prazoEntregaDias" type="number">
+                <input id="input-prazoEntregaDias" required ng-model="fornecedor.prazoEntregaDias" type="number">
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>CEP</label>
-                <input required ng-model="fornecedor.endereco_CEP" type="text">
+                <input id="input.endereco_CEP" required ng-model="fornecedor.endereco_CEP" type="text">
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>Endereço</label>
-                <input required ng-model="fornecedor.endereco_Logradouro" type="text">
+                <input id="input.endereco_Logradouro" required ng-model="fornecedor.endereco_Logradouro" type="text">
             </md-input-container>
 
             <div layout-gt-sm="row" div class="md-inline-form">
 
                 <md-input-container class="md-block" flex>
                     <label>País</label>
-                    <input required ng-model="fornecedor.endereco_Pais" type="text">
+                    <input id="input.endereco_Pais" required ng-model="fornecedor.endereco_Pais" type="text">
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label>Estado</label>
-                    <md-select required ng-model="fornecedor.endereco_Estado">
+                    <md-select id="select.endereco_Estado" required ng-model="fornecedor.endereco_Estado">
                         <md-option ng-repeat="estado in estados" value="{{estado.sigla}}">
                             {{estado.nome}} ({{estado.sigla}})
                         </md-option>
@@ -56,18 +56,18 @@
 
                 <md-input-container class="md-block" flex>
                     <label>Cidade</label>
-                    <input required ng-model="fornecedor.endereco_Cidade" type="text">
+                    <input id="input.endereco_Cidade" required ng-model="fornecedor.endereco_Cidade" type="text">
                 </md-input-container>
 
             </div>
 
             <md-input-container class="md-block" ng-if="edicao">
-                <md-switch ng-model="fornecedor.ativo" aria-label="Ativo">
+                <md-switch id="switch.ativo" ng-model="fornecedor.ativo" aria-label="Ativo">
                     Fornecedor {{fornecedor.ativo === true ? "Ativo" : "Desativado"}}
                 </md-switch>
             </md-input-container>
 
-            <md-button class="md-raised md-primary" aria-label="Salvar" ng-click="criarNovoFornecedor()">Salvar</md-button>
+            <md-button id="button.salvarFornecedor" class="md-raised md-primary" aria-label="Salvar" ng-click="salvarFornecedor()">Salvar</md-button>
 
         </form>
 

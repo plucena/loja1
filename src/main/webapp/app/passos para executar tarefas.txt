@@ -1,0 +1,45 @@
+Listar Fornecedores
+
+abrir:
+http://loja.mybluemix.net/app/#/fornecedores
+
+--------------------------------------------
+
+Cadastrar Fornecedor
+
+abrir:
+http://loja.mybluemix.net/app/#/fornecedores
+
+clicar:
+#button.novoFornecedor
+
+preencher:
+#input-cnpj
+#input-nome
+#input-email
+#input-telefone
+#input-prazoEntregaDias
+#input.endereco_CEP
+#input.endereco_Logradouro
+#input.endereco_Pais
+#select.endereco_Estado
+#input.endereco_Cidade
+
+clicar: 
+#button.salvarFornecedor
+
+--------------------------------------------
+
+Editar Fornecedor
+
+abrir:
+http://loja.mybluemix.net/app/#/fornecedores
+
+clicar:
+#{{cnpj}} (o cnpj de cada cliente é o ID)
+
+preencher/modificar:
+...
+
+clicar: 
+#button.salvarFornecedor

@@ -13,6 +13,9 @@ app.factory('FornecedorFactory', function ($resource) {
         },
         fornecedor: {
             method: 'GET'
+        },
+        editar: {
+            method: 'POST'
         }
     })
 });

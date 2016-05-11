@@ -34,15 +34,19 @@ app.controller('novoFornecedorController', ['$scope', '$routeParams', '$location
     }
 
 
-    $scope.criarNovoFornecedor = function () {
-        FornecedorFactory.novo(
-            $scope.fornecedor,
-            function success() {
-                $location.path('/fornecedores');
-            },
-            function err() {
-                console.log('Erro ao criar novo fornecedor!');
-            });
+    $scope.salvarFornecedor = function () {
+        if($scope.edicao) {
+            //editar fornecedor
+        } else {
+            FornecedorFactory.novo(
+                $scope.fornecedor,
+                function success() {
+                    $location.path('/fornecedores');
+                },
+                function err() {
+                    console.log('Erro ao criar novo fornecedor!');
+                });
+        }
     }
 
     $scope.estados = [
