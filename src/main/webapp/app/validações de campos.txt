@@ -1,0 +1,45 @@
+Validações (input type=""):
+
+CNPJ (text)
+    required
+    pattern="[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}"
+
+Nome (text)
+    required
+    minlength="3"
+    maxlength="255"
+
+E-mail (email, validação nativa)
+    required
+    minlength="3"
+    maxlength="255"
+
+Telefone (tel)
+    required
+
+Prazo de Entrega em Dias (number, validação nativa)
+    required
+
+País (text)
+    required
+    minlength="3"
+    maxlength="255"
+
+CEP (text)
+    required
+    pattern="[0-9]{2}\.?[0-9]{3}\-?[0-9]{3}"
+
+Estado (text)
+    required
+    minlength="3"
+    maxlength="255"
+
+Cidade (text)
+    required
+    minlength="3"
+    maxlength="255"
+
+Endereço (text)
+    required
+    minlength="3"
+    maxlength="255"

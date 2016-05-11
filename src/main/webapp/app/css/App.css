@@ -82,12 +82,14 @@ md-content md-card {
 
 /* Forms */
 
+form md-input-container .hint {
+    font-size: 12px;
+    line-height: 24px;
+    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
+    color: grey; 
+}
+
 form md-input-container label,
 form md-input-container md-select span {
     color: #777 !important;
-}
-
-md-input-container.md-input-invalid > md-icon,
-md-input-container.md-input-invalid > md-icon {
-    color: red;
 }

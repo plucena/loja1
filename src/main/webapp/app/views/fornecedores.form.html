@@ -1,73 +1,124 @@
 <md-card>
     <md-card-content>
     
-        <form name="">
+        <form name="fornecedorForm">
 
             <md-input-container class="md-block">
                 <label>CNPJ</label>
-                <input id="input-cnpj" required ng-model="fornecedor.cnpj" type="text" ng-disabled="edicao">
+                <input id="input-cnpj" name="cnpj" required pattern="[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}" ng-model="fornecedor.cnpj" type="text" ng-disabled="edicao">
+                <!-- <div class="hint">Formato: 00.000.000/0000-00</div> -->
+                <div ng-messages="fornecedorForm.cnpj.$error" ng-if="fornecedorForm.cnpj.$dirty">
+                    <div ng-message="required">CNPJ é um campo obrigatório!</div>
+                    <div ng-message="pattern">O CNPJ fornecido é inválido!</div>
+                </div>
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>Nome</label>
-                <input id="input-nome" required ng-model="fornecedor.nome" type="text">
+                <input id="input-nome" name="nome" minlength="3" maxlength="255" required ng-model="fornecedor.nome" type="text">
+                <div ng-messages="fornecedorForm.nome.$error" ng-if="fornecedorForm.nome.$dirty">
+                    <div ng-message="required">Nome é um campo obrigatório!</div>
+                    <div ng-message="minlength">O nome não pode ter menos que 3 caracteres!</div>
+                    <div ng-message="minlength">O nome não pode ter mais que 255 caracteres!</div>
+                </div>
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>E-mail</label>
-                <input id="input-email" required ng-model="fornecedor.email" type="email">
+                <input id="input-email" name="email" minlength="3" maxlength="255" required ng-model="fornecedor.email" type="email">
+                <div ng-messages="fornecedorForm.email.$error" ng-if="fornecedorForm.email.$dirty">
+                    <div ng-message="required">E-mail é um campo obrigatório!</div>
+                    <div ng-message="email">O e-mail fornecido é inválido!</div>
+                    <div ng-message="minlength">O e-mail não pode ter menos que 3 caracteres!</div>
+                    <div ng-message="minlength">O e-mail não pode ter mais que 255 caracteres!</div>
+                </div>
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>Telefone</label>
-                <input id="input-telefone" required ng-model="fornecedor.telefone" type="tel">
+                <input id="input-telefone" name="telefone" required ng-model="fornecedor.telefone" type="tel">
+                <!-- <div class="hint">Formato: ?</div> -->
+                <div ng-messages="fornecedorForm.telefone.$error" ng-if="fornecedorForm.telefone.$dirty">
+                    <div ng-message="required">Telefone é um campo obrigatório!</div>
+                </div>
             </md-input-container>
 
             <md-input-container class="md-block">
                 <label>Prazo de Entrega em Dias</label>
-                <input id="input-prazoEntregaDias" required ng-model="fornecedor.prazoEntregaDias" type="number">
+                <input id="input-prazoEntregaDias" name="prazoEntregaDias" required ng-model="fornecedor.prazoEntregaDias" type="number">
+                <div ng-messages="fornecedorForm.prazoEntregaDias.$error" ng-if="fornecedorForm.prazoEntregaDias.$dirty">
+                    <div ng-message="required">Prazo de Entrega em Dias é um campo obrigatório!</div>
+                </div>
             </md-input-container>
 
             <md-input-container class="md-block">
-                <label>CEP</label>
-                <input id="input.endereco_CEP" required ng-model="fornecedor.endereco_CEP" type="text">
-            </md-input-container>
-
-            <md-input-container class="md-block">
-                <label>Endereço</label>
-                <input id="input.endereco_Logradouro" required ng-model="fornecedor.endereco_Logradouro" type="text">
+                <label>País</label>
+                <input id="input.endereco_Pais" name="endereco_Pais" minlength="3" maxlength="255" required ng-model="fornecedor.endereco_Pais" type="text">
+                <div ng-messages="fornecedorForm.endereco_Pais.$error" ng-if="fornecedorForm.endereco_Pais.$dirty">
+                    <div ng-message="required">País é um campo obrigatório!</div>
+                    <div ng-message="minlength">O país não pode ter menos que 3 caracteres!</div>
+                    <div ng-message="minlength">O país não pode ter mais que 255 caracteres!</div>
+                </div>
             </md-input-container>
 
             <div layout-gt-sm="row" div class="md-inline-form">
 
                 <md-input-container class="md-block" flex>
-                    <label>País</label>
-                    <input id="input.endereco_Pais" required ng-model="fornecedor.endereco_Pais" type="text">
+                    <label>CEP</label>
+                    <input id="input.endereco_CEP" name="endereco_CEP" required pattern="[0-9]{2}\.?[0-9]{3}\-?[0-9]{3}" ng-model="fornecedor.endereco_CEP" type="text">
+                    <!-- <div class="hint">Formato: 00000-000</div> -->
+                    <div ng-messages="fornecedorForm.endereco_CEP.$error" ng-if="fornecedorForm.endereco_CEP.$dirty">
+                        <div ng-message="required">CEP é um campo obrigatório!</div>
+                        <div ng-message="pattern">O CEP fornecido é inválido!</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label>Estado</label>
-                    <md-select id="select.endereco_Estado" required ng-model="fornecedor.endereco_Estado">
+                    <input id="input.endereco_Estado" name="endereco_Estado" minlength="3" maxlength="255" required ng-model="fornecedor.endereco_Estado" type="text">
+                    <!-- <md-select id="select.endereco_Estado" name="endereco_Estado" required ng-model="fornecedor.endereco_Estado">
                         <md-option ng-repeat="estado in estados" value="{{estado.sigla}}">
                             {{estado.nome}} ({{estado.sigla}})
                         </md-option>
-                    </md-select>
+                    </md-select> -->
+                    <div ng-messages="fornecedorForm.endereco_Estado.$error" ng-if="fornecedorForm.endereco_Estado.$dirty">
+                        <div ng-message="required">Estado é um campo obrigatório!</div>
+                        <div ng-message="minlength">O estado não pode ter menos que 3 caracteres!</div>
+                    <div ng-message="minlength">O estado não pode ter mais que 255 caracteres!</div>
+                    </div>
                 </md-input-container>
 
                 <md-input-container class="md-block" flex>
                     <label>Cidade</label>
-                    <input id="input.endereco_Cidade" required ng-model="fornecedor.endereco_Cidade" type="text">
+                    <input id="input.endereco_Cidade" name="endereco_Cidade" minlength="3" maxlength="255" required ng-model="fornecedor.endereco_Cidade" type="text">
+                    <div ng-messages="fornecedorForm.endereco_Cidade.$error" ng-if="fornecedorForm.endereco_Cidade.$dirty">
+                        <div ng-message="required">Cidade é um campo obrigatório!</div>
+                        <div ng-message="minlength">A cidade não pode ter menos que 3 caracteres!</div>
+                    <div ng-message="minlength">A cidade não pode ter mais que 255 caracteres!</div>
+                    </div>
                 </md-input-container>
 
             </div>
 
             <md-input-container class="md-block">
-                <md-switch id="switch.ativo" ng-model="fornecedor.ativo" aria-label="Ativo">
+                <label>Endereço</label>
+                <input id="input.endereco_Logradouro" name="endereco_Logradouro" minlength="3" maxlength="255" required ng-model="fornecedor.endereco_Logradouro" type="text">
+                <div ng-messages="fornecedorForm.endereco_Logradouro.$error" ng-if="fornecedorForm.endereco_Logradouro.$dirty">
+                    <div ng-message="required">Endereço é um campo obrigatório!</div>
+                    <div ng-message="minlength">O endereço não pode ter menos que 3 caracteres!</div>
+                    <div ng-message="minlength">O endereço não pode ter mais que 255 caracteres!</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container>
+                <md-switch id="switch.ativo" name="ativo" ng-model="fornecedor.ativo" aria-label="Ativo">
                     Fornecedor {{fornecedor.ativo === true ? "Ativo" : "Desativado"}}
                 </md-switch>
             </md-input-container>
 
-            <md-button id="button.salvarFornecedor" class="md-raised md-primary" aria-label="Salvar" ng-click="salvarFornecedor()">Salvar</md-button>
+            <md-input-container class="md-block">
+                <md-button id="button.salvarFornecedor" class="md-raised md-primary" aria-label="Salvar" ng-click="salvarFornecedor()" ng-disabled="!fornecedorForm.$valid">{{buttonAction}}</md-button>
+            </md-input-container>
 
         </form>
 
