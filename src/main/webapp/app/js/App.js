@@ -41,12 +41,6 @@ app.config(function($routeProvider) {
         title       : 'Fornecedores'
     })
 
-    .when('/fornecedores/ficha/:cnpj', {
-        templateUrl : 'views/fornecedores.ficha.html',
-        controller  : 'fornecedorController',
-        title       : 'Ficha de Fornecedor'
-    })
-
     .when('/fornecedores/novo', {
         templateUrl : 'views/fornecedores.form.html',
         controller  : 'novoFornecedorController',
@@ -58,30 +52,6 @@ app.config(function($routeProvider) {
         controller  : 'novoFornecedorController',
         title       : 'Editar Fornecedor'
     })
-
-    .when('/materias-primas', {
-        templateUrl : 'views/materias-primas.html',
-        controller  : 'materiaprimaController',
-        title       : 'Matérias-primas'
-    })
-
-    .when('/materias-primas/ficha/:sku', {
-        templateUrl : 'views/materias-primas.ficha.html',
-        controller  : 'materiaprimaController',
-        title       : 'Ficha de Matéria-prima'
-    })
-
-    .when('/materias-primas/novo', {
-        templateUrl : 'views/materias-primas.form.html',
-        controller  : 'materiaprimaController',
-        title       : 'Cadastrar Nova Matéria-prima'
-    })
-
-    .when('/materias-primas/editar/:sku', {
-        templateUrl : 'views/materias-primas.form.html',
-        controller  : 'materiaprimaController',
-        title       : 'Editar Matéria-prima'
-    });
 
 });
 
