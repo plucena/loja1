@@ -10,7 +10,7 @@
             <md-tab label="Ativos">
                 <md-content class="md-padding">
 
-                    <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:true}).length == 0">Não há clientes ativos.</p>
+                    <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:true}).length == 0">Não há fornecedores ativos.</p>
                     <md-table-container ng-if="(fornecedores|filter:{ativo:true}).length != 0">
                         <table md-table>
                             <thead md-head>
@@ -43,7 +43,7 @@
             <md-tab label="Inativos">
                 <md-content class="md-padding">
                     
-                    <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:false}).length == 0">Não há clientes inativos.</p>
+                    <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:false}).length == 0">Não há fornecedores inativos.</p>
                     <md-table-container ng-if="(fornecedores|filter:{ativo:false}).length != 0">
                         <table md-table>
                             <thead md-head>
