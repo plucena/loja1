@@ -27,5 +27,11 @@ public class FornecedorDAO extends BaseDAO{
 	}
 	
 	
-	
+	public void update(Fornecedor f, String key) throws Exception {
+    	EntityTransaction tx = manager.getTransaction();
+    	tx.begin();
+    	Fornecedor fbd = manager.find(Fornecedor.class, key);
+    	fbd.update(f);
+    	tx.commit();
+    }
 }

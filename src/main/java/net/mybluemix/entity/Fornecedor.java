@@ -112,7 +112,17 @@ public class Fornecedor {
 		this.endereco_CEP = endereco_CEP;
 	}
 	
-    
+    public void update(Fornecedor f) {
+    	this.ativo = f.ativo;
+    	this.email = f.email;
+    	this.endereco_CEP = f.endereco_CEP;
+    	this.endereco_Cidade = f.endereco_Cidade;
+    	this.endereco_Estado = f.endereco_Estado;
+    	this.endereco_Pais = f.endereco_Pais;
+    	this.nome = f.nome;
+    	this.prazoEntregaDias = f.prazoEntregaDias;
+    	this.telefone = f.telefone;
+    }
 	
 	
 }
