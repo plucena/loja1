@@ -11,11 +11,12 @@ app.factory('FornecedorFactory', function ($resource) {
             url: 'http://loja.mybluemix.net/api/fornecedor/create',
             method: 'POST'
         },
+        editar: {
+            url: 'http://loja.mybluemix.net/api/fornecedor/update',
+            method: 'POST'
+        },
         fornecedor: {
             method: 'GET'
-        },
-        editar: {
-            method: 'POST'
         }
     })
 });

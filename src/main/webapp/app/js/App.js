@@ -50,7 +50,7 @@ app.config(function($routeProvider) {
     .when('/fornecedores/novo', {
         templateUrl : 'views/fornecedores.form.html',
         controller  : 'novoFornecedorController',
-        title       : 'Cadastrar Novo Fornecedor'
+        title       : 'Cadastrar Fornecedor'
     })
 
     .when('/fornecedores/editar/:cnpj', {

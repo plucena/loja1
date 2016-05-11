@@ -1,6 +1,8 @@
-app.controller('fornecedorController', ['$scope', '$location', '$http', '$mdDialog', 'FornecedorFactory', function($scope, $location, $http, $mdDialog, FornecedorFactory) {
+app.controller('fornecedorController', ['$scope', '$location', '$http', '$mdDialog', '$mdToast', 'FornecedorFactory', function($scope, $location, $http, $mdDialog, $mdToast, FornecedorFactory) {
 
     $scope.isLoading = true;
+
+    $scope.fornecedores = [];
     $scope.fornecedores = FornecedorFactory.listar(
         {},
         function success() {
@@ -18,9 +20,25 @@ app.controller('fornecedorController', ['$scope', '$location', '$http', '$mdDial
         $location.path('/fornecedores/novo');
     };
 
+    $scope.showToast = function(message) {
+        $mdToast.show(
+            $mdToast.simple()
+                .textContent(message)
+                .hideDelay(3000)
+        );
+    };
+
 }]);
 
-app.controller('novoFornecedorController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', 'FornecedorFactory', function($scope, $routeParams, $location, $http, $mdDialog, FornecedorFactory) {
+app.controller('novoFornecedorController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', 'FornecedorFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, FornecedorFactory) {
+
+    $scope.showToast = function(message) {
+        $mdToast.show(
+            $mdToast.simple()
+                .textContent(message)
+                .hideDelay(3000)
+        );
+    };
 
     if($routeParams.cnpj) {
         $scope.fornecedor = FornecedorFactory.fornecedor(
@@ -36,15 +54,24 @@ app.controller('novoFornecedorController', ['$scope', '$routeParams', '$location
 
     $scope.salvarFornecedor = function () {
         if($scope.edicao) {
-            //editar fornecedor
+            FornecedorFactory.editar(
+                $scope.fornecedor,
+                function success() {
+                    $scope.showToast('Fornecedor editado com sucesso!');
+                    $location.path('/fornecedores');
+                },
+                function err() {
+                    console.log('Erro ao editar fornecedor!');
+                });
         } else {
             FornecedorFactory.novo(
                 $scope.fornecedor,
                 function success() {
+                    $scope.showToast('Fornecedor cadastrado com sucesso!');
                     $location.path('/fornecedores');
                 },
                 function err() {
-                    console.log('Erro ao criar novo fornecedor!');
+                    console.log('Erro ao cadastrar fornecedor!');
                 });
         }
     }
