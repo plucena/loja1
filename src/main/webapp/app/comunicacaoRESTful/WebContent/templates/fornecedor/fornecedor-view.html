@@ -1,0 +1,51 @@
+<table>
+  <tr>
+    <td><h3>Detalhes de {{fornecedor.nome}}</h3></td>
+    <td></td>
+  </tr>
+    <tr>
+    <td>Identificador:</td>
+    <td>{{fornecedor.id}}</td>
+  </tr>   
+  <tr>
+    <td>CNPJ:</td>
+    <td>{{fornecedor.cnpj}}</td>
+  </tr>  
+  <tr>
+    <td>Email:</td>
+    <td>{{fornecedor.email}}</td>
+  </tr>
+  <tr>
+    <td>Telefone:</td>
+    <td>{{fornecedor.telefone}}</td>
+  </tr>
+  <tr>
+    <td>Prazo de Entrega (Dias):</td>
+    <td>{{fornecedor.prazoEntregaDias}}</td>
+  </tr>
+  <tr>
+    <td>País:</td>
+    <td>{{fornecedor.enderecoPais}}</td>
+  </tr>
+  <tr>
+    <td>Estado:</td>
+    <td>{{fornecedor.enderecoEstado}}</td>
+  </tr>
+  <tr>
+    <td>Cidade:</td>
+    <td>{{fornecedor.enderecoCidade}}</td>
+  </tr>    
+    <tr>
+    <td>Logradouro:</td>
+    <td>{{fornecedor.enderecoLogradouro}}</td>
+  </tr> 
+    <tr>
+    <td>CEP:</td>
+    <td>{{fornecedor.enderecoCEP}}</td>
+
+
+  
+</table>
+<div>
+  <a class="btn btn-primary" ui-sref="editarFornecedor({id:fornecedor.id})">Editar</a>
+</div>
