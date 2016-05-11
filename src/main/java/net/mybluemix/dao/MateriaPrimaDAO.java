@@ -1,5 +1,7 @@
 package net.mybluemix.dao;
 
+import java.util.List;
+
 import net.mybluemix.entity.MateriaPrima;
 
 public class MateriaPrimaDAO extends BaseDAO<MateriaPrima> {
@@ -14,5 +16,8 @@ public class MateriaPrimaDAO extends BaseDAO<MateriaPrima> {
 		        "SELECT c FROM MateriaPrima c WHERE c.sku = :sku", MateriaPrima.class);
 		    return query.setParameter("sku", new Long(sku)).getSingleResult();
 	}
-	
+
+	public List<MateriaPrima> findAll(){
+		return this.createQuery("Select a From MateriaPrima a", MateriaPrima.class);  
+	}
 }

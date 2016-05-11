@@ -1,8 +1,15 @@
 package net.mybluemix.entity;
 
+import java.util.List;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -22,9 +29,26 @@ public class MateriaPrima {
 	private String descricao; 
 	private String unidade; 
 	private float valorUnidade; 
-	private String dataEntrada;
-	private String dataSaida;
+	private String codigoDeBarras;
 	
+	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
+	@JoinTable
+	 (
+	      name="LOTE_MATERIAPRIMA",
+	      joinColumns={ @JoinColumn(name="sku", referencedColumnName="sku") }
+	  )
+	private List<Lote> lotes;
+
+    @JsonProperty
+	public String getCodigoDeBarras() {
+		return codigoDeBarras;
+	}
+
+    @JsonProperty
+	public void setCodigoDeBarras(String codigoDeBarras) {
+		this.codigoDeBarras = codigoDeBarras;
+	}
+
 	public MateriaPrima(){
 	}
 	
@@ -89,38 +113,16 @@ public class MateriaPrima {
 		this.valorUnidade = valorUnidade;
 	}
 
-    @JsonProperty
-    public String getDataEntrada() {
-		return dataEntrada;
-	}
-
-    @JsonProperty
-    public void setDataEntrada(String dataEntrada) {
-		this.dataEntrada = dataEntrada;
-	}
-
-    
-    @JsonProperty
-    public String getDataSaida() {
-		return dataSaida;
-	}
-
-    @JsonProperty
-    public void setDataSaida(String dataSaida) {
-		this.dataSaida = dataSaida;
-	}
-
+   
 	public MateriaPrima( String nome, String tipo, String descricao,
-			String unidade, float valorUnidade, String dataEntrada,
-			String dataSaida) {
+			String unidade, float valorUnidade) {
 		super();
 		this.nome = nome;
 		this.tipo = tipo;
 		this.descricao = descricao;
 		this.unidade = unidade;
 		this.valorUnidade = valorUnidade;
-		this.dataEntrada = dataEntrada;
-		this.dataSaida = dataSaida;
+	
 	}
 
 	
@@ -129,9 +131,7 @@ public class MateriaPrima {
 		   this.tipo.equals(p.tipo) &&
 		   this.descricao.equals(p.descricao) &&
 		   this.unidade.equals(p.unidade) &&
-		   this.valorUnidade == p.valorUnidade &&
-		   this.dataEntrada.equals(p.dataEntrada) &&
-		   this.dataSaida.equals(p.dataSaida)
+		   this.valorUnidade == p.valorUnidade 
 		   )
 			return true;
 		return false;

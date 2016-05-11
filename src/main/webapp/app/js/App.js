@@ -1,12 +1,18 @@
-var app = angular.module('GestaoFitnessApp',
+var app = angular.module('App',
     [
         'ngMaterial',
         'ngRoute',
         'ngMessages',
         'ngAnimate',
+        'ngResource',
         'md.data.table'
     ]
 );
+
+// app.config(['$httpProvider', function($httpProvider) {
+//     $httpProvider.defaults.useXDomain = true;
+//     delete $httpProvider.defaults.headers.common['X-Requested-With'];
+// }]);
 
 app.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
@@ -19,37 +25,62 @@ app.config(function($routeProvider) {
     $routeProvider
 
     .otherwise({
-        redirectTo  : '/pagina-inicial'
+        // redirectTo  : '/pagina-inicial'
+        redirectTo  : '/fornecedores'
     })
 
     .when('/pagina-inicial', {
-        templateUrl : 'pages/pagina-inicial.html',
+        templateUrl : 'views/pagina-inicial.html',
         controller  : 'mainController',
         title       : 'Página Inicial'
     })
 
     .when('/fornecedores', {
-        templateUrl : 'pages/fornecedores.html',
+        templateUrl : 'views/fornecedores.html',
         controller  : 'fornecedorController',
-        title       : 'Fornecedoress'
+        title       : 'Fornecedores'
+    })
+
+    .when('/fornecedores/ficha/:cnpj', {
+        templateUrl : 'views/fornecedores.ficha.html',
+        controller  : 'fornecedorController',
+        title       : 'Ficha de Fornecedor'
     })
 
     .when('/fornecedores/novo', {
-        templateUrl : 'pages/fornecedores.form.html',
-        controller  : 'formFornecedorController',
-        title       : 'Cadastrar Novo Fornecedor'
+        templateUrl : 'views/fornecedores.form.html',
+        controller  : 'novoFornecedorController',
+        title       : 'Cadastrar Fornecedor'
     })
 
-    .when('/fornecedores/editar', {
-        templateUrl : 'pages/fornecedores.form.html',
-        controller  : 'formFornecedorController',
+    .when('/fornecedores/editar/:cnpj', {
+        templateUrl : 'views/fornecedores.form.html',
+        controller  : 'novoFornecedorController',
         title       : 'Editar Fornecedor'
     })
 
-    .when('/materia-prima', {
-        templateUrl : 'pages/materia-prima.html',
-        controller  : 'materia-primaController',
-        title       : 'Matéria-prima'
+    .when('/materias-primas', {
+        templateUrl : 'views/materias-primas.html',
+        controller  : 'materiaprimaController',
+        title       : 'Matérias-primas'
+    })
+
+    .when('/materias-primas/ficha/:sku', {
+        templateUrl : 'views/materias-primas.ficha.html',
+        controller  : 'materiaprimaController',
+        title       : 'Ficha de Matéria-prima'
+    })
+
+    .when('/materias-primas/novo', {
+        templateUrl : 'views/materias-primas.form.html',
+        controller  : 'materiaprimaController',
+        title       : 'Cadastrar Nova Matéria-prima'
+    })
+
+    .when('/materias-primas/editar/:sku', {
+        templateUrl : 'views/materias-primas.form.html',
+        controller  : 'materiaprimaController',
+        title       : 'Editar Matéria-prima'
     });
 
 });
@@ -60,28 +91,32 @@ app.run(['$rootScope', function($rootScope) {
     });
 }]);
 
-app.controller('mainController', ['$scope', '$mdSidenav', '$mdDialog', function($scope, $mdSidenav, $mdDialog) {
+app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialog', function($scope, $location, $mdSidenav, $mdDialog) {
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
+
+    $scope.closeSidenav = function(menuId) {
+        $mdSidenav(menuId).close();
+    }
   
     $scope.navegacao = [
-        // {
-        //     link : '#pagina-inicial',
-        //     title: 'Página Inicial',
-        //     icon: 'action:ic_home_24px'
-        // },
         {
-            link : '#fornecedores',
-            title: 'Fornecedores',
-            icon: 'maps:ic_local_shipping_24px'
+            link : 'pagina-inicial',
+            title: 'Página Inicial',
+            icon: 'action:ic_home_24px'
         },
         {
-            link : '#materia-prima',
-            title: 'Matéria-prima',
-            icon: 'maps:ic_layers_24px'
+            link : 'fornecedores',
+            title: 'Fornecedores',
+            icon: 'maps:ic_local_shipping_24px'
         }
+        // {
+        //     link : 'materias-primas',
+        //     title: 'Matérias-primas',
+        //     icon: 'maps:ic_layers_24px'
+        // }
     ];
   
 }]);

@@ -9,11 +9,12 @@ html, body {
 /* SideNav */
 
 h1 {
-  font-size: 42px;
-  text-transform: uppercase;
-  font-weight: 100;
-  padding: 16px 40px;
-  margin: 0;
+    font-family: 'Roboto Thin', 'Roboto', 'Helvetica', sans-serif;
+    font-size: 42px;
+    text-transform: uppercase;
+    font-weight: 100;
+    padding: 16px 40px;
+    margin: 0;
 }
 
 h1 a {
@@ -30,7 +31,7 @@ md-sidenav  {
     max-width: 250px;
 }
 
-md-sidenav md-list.usuario md-list-item {
+/*md-sidenav md-list.usuario md-list-item {
     padding-left: 42px;
 }
 
@@ -42,7 +43,7 @@ md-sidenav md-list.usuario md-list-item a {
 md-sidenav md-list.usuario md-list-item md-icon {
     width: 18px;
     height: 18px;
-}
+}*/
 
 md-sidenav md-list.navegacao md-list-item.active {
     background-color: #ececec;
@@ -79,36 +80,11 @@ md-content md-card {
     margin:24px;
 }
 
-md-content md-card .md-secondary md-icon {
-    padding: 0 6px 0 0;
-    width: 18px;
-    height: 18px;
-}
-
-md-content md-card a.md-secondary {
-    padding: 0 !important;
-}
-
 /* Forms */
 
-md-content md-card md-input-container md-icon {
-    padding-top: 6px;
-    width: 24px;
-    height: 24px;
-}
-
-md-content md-card md-input-container {
-    /*max-width: 600px;*/
-}
-
-md-input-container .hint {
-    position: absolute;
-    right: auto;
-    bottom: 7px;
-    font-size: 12px;
-    line-height: 14px;
-    transition: all 0.3s cubic-bezier(0.55, 0, 0.55, 0.2);
-    color: #aaa;
+form md-input-container label,
+form md-input-container md-select span {
+    color: #777 !important;
 }
 
 md-input-container.md-input-invalid > md-icon,

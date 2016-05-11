@@ -1,10 +1,10 @@
 <!doctype html>
-<html lang="pt-br" ng-app="GestaoFitnessApp" ng-controller="mainController" >
+<html lang="pt-br" ng-app="App" ng-controller="mainController" >
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
-        <title ng-bind="'Gestão Fitness App - ' + $root.title">Gestão Fitness App</title>
+        <title>Gestão Fitness App</title>
 
         <!-- Add to homescreen for Chrome on Android -->
         <meta name="mobile-web-app-capable" content="yes">
@@ -20,7 +20,7 @@
 
         <link rel="stylesheet" type="text/css" href="css/lib/angular-material.min.css">
         <link rel="stylesheet" type="text/css" href="css/lib/md-data-table.min.css">
-        <link rel="stylesheet" type="text/css" href="css/styles.css">
+        <link rel="stylesheet" type="text/css" href="css/App.css">
     </head>
 
     <body layout="column" ng-cloak>
@@ -28,26 +28,14 @@
         <div flex layout="row" class="wrapper">
 
             <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
-                <h1><a href="#pagina-inicial">Gestão <span>Fitness</span></a><md-tooltip md-direction="bottom">Página Inicial</md-tooltip></h1>
+                <h1><a href="#pagina-inicial" ng-click="closeSidenav('left')">Gestão <span>Fitness</span></a><md-tooltip md-direction="bottom">Página Inicial</md-tooltip></h1>
                   
                 <md-divider></md-divider>
 
-                <!-- <md-list class="usuario">
-                    <md-list-item class="md-3-line"> 
-                        <div class="md-list-item-text">
-                            <div class="md-body-3">Raquel</div>
-                            <div class="md-body-2">raquel@empresa.com</div>
-                            <a class="md-body-1" ng-href="#pagina-inicial"><md-icon md-svg-icon="action:ic_exit_to_app_24px" aria-label="Sair"></md-icon> Sair</a>
-                        </div>
-                    </md-list-item>
-                </md-list> -->
-
-                <!-- <md-divider></md-divider> -->
-
                 <md-list class="navegacao">
-                    <md-list-item class="md-2-line" ng-repeat="item in navegacao" role="link" ng-href="{{item.link}}" md-ink-ripple>
+                    <md-list-item class="md-2-line" ng-class="isActive('{{item.title}}')" ng-repeat="item in navegacao" role="link" ng-href="#{{item.link}}" ng-click="closeSidenav('left')" ng-attr-id="{{item.title}}" md-ink-ripple>
                         <md-icon md-svg-icon="{{item.icon}}" aria-label="{{item.title}}"></md-icon>
-                        <div class="md-list-item-text">
+                        <div class="md-list-item-text"> 
                             <span class="md-body-2">{{item.title}}</span>
                         </div>
                     </md-list-item>
@@ -63,11 +51,7 @@
                             <md-icon md-svg-icon="navigation:ic_menu_24px" aria-label="Menu"></md-icon>
                         </md-button>
 
-                        <md-button ng-if="$root.title == 'Cadastrar Novo Fornecedor' || $root.title == 'Editar Fornecedor'" class="md-icon-button" ng-href="#fornecedores" aria-label="Voltar">
-                            <md-icon md-svg-icon="navigation:ic_arrow_back_24px" aria-label="Voltar"></md-icon>
-                        </md-button>
-
-                        <md-button ng-if="$root.title == 'Cadastrar Nova Matéria-prima' || $root.title == 'Editar Matéria-prima'" class="md-icon-button" ng-href="#materia-prima" aria-label="Voltar">
+                        <md-button ng-if="$root.title == 'Cadastrar Fornecedor' || $root.title == 'Editar Fornecedor'" class="md-icon-button" ng-href="#fornecedores" aria-label="Voltar">
                             <md-icon md-svg-icon="navigation:ic_arrow_back_24px" aria-label="Voltar"></md-icon>
                         </md-button>
 
@@ -87,10 +71,11 @@
         <script src="js/lib/angular-aria.min.js" type="text/javascript" ></script>
         <script src="js/lib/angular-route.min.js" type="text/javascript" ></script>
         <script src="js/lib/angular-messages.min.js" type="text/javascript" ></script>
+        <script src="js/lib/angular-resource.min.js" type="text/javascript" ></script>
         <script src="js/lib/angular-material.min.js" type="text/javascript" ></script>
         <script src="js/lib/md-data-table.min.js" type="text/javascript" ></script>
-        <script src="js/GestaoFitnessApp.js" type="text/javascript" ></script>
-        <script src="js/Fornecedor.js" type="text/javascript" ></script>
-        <script src="js/Materia-prima.js" type="text/javascript" ></script>
+        <script src="js/App.js" type="text/javascript" ></script>
+        <script src="js/fornecedorService.js" type="text/javascript" ></script>
+        <script src="js/fornecedorController.js" type="text/javascript" ></script>
     </body>
 </html>

@@ -29,7 +29,7 @@ Ubuntu: sudo apt-get install tomcat7
 Mac Os X: download and install tomcat 7 or latter https://tomcat.apache.org/download-70.cgi
 
 
-Configure Local Tomcat
+Configure Tomcat-Maven Integration
 =================
 
 Follow these instrunctions: http://www.mkyong.com/maven/how-to-deploy-maven-based-war-file-to-tomcat/
@@ -56,19 +56,19 @@ GET http://loja.mybluemix.net/api/materiaprima/{$sku}
 
 * Create MateriaPrima
 
-    POST http://loja.mybluemix.net/api/materiaprima/create
+POST http://loja.mybluemix.net/api/materiaprima/create
     
-    Content-Type: application/json
+Content-Type: application/json
     
-    {
-   "nome": "Tecido Florido Verao 2016",
-   "tipo": "Tecido",
-   "descricao": "Cool stuff guys",
-   "unidade": "metro",
-   "valorUnidade": 10,
-   "dataEntrada": "2016-10-15",
-   "dataSaida": "2016-10-29"
-   }
+        {
+        "nome": "Tecido Florido Verao 2016",
+        "tipo": "Tecido",
+        "descricao": "Cool stuff guys",
+        "unidade": "metro",
+        "valorUnidade": 10,
+        "dataEntrada": "2016-10-15",
+        "dataSaida": "2016-10-29"
+        }
 
 **Fornecedor**
 
@@ -78,11 +78,23 @@ GET http://loja.mybluemix.net/api/fornecedor
 * List a Fornecedor
 GET http://loja.mybluemix.net/api/fornecedor/{$id}
 
-* Create Fornecedor
+* Create/Update Fornecedor
 
 POST http://loja.mybluemix.net/api/fornecedor/create
+POST http://loja.mybluemix.net/api/fornecedor/update
+
 
 Content-Type: application/json
-
-{
-}
+        {
+        "cnpj": "010203",
+        "nome": "china tecidos reciclaveis",
+        "email": "?@?.com",
+        "telefone": "000099932",
+        "prazoEntregaDias": 100,
+        "endereco_Pais": "China",
+        "endereco_Estado": "-",
+        "endereco_Cidade": "Beijing",
+        "endereco_Logradouro": "???????? 42",
+        "endereco_CEP": "08378472",
+        "ativo": true
+        }

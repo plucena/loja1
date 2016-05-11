@@ -38,8 +38,8 @@ public class MateriaPrimaTest
 	  public static void  beforeClass() {
 	        // prepare data for testing
 	        
-            elist.add(new MateriaPrima("Tecido Florido Verao 2016", "Tecido", "Cool stuff guys", "metro", 10, "2016-10-15", "2016-10-29" ));
-            elist.add(new MateriaPrima("Tecido Rosa Choque", "Tecido", "Pantera Cor de Rosa", "metro", 20, "2016-10-09", "2016-11-03" ));
+            elist.add(new MateriaPrima("Tecido Florido Verao 2016", "Tecido", "Cool stuff guys", "metro", 10 ));
+            elist.add(new MateriaPrima("Tecido Rosa Choque", "Tecido", "Pantera Cor de Rosa", "metro", 20 ));
 	        System.out.println(".. done");
 	 }
     
@@ -65,7 +65,7 @@ public class MateriaPrimaTest
 	public void testInvalidMateriaPrima() throws Exception {
 		MateriaPrimaTest.createMateriaPrima();
 		List<MateriaPrima> employees = MateriaPrimaTest.listMateriaPrima();
-		MateriaPrima e = new MateriaPrima("Materia que não tem", "Tecido", "Weird stuff guys", "metro", 20, "2016-10-09", "2016-11-03" );
+		MateriaPrima e = new MateriaPrima("Materia que não tem", "Tecido", "Weird stuff guys", "metro", 20 );
 		assertThat(employees,  not(hasItem(e)));
 	}
 	 

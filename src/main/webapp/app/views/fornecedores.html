@@ -1,0 +1,79 @@
+<md-card>
+    <md-card-content>
+
+        <md-button id="button.novoFornecedor" class="md-fab md-fab-bottom-right md-primary" aria-label="Add" ng-click="novoFornecedor()">
+            <md-icon md-svg-icon="content:ic_add_24px" aria-label="Plus"></md-icon>
+        </md-button>
+
+
+        <md-tabs md-dynamic-height md-border-bottom>
+            <md-tab label="Ativos">
+                <md-content class="md-padding">
+
+                    <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:true}).length == 0">Não há clientes ativos.</p>
+                    <md-table-container ng-if="(fornecedores|filter:{ativo:true}).length != 0">
+                        <table md-table>
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column md-numeric><span>CNPJ</span></th>
+                                    <th md-column><span>Nome</span></th>
+                                    <th md-column><span>Email</span></th>
+                                    <th md-column><span>Telefone</span></th>
+                                    <th md-column><span>Prazo de Entrega</span></th>
+                                    <th md-column><span>Endereço</span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="fornecedor in fornecedores | filter: { ativo: true }" ng-click="editarFornecedor(fornecedor.cnpj)" id="{{fornecedor.cnpj}}">
+                                    <td md-cell>{{fornecedor.cnpj}}</td>
+                                    <td md-cell>{{fornecedor.nome}}</td>
+                                    <td md-cell>{{fornecedor.email}}</td>
+                                    <td md-cell style="white-space: nowrap;">{{fornecedor.telefone}}</td>
+                                    <td md-cell>{{fornecedor.prazoEntregaDias}} dias</td>
+                                    <td md-cell>{{fornecedor.endereco_Logradouro}}, {{fornecedor.endereco_CEP}}, {{fornecedor.endereco_Cidade}} &dash; {{fornecedor.endereco_Estado}}, {{fornecedor.endereco_Pais}}.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+
+                </md-content>
+            </md-tab>
+                
+
+            <md-tab label="Inativos">
+                <md-content class="md-padding">
+                    
+                    <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:false}).length == 0">Não há clientes inativos.</p>
+                    <md-table-container ng-if="(fornecedores|filter:{ativo:false}).length != 0">
+                        <table md-table>
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column md-numeric><span>CNPJ</span></th>
+                                    <th md-column><span>Nome</span></th>
+                                    <th md-column><span>Email</span></th>
+                                    <th md-column><span>Telefone</span></th>
+                                    <th md-column><span>Prazo de Entrega</span></th>
+                                    <th md-column><span>Endereço</span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="fornecedor in fornecedores | filter: { ativo: false }" ng-click="editarFornecedor(fornecedor.cnpj)" id="{{fornecedor.cnpj}}">
+                                    <td md-cell>{{fornecedor.cnpj}}</td>
+                                    <td md-cell>{{fornecedor.nome}}</td>
+                                    <td md-cell>{{fornecedor.email}}</td>
+                                    <td md-cell style="white-space: nowrap;">{{fornecedor.telefone}}</td>
+                                    <td md-cell>{{fornecedor.prazoEntregaDias}} dias</td>
+                                    <td md-cell>{{fornecedor.endereco_Logradouro}}, {{fornecedor.endereco_CEP}}, {{fornecedor.endereco_Cidade}} &dash; {{fornecedor.endereco_Estado}}, {{fornecedor.endereco_Pais}}.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+
+                </md-content>
+            </md-tab>
+        </md-tabs>
+
+        <md-progress-linear md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
+
+    </md-card-content>
+</md-card>

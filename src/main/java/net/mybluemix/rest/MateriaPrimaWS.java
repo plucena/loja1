@@ -24,7 +24,7 @@ public class MateriaPrimaWS {
     @GET
     public List<MateriaPrima> MateriaPrimaList(){
     	MateriaPrimaDAO mpd = new MateriaPrimaDAO();
-    	List<MateriaPrima> mpl = mpd.createQuery("Select a From MateriaPrima a", MateriaPrima.class);
+    	List<MateriaPrima> mpl = mpd.findAll();
     	return  mpl;
     }
     
