@@ -78,22 +78,23 @@ GET http://loja.mybluemix.net/api/fornecedor
 * List a Fornecedor
 GET http://loja.mybluemix.net/api/fornecedor/{$id}
 
-* Create Fornecedor
+* Create/Update Fornecedor
 
 POST http://loja.mybluemix.net/api/fornecedor/create
+POST http://loja.mybluemix.net/api/fornecedor/update
+
 
 Content-Type: application/json
-
         {
-        "CNPJ": "3427526253462",
-        "nome": "ACME",
-        "email": "acme@acme.com",
-        "telefone": "11 3232-2211",
-        "prazoEntregaDias": 10,
-        "endereco_Pais": "Brasil",
-        "endereco_Estado": "SP",
-        "endereco_Cidade": "Osasco",
-        "endereco_Logradouro": "Rua Pedro Alvares, 500 - Sala 4",
-        "endereco_CEP": "13272-721",
-        "cnpj": "3427526253462"
+        "cnpj": "010203",
+        "nome": "china tecidos reciclaveis",
+        "email": "?@?.com",
+        "telefone": "000099932",
+        "prazoEntregaDias": 100,
+        "endereco_Pais": "China",
+        "endereco_Estado": "-",
+        "endereco_Cidade": "Beijing",
+        "endereco_Logradouro": "???????? 42",
+        "endereco_CEP": "08378472",
+        "ativo": true
         }
