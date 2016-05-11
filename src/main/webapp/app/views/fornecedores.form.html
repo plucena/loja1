@@ -5,7 +5,7 @@
 
             <md-input-container class="md-block">
                 <label>CNPJ</label>
-                <input id="input-cnpj" name="cnpj" minlength="14" maxlength="14" required ng-model="fornecedor.cnpj" type="number" ng-disabled="edicao">
+                <input id="input-cnpj" name="cnpj" minlength="14" maxlength="14" required ng-model="fornecedor.cnpj" type="text" ng-disabled="edicao">
                 <div class="hint">Somente números</div>
                 <div ng-messages="fornecedorForm.cnpj.$error" ng-if="fornecedorForm.cnpj.$dirty">
                     <div ng-message="required">CNPJ é um campo obrigatório!</div>

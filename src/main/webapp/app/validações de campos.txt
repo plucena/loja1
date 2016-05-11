@@ -1,6 +1,6 @@
 Validações (input type=""):
 
-CNPJ (number)
+CNPJ (text)
     required
     minlength="14"
     maxlength="14"
