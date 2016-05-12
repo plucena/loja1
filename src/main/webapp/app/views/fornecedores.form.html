@@ -1,7 +1,7 @@
 <md-card>
     <md-card-content>
     
-        <form name="fornecedorForm">
+        <form name="fornecedorForm" ng-submit="salvarFornecedor()">
 
             <md-input-container class="md-block">
                 <label>CNPJ</label>
@@ -117,7 +117,7 @@
             </md-input-container>
 
             <md-input-container class="md-block">
-                <md-button id="button.salvarFornecedor" class="md-raised md-primary" aria-label="Salvar" ng-click="salvarFornecedor()" ng-disabled="!fornecedorForm.$valid">{{buttonAction}}</md-button>
+                <md-button id="button.salvarFornecedor" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!fornecedorForm.$valid">{{buttonAction}}</md-button>
             </md-input-container>
 
         </form>
