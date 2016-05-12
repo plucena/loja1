@@ -45,7 +45,7 @@
 
             <md-input-container class="md-block">
                 <label>Prazo de Entrega em Dias</label>
-                <input id="input-prazoEntregaDias" name="prazoEntregaDias" required ng-model="fornecedor.prazoEntregaDias" type="number">
+                <input id="input-prazoEntregaDias" name="prazoEntregaDias" required min="0" ng-model="fornecedor.prazoEntregaDias" type="number">
                 <div ng-messages="fornecedorForm.prazoEntregaDias.$error" ng-if="fornecedorForm.prazoEntregaDias.$dirty">
                     <div ng-message="required">Prazo de Entrega em Dias é um campo obrigatório!</div>
                 </div>
