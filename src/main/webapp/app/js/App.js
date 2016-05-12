@@ -9,15 +9,11 @@ var app = angular.module('App',
     ]
 );
 
-// app.config(['$httpProvider', function($httpProvider) {
-//     $httpProvider.defaults.useXDomain = true;
-//     delete $httpProvider.defaults.headers.common['X-Requested-With'];
-// }]);
-
 app.config(function($mdThemingProvider) {
     $mdThemingProvider.theme('default')
         .primaryPalette('purple')
         .accentPalette('teal');
+    $mdThemingProvider.theme("success-toast");
 });
 
 app.config(function($routeProvider) {
@@ -32,25 +28,31 @@ app.config(function($routeProvider) {
     .when('/pagina-inicial', {
         templateUrl : 'views/pagina-inicial.html',
         controller  : 'mainController',
-        title       : 'Página Inicial'
+        title       : 'Página Inicial',
+        isChild     : false
     })
 
     .when('/fornecedores', {
         templateUrl : 'views/fornecedores.html',
         controller  : 'fornecedorController',
-        title       : 'Fornecedores'
+        title       : 'Fornecedores',
+        isChild     : false
     })
 
     .when('/fornecedores/novo', {
         templateUrl : 'views/fornecedores.form.html',
-        controller  : 'novoFornecedorController',
-        title       : 'Cadastrar Fornecedor'
+        controller  : 'formFornecedorController',
+        title       : 'Cadastrar Fornecedor',
+        isChild     : true,
+        parent      : '#/fornecedores'
     })
 
     .when('/fornecedores/editar/:cnpj', {
         templateUrl : 'views/fornecedores.form.html',
-        controller  : 'novoFornecedorController',
-        title       : 'Editar Fornecedor'
+        controller  : 'formFornecedorController',
+        title       : 'Editar Fornecedor',
+        isChild     : true,
+        parent      : '#/fornecedores'
     })
 
 });
@@ -58,6 +60,11 @@ app.config(function($routeProvider) {
 app.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
         $rootScope.title = current.$$route.title;
+        $rootScope.isChild = current.$$route.isChild;
+        if ($rootScope.isChild)
+        {
+            $rootScope.parent = current.$$route.parent;
+        }
     });
 }]);
 

@@ -1,6 +1,14 @@
-app.controller('fornecedorController', ['$scope', '$location', '$http', '$mdDialog', '$mdToast', 'FornecedorFactory', function($scope, $location, $http, $mdDialog, $mdToast, FornecedorFactory) {
+app.controller('fornecedorController', ['$scope', '$rootScope', '$location', '$http', '$mdDialog', '$mdToast', 'FornecedorFactory', function($scope, $rootScope, $location, $http, $mdDialog, $mdToast, FornecedorFactory) {
 
     $scope.isLoading = true;
+
+    if (!$rootScope.selectedIndex) {
+        $rootScope.selectedIndex = 0;
+    }
+
+    $scope.setSelectedIndex = function (index) {
+        $rootScope.selectedIndex = index;
+    }
 
     $scope.fornecedores = [];
     $scope.fornecedores = FornecedorFactory.listar(
@@ -20,23 +28,18 @@ app.controller('fornecedorController', ['$scope', '$location', '$http', '$mdDial
         $location.path('/fornecedores/novo');
     };
 
-    $scope.showToast = function(message) {
-        $mdToast.show(
-            $mdToast.simple()
-                .textContent(message)
-                .hideDelay(3000)
-        );
-    };
-
 }]);
 
-app.controller('novoFornecedorController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', 'FornecedorFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, FornecedorFactory) {
+app.controller('formFornecedorController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'FornecedorFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, FornecedorFactory) {
 
     $scope.showToast = function(message) {
         $mdToast.show(
             $mdToast.simple()
                 .textContent(message)
                 .hideDelay(3000)
+                // .parent($document[0].querySelector('md-card'))
+                .position('top right left')
+                .theme("success-toast")
         );
     };
 
@@ -62,7 +65,7 @@ app.controller('novoFornecedorController', ['$scope', '$routeParams', '$location
                 $scope.fornecedor,
                 function success() {
                     $scope.showToast('Fornecedor editado com sucesso!');
-                    $location.path('/fornecedores');
+                    $location.path('#/fornecedores');
                 },
                 function err() {
                     console.log('Erro ao editar fornecedor!');
@@ -72,7 +75,7 @@ app.controller('novoFornecedorController', ['$scope', '$routeParams', '$location
                 $scope.fornecedor,
                 function success() {
                     $scope.showToast('Fornecedor cadastrado com sucesso!');
-                    $location.path('/fornecedores');
+                    $location.path('#/fornecedores');
                 },
                 function err() {
                     console.log('Erro ao cadastrar fornecedor!');
@@ -80,6 +83,6 @@ app.controller('novoFornecedorController', ['$scope', '$routeParams', '$location
         }
     }
 
-    $scope.estados = [{sigla:"AC",nome:"Acre"},{sigla:"AL",nome:"Alagoas"},{sigla:"AP",nome:"Amapá"},{sigla:"AM",nome:"Amazonas"},{sigla:"BA",nome:"Bahia"},{sigla:"CE",nome:"Ceará"},{sigla:"DF",nome:"Distrito Federal"},{sigla:"ES",nome:"Espírito Santo"},{sigla:"GO",nome:"Goiás"},{sigla:"MA",nome:"Maranhão"},{sigla:"MT",nome:"Mato Grosso"},{sigla:"MS",nome:"Mato Grosso do Sul"},{sigla:"MG",nome:"Minas Gerais"},{sigla:"PA",nome:"Pará"},{sigla:"PB",nome:"Paraíba"},{sigla:"PR",nome:"Paraná"},{sigla:"PE",nome:"Pernambuco"},{sigla:"PI",nome:"Piauí"},{sigla:"RJ",nome:"Rio de Janeiro"},{sigla:"RN",nome:"Rio Grande do Norte"},{sigla:"RS",nome:"Rio Grande do Sul"},{sigla:"RO",nome:"Rondônia"},{sigla:"RR",nome:"Roraima"},{sigla:"SC",nome:"Santa Catarina"},{sigla:"SP",nome:"São Paulo"},{sigla:"SE",nome:"Sergipe"},{sigla:"TO",nome:"Tocantins"}];
+    // $scope.estados = [{sigla:"AC",nome:"Acre"},{sigla:"AL",nome:"Alagoas"},{sigla:"AP",nome:"Amapá"},{sigla:"AM",nome:"Amazonas"},{sigla:"BA",nome:"Bahia"},{sigla:"CE",nome:"Ceará"},{sigla:"DF",nome:"Distrito Federal"},{sigla:"ES",nome:"Espírito Santo"},{sigla:"GO",nome:"Goiás"},{sigla:"MA",nome:"Maranhão"},{sigla:"MT",nome:"Mato Grosso"},{sigla:"MS",nome:"Mato Grosso do Sul"},{sigla:"MG",nome:"Minas Gerais"},{sigla:"PA",nome:"Pará"},{sigla:"PB",nome:"Paraíba"},{sigla:"PR",nome:"Paraná"},{sigla:"PE",nome:"Pernambuco"},{sigla:"PI",nome:"Piauí"},{sigla:"RJ",nome:"Rio de Janeiro"},{sigla:"RN",nome:"Rio Grande do Norte"},{sigla:"RS",nome:"Rio Grande do Sul"},{sigla:"RO",nome:"Rondônia"},{sigla:"RR",nome:"Roraima"},{sigla:"SC",nome:"Santa Catarina"},{sigla:"SP",nome:"São Paulo"},{sigla:"SE",nome:"Sergipe"},{sigla:"TO",nome:"Tocantins"}];
 
 }]);

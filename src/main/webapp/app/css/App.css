@@ -93,3 +93,7 @@ form md-input-container label,
 form md-input-container md-select span {
     color: #777 !important;
 }
+
+md-toast.md-success-toast-theme .md-toast-content {
+    background-color: #009688;
+}
