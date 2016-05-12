@@ -1,4 +1,4 @@
-package com.testes;
+package net.mybluemix.seleniumTest;
 
 import java.util.Random;
 
@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
  * Search Google example.
  * 
  */
-public class TesteExemplo {
+public class CadastroFornecedorEx {
 	static WebDriver driver;
 	static Wait<WebDriver> wait;
 	private static WebElement foundElement;
