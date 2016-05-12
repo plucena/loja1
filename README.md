@@ -85,6 +85,7 @@ POST http://loja.mybluemix.net/api/fornecedor/update
 
 
 Content-Type: application/json
+
         {
         "cnpj": "010203",
         "nome": "china tecidos reciclaveis",
