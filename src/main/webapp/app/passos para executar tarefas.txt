@@ -30,11 +30,11 @@ preencher:
 #input-email
 #input-telefone
 #input-prazoEntregaDias
-#input.endereco_Pais
-#input.endereco_CEP
-#input.endereco_Estado
-#input.endereco_Cidade
-#input.endereco_Logradouro
+#input-endereco_Pais
+#input-endereco_CEP
+#input-endereco_Estado
+#input-endereco_Cidade
+#input-endereco_Logradouro
 
 clicar: 
 #button.salvarFornecedor
