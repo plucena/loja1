@@ -3,10 +3,8 @@ angular.module('ModuloMateriaPrima', [ 'ui.router', 'ngResource', 'ModuloMateria
 
 angular.module('ModuloMateriaPrima').config(function($stateProvider, $urlRouterProvider) {
 	
-	$stateProvider.state('listarMateriasPrimas', { // estado para mostrar todas
-													// matérias primas
-		url : '/materiasprimas',
-		// template: "<p>HELLO!</p>"
+	$stateProvider.state('listarMateriasPrimas', { // estado para mostrar todas matérias primas
+		url : '/materiasprimas/',
 		templateUrl : 'templates/materiaprima/materiaprima.html',
 		controller : 'MateriaPrimaListController'
 	}).state('verMateriaPrima', { // estado para mostrar uma matéria prima

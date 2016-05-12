@@ -7,11 +7,12 @@ angular.module('ModuloFornecedor').config(function($stateProvider, $urlRouterPro
 
 	// ##################Fornecedor##########################
 	$stateProvider.state('listarFornecedores', { //estado para mostrar todos os fornecedores
-		url : '/fornecedores',
+		url : '/fornecedores/',
+		//template: "<p>HELLO!</p>",
 		templateUrl : 'templates/fornecedor/fornecedor.html',
 		controller : 'FornecedorListController'
 	}).state('verFornecedor', { // estado para mostrar um fornecedor
-		url : '/fornecedores/:id/view',
+		url : '/fornecedores/:cnpj/view',
 		templateUrl : 'templates/fornecedor/fornecedor-view.html',
 		controller : 'FornecedorViewController'
 	}).state('novoFornecedor', { // estado para adicionar um um fornecedor
@@ -19,7 +20,7 @@ angular.module('ModuloFornecedor').config(function($stateProvider, $urlRouterPro
 		templateUrl : 'templates/fornecedor/fornecedor-add.html',
 		controller : 'FornecedorCreateController'
 	}).state('editarFornecedor', { // estado para editar um um fornecedor
-		url : '/fornecedores/:id/edit',
+		url : '/fornecedores/:cnpj/edit',
 		templateUrl : 'templates/fornecedor/fornecedor-edit.html',
 		controller : 'FornecedorEditController'
 	});

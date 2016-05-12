@@ -1,5 +1,6 @@
 <!DOCTYPE html>
   <html>
+   <head>
     <title>ECMApp</title>
     <script type="text/javascript" src="lib/angular.min.js"></script>
     <script type="text/javascript" src="lib/angular-ui-router.min.js"></script>
@@ -13,15 +14,16 @@
     <script type="text/javascript" src="js/servicos/fornecedor.js"></script>
   </head>
   <body>
+  
   	<div data-ng-module="ModuloMateriaPrima">
 	    <a ui-sref="listarMateriasPrimas">Listar Materias Primas</a>
 	    <a ui-sref="novaMateriaPrima">Nova Materia Prima</a>
+	    <div ui-view></div>
 	</div>
 	<div data-ng-module="ModuloFornecedor">
 	    <a ui-sref="listarFornecedores">Listar Fornecedores</a>
 	    <a ui-sref="novoFornecedor">Novo Fornecedor</a>
+	    <div ui-view></div>
 	</div>    
-
-    <div ui-view></div>
   </body>
 </html>

@@ -2,11 +2,7 @@
   <tr>
     <td><h3>Detalhes de {{fornecedor.nome}}</h3></td>
     <td></td>
-  </tr>
-    <tr>
-    <td>Identificador:</td>
-    <td>{{fornecedor.id}}</td>
-  </tr>   
+    
   <tr>
     <td>CNPJ:</td>
     <td>{{fornecedor.cnpj}}</td>
@@ -25,27 +21,27 @@
   </tr>
   <tr>
     <td>País:</td>
-    <td>{{fornecedor.enderecoPais}}</td>
+    <td>{{fornecedor.endereco_Pais}}</td>
   </tr>
   <tr>
     <td>Estado:</td>
-    <td>{{fornecedor.enderecoEstado}}</td>
+    <td>{{fornecedor.endereco_Estado}}</td>
   </tr>
   <tr>
     <td>Cidade:</td>
-    <td>{{fornecedor.enderecoCidade}}</td>
+    <td>{{fornecedor.endereco_Cidade}}</td>
   </tr>    
     <tr>
     <td>Logradouro:</td>
-    <td>{{fornecedor.enderecoLogradouro}}</td>
+    <td>{{fornecedor.endereco_Logradouro}}</td>
   </tr> 
     <tr>
     <td>CEP:</td>
-    <td>{{fornecedor.enderecoCEP}}</td>
+    <td>{{fornecedor.endereco_CEP}}</td>
 
 
   
 </table>
 <div>
-  <a class="btn btn-primary" ui-sref="editarFornecedor({id:fornecedor.id})">Editar</a>
+  <a class="btn btn-primary" ui-sref="editarFornecedor({id:fornecedor.cnpj})">Editar</a>
 </div>

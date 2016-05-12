@@ -1,6 +1,6 @@
 angular.module('ModuloMateriaPrima.controllers', []).controller('MateriaPrimaListController', function($scope, $state, /*popupService, $window,*/ MateriaPrima) {
+  //document.write("Hello World!");
   $scope.materiasprimas = MateriaPrima.query(); //Busca todas matérias primas. Issues a GET to URI
-
   $scope.deletarMateriaPrima = function(materiaprima) { // Deletar matéria. Issues a DELETE to URI
    // if (popupService.showPopup('Quer mesmo deletar?')) {
   materiaprima.$delete(function() {

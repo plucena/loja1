@@ -7,7 +7,7 @@
   <tr ng-repeat="fornecedor in fornecedores">
     <td>{{fornecedor.nome}}</td>
     <td>
-      <a class="btn btn-primary" ui-sref="verFornecedor({id:fornecedor.id})">Ver</a>
+      <a class="btn btn-primary" ui-sref="verFornecedor({cnpj:fornecedor.cnpj})">Ver</a>
       <a class="btn btn-danger"  ng-click="inativarFornecedor(fornecedor)">
       	<font color="red">Inativar</font>
       </a>

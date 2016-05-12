@@ -6,7 +6,7 @@ angular.module('ModuloFornecedor.controllers', []).controller('FornecedorListCon
 	  
   //};
 }).controller('FornecedorViewController', function($scope, $stateParams, Fornecedor) {
-  $scope.fornecedor = Fornecedor.get({id: $stateParams.id }); //Mostrar as propriedades do fornecedor
+  $scope.fornecedor = Fornecedor.get({cnpj: $stateParams.cnpj }); //Mostrar as propriedades do fornecedor
 }).controller('FornecedorCreateController', function($scope, $state, $stateParams, Fornecedor) { //Adicionar fornecedor
   $scope.fornecedor = new Fornecedor();  //Criar nova instância de Fornecedor. As propriedades serão setadas pelo ng-model do UI.
 
@@ -23,7 +23,7 @@ angular.module('ModuloFornecedor.controllers', []).controller('FornecedorListCon
   };
 
   $scope.carregarFornecedor = function() { //Carregar fornecedor
-    $scope.fornecedor = Fornecedor.get({id: $stateParams.id});
+    $scope.fornecedor = Fornecedor.get({cnpj: $stateParams.cnpj});
   };
 
   $scope.carregarFornecedor();
