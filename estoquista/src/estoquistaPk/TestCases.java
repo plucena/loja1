@@ -14,12 +14,17 @@ public class TestCases{
 	public void test1()
 	{
 		estoquista oTestObject = new estoquista();
+		assertEquals(true, (oTestObject.state == State.idle));
+		oTestObject.handleEvent("activarEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		oTestObject.handleEvent("mostrarInativosEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
+		oTestObject.handleEvent("mostrarAtivosEvent");
+		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		oTestObject.handleEvent("alterarEvent");
 		assertEquals(true, (oTestObject.state == State.alterando));
-		oTestObject.handleEvent("fazerAlteraçoesEvent");
+		assertEquals(true, (oTestObject.status.booleanValue() == true));
+		oTestObject.handleEvent("fazerAlteraçoesAtivosEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		
 	}
@@ -28,13 +33,16 @@ public class TestCases{
 	public void test2()
 	{
 		estoquista oTestObject = new estoquista();
+		assertEquals(true, (oTestObject.state == State.idle));
+		oTestObject.handleEvent("activarEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		oTestObject.handleEvent("mostrarInativosEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
-		oTestObject.handleEvent("cadastrarEvent");
-		assertEquals(true, (oTestObject.state == State.cadastrando));
-		oTestObject.handleEvent("fazerCadastroEvent");
-		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
+		oTestObject.handleEvent("alterarEvent");
+		assertEquals(true, (oTestObject.state == State.alterando));
+		assertEquals(true, (oTestObject.status.booleanValue() == false));
+		oTestObject.handleEvent("fazerAlteraçoesInativosEvent");
+		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
 		
 	}
 	
@@ -42,10 +50,17 @@ public class TestCases{
 	public void test3()
 	{
 		estoquista oTestObject = new estoquista();
+		assertEquals(true, (oTestObject.state == State.idle));
+		oTestObject.handleEvent("activarEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		oTestObject.handleEvent("mostrarInativosEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
 		oTestObject.handleEvent("mostrarAtivosEvent");
+		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
+		oTestObject.handleEvent("cadastrarEvent");
+		assertEquals(true, (oTestObject.state == State.cadastrando));
+		assertEquals(true, (oTestObject.status.booleanValue() == true));
+		oTestObject.handleEvent("fazerCadastroAtivosEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		
 	}
@@ -54,11 +69,16 @@ public class TestCases{
 	public void test4()
 	{
 		estoquista oTestObject = new estoquista();
+		assertEquals(true, (oTestObject.state == State.idle));
+		oTestObject.handleEvent("activarEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
-		oTestObject.handleEvent("desativarEvent");
-		assertEquals(true, (oTestObject.state == State.desactivando));
-		oTestObject.handleEvent("fazerDesactivaçãoEvent");
-		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
+		oTestObject.handleEvent("mostrarInativosEvent");
+		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
+		oTestObject.handleEvent("cadastrarEvent");
+		assertEquals(true, (oTestObject.state == State.cadastrando));
+		assertEquals(true, (oTestObject.status.booleanValue() == false));
+		oTestObject.handleEvent("fazerCadastroInativosEvent");
+		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
 		
 	}
 	
@@ -66,30 +86,9 @@ public class TestCases{
 	public void test5()
 	{
 		estoquista oTestObject = new estoquista();
-		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
-		oTestObject.handleEvent("alterarEvent");
-		assertEquals(true, (oTestObject.state == State.alterando));
-		
-	}
-	
-	@Test
-	public void test6()
-	{
-		estoquista oTestObject = new estoquista();
-		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
-		oTestObject.handleEvent("cadastrarEvent");
-		assertEquals(true, (oTestObject.state == State.cadastrando));
-		
-	}
-	
-	@Test
-	public void test7()
-	{
-		estoquista oTestObject = new estoquista();
-		Boolean statusVal1 = true;
-		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
-		oTestObject.handleEvent("inicializarEvent", statusVal1);
-		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
+		assertEquals(true, (oTestObject.state == State.idle));
+		oTestObject.handleEvent("inicializarEvent");
+		assertEquals(true, (oTestObject.state == State.idle));
 		
 	}
 	
