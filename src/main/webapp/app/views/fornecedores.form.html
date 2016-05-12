@@ -48,6 +48,7 @@
                 <input id="input-prazoEntregaDias" name="prazoEntregaDias" required min="0" ng-model="fornecedor.prazoEntregaDias" type="number">
                 <div ng-messages="fornecedorForm.prazoEntregaDias.$error" ng-if="fornecedorForm.prazoEntregaDias.$dirty">
                     <div ng-message="required">Prazo de Entrega em Dias é um campo obrigatório!</div>
+                    <div ng-message="min">O Prazo de Entrega em Dias não pode ser negativo!</div>
                 </div>
             </md-input-container>
 
