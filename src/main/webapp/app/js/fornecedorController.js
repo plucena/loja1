@@ -50,8 +50,14 @@ app.controller('formFornecedorController', ['$scope', '$routeParams', '$location
         $scope.fornecedor = FornecedorFactory.fornecedor(
             {cnpj: $routeParams.cnpj},
             function success() {
+
+                $scope.fornecedor.cnpj = $scope.fornecedor.cnpj.substring(0, 2) + '.' + $scope.fornecedor.cnpj.substring(2, 5) + '.' + $scope.fornecedor.cnpj.substring(5, 8) + '/' + $scope.fornecedor.cnpj.substring(8, 12) + '-' + $scope.fornecedor.cnpj.substring(12, 14);
+                
+                $scope.fornecedor.endereco_CEP = $scope.fornecedor.endereco_CEP.substring(0, 2) + '.' + $scope.fornecedor.endereco_CEP.substring(2, 5) + '-' + $scope.fornecedor.endereco_CEP.substring(5, 8);
+
                 $scope.edicao = true;
                 $scope.buttonAction = 'Salvar';
+
             },
             function err() {
                 console.log('Erro ao buscar fornecedor!');
@@ -60,6 +66,10 @@ app.controller('formFornecedorController', ['$scope', '$routeParams', '$location
 
 
     $scope.salvarFornecedor = function () {
+
+        $scope.fornecedor.cnpj = $scope.fornecedor.cnpj.replace(/\D/g,'');
+        $scope.fornecedor.endereco_CEP = $scope.fornecedor.endereco_CEP.replace(/\D/g,'');
+
         if($scope.edicao) {
             FornecedorFactory.editar(
                 $scope.fornecedor,

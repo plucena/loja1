@@ -2,8 +2,8 @@ Validações (input type=""):
 
 CNPJ (text)
     required
-    minlength="14"
-    maxlength="14"
+    pattern="[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}"
+    (os símbolos são opcionais, mas para o back-end só vão e voltam os números)
 
 Nome (text)
     required
@@ -27,8 +27,9 @@ País (text)
     maxlength="255"
 
 CEP (text)
-    required
-    pattern="[0-9]{2}\.[0-9]{3}\-[0-9]{3}"
+    required (será mesmo required? e pra outros países?)
+    pattern="[0-9]{2}\.?[0-9]{3}\-?[0-9]{3}"
+    (os símbolos são opcionais, mas para o back-end só vão e voltam os números)
 
 Estado (text)
     required

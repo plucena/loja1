@@ -5,12 +5,11 @@
 
             <md-input-container class="md-block">
                 <label>CNPJ</label>
-                <input id="input-cnpj" name="cnpj" minlength="14" maxlength="14" required ng-model="fornecedor.cnpj" type="text" ng-disabled="edicao">
+                <input id="input-cnpj" name="cnpj" pattern="[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}" required ng-model="fornecedor.cnpj" type="text" ng-disabled="edicao">
                 <div class="hint">Somente números</div>
                 <div ng-messages="fornecedorForm.cnpj.$error" ng-if="fornecedorForm.cnpj.$dirty">
                     <div ng-message="required">CNPJ é um campo obrigatório!</div>
-                    <div ng-message="minlength">O CNPJ deve ter 14 dígitos!</div>
-                    <div ng-message="maxlength">O CNPJ deve ter 14 dígitos!</div>
+                    <div ng-message="pattern">O CNPJ fornecido é inválido!</div>
                 </div>
             </md-input-container>
 
@@ -66,12 +65,11 @@
 
                 <md-input-container class="md-block" flex>
                     <label>CEP</label>
-                    <input id="input.endereco_CEP" name="endereco_CEP" minlength="8" maxlength="8" required ng-model="fornecedor.endereco_CEP" type="text">
+                    <input id="input.endereco_CEP" name="endereco_CEP" pattern="[0-9]{2}\.?[0-9]{3}\-?[0-9]{3}" required ng-model="fornecedor.endereco_CEP" type="text">
                     <div class="hint">Somente números</div>
                     <div ng-messages="fornecedorForm.endereco_CEP.$error" ng-if="fornecedorForm.endereco_CEP.$dirty">
                         <div ng-message="required">CEP é um campo obrigatório!</div>
-                        <div ng-message="minlength">O CEP deve ter 8 dígitos!</div>
-                        <div ng-message="maxlength">O CEP deve ter 8 dígitos!</div>
+                        <div ng-message="pattern">O CEP fornecido é inválido!</div>
                     </div>
                 </md-input-container>
 
