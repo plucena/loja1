@@ -5,40 +5,44 @@
   </packageImport>
   <packagedElement xmi:type="uml:Package" xmi:id="_C5NWABdwEeaxeJv6REhAMQ" name="estoquistaPk">
     <packagedElement xmi:type="uml:Class" xmi:id="_Gd1TUBdwEeaxeJv6REhAMQ" name="estoquista">
-      <ownedAttribute xmi:id="_jdQTMBd0EeaxeJv6REhAMQ" name="state" type="_50q2kBdzEeaxeJv6REhAMQ"/>
+      <ownedAttribute xmi:id="_jdQTMBd0EeaxeJv6REhAMQ" name="state" type="_50q2kBdzEeaxeJv6REhAMQ">
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_k8xzEBhiEea48fNlrHwEZw" value="status=true"/>
+      </ownedAttribute>
       <ownedAttribute xmi:id="_kEEbkBd0EeaxeJv6REhAMQ" name="status">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        <defaultValue xmi:type="uml:LiteralString" xmi:id="_j0WrEBhlEea48fNlrHwEZw" value="status=statusVal"/>
       </ownedAttribute>
       <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_mVT3sBdvEeaxeJv6REhAMQ" name="estoquistaStateMachine">
         <region xmi:id="_mWlDABdvEeaxeJv6REhAMQ" name="estoquistaRegion">
-          <transition xmi:id="_lqH98Bd1EeaxeJv6REhAMQ" name="init2mostrandoFornecedores" source="_Imz8kBdxEeaxeJv6REhAMQ" target="_SfvmABdwEeaxeJv6REhAMQ"/>
-          <transition xmi:id="_FFMTIBd1EeaxeJv6REhAMQ" name="mostrandoAtivos2mostrandoAtivos" source="_SfvmABdwEeaxeJv6REhAMQ" target="_SfvmABdwEeaxeJv6REhAMQ">
-            <effect xmi:type="uml:FunctionBehavior" xmi:id="_Ccwb0Bd2EeaxeJv6REhAMQ" name="inicializar" specification="_2iY7kBd1EeaxeJv6REhAMQ"/>
-            <trigger xmi:id="_BjQA8Bd2EeaxeJv6REhAMQ" event="_sxjToBd1EeaxeJv6REhAMQ"/>
+          <transition xmi:id="_wqVv8BhuEea48fNlrHwEZw" name="idle2idle" source="_LrFg0BhsEea48fNlrHwEZw" target="_LrFg0BhsEea48fNlrHwEZw">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_EkfKMBhvEea48fNlrHwEZw" name="inicializar" specification="_2iY7kBd1EeaxeJv6REhAMQ"/>
+            <trigger xmi:id="_DvbxgBhvEea48fNlrHwEZw" event="_sxjToBd1EeaxeJv6REhAMQ"/>
           </transition>
-          <transition xmi:id="_PyBmEBdxEeaxeJv6REhAMQ" name="mostrando2cadastrando" source="_SfvmABdwEeaxeJv6REhAMQ" target="_YVMWcBdwEeaxeJv6REhAMQ">
+          <transition xmi:id="_y8YrEBhuEea48fNlrHwEZw" name="idle2mostrandoAtivos" source="_LrFg0BhsEea48fNlrHwEZw" target="_SfvmABdwEeaxeJv6REhAMQ">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_FpLhYBhvEea48fNlrHwEZw" name="activar" specification="_-57bIBhuEea48fNlrHwEZw"/>
+            <trigger xmi:id="_FE-BEBhvEea48fNlrHwEZw" event="_8JsIIBhuEea48fNlrHwEZw"/>
+          </transition>
+          <transition xmi:id="_PyBmEBdxEeaxeJv6REhAMQ" name="mostrandoAtivos2cadastrando" source="_SfvmABdwEeaxeJv6REhAMQ" target="_YVMWcBdwEeaxeJv6REhAMQ">
             <effect xmi:type="uml:FunctionBehavior" xmi:id="_pSL0UBd2EeaxeJv6REhAMQ" name="cadastrar" specification="_lvE58Bd2EeaxeJv6REhAMQ"/>
             <trigger xmi:id="_olpecBd2EeaxeJv6REhAMQ" name="" event="_jd5hgBd2EeaxeJv6REhAMQ"/>
           </transition>
-          <transition xmi:id="_xwq10BdxEeaxeJv6REhAMQ" name="cadastrando2mostrando" source="_YVMWcBdwEeaxeJv6REhAMQ" target="_SfvmABdwEeaxeJv6REhAMQ">
-            <effect xmi:type="uml:FunctionBehavior" xmi:id="_rehBoBd5EeaxeJv6REhAMQ" name="fazerCadastro" specification="_mS_X8Bd5EeaxeJv6REhAMQ"/>
-            <trigger xmi:id="_qyvgwBd5EeaxeJv6REhAMQ" event="_jvSsIBd5EeaxeJv6REhAMQ"/>
-          </transition>
-          <transition xmi:id="_lBoh8BdyEeaxeJv6REhAMQ" name="mostrando2alterando" source="_SfvmABdwEeaxeJv6REhAMQ" target="_cAbSEBdwEeaxeJv6REhAMQ">
+          <transition xmi:id="_lBoh8BdyEeaxeJv6REhAMQ" name="mostrandoAtivos2alterando" source="_SfvmABdwEeaxeJv6REhAMQ" target="_cAbSEBdwEeaxeJv6REhAMQ">
             <effect xmi:type="uml:FunctionBehavior" xmi:id="_G5M8gBd3EeaxeJv6REhAMQ" name="alterar" specification="_BPGgcBd3EeaxeJv6REhAMQ"/>
             <trigger xmi:id="_GM6eQBd3EeaxeJv6REhAMQ" event="__GcK0Bd2EeaxeJv6REhAMQ"/>
           </transition>
-          <transition xmi:id="_qi2OIBd6EeaxeJv6REhAMQ" name="alterando2mostrando" source="_cAbSEBdwEeaxeJv6REhAMQ" target="_SfvmABdwEeaxeJv6REhAMQ">
+          <transition xmi:id="_xwq10BdxEeaxeJv6REhAMQ" name="cadastrando2mostrandoAtivos" guard="_keKZ4BhhEea48fNlrHwEZw" source="_YVMWcBdwEeaxeJv6REhAMQ" target="_SfvmABdwEeaxeJv6REhAMQ">
+            <ownedRule xmi:id="_keKZ4BhhEea48fNlrHwEZw">
+              <specification xmi:type="uml:LiteralString" xmi:id="_lO5TQBhhEea48fNlrHwEZw" value="status=true"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_rehBoBd5EeaxeJv6REhAMQ" name="fazerCadastro" specification="_mS_X8Bd5EeaxeJv6REhAMQ"/>
+            <trigger xmi:id="_qyvgwBd5EeaxeJv6REhAMQ" event="_jvSsIBd5EeaxeJv6REhAMQ"/>
+          </transition>
+          <transition xmi:id="_qi2OIBd6EeaxeJv6REhAMQ" name="alterando2mostrandoAtivos" guard="_oPldEBhhEea48fNlrHwEZw" source="_cAbSEBdwEeaxeJv6REhAMQ" target="_SfvmABdwEeaxeJv6REhAMQ">
+            <ownedRule xmi:id="_oPldEBhhEea48fNlrHwEZw">
+              <specification xmi:type="uml:LiteralString" xmi:id="_o6pzUBhhEea48fNlrHwEZw" value="status=true"/>
+            </ownedRule>
             <effect xmi:type="uml:FunctionBehavior" xmi:id="_8ActcBd6EeaxeJv6REhAMQ" name="fazerAlteraçoes" specification="_z7TyUBd6EeaxeJv6REhAMQ"/>
             <trigger xmi:id="_55scUBd6EeaxeJv6REhAMQ" event="_x9sPEBd6EeaxeJv6REhAMQ"/>
-          </transition>
-          <transition xmi:id="_YCadABdzEeaxeJv6REhAMQ" name="mostrando2desactivando" source="_SfvmABdwEeaxeJv6REhAMQ" target="_fuEogBdwEeaxeJv6REhAMQ">
-            <effect xmi:type="uml:FunctionBehavior" xmi:id="_YLvbUBd3EeaxeJv6REhAMQ" name="desativar" specification="_SH2mQBd3EeaxeJv6REhAMQ"/>
-            <trigger xmi:id="_XeukUBd3EeaxeJv6REhAMQ" event="_Px-UABd3EeaxeJv6REhAMQ"/>
-          </transition>
-          <transition xmi:id="_PfDbMBd7EeaxeJv6REhAMQ" name="desactivando2mostrando" source="_fuEogBdwEeaxeJv6REhAMQ" target="_SfvmABdwEeaxeJv6REhAMQ">
-            <effect xmi:type="uml:FunctionBehavior" xmi:id="_sNLzkBd7EeaxeJv6REhAMQ" name="fazerDesactivação" specification="_oAUxkBd7EeaxeJv6REhAMQ"/>
-            <trigger xmi:id="_rpM8wBd7EeaxeJv6REhAMQ" event="_lNmyUBd7EeaxeJv6REhAMQ"/>
           </transition>
           <transition xmi:id="_X1tbIBfeEeay99QotjYoOQ" name="mostrandoAtivos2mostrandoInativos" source="_SfvmABdwEeaxeJv6REhAMQ" target="_StvbwBfeEeay99QotjYoOQ">
             <effect xmi:type="uml:FunctionBehavior" xmi:id="_dspHYBfgEeay99QotjYoOQ" name="mostrarInativos" specification="_Q-bvYBfgEeay99QotjYoOQ"/>
@@ -56,9 +60,35 @@
             <effect xmi:type="uml:FunctionBehavior" xmi:id="_ND1d4BfnEeay99QotjYoOQ" name="alterar" specification="_BPGgcBd3EeaxeJv6REhAMQ"/>
             <trigger xmi:id="_Me6y8BfnEeay99QotjYoOQ" event="__GcK0Bd2EeaxeJv6REhAMQ"/>
           </transition>
+          <transition xmi:id="_31_RkBheEea48fNlrHwEZw" name="cadastrando2mostrandoInativos" guard="_U8ctkBhjEea48fNlrHwEZw" source="_YVMWcBdwEeaxeJv6REhAMQ" target="_StvbwBfeEeay99QotjYoOQ">
+            <ownedRule xmi:id="_U8ctkBhjEea48fNlrHwEZw">
+              <specification xmi:type="uml:LiteralString" xmi:id="_VjVucBhjEea48fNlrHwEZw" value="status=false"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_E0AnMBhfEea48fNlrHwEZw" name="fazerCadastro" specification="_mS_X8Bd5EeaxeJv6REhAMQ"/>
+            <trigger xmi:id="_EDlP0BhfEea48fNlrHwEZw" event="_8rYcwBhqEea48fNlrHwEZw"/>
+          </transition>
+          <transition xmi:id="_xXXBQBheEea48fNlrHwEZw" name="alterando2mostrandoInativos" guard="_XbZcQBhjEea48fNlrHwEZw" source="_cAbSEBdwEeaxeJv6REhAMQ" target="_StvbwBfeEeay99QotjYoOQ">
+            <ownedRule xmi:id="_XbZcQBhjEea48fNlrHwEZw">
+              <specification xmi:type="uml:LiteralString" xmi:id="_YEhRwBhjEea48fNlrHwEZw" value="status=false"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_NljVUBhfEea48fNlrHwEZw" name="fazerAlteraçoes" specification="_z7TyUBd6EeaxeJv6REhAMQ"/>
+            <trigger xmi:id="_M7YW8BhfEea48fNlrHwEZw" event="_OAThMBhrEea48fNlrHwEZw"/>
+          </transition>
+          <transition xmi:id="_NGGtUBhsEea48fNlrHwEZw" name="init2idle" source="_Imz8kBdxEeaxeJv6REhAMQ" target="_LrFg0BhsEea48fNlrHwEZw"/>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_Imz8kBdxEeaxeJv6REhAMQ" name="init"/>
+          <subvertex xmi:type="uml:State" xmi:id="_LrFg0BhsEea48fNlrHwEZw" name="idle" stateInvariant="_amBuwBhvEea48fNlrHwEZw">
+            <ownedRule xmi:id="_amBuwBhvEea48fNlrHwEZw">
+              <specification xmi:type="uml:LiteralString" xmi:id="_bK1E8BhvEea48fNlrHwEZw" value="state=State::idle"/>
+            </ownedRule>
+          </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_SfvmABdwEeaxeJv6REhAMQ" name="mostrandoAtivos" stateInvariant="_uUeUYBd0EeaxeJv6REhAMQ">
             <ownedRule xmi:id="_uUeUYBd0EeaxeJv6REhAMQ">
               <specification xmi:type="uml:LiteralString" xmi:id="_u-JjgBd0EeaxeJv6REhAMQ" value="state=State::mostrandoAtivos"/>
+            </ownedRule>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_StvbwBfeEeay99QotjYoOQ" name="mostrandoInativos" stateInvariant="_rtNxEBfeEeay99QotjYoOQ">
+            <ownedRule xmi:id="_rtNxEBfeEeay99QotjYoOQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_shGFEBfeEeay99QotjYoOQ" name="" value="state=State::mostrandoInativos"/>
             </ownedRule>
           </subvertex>
           <subvertex xmi:type="uml:State" xmi:id="_YVMWcBdwEeaxeJv6REhAMQ" name="cadastrando" stateInvariant="_yu87oBd0EeaxeJv6REhAMQ">
@@ -76,30 +106,28 @@
               <specification xmi:type="uml:LiteralString" xmi:id="_3qg2sBd0EeaxeJv6REhAMQ" value="state=State::desactivando"/>
             </ownedRule>
           </subvertex>
-          <subvertex xmi:type="uml:State" xmi:id="_StvbwBfeEeay99QotjYoOQ" name="mostrandoInativos" stateInvariant="_rtNxEBfeEeay99QotjYoOQ">
-            <ownedRule xmi:id="_rtNxEBfeEeay99QotjYoOQ">
-              <specification xmi:type="uml:LiteralString" xmi:id="_shGFEBfeEeay99QotjYoOQ" name="" value="state=State::mostrandoInativos"/>
-            </ownedRule>
-          </subvertex>
-          <subvertex xmi:type="uml:Pseudostate" xmi:id="_Imz8kBdxEeaxeJv6REhAMQ" name="init"/>
         </region>
       </ownedBehavior>
-      <ownedOperation xmi:id="_2iY7kBd1EeaxeJv6REhAMQ" name="inicializarOp" method="_Ccwb0Bd2EeaxeJv6REhAMQ" postcondition="_8gt7MBd1EeaxeJv6REhAMQ">
-        <ownedRule xmi:id="_8gt7MBd1EeaxeJv6REhAMQ">
-          <specification xmi:type="uml:LiteralString" xmi:id="_9H_9oBd1EeaxeJv6REhAMQ" value="status=statusVal"/>
+      <ownedOperation xmi:id="_2iY7kBd1EeaxeJv6REhAMQ" name="inicializarOp" method="_EkfKMBhvEea48fNlrHwEZw" postcondition="_K5MYkBhmEea48fNlrHwEZw">
+        <ownedRule xmi:id="_K5MYkBhmEea48fNlrHwEZw">
+          <specification xmi:type="uml:LiteralString" xmi:id="_LfeVcBhmEea48fNlrHwEZw" value="status=true"/>
         </ownedRule>
-        <ownedParameter xmi:id="_5-HbkBd1EeaxeJv6REhAMQ" name="statusVal">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
-        </ownedParameter>
       </ownedOperation>
       <ownedOperation xmi:id="_lvE58Bd2EeaxeJv6REhAMQ" name="cadastrarOp" method="_pSL0UBd2EeaxeJv6REhAMQ _FAM-oBfnEeay99QotjYoOQ"/>
       <ownedOperation xmi:id="_BPGgcBd3EeaxeJv6REhAMQ" name="alterarOp" method="_G5M8gBd3EeaxeJv6REhAMQ _ND1d4BfnEeay99QotjYoOQ"/>
-      <ownedOperation xmi:id="_SH2mQBd3EeaxeJv6REhAMQ" name="desativarOp" method="_YLvbUBd3EeaxeJv6REhAMQ"/>
-      <ownedOperation xmi:id="_mS_X8Bd5EeaxeJv6REhAMQ" name="fazerCadastroOp" method="_rehBoBd5EeaxeJv6REhAMQ"/>
-      <ownedOperation xmi:id="_z7TyUBd6EeaxeJv6REhAMQ" name="fazerAlteraçoesOp" method="_8ActcBd6EeaxeJv6REhAMQ"/>
-      <ownedOperation xmi:id="_oAUxkBd7EeaxeJv6REhAMQ" name="fazerDesactivaçãoOp" method="_sNLzkBd7EeaxeJv6REhAMQ"/>
-      <ownedOperation xmi:id="_P5CNkBfgEeay99QotjYoOQ" name="mostrarAtivosOp" method="_eyKlABfgEeay99QotjYoOQ"/>
-      <ownedOperation xmi:id="_Q-bvYBfgEeay99QotjYoOQ" name="mostrarInativosOp" method="_dspHYBfgEeay99QotjYoOQ"/>
+      <ownedOperation xmi:id="_mS_X8Bd5EeaxeJv6REhAMQ" name="fazerCadastroOp" method="_rehBoBd5EeaxeJv6REhAMQ _E0AnMBhfEea48fNlrHwEZw"/>
+      <ownedOperation xmi:id="_z7TyUBd6EeaxeJv6REhAMQ" name="fazerAlteraçoesOp" method="_8ActcBd6EeaxeJv6REhAMQ _NljVUBhfEea48fNlrHwEZw"/>
+      <ownedOperation xmi:id="_P5CNkBfgEeay99QotjYoOQ" name="mostrarAtivosOp" method="_eyKlABfgEeay99QotjYoOQ" postcondition="_0W20EBhlEea48fNlrHwEZw">
+        <ownedRule xmi:id="_0W20EBhlEea48fNlrHwEZw">
+          <specification xmi:type="uml:LiteralString" xmi:id="_0_F4wBhlEea48fNlrHwEZw" value="status=true"/>
+        </ownedRule>
+      </ownedOperation>
+      <ownedOperation xmi:id="_Q-bvYBfgEeay99QotjYoOQ" name="mostrarInativosOp" method="_dspHYBfgEeay99QotjYoOQ" postcondition="_xw--ABhlEea48fNlrHwEZw">
+        <ownedRule xmi:id="_xw--ABhlEea48fNlrHwEZw">
+          <specification xmi:type="uml:LiteralString" xmi:id="_yXSJABhlEea48fNlrHwEZw" value="status=false"/>
+        </ownedRule>
+      </ownedOperation>
+      <ownedOperation xmi:id="_-57bIBhuEea48fNlrHwEZw" name="activarOp" method="_FpLhYBhvEea48fNlrHwEZw"/>
     </packagedElement>
     <packagedElement xmi:type="uml:Enumeration" xmi:id="_50q2kBdzEeaxeJv6REhAMQ" name="State">
       <ownedLiteral xmi:id="_8GQesBdzEeaxeJv6REhAMQ" name="mostrandoAtivos"/>
@@ -107,16 +135,18 @@
       <ownedLiteral xmi:id="_9DMBABdzEeaxeJv6REhAMQ" name="alterando"/>
       <ownedLiteral xmi:id="_9wImkBdzEeaxeJv6REhAMQ" name="desactivando"/>
       <ownedLiteral xmi:id="_okj-EBfeEeay99QotjYoOQ" name="mostrandoInativos"/>
+      <ownedLiteral xmi:id="_ISkF0BhsEea48fNlrHwEZw" name="idle"/>
     </packagedElement>
     <packagedElement xmi:type="uml:CallEvent" xmi:id="_sxjToBd1EeaxeJv6REhAMQ" name="inicializarEvent" operation="_2iY7kBd1EeaxeJv6REhAMQ"/>
     <packagedElement xmi:type="uml:CallEvent" xmi:id="_jd5hgBd2EeaxeJv6REhAMQ" name="cadastrarEvent" operation="_lvE58Bd2EeaxeJv6REhAMQ"/>
     <packagedElement xmi:type="uml:CallEvent" xmi:id="__GcK0Bd2EeaxeJv6REhAMQ" name="alterarEvent" operation="_BPGgcBd3EeaxeJv6REhAMQ"/>
-    <packagedElement xmi:type="uml:CallEvent" xmi:id="_Px-UABd3EeaxeJv6REhAMQ" name="desativarEvent" operation="_SH2mQBd3EeaxeJv6REhAMQ"/>
-    <packagedElement xmi:type="uml:CallEvent" xmi:id="_jvSsIBd5EeaxeJv6REhAMQ" name="fazerCadastroEvent" operation="_mS_X8Bd5EeaxeJv6REhAMQ"/>
-    <packagedElement xmi:type="uml:CallEvent" xmi:id="_x9sPEBd6EeaxeJv6REhAMQ" name="fazerAlteraçoesEvent" operation="_z7TyUBd6EeaxeJv6REhAMQ"/>
-    <packagedElement xmi:type="uml:CallEvent" xmi:id="_lNmyUBd7EeaxeJv6REhAMQ" name="fazerDesactivaçãoEvent" operation="_oAUxkBd7EeaxeJv6REhAMQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_jvSsIBd5EeaxeJv6REhAMQ" name="fazerCadastroAtivosEvent" operation="_mS_X8Bd5EeaxeJv6REhAMQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_x9sPEBd6EeaxeJv6REhAMQ" name="fazerAlteraçoesAtivosEvent" operation="_z7TyUBd6EeaxeJv6REhAMQ"/>
     <packagedElement xmi:type="uml:CallEvent" xmi:id="_A_b8EBfgEeay99QotjYoOQ" name="mostrarAtivosEvent" operation="_P5CNkBfgEeay99QotjYoOQ"/>
     <packagedElement xmi:type="uml:CallEvent" xmi:id="_CFSJ0BfgEeay99QotjYoOQ" name="mostrarInativosEvent" operation="_Q-bvYBfgEeay99QotjYoOQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_8rYcwBhqEea48fNlrHwEZw" name="fazerCadastroInativosEvent" operation="_mS_X8Bd5EeaxeJv6REhAMQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_OAThMBhrEea48fNlrHwEZw" name="fazerAlteraçoesInativosEvent" operation="_z7TyUBd6EeaxeJv6REhAMQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_8JsIIBhuEea48fNlrHwEZw" name="activarEvent" operation="_-57bIBhuEea48fNlrHwEZw"/>
   </packagedElement>
   <profileApplication xmi:id="_xHdWMBdwEeaxeJv6REhAMQ">
     <eAnnotations xmi:id="_xHekUBdwEeaxeJv6REhAMQ" source="http://www.eclipse.org/uml2/2.0.0/UML">

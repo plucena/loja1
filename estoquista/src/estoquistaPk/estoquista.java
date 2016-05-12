@@ -1,6 +1,7 @@
 package estoquistaPk;
 
 
+
 public class estoquista  extends java.lang.Object implements java.lang.Cloneable  {
 
 	
@@ -9,7 +10,7 @@ public class estoquista  extends java.lang.Object implements java.lang.Cloneable
 	
 	public estoquista()
 	{
-		state = State.mostrandoAtivos;
+		state = State.idle;
 		
 	}
 	
@@ -32,10 +33,21 @@ public class estoquista  extends java.lang.Object implements java.lang.Cloneable
 		{
 			String sEventName = (String)in_colObject[0];
 			
-			if((state == State.mostrandoAtivos) && (sEventName.compareTo("inicializarEvent") == 0))
+			if((state == State.idle) && (sEventName.compareTo("inicializarEvent") == 0))
 			{
-				status = ((Boolean)in_colObject[1]).booleanValue();
-	
+				state = State.idle;
+				
+			
+			}
+			
+			
+			else if((state == State.idle) && (sEventName.compareTo("activarEvent") == 0))
+			{		
+				if (activar()) {
+					state = State.mostrandoAtivos;
+				} else {
+					state = State.idle;
+				}
 			}
 			
 			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("cadastrarEvent") == 0))
@@ -44,75 +56,6 @@ public class estoquista  extends java.lang.Object implements java.lang.Cloneable
 					state = State.cadastrando;
 				} else {
 					state = State.mostrandoAtivos;
-				}
-			}
-			
-			
-			else if((state == State.cadastrando) && (sEventName.compareTo("fazerCadastroEvent") == 0))
-			{		
-				if (fazerCadastro()) {
-					state = State.mostrandoAtivos;
-				} else {
-					state = State.cadastrando;
-				}
-			}
-			
-			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("alterarEvent") == 0))
-			{		
-				if (alterar()) {
-					state = State.alterando;
-				} else {
-					state = State.mostrandoAtivos;
-				}
-			}
-			
-			
-			else if((state == State.alterando) && (sEventName.compareTo("fazerAlteraçoesEvent") == 0))
-			{		
-				if (fazerAlteraçoes()) {
-					state = State.mostrandoAtivos;
-				} else {
-					state = State.alterando;
-				}
-			}
-			
-			
-			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("desativarEvent") == 0))
-			{		
-				if (desativar()) {
-					state = State.desactivando;
-				} else {
-					state = State.mostrandoAtivos;
-				}
-			}
-			
-			
-			else if((state == State.desactivando) && (sEventName.compareTo("fazerDesactivaçãoEvent") == 0))
-			{		
-				if (fazerDesactivação()) {
-					state = State.mostrandoAtivos;
-				} else {
-					state = State.desactivando;
-				}
-			}
-			
-			
-			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("mostrarInativosEvent") == 0))
-			{		
-				if (mostrarInativos()) {
-					state = State.mostrandoInativos;
-				} else {
-					state = State.mostrandoAtivos;
-				}
-			}
-			
-			
-			else if((state == State.mostrandoInativos) && (sEventName.compareTo("mostrarAtivosEvent") == 0))
-			{		
-				if (mostrarAtivos()) {
-					state = State.mostrandoAtivos;
-				} else {
-					state = State.mostrandoInativos;
 				}
 			}
 			
@@ -126,6 +69,38 @@ public class estoquista  extends java.lang.Object implements java.lang.Cloneable
 				}
 			}
 			
+						
+			else if((state == State.cadastrando) && (sEventName.compareTo("fazerCadastroAtivosEvent") == 0))
+			{		
+				if (fazerCadastroAtivos()) {
+					state = State.mostrandoAtivos;
+				} else {
+					state = State.cadastrando;
+				}
+			}
+			
+		
+		else if((state == State.cadastrando) && (sEventName.compareTo("fazerCadastroInativosEvent") == 0))
+		{		
+			if (fazerCadastroInativos()) {
+				state = State.mostrandoInativos;
+			} else {
+				state = State.cadastrando;
+			}
+		}
+		
+							
+			
+			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("alterarEvent") == 0))
+			{		
+				if (alterar()) {
+					state = State.alterando;
+				} else {
+					state = State.mostrandoAtivos;
+				}
+			}
+			
+			
 			else if((state == State.mostrandoInativos) && (sEventName.compareTo("alterarEvent") == 0))
 			{		
 				if (alterar()) {
@@ -137,9 +112,63 @@ public class estoquista  extends java.lang.Object implements java.lang.Cloneable
 			
 			
 			
+			else if((state == State.alterando) && (sEventName.compareTo("fazerAlteraçoesAtivosEvent") == 0))
+			{		
+				if (fazerAlteraçoesAtivos()) {
+					state = State.mostrandoAtivos;
+				} else {
+					state = State.alterando;
+				}
+			}
+			
+			else if((state == State.alterando) && (sEventName.compareTo("fazerAlteraçoesInativosEvent") == 0))
+			{		
+				if (fazerAlteraçoesInativos()) {
+					state = State.mostrandoInativos;
+				} else {
+					state = State.alterando;
+				}
+			}
+			
+		
+		
+			
+			
+			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("mostrarInativosEvent") == 0))
+			{		
+				if (mostrarInativos()) {
+					state = State.mostrandoInativos;
+					status=false;
+				} else {
+					state = State.mostrandoAtivos;
+				}
+			}
+			
+			
+			else if((state == State.mostrandoInativos) && (sEventName.compareTo("mostrarAtivosEvent") == 0))
+			{		
+				if (mostrarAtivos()) {
+					state = State.mostrandoAtivos;
+					status=true;
+				} else {
+					state = State.mostrandoInativos;
+				}
+			}
+			
+			
+		
+		
+			
+			
 			}
 		}
 	
+	
+	public Boolean activar()
+	{
+		return true;
+		//return adaptador.activado();
+	}
 	
 	public Boolean cadastrar()
 	{
@@ -147,11 +176,24 @@ public class estoquista  extends java.lang.Object implements java.lang.Cloneable
 		//return adaptador.activado();
 	}
 	
-	public Boolean fazerAlteraçoes()
+	public Boolean fazerCadastroAtivos()
 	{
+		if(status == true)
 		return true;
+		else
+		return false;	
 		//return adaptador.activado();
 	}
+	
+	public Boolean fazerCadastroInativos()
+	{
+		if(status == false)
+		return true;
+		else
+		return false;	
+		//return adaptador.activado();
+	}
+	
 	
 	public Boolean alterar()
 	{
@@ -159,23 +201,25 @@ public class estoquista  extends java.lang.Object implements java.lang.Cloneable
 		//return adaptador.activado();
 	}
 	
-	public Boolean fazerCadastro()
+	
+	public Boolean fazerAlteraçoesAtivos()
 	{
-		return true;
-		//return adaptador.activado();
+		    if(status == true)
+			return true;
+			else
+			return false;	
+			//return adaptador.activado();
 	}
 	
-	public Boolean desativar()
+	public Boolean fazerAlteraçoesInativos()
 	{
-		return true;
-		//return adaptador.activado();
+		    if(status == false)
+			return true;
+			else
+			return false;	
+			//return adaptador.activado();
 	}
 	
-	public Boolean fazerDesactivação()
-	{
-		return true;
-		//return adaptador.activado();
-	}
 	
 	public Boolean mostrarAtivos()
 	{
