@@ -5,7 +5,7 @@ import java.util.Random;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -19,10 +19,7 @@ public class CadastroFornecedorEx {
 	private static WebElement foundElement;
 
 	public static void main(String[] args) {
-		// path do chromedriver
-		System.setProperty("webdriver.chrome.driver",
-				"/home/lucas/Downloads/chromedriver");
-		driver = new ChromeDriver();
+		driver = new FirefoxDriver();
 		wait = new WebDriverWait(driver, 30);
 		driver.get("http://loja.mybluemix.net/app/#/fornecedores");
 
