@@ -24,7 +24,7 @@ public class TestCases{
 		oTestObject.handleEvent("alterarEvent");
 		assertEquals(true, (oTestObject.state == State.alterando));
 		assertEquals(true, (oTestObject.status.booleanValue() == true));
-		oTestObject.handleEvent("fazerAlteraçoesAtivosEvent");
+		oTestObject.handleEvent("fazerAlteracoesAtivosEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		
 	}
@@ -41,7 +41,7 @@ public class TestCases{
 		oTestObject.handleEvent("alterarEvent");
 		assertEquals(true, (oTestObject.state == State.alterando));
 		assertEquals(true, (oTestObject.status.booleanValue() == false));
-		oTestObject.handleEvent("fazerAlteraçoesInativosEvent");
+		oTestObject.handleEvent("fazerAlteracoesInativosEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
 		
 	}
