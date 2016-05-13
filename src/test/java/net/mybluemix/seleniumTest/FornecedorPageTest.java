@@ -16,10 +16,11 @@ public class FornecedorPageTest {
 		result = FornecedorPageTest.listarFornecedoresInativosTest() ? "Success!" : "Failure!";
 		System.out.println("listarFornecedoresInativosTest(): " + result);
 
-		result = FornecedorPageTest.cadastroFornecedorTest() ? "Success!" : "Failure!";
+		result = FornecedorPageTest.cadastrarFornecedorTest() ? "Success!" : "Failure!";
 		System.out.println("cadastroFornecedorTest(): " + result);
 
-		// TODO: chamar demais testes para exercitar outros estados
+		result = FornecedorPageTest.alterarFornecedorTest() ? "Success!" : "Failure!";
+		System.out.println("alterarFornecedorTest(): " + result);
 
 	}
 
@@ -29,7 +30,7 @@ public class FornecedorPageTest {
 
 		try {
 
-			fornecedorPage.listarAtivos().click();
+			fornecedorPage.listarAtivos();
 			if (fornecedorPage.estaListandoAtivos()) {
 				return true;
 			} else {
@@ -53,7 +54,7 @@ public class FornecedorPageTest {
 
 		try {
 
-			fornecedorPage.listarInativos().click();
+			fornecedorPage.listarInativos();
 			if (fornecedorPage.estaListandoInativos()) {
 				return true;
 			} else {
@@ -71,7 +72,7 @@ public class FornecedorPageTest {
 		}
 	}
 
-	public static boolean cadastroFornecedorTest() {
+	public static boolean cadastrarFornecedorTest() {
 
 		Random random = new Random();
 		char[] digits = new char[14];
@@ -109,5 +110,31 @@ public class FornecedorPageTest {
 
 		}
 	}
+	
+	public static boolean alterarFornecedorTest() {
+		
+		String cnpj = "99999999999999";
+		
+		FornecedorPage fornecedorPage = new FornecedorPage();
+		
+		try {
 
+			fornecedorPage.fornecedor(cnpj).click();
+			Thread.sleep(3000);
+			fornecedorPage.campoAtivo().click();
+			fornecedorPage.botaoSalvarFornecedor().click();
+			
+			return fornecedorPage.existeFornecedor(cnpj);
+
+		} catch (InterruptedException e) {
+
+			return false;
+
+		} finally {
+
+			fornecedorPage.fecharPagina();
+
+		}
+	}
+	
 }
