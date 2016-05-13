@@ -16,16 +16,26 @@ public class FornecedorPage {
 		driver.get(this.url);
 	}
 	
-	public void closeDriver() {
+	public void fecharPagina() {
 		driver.close();
 	}
 
-	public WebElement abaAtivos() throws InterruptedException {
+	public WebElement listarAtivos() throws InterruptedException {
 		return element = findWithDelay(By.xpath("//*[contains(text(), 'Ativos')]"), driver);
 	}
+	
+	public boolean estaListandoAtivos() throws InterruptedException {
+		element = findWithDelay(By.xpath("//md-tab-item[@class='md-active']/span"), driver);
+		return element.getText().contains("ATIVOS");
+	}
 
-	public WebElement abaInativos() throws InterruptedException {
+	public WebElement listarInativos() throws InterruptedException {
 		return element = findWithDelay(By.xpath("//*[contains(text(), 'Inativos')]"), driver);
+	}
+
+	public boolean estaListandoInativos() throws InterruptedException {
+		element = findWithDelay(By.xpath("//md-tab-item[@class='md-active']/span"), driver);
+		return element.getText().contains("INATIVOS");
 	}
 
 	public WebElement botaoNovoFornecedor() throws InterruptedException {
@@ -84,13 +94,13 @@ public class FornecedorPage {
 		String cnpjWithMask = cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "." + cnpj.substring(5, 8) + "/"
 				+ cnpj.substring(8, 12) + "-" + cnpj.substring(12, 14);
 
-		element = this.abaAtivos();
+		element = this.listarAtivos();
 		element.click();
 		element = findWithDelay(By.tagName("md-card"), driver);
 		if (element.getText().contains(cnpjWithMask)) {
 			return true;
 		} else {
-			element = this.abaInativos();
+			element = this.listarInativos();
 			element.click();
 			element = findWithDelay(By.tagName("md-card"), driver);
 			if (element.getText().contains(cnpjWithMask)) {
