@@ -75,7 +75,7 @@ app.controller('formFornecedorController', ['$scope', '$routeParams', '$location
                 $scope.fornecedor,
                 function success() {
                     $scope.showToast('Fornecedor editado com sucesso!');
-                    $location.path('#/fornecedores');
+                    $location.path('/fornecedores');
                 },
                 function err() {
                     console.log('Erro ao editar fornecedor!');
@@ -85,7 +85,7 @@ app.controller('formFornecedorController', ['$scope', '$routeParams', '$location
                 $scope.fornecedor,
                 function success() {
                     $scope.showToast('Fornecedor cadastrado com sucesso!');
-                    $location.path('#/fornecedores');
+                    $location.path('/fornecedores');
                 },
                 function err() {
                     console.log('Erro ao cadastrar fornecedor!');
