@@ -1,23 +1,38 @@
 package estoquistaPk;
 
+import net.mybluemix.seleniumTest.FornecedorPageAdapter;
 
-
-public class estoquista  extends java.lang.Object implements java.lang.Cloneable  {
+public class Estoquista  extends java.lang.Object implements java.lang.Cloneable  {
 
 	
 	public State state;
 	public Boolean status;
+	public Boolean ativo;
+	public Integer cnpj;
+	public Integer nome;
+	public Integer email;
+	public Integer telefone;
+	public Integer prazoEntregaDias;
+	public Integer endereco_Pais;
+	public Integer endereco_Estado;
+	public Integer endereco_Cidade;
+	public Integer endereco_Logradouro;
+	public Integer endereco_CEP;
 	
-	public estoquista()
+	public AdapterInterface adapter;
+	
+	
+	public Estoquista()
 	{
-		state = State.idle;
+		state = State.mostrandoAtivos;
+		adapter = new FornecedorPageAdapter();
 		
 	}
 	
-	public estoquista clone()
+	public Estoquista clone()
 	{
 		try {
-			return (estoquista)super.clone();
+			return (Estoquista)super.clone();
 		}
 		catch(Exception e)
 		{
@@ -33,107 +48,139 @@ public class estoquista  extends java.lang.Object implements java.lang.Cloneable
 		{
 			String sEventName = (String)in_colObject[0];
 			
-			if((state == State.idle) && (sEventName.compareTo("inicializarEvent") == 0))
-			{
-				state = State.idle;
+			if((state == State.mostrandoAtivos) && (sEventName.compareTo("cadastrarEvent") == 0))
+			{		
+				ativo      			= ((Boolean)in_colObject[1]).booleanValue();
+				cnpj      			= ((Integer)in_colObject[2]).intValue();
+				nome     			= ((Integer)in_colObject[3]).intValue();
+				email     			= ((Integer)in_colObject[4]).intValue();
+				telefone  			= ((Integer)in_colObject[5]).intValue();
+				prazoEntregaDias    = ((Integer)in_colObject[6]).intValue();
+				endereco_Pais       = ((Integer)in_colObject[7]).intValue();
+				endereco_Estado     = ((Integer)in_colObject[8]).intValue();
+				endereco_Cidade     = ((Integer)in_colObject[9]).intValue();
+				endereco_Logradouro = ((Integer)in_colObject[10]).intValue();
+				endereco_CEP        = ((Integer)in_colObject[11]).intValue();
+			
+			
+			 if (cadastrar(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP))    
+			    	 state = State.cadastrando;
+			   else 			    	
+					 state = State.mostrandoAtivos; 
 				
-			
-			}
-			
-			
-			else if((state == State.idle) && (sEventName.compareTo("activarEvent") == 0))
-			{		
-				if (activar()) {
-					state = State.mostrandoAtivos;
-				} else {
-					state = State.idle;
-				}
-			}
-			
-			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("cadastrarEvent") == 0))
-			{		
-				if (cadastrar()) {
-					state = State.cadastrando;
-				} else {
-					state = State.mostrandoAtivos;
-				}
 			}
 			
 			
 			else if((state == State.mostrandoInativos) && (sEventName.compareTo("cadastrarEvent") == 0))
-			{		
-				if (cadastrar()) {
+			{
+				ativo      			= ((Boolean)in_colObject[1]).booleanValue();
+				cnpj      			= ((Integer)in_colObject[2]).intValue();
+				nome     			= ((Integer)in_colObject[3]).intValue();
+				email     			= ((Integer)in_colObject[4]).intValue();
+				telefone  			= ((Integer)in_colObject[5]).intValue();
+				prazoEntregaDias    = ((Integer)in_colObject[6]).intValue();
+				endereco_Pais       = ((Integer)in_colObject[7]).intValue();
+				endereco_Estado     = ((Integer)in_colObject[8]).intValue();
+				endereco_Cidade     = ((Integer)in_colObject[9]).intValue();
+				endereco_Logradouro = ((Integer)in_colObject[10]).intValue();
+				endereco_CEP        = ((Integer)in_colObject[11]).intValue();
+				
+				if (cadastrar(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP))		
 					state = State.cadastrando;
-				} else {
+				else     				
 					state = State.mostrandoInativos;
-				}
+				   
 			}
 			
 						
 			else if((state == State.cadastrando) && (sEventName.compareTo("fazerCadastroAtivosEvent") == 0))
 			{		
-				if (fazerCadastroAtivos()) {
+				if (fazerCadastroAtivos()) 		 
 					state = State.mostrandoAtivos;
-				} else {
+				else					        
 					state = State.cadastrando;
-				}
+				
 			}
 			
 		
 		else if((state == State.cadastrando) && (sEventName.compareTo("fazerCadastroInativosEvent") == 0))
 		{		
-			if (fazerCadastroInativos()) {
-				state = State.mostrandoInativos;
-			} else {
-				state = State.cadastrando;
-			}
+			  if (fazerCadastroInativos())  	 
+				  state = State.mostrandoInativos;
+			  else                				 
+				  state = State.cadastrando;
+			
 		}
 		
 							
 			
 			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("alterarEvent") == 0))
 			{		
-				if (alterar()) {
+				
+				ativo      			= ((Boolean)in_colObject[1]).booleanValue();
+				cnpj      			= ((Integer)in_colObject[2]).intValue();
+				nome     			= ((Integer)in_colObject[3]).intValue();
+				email     			= ((Integer)in_colObject[4]).intValue();
+				telefone  			= ((Integer)in_colObject[5]).intValue();
+				prazoEntregaDias    = ((Integer)in_colObject[6]).intValue();
+				endereco_Pais       = ((Integer)in_colObject[7]).intValue();
+				endereco_Estado     = ((Integer)in_colObject[8]).intValue();
+				endereco_Cidade     = ((Integer)in_colObject[9]).intValue();
+				endereco_Logradouro = ((Integer)in_colObject[10]).intValue();
+				endereco_CEP        = ((Integer)in_colObject[11]).intValue();
+				
+				
+				if (alterar(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP)) 
 					state = State.alterando;
-				} else {
+				else 
 					state = State.mostrandoAtivos;
-				}
+				
 			}
 			
 			
 			else if((state == State.mostrandoInativos) && (sEventName.compareTo("alterarEvent") == 0))
 			{		
-				if (alterar()) {
+				
+				ativo      			= ((Boolean)in_colObject[1]).booleanValue();
+				cnpj      			= ((Integer)in_colObject[2]).intValue();
+				nome     			= ((Integer)in_colObject[3]).intValue();
+				email     			= ((Integer)in_colObject[4]).intValue();
+				telefone  			= ((Integer)in_colObject[5]).intValue();
+				prazoEntregaDias    = ((Integer)in_colObject[6]).intValue();
+				endereco_Pais       = ((Integer)in_colObject[7]).intValue();
+				endereco_Estado     = ((Integer)in_colObject[8]).intValue();
+				endereco_Cidade     = ((Integer)in_colObject[9]).intValue();
+				endereco_Logradouro = ((Integer)in_colObject[10]).intValue();
+				endereco_CEP        = ((Integer)in_colObject[11]).intValue();
+				
+				if (alterar(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP)) 
 					state = State.alterando;
-				} else {
+				 else 
 					state = State.mostrandoInativos;
-				}
+				
 			}
 			
 			
 			
 			else if((state == State.alterando) && (sEventName.compareTo("fazerAlteracoesAtivosEvent") == 0))
 			{		
-				if (fazerAlteracoesAtivos()) {
+				if (fazerAlteraçoesAtivos()) 
 					state = State.mostrandoAtivos;
-				} else {
+				 else 
 					state = State.alterando;
-				}
+				
 			}
 			
 			else if((state == State.alterando) && (sEventName.compareTo("fazerAlteracoesInativosEvent") == 0))
 			{		
-				if (fazerAlteracoesInativos()) {
+				if (fazerAlteraçoesInativos()) 
 					state = State.mostrandoInativos;
-				} else {
+				 else 
 					state = State.alterando;
-				}
+				
 			}
 			
-		
-		
-			
-			
+					
 			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("mostrarInativosEvent") == 0))
 			{		
 				if (mostrarInativos()) {
@@ -155,82 +202,74 @@ public class estoquista  extends java.lang.Object implements java.lang.Cloneable
 				}
 			}
 			
-			
-		
-		
-			
-			
-			}
-		}
-	
-	
-	public Boolean activar()
-	{
-		return true;
-		//return adaptador.activado();
+	  }
 	}
 	
-	public Boolean cadastrar()
+	public  Boolean cadastrar(Boolean ativo, Integer cnpj, Integer nome, Integer email, Integer telefone,  Integer prazoEntregaDias, Integer endereco_Pais, Integer endereco_Estado, Integer endereco_Cidade, Integer endereco_Logradouro, Integer endereco_CEP)
 	{
-		return true;
-		//return adaptador.activado();
+		//return true;
+		return adapter.cadastrarEvent(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP);
+		
 	}
 	
 	public Boolean fazerCadastroAtivos()
 	{
-		if(status == true)
+	    //if(status == true)
+	    if(status == true && adapter.fazerCadastroAtivosEvent() == true)
 		return true;
 		else
 		return false;	
-		//return adaptador.activado();
+		
 	}
 	
 	public Boolean fazerCadastroInativos()
 	{
-		if(status == false)
+		
+		//if(status == false)
+	    if(status == false && adapter.fazerCadastroInativosEvent() == true)
 		return true;
 		else
 		return false;	
-		//return adaptador.activado();
+		
 	}
 	
 	
-	public Boolean alterar()
+	public  Boolean alterar(Boolean ativo, Integer cnpj, Integer nome, Integer email, Integer telefone,  Integer prazoEntregaDias, Integer endereco_Pais, Integer endereco_Estado, Integer endereco_Cidade, Integer endereco_Logradouro, Integer endereco_CEP)
 	{
-		return true;
-		//return adaptador.activado();
+		//return true;
+		return adapter.alterarEvent(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP);
 	}
 	
 	
-	public Boolean fazerAlteracoesAtivos()
+	public Boolean fazerAlteraçoesAtivos()
 	{
-		    if(status == true)
+		    //if(status == true)
+		    if(status == true && adapter.fazerAlteracoesAtivosEvent() == true)
 			return true;
 			else
 			return false;	
-			//return adaptador.activado();
 	}
 	
-	public Boolean fazerAlteracoesInativos()
+	public Boolean fazerAlteraçoesInativos()
 	{
-		    if(status == false)
+		    //if(status == false)
+		    if(status == false && adapter.fazerCadastroInativosEvent() == true)
 			return true;
 			else
 			return false;	
-			//return adaptador.activado();
 	}
 	
 	
 	public Boolean mostrarAtivos()
 	{
-		return true;
-		//return adaptador.activado();
+		//return true;
+		return adapter.mostrarAtivosEvent();
 	}
 	
 	public Boolean mostrarInativos()
 	{
-		return true;
-		//return adaptador.activado();
+		//return true;
+		return adapter.mostrarInativosEvent();
 	}
 	
 	
