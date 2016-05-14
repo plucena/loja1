@@ -7,6 +7,6 @@ public enum State {
 	alterando,
 	desactivando,
 	mostrandoInativos,
-	idle
+	
 
 }

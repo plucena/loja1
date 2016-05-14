@@ -1,7 +1,7 @@
 ### Test Case Generation Statistics
 ### Test Goal Satisfaction
- - defined 13 test goals
- - satisfied 13 test goals (100.0 %)
+ - defined 11 test goals
+ - satisfied 11 test goals (100.0 %)
 
 ### unsatisfied test goals
 
@@ -10,61 +10,53 @@
 
  - satisfied: (test goal #1 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::alterando
-   to node tmp6
-   triggered by fazerAlteraçoesAtivosEvent
+   to node tmp5
+   triggered by fazerAlteracoesAtivosEvent
    with condition truth: true
 ((status = true))
  - satisfied: (test goal #2 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::alterando
-   to node tmp12
-   triggered by fazerAlteraçoesInativosEvent
+   to node tmp11
+   triggered by fazerAlteracoesInativosEvent
    with condition truth: true
 ((status = false))
  - satisfied: (test goal #3 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
-   to node tmp9
-   triggered by cadastrarEvent
+   to node tmp7
+   triggered by mostrarAtivosEvent
  - satisfied: (test goal #4 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
-   to node tmp8
-   triggered by mostrarAtivosEvent
+   to node tmp9
+   triggered by alterarEvent
  - satisfied: (test goal #5 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
-   to node tmp10
-   triggered by alterarEvent
+   to node tmp8
+   triggered by cadastrarEvent
  - satisfied: (test goal #6 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::cadastrando
-   to node tmp5
+   to node tmp4
    triggered by fazerCadastroAtivosEvent
    with condition truth: true
 ((status = true))
  - satisfied: (test goal #7 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::cadastrando
-   to node tmp11
+   to node tmp10
    triggered by fazerCadastroInativosEvent
    with condition truth: true
 ((status = false))
  - satisfied: (test goal #8 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
-   to node tmp7
-   triggered by mostrarInativosEvent
+   to node tmp3
+   triggered by alterarEvent
  - satisfied: (test goal #9 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
-   to node tmp4
-   triggered by alterarEvent
+   to node tmp6
+   triggered by mostrarInativosEvent
  - satisfied: (test goal #10 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
-   to node tmp3
+   to node tmp2
    triggered by cadastrarEvent
  - satisfied: (test goal #11 - traversed transition) 
-   from node estoquistaStateMachine::estoquistaRegion::idle
+   from node estoquistaStateMachine::estoquistaRegion::init
    to node tmp1
    triggered by inicializarEvent
- - satisfied: (test goal #12 - traversed transition) 
-   from node estoquistaStateMachine::estoquistaRegion::idle
-   to node tmp2
-   triggered by activarEvent
- - satisfied: (test goal #13 - traversed transition) 
-   from node estoquistaStateMachine::estoquistaRegion::init
-   to node estoquistaStateMachine::estoquistaRegion::idle
-   triggered by default
