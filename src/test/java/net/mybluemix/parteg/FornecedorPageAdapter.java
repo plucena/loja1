@@ -1,7 +1,6 @@
-package net.mybluemix.seleniumTest;
+package net.mybluemix.parteg;
 
-import estoquistaPk.AdapterInterface;
-import net.mybluemix.seleniumTest.FornecedorPage;
+import net.mybluemix.selenium.FornecedorPage;
 
 public class FornecedorPageAdapter implements AdapterInterface {
 

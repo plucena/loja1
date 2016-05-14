@@ -1,4 +1,4 @@
-package estoquistaPk;
+package net.mybluemix.parteg;
 
 public interface AdapterInterface {
 	
