@@ -59,11 +59,13 @@ app.config(function($routeProvider) {
 
 app.run(['$rootScope', function($rootScope) {
     $rootScope.$on('$routeChangeSuccess', function (event, current, previous) {
-        $rootScope.title = current.$$route.title;
-        $rootScope.isChild = current.$$route.isChild;
-        if ($rootScope.isChild)
-        {
-            $rootScope.parent = current.$$route.parent;
+        if(current.$$route) {
+            $rootScope.title = current.$$route.title;
+            $rootScope.isChild = current.$$route.isChild;
+            if ($rootScope.isChild)
+            {
+                $rootScope.parent = current.$$route.parent;
+            }
         }
     });
 }]);
