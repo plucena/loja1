@@ -89,7 +89,7 @@ public class FornecedorPage {
 			element = driver.findElement(by);
 			return element;
 		} catch (Exception e1) {
-			for (int milis = 0; milis < 5000; milis = milis + interval) {
+			for (int milis = 0; milis < 3000; milis = milis + interval) {
 				try {
 					element = driver.findElement(by);
 					return element;

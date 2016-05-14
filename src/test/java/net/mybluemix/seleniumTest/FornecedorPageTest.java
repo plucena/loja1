@@ -56,6 +56,8 @@ public class FornecedorPageTest {
 			if (!fornecedorPage.encontrarFornecedor(cnpj, true)){
 				fornecedorPage.clicarBotao("novoFornecedor");
 				fornecedorPage.preencher("cnpj", cnpj);
+			} else {
+				Thread.sleep(3000);
 			}
 			
 			fornecedorPage.preencher("nome", nome);
