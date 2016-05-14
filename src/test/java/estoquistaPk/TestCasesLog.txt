@@ -10,24 +10,24 @@
 
  - satisfied: (test goal #1 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::alterando
-   to node tmp5
-   triggered by fazerAlteracoesAtivosEvent
-   with condition truth: true
-((status = true))
- - satisfied: (test goal #2 - traversed transition) 
-   from node estoquistaStateMachine::estoquistaRegion::alterando
    to node tmp11
    triggered by fazerAlteracoesInativosEvent
    with condition truth: true
 ((status = false))
+ - satisfied: (test goal #2 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   to node tmp5
+   triggered by fazerAlteracoesAtivosEvent
+   with condition truth: true
+((status = true))
  - satisfied: (test goal #3 - traversed transition) 
-   from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
-   to node tmp7
-   triggered by mostrarAtivosEvent
- - satisfied: (test goal #4 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
    to node tmp9
    triggered by alterarEvent
+ - satisfied: (test goal #4 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
+   to node tmp7
+   triggered by mostrarAtivosEvent
  - satisfied: (test goal #5 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
    to node tmp8
@@ -37,7 +37,7 @@
    to node tmp4
    triggered by fazerCadastroAtivosEvent
    with condition truth: true
-((status = true))
+((status = true) and (cnpj > 999999))
  - satisfied: (test goal #7 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::cadastrando
    to node tmp10
@@ -46,12 +46,12 @@
 ((status = false))
  - satisfied: (test goal #8 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
-   to node tmp3
-   triggered by alterarEvent
- - satisfied: (test goal #9 - traversed transition) 
-   from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
    to node tmp6
    triggered by mostrarInativosEvent
+ - satisfied: (test goal #9 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
+   to node tmp3
+   triggered by alterarEvent
  - satisfied: (test goal #10 - traversed transition) 
    from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
    to node tmp2

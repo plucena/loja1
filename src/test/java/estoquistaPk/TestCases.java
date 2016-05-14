@@ -14,17 +14,44 @@ public class TestCases{
 	public void test1()
 	{
 		Estoquista oTestObject = new Estoquista();
+		Boolean ativoVal14 = true;
+		Integer cnpjVal14 = -45878;
+		Integer nomeVal14 = -86707;
+		Integer emailVal14 = -8226;
+		Integer telefoneVal14 = -55062;
+		Integer prazoEntregaDiasVal14 = -886097;
+		Integer endereco_PaisVal14 = 14179;
+		Integer endereco_EstadoVal14 = 326902;
+		Integer endereco_CidadeVal14 = 66865;
+		Integer endereco_LogradouroVal14 = 85102;
+		Integer endereco_CEPVal14 = 5636;
+		oTestObject.handleEvent("inicializarEvent");
+		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
+		oTestObject.handleEvent("mostrarInativosEvent");
+		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
+		oTestObject.handleEvent("alterarEvent", ativoVal14, cnpjVal14, nomeVal14, emailVal14, telefoneVal14, prazoEntregaDiasVal14, endereco_PaisVal14, endereco_EstadoVal14, endereco_CidadeVal14, endereco_LogradouroVal14, endereco_CEPVal14);
+		assertEquals(true, (oTestObject.state == State.alterando));
+		assertEquals(true, (oTestObject.status.booleanValue() == false));
+		oTestObject.handleEvent("fazerAlteracoesInativosEvent");
+		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
+		
+	}
+	
+	@Test
+	public void test2()
+	{
+		Estoquista oTestObject = new Estoquista();
 		Boolean ativoVal16 = true;
-		Integer cnpjVal16 = -706144;
-		Integer nomeVal16 = -327232;
-		Integer emailVal16 = 116675;
-		Integer telefoneVal16 = 43085;
-		Integer prazoEntregaDiasVal16 = 621652;
-		Integer endereco_PaisVal16 = 404157;
-		Integer endereco_EstadoVal16 = -938;
-		Integer endereco_CidadeVal16 = 578331;
-		Integer endereco_LogradouroVal16 = 348082;
-		Integer endereco_CEPVal16 = 375650;
+		Integer cnpjVal16 = 23877;
+		Integer nomeVal16 = 533600;
+		Integer emailVal16 = 3674;
+		Integer telefoneVal16 = -86195;
+		Integer prazoEntregaDiasVal16 = 328175;
+		Integer endereco_PaisVal16 = -122161;
+		Integer endereco_EstadoVal16 = 130117;
+		Integer endereco_CidadeVal16 = -153689;
+		Integer endereco_LogradouroVal16 = -243853;
+		Integer endereco_CEPVal16 = 176771;
 		oTestObject.handleEvent("inicializarEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		oTestObject.handleEvent("mostrarInativosEvent");
@@ -40,47 +67,20 @@ public class TestCases{
 	}
 	
 	@Test
-	public void test2()
-	{
-		Estoquista oTestObject = new Estoquista();
-		Boolean ativoVal14 = true;
-		Integer cnpjVal14 = 240880;
-		Integer nomeVal14 = -47044;
-		Integer emailVal14 = 41170;
-		Integer telefoneVal14 = 315150;
-		Integer prazoEntregaDiasVal14 = 752096;
-		Integer endereco_PaisVal14 = -528318;
-		Integer endereco_EstadoVal14 = -440126;
-		Integer endereco_CidadeVal14 = -331982;
-		Integer endereco_LogradouroVal14 = 135098;
-		Integer endereco_CEPVal14 = 337021;
-		oTestObject.handleEvent("inicializarEvent");
-		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
-		oTestObject.handleEvent("mostrarInativosEvent");
-		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
-		oTestObject.handleEvent("alterarEvent", ativoVal14, cnpjVal14, nomeVal14, emailVal14, telefoneVal14, prazoEntregaDiasVal14, endereco_PaisVal14, endereco_EstadoVal14, endereco_CidadeVal14, endereco_LogradouroVal14, endereco_CEPVal14);
-		assertEquals(true, (oTestObject.state == State.alterando));
-		assertEquals(true, (oTestObject.status.booleanValue() == false));
-		oTestObject.handleEvent("fazerAlteracoesInativosEvent");
-		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
-		
-	}
-	
-	@Test
 	public void test3()
 	{
 		Estoquista oTestObject = new Estoquista();
+		Integer cnpjVal6 = 1000000;
 		Boolean ativoVal6 = true;
-		Integer cnpjVal6 = -562357;
-		Integer nomeVal6 = -139079;
-		Integer emailVal6 = -291023;
-		Integer telefoneVal6 = -29999;
-		Integer prazoEntregaDiasVal6 = 105169;
-		Integer endereco_PaisVal6 = -97665;
-		Integer endereco_EstadoVal6 = -889591;
-		Integer endereco_CidadeVal6 = 510925;
-		Integer endereco_LogradouroVal6 = -90014;
-		Integer endereco_CEPVal6 = -117479;
+		Integer nomeVal6 = -37703;
+		Integer emailVal6 = 599277;
+		Integer telefoneVal6 = 101057;
+		Integer prazoEntregaDiasVal6 = 344268;
+		Integer endereco_PaisVal6 = -660257;
+		Integer endereco_EstadoVal6 = -154690;
+		Integer endereco_CidadeVal6 = 113153;
+		Integer endereco_LogradouroVal6 = -294039;
+		Integer endereco_CEPVal6 = -336330;
 		oTestObject.handleEvent("inicializarEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		oTestObject.handleEvent("mostrarInativosEvent");
@@ -88,8 +88,20 @@ public class TestCases{
 		oTestObject.handleEvent("mostrarAtivosEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		oTestObject.handleEvent("cadastrarEvent", ativoVal6, cnpjVal6, nomeVal6, emailVal6, telefoneVal6, prazoEntregaDiasVal6, endereco_PaisVal6, endereco_EstadoVal6, endereco_CidadeVal6, endereco_LogradouroVal6, endereco_CEPVal6);
+		assertEquals(true, (oTestObject.ativo.booleanValue() == ativoVal6.booleanValue()));
+		assertEquals(true, (oTestObject.cnpj.intValue() == cnpjVal6.intValue()));
+		assertEquals(true, (oTestObject.nome.intValue() == nomeVal6.intValue()));
+		assertEquals(true, (oTestObject.email.intValue() == emailVal6.intValue()));
+		assertEquals(true, (oTestObject.telefone.intValue() == telefoneVal6.intValue()));
+		assertEquals(true, (oTestObject.prazoEntregaDias.intValue() == prazoEntregaDiasVal6.intValue()));
+		assertEquals(true, (oTestObject.endereco_Pais.intValue() == endereco_PaisVal6.intValue()));
+		assertEquals(true, (oTestObject.endereco_Estado.intValue() == endereco_EstadoVal6.intValue()));
+		assertEquals(true, (oTestObject.endereco_Cidade.intValue() == endereco_CidadeVal6.intValue()));
+		assertEquals(true, (oTestObject.endereco_Logradouro.intValue() == endereco_LogradouroVal6.intValue()));
+		assertEquals(true, (oTestObject.endereco_CEP.intValue() == endereco_CEPVal6.intValue()));
 		assertEquals(true, (oTestObject.state == State.cadastrando));
 		assertEquals(true, (oTestObject.status.booleanValue() == true));
+		assertEquals(true, (oTestObject.cnpj.intValue() > 999999));
 		oTestObject.handleEvent("fazerCadastroAtivosEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		
@@ -100,16 +112,16 @@ public class TestCases{
 	{
 		Estoquista oTestObject = new Estoquista();
 		Boolean ativoVal4 = true;
-		Integer cnpjVal4 = 253639;
-		Integer nomeVal4 = 250726;
-		Integer emailVal4 = -921068;
-		Integer telefoneVal4 = -142225;
-		Integer prazoEntregaDiasVal4 = -30121;
-		Integer endereco_PaisVal4 = -172698;
-		Integer endereco_EstadoVal4 = 371025;
-		Integer endereco_CidadeVal4 = -222672;
-		Integer endereco_LogradouroVal4 = -357567;
-		Integer endereco_CEPVal4 = 557345;
+		Integer cnpjVal4 = 17005;
+		Integer nomeVal4 = -131785;
+		Integer emailVal4 = 432241;
+		Integer telefoneVal4 = -471029;
+		Integer prazoEntregaDiasVal4 = -281643;
+		Integer endereco_PaisVal4 = -496884;
+		Integer endereco_EstadoVal4 = -589496;
+		Integer endereco_CidadeVal4 = 32395;
+		Integer endereco_LogradouroVal4 = -4106;
+		Integer endereco_CEPVal4 = -87376;
 		oTestObject.handleEvent("inicializarEvent");
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		oTestObject.handleEvent("mostrarInativosEvent");

@@ -58,7 +58,7 @@
           </transition>
           <transition xmi:id="_xwq10BdxEeaxeJv6REhAMQ" name="cadastrando2mostrandoAtivos" guard="_keKZ4BhhEea48fNlrHwEZw" source="_YVMWcBdwEeaxeJv6REhAMQ" target="_SfvmABdwEeaxeJv6REhAMQ">
             <ownedRule xmi:id="_keKZ4BhhEea48fNlrHwEZw">
-              <specification xmi:type="uml:LiteralString" xmi:id="_lO5TQBhhEea48fNlrHwEZw" value="status=true"/>
+              <specification xmi:type="uml:LiteralString" xmi:id="_lO5TQBhhEea48fNlrHwEZw" value="(status=true)"/>
             </ownedRule>
             <effect xmi:type="uml:FunctionBehavior" xmi:id="_rehBoBd5EeaxeJv6REhAMQ" name="fazerCadastro" specification="_mS_X8Bd5EeaxeJv6REhAMQ"/>
             <trigger xmi:id="_qyvgwBd5EeaxeJv6REhAMQ" event="_jvSsIBd5EeaxeJv6REhAMQ"/>
@@ -178,7 +178,7 @@
         <ownedParameter xmi:id="_gQn-IBnwEeaivovQdBWrzw" name="ativoVal1">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
         </ownedParameter>
-        <ownedParameter xmi:id="_gQn-IRnwEeaivovQdBWrzw" name="cnpjVal1">
+        <ownedParameter xmi:id="_k-ByUBn5EeaR0cWSWw7sQg" name="cnpjVal1">
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
         </ownedParameter>
         <ownedParameter xmi:id="_gQn-IhnwEeaivovQdBWrzw" name="nomeVal1">
