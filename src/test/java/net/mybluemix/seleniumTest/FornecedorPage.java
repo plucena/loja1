@@ -20,122 +20,81 @@ public class FornecedorPage {
 		driver.close();
 	}
 
-	public void listarAtivos() throws InterruptedException {
+	public boolean listarAtivos() throws InterruptedException {
 		element = findWithDelay(By.xpath("//*[contains(text(), 'Ativos')]"), driver);
 		element.click();
-	}
-
-	public boolean estaListandoAtivos() throws InterruptedException {
 		element = findWithDelay(By.xpath("//md-tab-item[@class='md-active']/span"), driver);
 		return element.getText().contains("ATIVOS");
 	}
 
-	public void listarInativos() throws InterruptedException {
+	public boolean listarInativos() throws InterruptedException {
 		element = findWithDelay(By.xpath("//*[contains(text(), 'Inativos')]"), driver);
 		element.click();
-	}
-
-	public boolean estaListandoInativos() throws InterruptedException {
 		element = findWithDelay(By.xpath("//md-tab-item[@class='md-active']/span"), driver);
 		return element.getText().contains("INATIVOS");
 	}
-
-	public WebElement fornecedor(String cnpj) throws InterruptedException {
-		
-		this.listarAtivos();
-		element = findWithDelay(By.id(cnpj), driver);
-		
-		if (element.isDisplayed()) {
-			return element;
-		} else {
-			this.listarInativos();
-			element = findWithDelay(By.id(cnpj), driver);
-			return element;
-		}
-	}
-
-	public WebElement botaoNovoFornecedor() throws InterruptedException {
-		return element = findWithDelay(By.id("button.novoFornecedor"), driver);
-	}
-
-	public WebElement campoCnpj() throws InterruptedException {
-		return element = findWithDelay(By.id("input-cnpj"), driver);
-	}
-
-	public WebElement campoNome() throws InterruptedException {
-		return element = findWithDelay(By.id("input-nome"), driver);
-	}
-
-	public WebElement campoEmail() throws InterruptedException {
-		return element = findWithDelay(By.id("input-email"), driver);
-	}
-
-	public WebElement campoTelefone() throws InterruptedException {
-		return element = findWithDelay(By.id("input-telefone"), driver);
-	}
-
-	public WebElement campoPrazoEntregaDias() throws InterruptedException {
-		return element = findWithDelay(By.id("input-prazoEntregaDias"), driver);
-	}
-
-	public WebElement campoEnderecoPais() throws InterruptedException {
-		return element = findWithDelay(By.id("input-endereco_Pais"), driver);
-	}
-
-	public WebElement campoEnderecoCep() throws InterruptedException {
-		return element = findWithDelay(By.id("input-endereco_CEP"), driver);
-	}
-
-	public WebElement campoEnderecoEstado() throws InterruptedException {
-		return element = findWithDelay(By.id("input-endereco_Estado"), driver);
-	}
-
-	public WebElement campoEnderecoCidade() throws InterruptedException {
-		return element = findWithDelay(By.id("input-endereco_Cidade"), driver);
-	}
-
-	public WebElement campoEnderecoLogradouro() throws InterruptedException {
-		return element = findWithDelay(By.id("input-endereco_Logradouro"), driver);
-	}
-
-	public WebElement campoAtivo() throws InterruptedException {
-		return element = findWithDelay(By.id("switch-ativo"), driver);
-	}
-
-	public WebElement botaoSalvarFornecedor() throws InterruptedException {
-		return element = findWithDelay(By.id("button-salvarFornecedor"), driver);
-	}
-
-	public boolean existeFornecedor(String cnpj) throws InterruptedException {
+	
+	public boolean encontrarFornecedor(String cnpj, boolean click) throws InterruptedException {
 		String cnpjWithMask = cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "." + cnpj.substring(5, 8) + "/"
 				+ cnpj.substring(8, 12) + "-" + cnpj.substring(12, 14);
-
 		this.listarAtivos();
-		element = findWithDelay(By.tagName("md-card"), driver);
-		if (element.getText().contains(cnpjWithMask)) {
+		element = findWithDelay(By.id(cnpj), driver);
+		if (!element.isDisplayed()) {
+			this.listarInativos();
+			element = findWithDelay(By.id(cnpj), driver);
+		}
+		if (element.getText().contains(cnpjWithMask)){
+			if(click)
+				element.click();
 			return true;
 		} else {
-			this.listarInativos();
-			element = findWithDelay(By.tagName("md-card"), driver);
-			if (element.getText().contains(cnpjWithMask)) {
-				return true;
-			} else {
-				return false;
+			return false;
+		}		
+	}
+
+	public void clicarBotao(String botao) throws InterruptedException {
+		String idBotao = null;
+		switch (botao) {
+		case "novoFornecedor":
+			idBotao = "button-novoFornecedor";
+			break;
+		case "salvarFornecedor":
+			idBotao = "button-salvarFornecedor";
+			break;
+		}
+		element = findWithDelay(By.id(idBotao), driver);
+		element.click();
+	}
+
+	public void preencher(String campo, String valor) throws InterruptedException {
+		String idCampo = "input-" + campo;
+		element = findWithDelay(By.id(idCampo), driver);
+		if (campo == "ativo") {
+			if (valor == "true") {
+				if(element.getText().contains("Fornecedor Desativado"))
+					element.click();
+			} else if (valor == "false") {
+				if(element.getText().contains("Fornecedor Ativo"))
+					element.click();
 			}
+		} else {
+			element.clear();
+			element.sendKeys(valor);
 		}
 	}
 
 	private WebElement findWithDelay(By by, WebDriver driver) throws InterruptedException {
+		int interval = 200;
 		try {
 			element = driver.findElement(by);
 			return element;
 		} catch (Exception e1) {
-			for (int milis = 0; milis < 3000; milis = milis + 200) {
+			for (int milis = 0; milis < 5000; milis = milis + interval) {
 				try {
 					element = driver.findElement(by);
 					return element;
 				} catch (Exception e2) {
-					Thread.sleep(200);
+					Thread.sleep(interval);
 				}
 			}
 		}
