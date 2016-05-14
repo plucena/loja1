@@ -164,7 +164,7 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 			
 			else if((state == State.alterando) && (sEventName.compareTo("fazerAlteracoesAtivosEvent") == 0))
 			{		
-				if (fazerAlteraçoesAtivos()) 
+				if (fazerAlteracoesAtivos()) 
 					state = State.mostrandoAtivos;
 				 else 
 					state = State.alterando;
@@ -173,7 +173,7 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 			
 			else if((state == State.alterando) && (sEventName.compareTo("fazerAlteracoesInativosEvent") == 0))
 			{		
-				if (fazerAlteraçoesInativos()) 
+				if (fazerAlteracoesInativos()) 
 					state = State.mostrandoInativos;
 				 else 
 					state = State.alterando;
@@ -241,7 +241,7 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 	}
 	
 	
-	public Boolean fazerAlteraçoesAtivos()
+	public Boolean fazerAlteracoesAtivos()
 	{
 		    //if(status == true)
 		    if(status == true && adapter.fazerAlteracoesAtivosEvent() == true)
@@ -250,7 +250,7 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 			return false;	
 	}
 	
-	public Boolean fazerAlteraçoesInativos()
+	public Boolean fazerAlteracoesInativos()
 	{
 		    //if(status == false)
 		    if(status == false && adapter.fazerCadastroInativosEvent() == true)
