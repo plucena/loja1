@@ -19,17 +19,21 @@ public class FornecedorPage {
 	public void fecharPagina() {
 		driver.close();
 	}
-
-	public boolean listarAtivos() throws InterruptedException {
-		element = findWithDelay(By.xpath("//*[contains(text(), 'Ativos')]"), driver);
-		element.click();
+	
+	public boolean listarAtivos(boolean click) throws InterruptedException {
+		if (click) {
+			element = findWithDelay(By.xpath("//*[contains(text(), 'Ativos')]"), driver);
+			element.click();
+		}
 		element = findWithDelay(By.xpath("//md-tab-item[@class='md-active']/span"), driver);
 		return element.getText().contains("ATIVOS");
 	}
 
-	public boolean listarInativos() throws InterruptedException {
-		element = findWithDelay(By.xpath("//*[contains(text(), 'Inativos')]"), driver);
-		element.click();
+	public boolean listarInativos(boolean click) throws InterruptedException {
+		if (click) {
+			element = findWithDelay(By.xpath("//*[contains(text(), 'Inativos')]"), driver);
+			element.click();
+		}
 		element = findWithDelay(By.xpath("//md-tab-item[@class='md-active']/span"), driver);
 		return element.getText().contains("INATIVOS");
 	}
@@ -37,10 +41,10 @@ public class FornecedorPage {
 	public boolean encontrarFornecedor(String cnpj, boolean click) throws InterruptedException {
 		String cnpjWithMask = cnpj.substring(0, 2) + "." + cnpj.substring(2, 5) + "." + cnpj.substring(5, 8) + "/"
 				+ cnpj.substring(8, 12) + "-" + cnpj.substring(12, 14);
-		this.listarAtivos();
+		this.listarAtivos(true);
 		element = findWithDelay(By.id(cnpj), driver);
 		if (!element.isDisplayed()) {
-			this.listarInativos();
+			this.listarInativos(true);
 			element = findWithDelay(By.id(cnpj), driver);
 		}
 		if (element.getText().contains(cnpjWithMask)){

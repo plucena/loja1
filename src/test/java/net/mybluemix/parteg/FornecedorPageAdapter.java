@@ -3,14 +3,18 @@ package net.mybluemix.parteg;
 import net.mybluemix.selenium.FornecedorPage;
 
 public class FornecedorPageAdapter implements AdapterInterface {
-
+	
+	private FornecedorPage fornecedorPage;
+	
+	public FornecedorPageAdapter() {
+		fornecedorPage = new FornecedorPage();
+	}
+	
 	@Override
 	public boolean cadastrarEvent(Boolean ativo, Integer cnpj, Integer nome, Integer email, Integer telefone,
 			Integer prazoEntregaDias, Integer endereco_Pais, Integer endereco_Estado, Integer endereco_Cidade,
 			Integer endereco_Logradouro, Integer endereco_CEP) {
 
-		FornecedorPage fornecedorPage = new FornecedorPage();
-		
 		String ativoString = ativo.toString();
 		
 		StringBuffer cnpjStringBuffer = new StringBuffer(Integer.toUnsignedString(cnpj).toString());
@@ -63,21 +67,29 @@ public class FornecedorPageAdapter implements AdapterInterface {
 
 			return false;
 
-		} finally {
-
-			fornecedorPage.fecharPagina();
-
 		}
 	}
 
 	@Override
 	public boolean fazerCadastroAtivosEvent() {
-		return this.mostrarAtivosEvent();
+		try {
+			return fornecedorPage.listarAtivos(true);
+		} catch (InterruptedException e) {
+			return false;
+		} finally {
+			fornecedorPage.fecharPagina();
+		}
 	}
 
 	@Override
 	public boolean fazerCadastroInativosEvent() {
-		return this.mostrarInativosEvent();
+		try {
+			return fornecedorPage.listarInativos(true);
+		} catch (InterruptedException e) {
+			return false;
+		} finally {
+			fornecedorPage.fecharPagina();
+		}
 	}
 
 	@Override
@@ -89,51 +101,29 @@ public class FornecedorPageAdapter implements AdapterInterface {
 
 	@Override
 	public boolean fazerAlteracoesAtivosEvent() {
-		return this.mostrarAtivosEvent();
+		return fazerCadastroAtivosEvent();
 	}
 
 	@Override
 	public boolean fazerAlteracoesInativosEvent() {
-		return this.mostrarInativosEvent();
+		return fazerCadastroInativosEvent();
 	}
 
 	@Override
 	public boolean mostrarInativosEvent() {
-
-		FornecedorPage fornecedorPage = new FornecedorPage();
-
 		try {
-
-			return fornecedorPage.listarInativos();
-
+			return fornecedorPage.listarInativos(true);
 		} catch (InterruptedException e) {
-
 			return false;
-
-		} finally {
-
-			fornecedorPage.fecharPagina();
-
 		}
 	}
 
 	@Override
 	public boolean mostrarAtivosEvent() {
-		
-		FornecedorPage fornecedorPage = new FornecedorPage();
-
 		try {
-
-			return fornecedorPage.listarAtivos();
-
+			return fornecedorPage.listarAtivos(true);
 		} catch (InterruptedException e) {
-
 			return false;
-
-		} finally {
-
-			fornecedorPage.fecharPagina();
-
 		}
 	}
 
