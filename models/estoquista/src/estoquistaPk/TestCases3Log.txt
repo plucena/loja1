@@ -1,0 +1,163 @@
+### Test Case Generation Statistics
+### Test Goal Satisfaction
+ - defined 34 test goals
+ - satisfied 34 test goals (100.0 %)
+
+### unsatisfied test goals
+
+
+### satisfied test goals
+
+ - satisfied: (test goal #1 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   call event fazerAlteracoesInativosEvent
+   with condition truth: false
+((status = false) and (nome <= 0))
+ - satisfied: (test goal #2 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   call event fazerAlteracoesAtivosEvent
+   with condition truth: false
+((status = true) and (nome <= 0))
+ - satisfied: (test goal #3 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   call event fazerAlteracoesInativosEvent
+   with condition truth: true
+((status = false) and (nome > 0))
+ - satisfied: (test goal #4 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   call event fazerAlteracoesInativosEvent
+   with condition truth: false
+((status <> false) and (nome > 0))
+ - satisfied: (test goal #5 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   to node tmp11
+   triggered by fazerAlteracoesInativosEvent
+   with condition truth: true
+((status = false) and (nome > 0))
+ - satisfied: (test goal #6 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   call event fazerAlteracoesAtivosEvent
+   with condition truth: false
+((status <> true) and (nome <= 0))
+ - satisfied: (test goal #7 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   call event fazerAlteracoesAtivosEvent
+   with condition truth: false
+((status <> true) and (nome > 0))
+ - satisfied: (test goal #8 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   call event fazerAlteracoesInativosEvent
+   with condition truth: false
+((status <> false) and (nome <= 0))
+ - satisfied: (test goal #9 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   to node tmp5
+   triggered by fazerAlteracoesAtivosEvent
+   with condition truth: true
+((status = true) and (nome > 0))
+ - satisfied: (test goal #10 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::alterando
+   call event fazerAlteracoesAtivosEvent
+   with condition truth: true
+((status = true) and (nome > 0))
+ - satisfied: (test goal #11 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
+   to node tmp7
+   triggered by mostrarAtivosEvent
+ - satisfied: (test goal #12 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
+   call event cadastrarEvent
+ - satisfied: (test goal #13 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
+   to node tmp8
+   triggered by cadastrarEvent
+ - satisfied: (test goal #14 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
+   call event alterarEvent
+ - satisfied: (test goal #15 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
+   call event mostrarAtivosEvent
+ - satisfied: (test goal #16 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoInativos
+   to node tmp9
+   triggered by alterarEvent
+ - satisfied: (test goal #17 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   call event fazerCadastroAtivosEvent
+   with condition truth: false
+((status = true) and (nome <= 0))
+ - satisfied: (test goal #18 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   to node tmp4
+   triggered by fazerCadastroAtivosEvent
+   with condition truth: true
+((status = true) and (nome > 0))
+ - satisfied: (test goal #19 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   call event fazerCadastroInativosEvent
+   with condition truth: false
+((status = false) and (nome <= 0))
+ - satisfied: (test goal #20 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   call event fazerCadastroInativosEvent
+   with condition truth: false
+((status <> false) and (nome > 0))
+ - satisfied: (test goal #21 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   call event fazerCadastroAtivosEvent
+   with condition truth: true
+((status = true) and (nome > 0))
+ - satisfied: (test goal #22 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   to node tmp10
+   triggered by fazerCadastroInativosEvent
+   with condition truth: true
+((status = false) and (nome > 0))
+ - satisfied: (test goal #23 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   call event fazerCadastroAtivosEvent
+   with condition truth: false
+((status <> true) and (nome <= 0))
+ - satisfied: (test goal #24 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   call event fazerCadastroInativosEvent
+   with condition truth: false
+((status <> false) and (nome <= 0))
+ - satisfied: (test goal #25 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   call event fazerCadastroInativosEvent
+   with condition truth: true
+((status = false) and (nome > 0))
+ - satisfied: (test goal #26 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::cadastrando
+   call event fazerCadastroAtivosEvent
+   with condition truth: false
+((status <> true) and (nome > 0))
+ - satisfied: (test goal #27 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
+   call event cadastrarEvent
+ - satisfied: (test goal #28 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
+   call event mostrarInativosEvent
+ - satisfied: (test goal #29 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
+   call event alterarEvent
+ - satisfied: (test goal #30 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
+   to node tmp6
+   triggered by mostrarInativosEvent
+ - satisfied: (test goal #31 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
+   to node tmp2
+   triggered by cadastrarEvent
+ - satisfied: (test goal #32 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::mostrandoAtivos
+   to node tmp3
+   triggered by alterarEvent
+ - satisfied: (test goal #33 - traversed transition) 
+   from node estoquistaStateMachine::estoquistaRegion::init
+   to node tmp1
+   triggered by inicializarEvent
+ - satisfied: (test goal #34 - satisfied guard) 
+   from node estoquistaStateMachine::estoquistaRegion::init
+   call event inicializarEvent
