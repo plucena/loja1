@@ -12,7 +12,9 @@ import javax.ws.rs.Produces;
 
 import com.google.gson.Gson;
 
+import net.mybluemix.dao.LoteDAO;
 import net.mybluemix.dao.MateriaPrimaDAO;
+import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
 
 
@@ -47,7 +49,25 @@ public class MateriaPrimaWS {
     	mpd.create(mp);
     }
     
-  
+
+    
+
+    @POST
+	@Path("/lote/add/{sku}")
+	@Consumes("application/json")
+    public void addLot(String json, @PathParam("sku") Integer sku) throws Exception{
+    	Long lsku  = new Long(sku);
+    	Gson gson = new Gson();
+		Lote lote =  gson.fromJson(json, Lote.class);
+		LoteDAO ldao = new LoteDAO();
+		ldao.create(lote);
+    	MateriaPrimaDAO mpd = new MateriaPrimaDAO();
+    	MateriaPrima mp = mpd.find(sku);
+    	if(mp!=null)
+    		mp.addLotes(lote);
+    	mpd.update(mp, lsku);
+    }
+
 
 
 }
