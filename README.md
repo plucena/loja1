@@ -66,9 +66,19 @@ Content-Type: application/json
         "descricao": "Cool stuff guys",
         "unidade": "metro",
         "valorUnidade": 10,
-        "dataEntrada": "2016-10-15",
-        "dataSaida": "2016-10-29"
+        "codigoDeBarras": "1238783782355"
         }
+
+* Add Lote / Update Lote
+ 
+POST http://loja.mybluemix.net/api/materiaprima/lote/{$sku}
+
+        {
+        "preco": "500",
+        "dataEntrada": "2015-11-1",
+        "dataSaida": "2016-03-19"
+        }
+
 
 **Fornecedor**
 
