@@ -71,7 +71,7 @@ Content-Type: application/json
 
 * Add Lote / Update Lote
  
-POST http://loja.mybluemix.net/api/materiaprima/lote/{$sku}
+POST http://loja.mybluemix.net/api/materiaprima/lote/add/{$sku}
 
         {
         "preco": "500",
@@ -91,6 +91,7 @@ GET http://loja.mybluemix.net/api/fornecedor/{$id}
 * Create/Update Fornecedor
 
 POST http://loja.mybluemix.net/api/fornecedor/create
+
 POST http://loja.mybluemix.net/api/fornecedor/update
 
 
