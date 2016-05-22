@@ -73,6 +73,8 @@ Content-Type: application/json
  
 POST http://loja.mybluemix.net/api/materiaprima/lote/add/{$sku}
 
+POST http://loja.mybluemix.net/api/materiaprima/lote/update/{$sku}
+
         {
         "preco": "500",
         "dataEntrada": "2015-11-1",
