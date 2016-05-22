@@ -57,9 +57,6 @@ GET http://loja.mybluemix.net/api/materiaprima/{$sku}
 * Create/Update MateriaPrima
 
 POST http://loja.mybluemix.net/api/materiaprima/create
-
-POST http://loja.mybluemix.net/api/materiaprima/update
-
     
 Content-Type: application/json
     
@@ -71,6 +68,22 @@ Content-Type: application/json
         "valorUnidade": 10,
         "codigoDeBarras": "1238783782355"
         }
+
+POST http://loja.mybluemix.net/api/materiaprima/update
+
+Content-Type: application/json
+    
+        {
+        "sku": 1,
+        "nome": "Tecido Florido Verao 2016",
+        "tipo": "Tecido",
+        "descricao": "Cool stuff guys",
+        "unidade": "metro",
+        "valorUnidade": 10,
+        "codigoDeBarras": "1238783782355"
+        }
+
+
 
 * Add / Update Lote
  
