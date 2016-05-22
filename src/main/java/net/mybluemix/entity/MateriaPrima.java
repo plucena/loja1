@@ -39,7 +39,22 @@ public class MateriaPrima {
 	  )
 	private List<Lote> lotes;
 
-    @JsonProperty
+	
+	
+    public List<Lote> getLotes() {
+		return lotes;
+	}
+
+	public void addLotes(Lote lote) {
+		this.lotes.add(lote);
+	}
+	
+
+	public void setLotes(List<Lote> lotes) {
+		this.lotes = lotes;
+	}
+
+	@JsonProperty
 	public String getCodigoDeBarras() {
 		return codigoDeBarras;
 	}
