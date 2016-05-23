@@ -21,15 +21,7 @@ app.config(function($routeProvider) {
     $routeProvider
 
     .otherwise({
-        // redirectTo  : '/pagina-inicial'
         redirectTo  : '/fornecedores'
-    })
-
-    .when('/pagina-inicial', {
-        templateUrl : 'views/pagina-inicial.html',
-        controller  : 'mainController',
-        title       : 'Página Inicial',
-        isChild     : false
     })
 
     .when('/fornecedores', {
@@ -53,6 +45,29 @@ app.config(function($routeProvider) {
         title       : 'Editar Fornecedor',
         isChild     : true,
         parent      : '#/fornecedores'
+    })
+
+    .when('/materias-primas', {
+        templateUrl : 'views/materias-primas.html',
+        controller  : 'materiaPrimaController',
+        title       : 'Matérias-primas',
+        isChild     : false
+    })
+
+    .when('/materias-primas/nova', {
+        templateUrl : 'views/materias-primas.form.html',
+        controller  : 'formMateriaPrimaController',
+        title       : 'Cadastrar Matéria-prima',
+        isChild     : true,
+        parent      : '#/materias-primas'
+    })
+
+    .when('/materias-primas/editar/:sku', {
+        templateUrl : 'views/materias-primas.form.html',
+        controller  : 'formMateriaPrimaController',
+        title       : 'Editar Matéria-prima',
+        isChild     : true,
+        parent      : '#/materias-primas'
     })
 
 });
@@ -82,20 +97,15 @@ app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialo
   
     $scope.navegacao = [
         {
-            link : 'pagina-inicial',
-            title: 'Página Inicial',
-            icon: 'action:ic_home_24px'
-        },
-        {
             link : 'fornecedores',
             title: 'Fornecedores',
             icon: 'maps:ic_local_shipping_24px'
+        },
+        {
+            link : 'materias-primas',
+            title: 'Matérias-primas',
+            icon: 'maps:ic_layers_24px'
         }
-        // {
-        //     link : 'materias-primas',
-        //     title: 'Matérias-primas',
-        //     icon: 'maps:ic_layers_24px'
-        // }
     ];
   
 }]);

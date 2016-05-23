@@ -29,8 +29,13 @@
                                     <td md-cell>{{fornecedor.nome}}</td>
                                     <td md-cell>{{fornecedor.email}}</td>
                                     <td md-cell style="white-space: nowrap;">{{fornecedor.telefone}}</td>
-                                    <td md-cell style="white-space: nowrap;">{{fornecedor.prazoEntregaDias}} dia{{fornecedor.prazoEntregaDias != "1" ? "s" : ""}}</td>
-                                    <td md-cell>{{fornecedor.endereco_Logradouro}}, CEP: {{fornecedor.endereco_CEP.substring(0, 2) + '.' + fornecedor.endereco_CEP.substring(2, 5) + '-' + fornecedor.endereco_CEP.substring(5, 8)}}, {{fornecedor.endereco_Cidade}} &dash; {{fornecedor.endereco_Estado}}, {{fornecedor.endereco_Pais}}</td>
+                                    <td md-cell style="white-space: nowrap;">{{fornecedor.prazoEntregaDias >= 1 ? fornecedor.prazoEntregaDias + " dia(s)" : ""}}</td>
+                                    <td md-cell>
+                                    {{fornecedor.endereco_Logradouro}}
+                                    {{fornecedor.endereco_CEP}}
+                                    {{fornecedor.endereco_Cidade}}
+                                    {{fornecedor.endereco_Estado}}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -62,8 +67,13 @@
                                     <td md-cell>{{fornecedor.nome}}</td>
                                     <td md-cell>{{fornecedor.email}}</td>
                                     <td md-cell style="white-space: nowrap;">{{fornecedor.telefone}}</td>
-                                    <td md-cell style="white-space: nowrap;">{{fornecedor.prazoEntregaDias}} dia{{fornecedor.prazoEntregaDias != "1" ? "s" : ""}}</td>
-                                    <td md-cell>{{fornecedor.endereco_Logradouro}}, CEP: {{fornecedor.endereco_CEP.substring(0, 2) + '.' + fornecedor.endereco_CEP.substring(2, 5) + '-' + fornecedor.endereco_CEP.substring(5, 8)}}, {{fornecedor.endereco_Cidade}} &dash; {{fornecedor.endereco_Estado}}, {{fornecedor.endereco_Pais}}.</td>
+                                    <td md-cell style="white-space: nowrap;">{{fornecedor.prazoEntregaDias >= 1 ? fornecedor.prazoEntregaDias + " dia(s)" : ""}}</td>
+                                    <td md-cell>
+                                    {{fornecedor.endereco_Logradouro}}
+                                    {{fornecedor.endereco_CEP}}
+                                    {{fornecedor.endereco_Cidade}}
+                                    {{fornecedor.endereco_Estado}}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
