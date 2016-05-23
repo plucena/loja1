@@ -4,7 +4,7 @@
         <form name="fornecedorForm" ng-submit="salvarFornecedor()">
 
             <md-input-container class="md-block">
-                <label>CNPJ</label>
+                <label>CNPJ (obrigatório)</label>
                 <input id="input-cnpj" name="cnpj" pattern="[0-9]{2}\.?[0-9]{3}\.?[0-9]{3}\/?[0-9]{4}\-?[0-9]{2}" required ng-model="fornecedor.cnpj" type="text" ng-disabled="edicao">
                 <div ng-messages="fornecedorForm.cnpj.$error" ng-if="fornecedorForm.cnpj.$dirty">
                     <div ng-message="required">CNPJ é um campo obrigatório!</div>
@@ -13,7 +13,7 @@
             </md-input-container>
 
             <md-input-container class="md-block">
-                <label>Nome</label>
+                <label>Nome (obrigatório)</label>
                 <input id="input-nome" name="nome" required ng-model="fornecedor.nome" type="text">
                 <div ng-messages="fornecedorForm.nome.$error" ng-if="fornecedorForm.nome.$dirty">
                     <div ng-message="required">Nome é um campo obrigatório!</div>

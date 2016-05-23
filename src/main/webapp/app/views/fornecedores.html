@@ -6,8 +6,8 @@
         </md-button>
 
 
-        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
-            <md-tab label="Ativos" md-on-select="setSelectedIndex(0)">
+        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndexFornecedores">
+            <md-tab label="Ativos" md-on-select="setSelectedIndexFornecedores(0)">
                 <md-content class="md-padding">
 
                     <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:true}).length == 0">Não há fornecedores ativos.</p>
@@ -45,7 +45,7 @@
             </md-tab>
                 
 
-            <md-tab label="Inativos" md-on-select="setSelectedIndex(1)">
+            <md-tab label="Inativos" md-on-select="setSelectedIndexFornecedores(1)">
                 <md-content class="md-padding">
                     
                     <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:false}).length == 0">Não há fornecedores inativos.</p>

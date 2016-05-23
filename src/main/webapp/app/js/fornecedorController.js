@@ -2,12 +2,12 @@ app.controller('fornecedorController', ['$scope', '$rootScope', '$location', '$h
 
     $scope.isLoading = true;
 
-    if (!$rootScope.selectedIndex) {
-        $rootScope.selectedIndex = 0;
+    if (!$rootScope.selectedIndexFornecedores) {
+        $rootScope.selectedIndexFornecedores = 0;
     }
 
-    $scope.setSelectedIndex = function (index) {
-        $rootScope.selectedIndex = index;
+    $scope.setselectedIndexFornecedores = function (index) {
+        $rootScope.selectedIndexFornecedores = index;
     }
 
     $scope.fornecedores = [];

@@ -1,0 +1,69 @@
+<md-card>
+    <md-card-content>
+    
+        <form name="materiaPrimaForm" ng-submit="salvarMateriaPrima()">
+
+            <md-input-container class="md-block" ng-if="edicao">
+                <label>SKU</label>
+                <input id="input-sku" name="sku" ng-model="materiaPrima.sku" type="text" disabled>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Nome (obrigatório)</label>
+                <input id="input-nome" name="nome" required ng-model="materiaPrima.nome" type="text">
+                <div ng-messages="materiaPrimaForm.nome.$error" ng-if="materiaPrimaForm.nome.$dirty">
+                    <div ng-message="required">Nome é um campo obrigatório!</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Descrição</label>
+                <input id="input-descricao" name="descricao" ng-model="materiaPrima.descricao" type="text">
+            </md-input-container>
+
+            <div layout-gt-sm="row" div class="md-inline-form">
+
+                <md-input-container class="md-block" flex>
+                    <label>Tipo (obrigatório)</label>
+                    <input id="input-tipo" name="tipo" required ng-model="materiaPrima.tipo" type="text">
+                    <div ng-messages="materiaPrimaForm.tipo.$error" ng-if="materiaPrimaForm.tipo.$dirty">
+                        <div ng-message="required">Tipo é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>Unidade (obrigatório)</label>
+                    <md-select id="select-unidade" name="unidade" required ng-model="materiaPrima.unidade">
+                        <md-option ng-repeat="unidade in unidades" value="{{unidade.sigla}}" selected="{{unidade.sigla === materiaPrima.unidade ? 'selected' : '' }}">
+                            {{unidade.nome}} ({{unidade.sigla}})
+                        </md-option>
+                    </md-select>
+                    <div ng-messages="materiaPrimaForm.unidade.$error" ng-if="materiaPrimaForm.unidade.$dirty">
+                        <div ng-message="required">Unidade é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>Quantidade (obrigatório)</label>
+                    <input id="input-valorUnidade" name="valorUnidade" required min="0" ng-model="materiaPrima.valorUnidade" type="number">
+                    <div ng-messages="materiaPrimaForm.valorUnidade.$error" ng-if="materiaPrimaForm.valorUnidade.$dirty">
+                        <div ng-message="min">A Quantidade não pode ser negativa!</div>
+                        <div ng-message="required">A Quantidade é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+            </div>
+
+            <md-input-container class="md-block">
+                <label>Código de Barras</label>
+                <input id="input-codigoDeBarras" name="codigoDeBarras" ng-model="materiaPrima.codigoDeBarras" type="text">
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button id="button-salvarMateriaPrima" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!materiaPrimaForm.$valid">{{buttonAction}}</md-button>
+            </md-input-container>
+
+        </form>
+
+    </md-card-content>
+</md-card>

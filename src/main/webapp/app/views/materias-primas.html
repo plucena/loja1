@@ -1,7 +1,54 @@
 <md-card>
     <md-card-content>
 
-        <p>TODO</p>
+        <md-button id="button-novaMateriaPrima" class="md-fab md-fab-bottom-right md-primary" aria-label="Add" ng-click="novaMateriaPrima()">
+            <md-icon md-svg-icon="content:ic_add_24px" aria-label="Plus"></md-icon>
+        </md-button>
+
+        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndexMateriasPrimas">
+            <md-tab label="Encomendadas" md-on-select="setSelectedIndexMateriasPrimas(0)">
+                <md-content class="md-padding">
+
+                    <p ng-show="!isLoading" ng-if="fornecedores.length == 0">Não há matérias-primas encomendadas.</p>
+                    <md-table-container ng-if="fornecedores.length != 0">
+                        <table md-table>
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column md-numeric><span>SKU</span></th>
+                                    <th md-column><span>Nome</span></th>
+                                    <th md-column><span>Tipo</span></th>
+                                    <th md-column><span>Descrição</span></th>
+                                    <th md-column><span>Quantidade</span></th>
+                                    <th md-column><span>Código de Barras</span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="materiaPrima in materiasPrimas" ng-click="editarMateriaPrima(materiaPrima.sku)" id="{{materiaPrima.sku}}">
+                                    <td md-cell>{{materiaPrima.sku}}</td>
+                                    <td md-cell>{{materiaPrima.nome}}</td>
+                                    <td md-cell>{{materiaPrima.tipo}}</td>
+                                    <td md-cell>{{materiaPrima.descricao}}</td>
+                                    <td md-cell style="white-space: nowrap;">{{materiaPrima.valorUnidade}} {{materiaPrima.unidade}}(s)</td>
+                                    <td md-cell>{{materiaPrima.codigoDeBarras}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+
+                </md-content>
+            </md-tab>
+                
+
+            <md-tab label="Estoque" md-on-select="setSelectedIndex(1)">
+                <md-content class="md-padding">
+                    
+                    <p>TODO</p>
+
+                </md-content>
+            </md-tab>
+        </md-tabs>
+
+        <md-progress-linear md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
 
     </md-card-content>
 </md-card>

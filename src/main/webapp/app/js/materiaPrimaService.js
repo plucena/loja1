@@ -1,5 +1,5 @@
 app.factory('MateriaPrimaFactory', function ($resource) {
-    return $resource('http://loja.mybluemix.net/api/materiaprima:sku', {
+    return $resource('http://loja.mybluemix.net/api/materiaprima/:sku', {
         sku : '@sku'},
         { 
         listar: {
