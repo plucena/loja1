@@ -54,7 +54,7 @@ GET http://loja.mybluemix.net/api/materiaprima
 * List a MateriaPrima
 GET http://loja.mybluemix.net/api/materiaprima/{$sku}
 
-* Create/Update MateriaPrima
+* Create MateriaPrima
 
 POST http://loja.mybluemix.net/api/materiaprima/create
     
@@ -68,6 +68,8 @@ Content-Type: application/json
         "valorUnidade": 10,
         "codigoDeBarras": "1238783782355"
         }
+
+* Update MateriaPrima
 
 POST http://loja.mybluemix.net/api/materiaprima/update
 
