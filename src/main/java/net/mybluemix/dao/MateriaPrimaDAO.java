@@ -2,6 +2,9 @@ package net.mybluemix.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityTransaction;
+
+import net.mybluemix.entity.Fornecedor;
 import net.mybluemix.entity.MateriaPrima;
 
 public class MateriaPrimaDAO extends BaseDAO<MateriaPrima> {
@@ -20,4 +23,12 @@ public class MateriaPrimaDAO extends BaseDAO<MateriaPrima> {
 	public List<MateriaPrima> findAll(){
 		return this.createQuery("Select a From MateriaPrima a", MateriaPrima.class);  
 	}
+	
+	public void update(MateriaPrima f, Long key) throws Exception {
+    	EntityTransaction tx = manager.getTransaction();
+    	tx.begin();
+    	MateriaPrima m = manager.find(MateriaPrima.class, key);
+    	m.update(f);
+    	tx.commit();
+    }
 }

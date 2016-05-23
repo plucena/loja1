@@ -12,8 +12,10 @@ import javax.ws.rs.Produces;
 
 import com.google.gson.Gson;
 
+import net.mybluemix.dao.FornecedorDAO;
 import net.mybluemix.dao.LoteDAO;
 import net.mybluemix.dao.MateriaPrimaDAO;
+import net.mybluemix.entity.Fornecedor;
 import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
 
@@ -49,7 +51,15 @@ public class MateriaPrimaWS {
     	mpd.create(mp);
     }
     
-
+    @POST
+	@Path("/update")
+	@Consumes("application/json")
+    public void update(String json) throws Exception{
+    	Gson gson = new Gson();
+		MateriaPrima f=  gson.fromJson(json, MateriaPrima.class);	
+    	MateriaPrimaDAO fd = new MateriaPrimaDAO();
+    	fd.update(f, f.getSku());
+    }
     
 
     @POST

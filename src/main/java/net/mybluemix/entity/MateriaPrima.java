@@ -139,6 +139,17 @@ public class MateriaPrima {
 		this.valorUnidade = valorUnidade;
 	
 	}
+	
+	
+	public void update( MateriaPrima p) {
+		this.nome = p.nome;
+		this.tipo = p.tipo;
+		this.descricao = p.descricao;
+		this.unidade = p.unidade;
+		this.valorUnidade = p.valorUnidade;
+		this.codigoDeBarras = p.codigoDeBarras;
+		this.tipo = p.tipo;
+	}
 
 	
 	public boolean equals(MateriaPrima p) {
