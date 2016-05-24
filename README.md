@@ -95,11 +95,11 @@ Content-Type: application/json
 POST http://loja.mybluemix.net/api/lote/create
 
         {
-        "sku": 1,
         "preco": "500",
-        "dataEntrada": "2015-11-1",
-        "dataSaida": "2016-03-19"
-        "cnpj": "xxxxx",
+        "status": "EM_ESTOQUE",
+        "quantidade": 10,
+        "unidade", "m",
+        "cnpj": "111222",
         "materiaprima_sku": 1"
         }
 
@@ -108,10 +108,12 @@ POST http://loja.mybluemix.net/api/lote/create
 POST http://loja.mybluemix.net/api/lote/update/{$sku}
  
         {
+        "sku": 1,
         "preco": "500",
-        "dataEntrada": "2015-11-1",
-        "dataSaida": "2016-03-19"
-        "cnpj": "xxxxx",
+        "status": "EM_ESTOQUE",
+        "quantidade": 10,
+        "unidade", "m",
+        "cnpj": "111222",
         "materiaprima_sku": 1"
         }
 
