@@ -84,18 +84,32 @@ Content-Type: application/json
 
 
 **Lote**
- 
-POST http://loja.mybluemix.net/api/lote/add
-POST http://loja.mybluemix.net/api/lote/update/{$sku}
+
+* Craete lote
+
+POST http://loja.mybluemix.net/api/lote/create
 
         {
+        "sku": 1,
         "preco": "500",
         "dataEntrada": "2015-11-1",
         "dataSaida": "2016-03-19"
         "cnpj": "xxxxx",
-        "sku": 1"
+        "materiaprima_sku": 1"
         }
 
+* Update lote
+
+POST http://loja.mybluemix.net/api/lote/update/{$sku}
+ 
+ 
+ {
+        "preco": "500",
+        "dataEntrada": "2015-11-1",
+        "dataSaida": "2016-03-19"
+        "cnpj": "xxxxx",
+        "materiaprima_sku": 1"
+        }
 
 **Fornecedor**
 
