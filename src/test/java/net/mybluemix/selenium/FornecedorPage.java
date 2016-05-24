@@ -97,7 +97,7 @@ public class FornecedorPage {
 	}
 
 	private WebElement findWithDelay(By by, WebDriver driver) throws InterruptedException {
-		int interval = 200;
+		int interval = 50;
 		try {
 			element = driver.findElement(by);
 			return element;

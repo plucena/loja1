@@ -11,70 +11,38 @@ public class FornecedorPageAdapter implements AdapterInterface {
 	}
 
 	@Override
-	public boolean cadastrarEvent(Boolean ativo, Integer cnpj, Integer nome,
-			Integer email, Integer telefone, Integer prazoEntregaDias,
-			Integer endereco_Pais, Integer endereco_Estado,
-			Integer endereco_Cidade, Integer endereco_Logradouro,
-			Integer endereco_CEP) {
+	public boolean cadastrarEvent(Boolean ativo, String cnpj, String nome,
+			String email, String telefone, Integer prazoEntregaDias,
+			String endereco_Pais, Integer endereco_Estado,
+			String endereco_Cidade, String endereco_Logradouro,
+			String endereco_CEP) {
 
 		String ativoString = ativo.toString();
-
-		StringBuffer cnpjStringBuffer = new StringBuffer(Integer
-				.toUnsignedString(cnpj).toString());
-		while (cnpjStringBuffer.length() < 14) {
-			cnpjStringBuffer.insert(0, '0');
-		}
-		String cnpjString = cnpjStringBuffer.toString();
-
-		String nomeString = Integer.toUnsignedString(nome).toString();
-		String emailString = Integer.toUnsignedString(email).toString()
-				+ "@test.com";
-		String telefoneString = Integer.toUnsignedString(telefone).toString();
-		String prazoEntregaDiasString = Integer.toUnsignedString(
-				prazoEntregaDias).toString();
-		prazoEntregaDiasString = prazoEntregaDiasString.substring(0, 3);
-		// String endereco_PaisString =
-		// Integer.toUnsignedString(endereco_Pais).toString();
-		// String endereco_EstadoString =
-		// Integer.toUnsignedString(endereco_Estado).toString();
 		String endereco_EstadoString = mapINT_to_Sigla(endereco_Estado % 27);
-		String endereco_CidadeString = Integer
-				.toUnsignedString(endereco_Cidade).toString();
-		String endereco_LogradouroString = Integer.toUnsignedString(
-				endereco_Logradouro).toString();
-
-		StringBuffer endereco_CEPStringBuffer = new StringBuffer(Integer
-				.toUnsignedString(endereco_CEP).toString());
-		while (endereco_CEPStringBuffer.length() < 8) {
-			endereco_CEPStringBuffer.insert(0, '0');
-		}
-		String endereco_CEPString = endereco_CEPStringBuffer.toString();
-		endereco_CEPString = endereco_CEPString.substring(0, 8);
 
 		try {
 
-			if (!fornecedorPage.encontrarFornecedor(cnpjString, true)) {
+			if (!fornecedorPage.encontrarFornecedor(cnpj, true)) {
 				fornecedorPage.clicarBotao("novoFornecedor");
-				fornecedorPage.preencher("cnpj", cnpjString);
+				fornecedorPage.preencher("cnpj", cnpj);
 			} else {
 				Thread.sleep(3000);
 			}
 
-			fornecedorPage.preencher("nome", nomeString);
-			fornecedorPage.preencher("email", emailString);
-			fornecedorPage.preencher("telefone", telefoneString);
+			fornecedorPage.preencher("nome", nome);
+			fornecedorPage.preencher("email", email);
+			fornecedorPage.preencher("telefone", telefone);
 			fornecedorPage
-					.preencher("prazoEntregaDias", prazoEntregaDiasString);
-			// fornecedorPage.preencher("endereco_Pais", endereco_PaisString);
-			fornecedorPage.preencher("endereco_CEP", endereco_CEPString);
+					.preencher("prazoEntregaDias", prazoEntregaDias.toString());
+			fornecedorPage.preencher("endereco_CEP", endereco_CEP);
 			fornecedorPage.selecionar("endereco_Estado", endereco_EstadoString);
-			fornecedorPage.preencher("endereco_Cidade", endereco_CidadeString);
-			fornecedorPage.preencher("endereco_Logradouro",
-					endereco_LogradouroString);
+			fornecedorPage.preencher("endereco_Cidade", endereco_Cidade);
+			fornecedorPage
+					.preencher("endereco_Logradouro", endereco_Logradouro);
 			fornecedorPage.preencher("ativo", ativoString);
 			fornecedorPage.clicarBotao("salvarFornecedor");
 
-			return fornecedorPage.encontrarFornecedor(cnpjString, false);
+			return fornecedorPage.encontrarFornecedor(cnpj, false);
 
 		} catch (InterruptedException e) {
 
@@ -106,11 +74,11 @@ public class FornecedorPageAdapter implements AdapterInterface {
 	}
 
 	@Override
-	public boolean alterarEvent(Boolean ativo, Integer cnpj, Integer nome,
-			Integer email, Integer telefone, Integer prazoEntregaDias,
-			Integer endereco_Pais, Integer endereco_Estado,
-			Integer endereco_Cidade, Integer endereco_Logradouro,
-			Integer endereco_CEP) {
+	public boolean alterarEvent(Boolean ativo, String cnpj, String nome,
+			String email, String telefone, Integer prazoEntregaDias,
+			String endereco_Pais, Integer endereco_Estado,
+			String endereco_Cidade, String endereco_Logradouro,
+			String endereco_CEP) {
 		return this.cadastrarEvent(ativo, cnpj, nome, email, telefone,
 				prazoEntregaDias, endereco_Pais, endereco_Estado,
 				endereco_Cidade, endereco_Logradouro, endereco_CEP);
@@ -146,8 +114,8 @@ public class FornecedorPageAdapter implements AdapterInterface {
 
 	private String mapINT_to_Sigla(int number) {
 		String sigla = "";
-		if (number < 0){
-			number *= -1 ;
+		if (number < 0) {
+			number *= -1;
 		}
 		switch (number) {
 		case 1:
@@ -237,4 +205,5 @@ public class FornecedorPageAdapter implements AdapterInterface {
 		}
 		return sigla;
 	}
+
 }

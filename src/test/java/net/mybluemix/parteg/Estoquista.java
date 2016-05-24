@@ -1,5 +1,6 @@
 package net.mybluemix.parteg;
 
+
 public class Estoquista  extends java.lang.Object implements java.lang.Cloneable  {
 
 	
@@ -18,12 +19,29 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 	public Integer endereco_CEP;
 	
 	public AdapterInterface adapter;
+	public AdapterInterfaceDados dados;
+
+	
+	public String cnpjOk;
+	public String nomeOk;
+	public String emailOk;
+	public String telefoneOk;
+	public Integer prazoEntregaDiasOk;
+	public String endereco_PaisOk;
+	public Integer endereco_EstadoOk;
+	public String endereco_CidadeOk;
+	public String endereco_LogradouroOk;
+	public String endereco_CEPOk;
+	
+	
+	
 	
 	
 	public Estoquista()
 	{
 		state = State.mostrandoAtivos;
 		adapter = new FornecedorPageAdapter();
+		dados = new Dados();
 		
 	}
 	
@@ -39,9 +57,10 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 		return null;
 	}
 	
-
 	public void handleEvent(Object... in_colObject)
 	{
+	
+		
 		if(in_colObject.length > 0)
 		{
 			String sEventName = (String)in_colObject[0];
@@ -55,17 +74,41 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 				telefone  			= ((Integer)in_colObject[5]).intValue();
 				prazoEntregaDias    = ((Integer)in_colObject[6]).intValue();
 				endereco_Pais       = ((Integer)in_colObject[7]).intValue();
-				endereco_Estado     = ((Integer)in_colObject[8]).intValue();
+				endereco_Estado     = (Integer) in_colObject[8];
 				endereco_Cidade     = ((Integer)in_colObject[9]).intValue();
 				endereco_Logradouro = ((Integer)in_colObject[10]).intValue();
 				endereco_CEP        = ((Integer)in_colObject[11]).intValue();
 			
-			
-			 if (cadastrar(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP))    
-			    	 state = State.cadastrando;
-			   else 			    	
-					 state = State.mostrandoAtivos; 
 				
+				cnpjOk = dados.dado_cnpj(cnpj);
+				nomeOk = dados.dado_nome(nome);
+				emailOk = dados.dado_email(email);
+				telefoneOk = dados.dado_telefone(telefone);
+				prazoEntregaDiasOk = dados.dado_prazoEntregaDias(prazoEntregaDias);
+				endereco_PaisOk = dados.dado_pais(endereco_Pais);
+				endereco_EstadoOk = dados.dado_estado(endereco_Estado);
+				endereco_CidadeOk = dados.dado_cidade(endereco_Cidade);
+				endereco_LogradouroOk = dados.dado_logradouro(endereco_Logradouro);
+				endereco_CEPOk = dados.dado_CEP(endereco_CEP);
+						
+						
+				//System.out.println(cnpj + "  " + cnpj_send);		
+				//System.out.println(nome + "  " + nome_send);				    			    
+			    //System.out.println(email + "  " + email_send);	
+				//System.out.println(telefone + "  " + telefone_send);
+				//System.out.println(prazoEntregaDias + "  " + prazoEntregaDias_send);
+			    //System.out.println(endereco_Pais + "  " + pais_send);
+			    //System.out.println(endereco_Estado + "  " + estado_send);
+			    //System.out.println(endereco_Cidade + "  " + cidade_send);
+			    //System.out.println(logradouro_send + "  " + logradouro_send);
+			    //System.out.println(endereco_CEP + "  " + CEP_send);
+			    
+			    
+			    
+			    if (cadastrar(ativo, cnpjOk, nomeOk, emailOk, telefoneOk, prazoEntregaDiasOk, endereco_PaisOk, endereco_EstadoOk, endereco_CidadeOk, endereco_LogradouroOk, endereco_CEPOk))    
+			    state = State.cadastrando;
+			    else 			    	
+				state = State.mostrandoAtivos; 
 			}
 			
 			
@@ -83,7 +126,20 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 				endereco_Logradouro = ((Integer)in_colObject[10]).intValue();
 				endereco_CEP        = ((Integer)in_colObject[11]).intValue();
 				
-				if (cadastrar(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP))		
+	
+				cnpjOk = dados.dado_cnpj(cnpj);
+				nomeOk = dados.dado_nome(nome);
+				emailOk = dados.dado_email(email);
+				telefoneOk = dados.dado_telefone(telefone);
+				prazoEntregaDiasOk = dados.dado_prazoEntregaDias(prazoEntregaDias);
+				endereco_PaisOk = dados.dado_pais(endereco_Pais);
+				endereco_EstadoOk = dados.dado_estado(endereco_Estado);
+				endereco_CidadeOk = dados.dado_cidade(endereco_Cidade);
+				endereco_LogradouroOk = dados.dado_logradouro(endereco_Logradouro);
+				endereco_CEPOk = dados.dado_CEP(endereco_CEP);
+				
+				
+				if (cadastrar(ativo, cnpjOk, nomeOk, emailOk, telefoneOk, prazoEntregaDiasOk, endereco_PaisOk, endereco_EstadoOk, endereco_CidadeOk, endereco_LogradouroOk, endereco_CEPOk))		
 					state = State.cadastrando;
 				else     				
 					state = State.mostrandoInativos;
@@ -93,7 +149,7 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 						
 			else if((state == State.cadastrando) && (sEventName.compareTo("fazerCadastroAtivosEvent") == 0))
 			{		
-				if (fazerCadastroAtivos()) 		 
+				if (fazerCadastroAtivos() && nome>0) 		 
 					state = State.mostrandoAtivos;
 				else					        
 					state = State.cadastrando;
@@ -103,14 +159,13 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 		
 		else if((state == State.cadastrando) && (sEventName.compareTo("fazerCadastroInativosEvent") == 0))
 		{		
-			  if (fazerCadastroInativos())  	 
+			  if (fazerCadastroInativos()  && nome>0)  	 
 				  state = State.mostrandoInativos;
 			  else                				 
 				  state = State.cadastrando;
-			
 		}
 		
-							
+			
 			
 			else if((state == State.mostrandoAtivos) && (sEventName.compareTo("alterarEvent") == 0))
 			{		
@@ -127,9 +182,21 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 				endereco_Logradouro = ((Integer)in_colObject[10]).intValue();
 				endereco_CEP        = ((Integer)in_colObject[11]).intValue();
 				
+				cnpjOk = dados.dado_cnpj(cnpj);
+				nomeOk = dados.dado_nome(nome);
+				emailOk = dados.dado_email(email);
+				telefoneOk = dados.dado_telefone(telefone);
+				prazoEntregaDiasOk = dados.dado_prazoEntregaDias(prazoEntregaDias);
+				endereco_PaisOk = dados.dado_pais(endereco_Pais);
+				endereco_EstadoOk = dados.dado_estado(endereco_Estado);
+				endereco_CidadeOk = dados.dado_cidade(endereco_Cidade);
+				endereco_LogradouroOk = dados.dado_logradouro(endereco_Logradouro);
+				endereco_CEPOk = dados.dado_CEP(endereco_CEP);
 				
-				if (alterar(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP)) 
-					state = State.alterando;
+
+			
+				if (alterar(ativo, cnpjOk, nomeOk, emailOk, telefoneOk, prazoEntregaDiasOk, endereco_PaisOk, endereco_EstadoOk, endereco_CidadeOk, endereco_LogradouroOk, endereco_CEPOk))		
+         		state = State.alterando;
 				else 
 					state = State.mostrandoAtivos;
 				
@@ -151,31 +218,40 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 				endereco_Logradouro = ((Integer)in_colObject[10]).intValue();
 				endereco_CEP        = ((Integer)in_colObject[11]).intValue();
 				
-				if (alterar(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP)) 
+				cnpjOk = dados.dado_cnpj(cnpj);
+				nomeOk = dados.dado_nome(nome);
+				emailOk = dados.dado_email(email);
+				telefoneOk = dados.dado_telefone(telefone);
+				prazoEntregaDiasOk = dados.dado_prazoEntregaDias(prazoEntregaDias);
+				endereco_PaisOk = dados.dado_pais(endereco_Pais);
+				endereco_EstadoOk = dados.dado_estado(endereco_Estado);
+				endereco_CidadeOk = dados.dado_cidade(endereco_Cidade);
+				endereco_LogradouroOk = dados.dado_logradouro(endereco_Logradouro);
+				endereco_CEPOk = dados.dado_CEP(endereco_CEP);
+				
+
+			
+				
+				if (alterar(ativo, cnpjOk, nomeOk, emailOk, telefoneOk, prazoEntregaDiasOk, endereco_PaisOk, endereco_EstadoOk, endereco_CidadeOk, endereco_LogradouroOk, endereco_CEPOk))		
 					state = State.alterando;
 				 else 
 					state = State.mostrandoInativos;
-				
 			}
-			
-			
 			
 			else if((state == State.alterando) && (sEventName.compareTo("fazerAlteracoesAtivosEvent") == 0))
 			{		
-				if (fazerAlteracoesAtivos()) 
+				if (fazerAlteracoesAtivos() && nome>0) 
 					state = State.mostrandoAtivos;
 				 else 
 					state = State.alterando;
-				
 			}
 			
 			else if((state == State.alterando) && (sEventName.compareTo("fazerAlteracoesInativosEvent") == 0))
 			{		
-				if (fazerAlteracoesInativos()) 
+				if (fazerAlteracoesInativos() && nome>0) 
 					state = State.mostrandoInativos;
 				 else 
 					state = State.alterando;
-				
 			}
 			
 					
@@ -199,11 +275,10 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 					state = State.mostrandoInativos;
 				}
 			}
-			
 	  }
 	}
 	
-	public  Boolean cadastrar(Boolean ativo, Integer cnpj, Integer nome, Integer email, Integer telefone,  Integer prazoEntregaDias, Integer endereco_Pais, Integer endereco_Estado, Integer endereco_Cidade, Integer endereco_Logradouro, Integer endereco_CEP)
+	public  Boolean cadastrar(Boolean ativo, String cnpj, String nome, String email, String telefone,  Integer prazoEntregaDias, String endereco_Pais, Integer endereco_Estado, String endereco_Cidade, String endereco_Logradouro, String endereco_CEP)
 	{
 		//return true;
 		return adapter.cadastrarEvent(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP);
@@ -212,8 +287,8 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 	
 	public Boolean fazerCadastroAtivos()
 	{
-	    //if(status == true)
-	    if(status == true && adapter.fazerCadastroAtivosEvent() == true)
+	   // if(status == true)
+	   if(status == true && adapter.fazerCadastroAtivosEvent() == true)
 		return true;
 		else
 		return false;	
@@ -232,7 +307,7 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 	}
 	
 	
-	public  Boolean alterar(Boolean ativo, Integer cnpj, Integer nome, Integer email, Integer telefone,  Integer prazoEntregaDias, Integer endereco_Pais, Integer endereco_Estado, Integer endereco_Cidade, Integer endereco_Logradouro, Integer endereco_CEP)
+	public  Boolean alterar(Boolean ativo, String cnpj, String nome, String email, String telefone,  Integer prazoEntregaDias, String endereco_Pais, Integer endereco_Estado, String endereco_Cidade, String endereco_Logradouro, String endereco_CEP)
 	{
 		//return true;
 		return adapter.alterarEvent(ativo, cnpj, nome, email, telefone, prazoEntregaDias, endereco_Pais, endereco_Estado, endereco_Cidade, endereco_Logradouro, endereco_CEP);
@@ -241,8 +316,8 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 	
 	public Boolean fazerAlteracoesAtivos()
 	{
-		    //if(status == true)
-		    if(status == true && adapter.fazerAlteracoesAtivosEvent() == true)
+		   // if(status == true)
+		   if(status == true && adapter.fazerAlteracoesAtivosEvent() == true)
 			return true;
 			else
 			return false;	
@@ -250,8 +325,8 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 	
 	public Boolean fazerAlteracoesInativos()
 	{
-		    //if(status == false)
-		    if(status == false && adapter.fazerCadastroInativosEvent() == true)
+		   // if(status == false)
+		   if(status == false && adapter.fazerCadastroInativosEvent() == true)
 			return true;
 			else
 			return false;	
@@ -270,8 +345,7 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 		return adapter.mostrarInativosEvent();
 	}
 	
-	
-	
+
 	
 	
 }
