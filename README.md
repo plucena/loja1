@@ -86,9 +86,11 @@ Content-Type: application/json
 **Lote**
 
 * List all Lote
+ 
 GET http://loja.mybluemix.net/api/lote
 
 * List a Lote
+
 GET http://loja.mybluemix.net/api/lote/{$sku}
 
 
