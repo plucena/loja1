@@ -89,10 +89,10 @@ public class MateriaPrima {
 	}
 
 	public void update( MateriaPrima p) {
-		this.sku = sku;
-		this.nome = nome;
-		this.tipo = tipo;
-		this.descricao = descricao;
+		this.sku = p.sku;
+		this.nome = p.nome;
+		this.tipo = p.tipo;
+		this.descricao = p.descricao;
 	}
 
 	
