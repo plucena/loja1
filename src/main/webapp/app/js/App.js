@@ -47,6 +47,29 @@ app.config(function($routeProvider) {
         parent      : '#/fornecedores'
     })
 
+    .when('/lotes', {
+        templateUrl : 'views/lotes.html',
+        controller  : 'loteController',
+        title       : 'Lotes',
+        isChild     : false
+    })
+
+    .when('/lotes/novo', {
+        templateUrl : 'views/lotes.form.html',
+        controller  : 'formLoteController',
+        title       : 'Cadastrar Lote',
+        isChild     : true,
+        parent      : '#/lotes'
+    })
+
+    .when('/lote/editar/:sku', {
+        templateUrl : 'views/lote.form.html',
+        controller  : 'formLoteController',
+        title       : 'Editar Lote',
+        isChild     : true,
+        parent      : '#/lotes'
+    })
+
     .when('/materias-primas', {
         templateUrl : 'views/materias-primas.html',
         controller  : 'materiaPrimaController',
@@ -105,6 +128,11 @@ app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialo
             link : 'materias-primas',
             title: 'Matérias-primas',
             icon: 'maps:ic_layers_24px'
+        },
+        {
+            link : 'lotes',
+            title: 'Lotes',
+            icon: 'content:ic_archive_24px'
         }
     ];
   
