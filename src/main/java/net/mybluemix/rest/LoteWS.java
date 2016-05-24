@@ -37,7 +37,7 @@ public class LoteWS {
     	return mpd.find(sku);
     }
 	
-	
+	/*
 	 @POST
 		@Path("/lote/add/{sku}")
 		@Consumes("application/json")
@@ -53,6 +53,6 @@ public class LoteWS {
 	    	//	mp.addLotes(lote);
 	    	//mpd.update(mp, lsku);
 	    }
-	
+	*/
 	
 }
