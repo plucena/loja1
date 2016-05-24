@@ -59,7 +59,7 @@
                 <md-input-container class="md-block" flex>
                     <label>Estado</label>
                     <md-select id="select-endereco_Estado" name="endereco_Estado" ng-model="fornecedor.endereco_Estado">
-                        <md-option ng-repeat="estado in estados" value="{{estado.sigla}}" selected="{{estado.sigla === fornecedor.endereco_Estado ? 'selected' : '' }}">
+                        <md-option ng-repeat="estado in estados" value="{{estado.sigla}}" id="estado-{{estado.sigla}}" selected="{{estado.sigla === fornecedor.endereco_Estado ? 'selected' : '' }}">
                             {{estado.nome}} ({{estado.sigla}})
                         </md-option>
                     </md-select>
