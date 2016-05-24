@@ -88,7 +88,7 @@ app.controller('formMateriaPrimaController', ['$scope', '$routeParams', '$locati
 
     $scope.unidades = [
         {
-            sigla:"KG",
+            sigla:"Kg",
             nome:"Quilo"
         },
         {
@@ -96,7 +96,7 @@ app.controller('formMateriaPrimaController', ['$scope', '$routeParams', '$locati
             nome:"Metro"
         },
         {
-            sigla:"UN",
+            sigla:"Un",
             nome:"Unidade"
         }
     ];

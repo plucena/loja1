@@ -77,7 +77,7 @@
                 <input id="input-endereco_Logradouro" name="endereco_Logradouro" ng-model="fornecedor.endereco_Logradouro" type="text">
             </md-input-container>
 
-            <md-input-container>
+            <md-input-container ng-if="edicao">
                 <md-switch id="input-ativo" name="ativo" ng-model="fornecedor.ativo" aria-label="Ativo">
                     Fornecedor {{fornecedor.ativo === true ? "Ativo" : "Desativado"}}
                 </md-switch>
