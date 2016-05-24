@@ -1,7 +1,7 @@
 package net.mybluemix.transferobject;
 
 
-public class Lote {
+public class LoteTO {
 	
 	public Long sku;
 	public String preco;

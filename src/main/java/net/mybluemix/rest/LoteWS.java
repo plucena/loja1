@@ -16,6 +16,7 @@ import net.mybluemix.dao.MateriaPrimaDAO;
 import net.mybluemix.entity.Fornecedor;
 import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
+import net.mybluemix.transferobject.LoteTO;
 
 import com.google.gson.Gson;
 
@@ -36,6 +37,19 @@ public class LoteWS {
     	LoteDAO mpd = new LoteDAO();
     	return mpd.find(sku);
     }
+	
+	
+	@POST
+	@Path("/create")
+	@Consumes("application/json")
+    public void create(String json) throws Exception{
+    	Gson gson = new Gson();
+		LoteTO mp =  gson.fromJson(json, LoteTO.class);
+    	LoteDAO mpd = new LoteDAO();
+    	// retrieve Fornecedor and MateriaPrima
+    	//mpd.create(mp);
+    }
+    
 	
 	/*
 	 @POST
