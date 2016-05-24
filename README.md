@@ -87,16 +87,17 @@ Content-Type: application/json
 
 
 
-* Add / Update Lote
+**Lote**
  
-POST http://loja.mybluemix.net/api/materiaprima/lote/add/{$sku}
-
-POST http://loja.mybluemix.net/api/materiaprima/lote/update/{$sku}
+POST http://loja.mybluemix.net/api/lote/add
+POST http://loja.mybluemix.net/api/lote/update/{$sku}
 
         {
         "preco": "500",
         "dataEntrada": "2015-11-1",
         "dataSaida": "2016-03-19"
+        "cnpj": "xxxxx",
+        "sku": 1"
         }
 
 
