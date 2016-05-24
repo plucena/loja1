@@ -108,6 +108,11 @@ public class Lote {
 		this.quantidade = quantidade;
 		this.unidade = unidade;
 	}
+
+	public Lote() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 	
 	
 
