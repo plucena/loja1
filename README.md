@@ -59,6 +59,7 @@ GET http://loja.mybluemix.net/api/materiaprima/{$sku}
 POST http://loja.mybluemix.net/api/materiaprima/create
     
 Content-Type: application/json
+
         {
          "nome": "Tecido de Bolinha Amarelinho",
         "tipo": "Tecido Especial",
