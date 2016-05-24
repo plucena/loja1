@@ -85,7 +85,12 @@ Content-Type: application/json
 
 **Lote**
 
-* Craete lote
+* List all Lote   GET http://loja.mybluemix.net/api/lote
+
+* List a Lote GET http://loja.mybluemix.net/api/lote/{$sku}
+
+
+* Create lote
 
 POST http://loja.mybluemix.net/api/lote/create
 
@@ -102,8 +107,7 @@ POST http://loja.mybluemix.net/api/lote/create
 
 POST http://loja.mybluemix.net/api/lote/update/{$sku}
  
- 
- {
+        {
         "preco": "500",
         "dataEntrada": "2015-11-1",
         "dataSaida": "2016-03-19"
