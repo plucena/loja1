@@ -53,9 +53,9 @@ public class FornecedorPageAdapter implements AdapterInterface {
 			fornecedorPage.preencher("email", emailString);
 			fornecedorPage.preencher("telefone", telefoneString);
 			fornecedorPage.preencher("prazoEntregaDias", prazoEntregaDiasString);
-			fornecedorPage.preencher("endereco_Pais", endereco_PaisString);
+			//fornecedorPage.preencher("endereco_Pais", endereco_PaisString);
 			fornecedorPage.preencher("endereco_CEP", endereco_CEPString);
-			fornecedorPage.preencher("endereco_Estado", endereco_EstadoString);
+			fornecedorPage.selecionar("endereco_Estado", "AL");
 			fornecedorPage.preencher("endereco_Cidade", endereco_CidadeString);
 			fornecedorPage.preencher("endereco_Logradouro", endereco_LogradouroString);
 			fornecedorPage.preencher("ativo", ativoString);

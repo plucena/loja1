@@ -86,6 +86,15 @@ public class FornecedorPage {
 			element.sendKeys(valor);
 		}
 	}
+	
+	public void selecionar(String campo, String valor) throws InterruptedException {
+		String idCampo = "select-" + campo;
+		element = findWithDelay(By.id(idCampo), driver);
+		element.click();
+		String idOpcao = "estado-" + valor;
+		element = findWithDelay(By.id(idOpcao), driver);
+		element.click();
+	}
 
 	private WebElement findWithDelay(By by, WebDriver driver) throws InterruptedException {
 		int interval = 200;
