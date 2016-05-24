@@ -31,7 +31,6 @@ public class MateriaPrima {
 	private String nome;
 	public String tipo;
 	private String descricao; 
-	private String unidade; 
 
 	
 	public MateriaPrima(){
@@ -77,17 +76,7 @@ public class MateriaPrima {
     public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-    
-    @JsonProperty
-	public String getUnidade() {
-		return unidade;
-	}
-
-    @JsonProperty
-    public void setUnidade(String unidade) {
-		this.unidade = unidade;
-	}
-
+   
 
    
 	public MateriaPrima(Long sku, String nome, String tipo, String descricao,
@@ -97,7 +86,6 @@ public class MateriaPrima {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.descricao = descricao;
-		this.unidade = unidade;
 	}
 
 	public void update( MateriaPrima p) {
@@ -105,7 +93,6 @@ public class MateriaPrima {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.descricao = descricao;
-		this.unidade = unidade;
 	}
 
 	

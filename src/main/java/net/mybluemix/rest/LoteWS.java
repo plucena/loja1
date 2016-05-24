@@ -4,6 +4,8 @@ import javax.ws.rs.Consumes;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
 
 import net.mybluemix.dao.LoteDAO;
 import net.mybluemix.dao.MateriaPrimaDAO;
@@ -11,6 +13,9 @@ import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
 
 import com.google.gson.Gson;
+
+@Path("lote")
+@Produces(MediaType.APPLICATION_JSON)
 
 public class LoteWS {
 

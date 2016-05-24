@@ -33,7 +33,18 @@ public class Lote {
 	
 	private String Status;
 	private float quantidade;
+	private String unidade; 
+
 	
+	
+	public String getUnidade() {
+		return unidade;
+	}
+
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
+	}
+
 	public Long getSku() {
 		return sku;
 	}
@@ -95,6 +106,7 @@ public class Lote {
 		this.materiaPrima = materiaPrima;
 		Status = status;
 		this.quantidade = quantidade;
+		this.unidade = unidade;
 	}
 	
 	
