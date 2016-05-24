@@ -6,8 +6,8 @@
         </md-button>
 
 
-        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndex">
-            <md-tab label="Ativos" md-on-select="setSelectedIndex(0)">
+        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndexFornecedores">
+            <md-tab label="Ativos" md-on-select="setSelectedIndexFornecedores(0)">
                 <md-content class="md-padding">
 
                     <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:true}).length == 0">Não há fornecedores ativos.</p>
@@ -29,8 +29,13 @@
                                     <td md-cell>{{fornecedor.nome}}</td>
                                     <td md-cell>{{fornecedor.email}}</td>
                                     <td md-cell style="white-space: nowrap;">{{fornecedor.telefone}}</td>
-                                    <td md-cell style="white-space: nowrap;">{{fornecedor.prazoEntregaDias}} dia{{fornecedor.prazoEntregaDias != "1" ? "s" : ""}}</td>
-                                    <td md-cell>{{fornecedor.endereco_Logradouro}}, CEP: {{fornecedor.endereco_CEP.substring(0, 2) + '.' + fornecedor.endereco_CEP.substring(2, 5) + '-' + fornecedor.endereco_CEP.substring(5, 8)}}, {{fornecedor.endereco_Cidade}} &dash; {{fornecedor.endereco_Estado}}, {{fornecedor.endereco_Pais}}</td>
+                                    <td md-cell style="white-space: nowrap;">{{fornecedor.prazoEntregaDias >= 1 ? fornecedor.prazoEntregaDias + " dia(s)" : ""}}</td>
+                                    <td md-cell>
+                                    {{fornecedor.endereco_Logradouro}}
+                                    {{fornecedor.endereco_CEP}}
+                                    {{fornecedor.endereco_Cidade}}
+                                    {{fornecedor.endereco_Estado}}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>
@@ -40,7 +45,7 @@
             </md-tab>
                 
 
-            <md-tab label="Inativos" md-on-select="setSelectedIndex(1)">
+            <md-tab label="Inativos" md-on-select="setSelectedIndexFornecedores(1)">
                 <md-content class="md-padding">
                     
                     <p ng-show="!isLoading" ng-if="(fornecedores|filter:{ativo:false}).length == 0">Não há fornecedores inativos.</p>
@@ -62,8 +67,13 @@
                                     <td md-cell>{{fornecedor.nome}}</td>
                                     <td md-cell>{{fornecedor.email}}</td>
                                     <td md-cell style="white-space: nowrap;">{{fornecedor.telefone}}</td>
-                                    <td md-cell style="white-space: nowrap;">{{fornecedor.prazoEntregaDias}} dia{{fornecedor.prazoEntregaDias != "1" ? "s" : ""}}</td>
-                                    <td md-cell>{{fornecedor.endereco_Logradouro}}, CEP: {{fornecedor.endereco_CEP.substring(0, 2) + '.' + fornecedor.endereco_CEP.substring(2, 5) + '-' + fornecedor.endereco_CEP.substring(5, 8)}}, {{fornecedor.endereco_Cidade}} &dash; {{fornecedor.endereco_Estado}}, {{fornecedor.endereco_Pais}}.</td>
+                                    <td md-cell style="white-space: nowrap;">{{fornecedor.prazoEntregaDias >= 1 ? fornecedor.prazoEntregaDias + " dia(s)" : ""}}</td>
+                                    <td md-cell>
+                                    {{fornecedor.endereco_Logradouro}}
+                                    {{fornecedor.endereco_CEP}}
+                                    {{fornecedor.endereco_Cidade}}
+                                    {{fornecedor.endereco_Estado}}
+                                    </td>
                                 </tr>
                             </tbody>
                         </table>

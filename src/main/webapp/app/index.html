@@ -28,7 +28,7 @@
       
         <div flex layout="row" class="wrapper">
 
-            <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')">
+            <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
                 <h1><a href="#pagina-inicial" ng-click="closeSidenav('left')">Gestão <span>Fitness</span></a><md-tooltip md-direction="bottom">Página Inicial</md-tooltip></h1>
                   
                 <md-divider></md-divider>
@@ -48,7 +48,7 @@
 
                 <md-toolbar class="animate-show md-whiteframe-z1">
                     <div class="md-toolbar-tools">
-                        <md-button class="md-icon-button" ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+                        <md-button class="md-icon-button" ng-click="toggleSidenav('left')" hide-gt-sm aria-label="Menu">
                             <md-icon md-svg-icon="navigation:ic_menu_24px" aria-label="Menu"></md-icon>
                         </md-button>
 
@@ -77,6 +77,8 @@
         <script src="js/lib/md-data-table.min.js" type="text/javascript" ></script>
         <script src="js/App.js" type="text/javascript" ></script>
         <script src="js/fornecedorService.js" type="text/javascript" ></script>
+        <script src="js/materiaPrimaService.js" type="text/javascript" ></script>
         <script src="js/fornecedorController.js" type="text/javascript" ></script>
+        <script src="js/materiaPrimaController.js" type="text/javascript" ></script>
     </body>
 </html>
