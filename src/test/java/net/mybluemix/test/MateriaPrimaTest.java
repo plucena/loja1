@@ -45,7 +45,7 @@ public class MateriaPrimaTest
     
 	@Test
 	public void testMateriaPrima() throws Exception {
-			MateriaPrima p = mpd.find(1);
+			MateriaPrima p = mpd.find(1L);
 			if(p.equals(elist.get(0)))
 				Assert.assertEquals(true, true);
 	}	

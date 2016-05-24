@@ -14,10 +14,10 @@ public class MateriaPrimaDAO extends BaseDAO<MateriaPrima> {
 		// TODO Auto-generated constructor stub
 	}
 
-	public MateriaPrima find(int  sku) {
+	public MateriaPrima find(Long  sku) {
 		javax.persistence.TypedQuery<MateriaPrima> query = manager.createQuery(
 		        "SELECT c FROM MateriaPrima c WHERE c.sku = :sku", MateriaPrima.class);
-		    return query.setParameter("sku", new Long(sku)).getSingleResult();
+		    return query.setParameter("sku", sku).getSingleResult();
 	}
 
 	public List<MateriaPrima> findAll(){

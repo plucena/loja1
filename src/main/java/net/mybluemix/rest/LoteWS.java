@@ -30,6 +30,13 @@ public class LoteWS {
 		return fd.findAll();
 	}
 	
+	@GET
+    @Path("{sku}")
+    public Lote  Lote(@PathParam("sku") Long sku){
+    	LoteDAO mpd = new LoteDAO();
+    	return mpd.find(sku);
+    }
+	
 	
 	 @POST
 		@Path("/lote/add/{sku}")

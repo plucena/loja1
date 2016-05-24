@@ -34,10 +34,9 @@ public class MateriaPrimaWS {
     
     @GET
     @Path("{sku}")
-    public MateriaPrima  MateriaPrima(@PathParam("sku") String sku){
-    	int x = Integer.parseInt(sku);
+    public MateriaPrima  MateriaPrima(@PathParam("sku") Long sku){
     	MateriaPrimaDAO mpd = new MateriaPrimaDAO();
-    	return mpd.find(x);
+    	return mpd.find(sku);
     }
 
 
