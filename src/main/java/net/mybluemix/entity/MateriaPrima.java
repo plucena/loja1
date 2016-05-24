@@ -8,9 +8,13 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
 import javax.xml.bind.annotation.XmlRootElement;
+
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -20,50 +24,16 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class MateriaPrima {
 
+	
 	@Id
     @GeneratedValue
     private Long sku;
-	
 	private String nome;
-	private String tipo;
+	public String tipo;
 	private String descricao; 
 	private String unidade; 
-	private float valorUnidade; 
-	private String codigoDeBarras;
-	
-	@OneToMany(fetch=FetchType.EAGER, cascade = CascadeType.MERGE)
-	@JoinTable
-	 (
-	      name="LOTE_MATERIAPRIMA",
-	      joinColumns={ @JoinColumn(name="sku", referencedColumnName="sku") }
-	  )
-	private List<Lote> lotes;
 
 	
-	
-    public List<Lote> getLotes() {
-		return lotes;
-	}
-
-	public void addLotes(Lote lote) {
-		this.lotes.add(lote);
-	}
-	
-
-	public void setLotes(List<Lote> lotes) {
-		this.lotes = lotes;
-	}
-
-	@JsonProperty
-	public String getCodigoDeBarras() {
-		return codigoDeBarras;
-	}
-
-    @JsonProperty
-	public void setCodigoDeBarras(String codigoDeBarras) {
-		this.codigoDeBarras = codigoDeBarras;
-	}
-
 	public MateriaPrima(){
 	}
 	
@@ -118,50 +88,27 @@ public class MateriaPrima {
 		this.unidade = unidade;
 	}
 
-    @JsonProperty
-    public float getValorUnidade() {
-		return valorUnidade;
-	}
-
-    @JsonProperty
-    public void setValorUnidade(float valorUnidade) {
-		this.valorUnidade = valorUnidade;
-	}
 
    
-	public MateriaPrima( String nome, String tipo, String descricao,
-			String unidade, float valorUnidade) {
+	public MateriaPrima(Long sku, String nome, String tipo, String descricao,
+			String unidade) {
 		super();
+		this.sku = sku;
 		this.nome = nome;
 		this.tipo = tipo;
 		this.descricao = descricao;
 		this.unidade = unidade;
-		this.valorUnidade = valorUnidade;
-	
 	}
-	
-	
+
 	public void update( MateriaPrima p) {
-		this.nome = p.nome;
-		this.tipo = p.tipo;
-		this.descricao = p.descricao;
-		this.unidade = p.unidade;
-		this.valorUnidade = p.valorUnidade;
-		this.codigoDeBarras = p.codigoDeBarras;
-		this.tipo = p.tipo;
+		this.sku = sku;
+		this.nome = nome;
+		this.tipo = tipo;
+		this.descricao = descricao;
+		this.unidade = unidade;
 	}
 
 	
-	public boolean equals(MateriaPrima p) {
-		if(this.nome.equals(p.nome) &&
-		   this.tipo.equals(p.tipo) &&
-		   this.descricao.equals(p.descricao) &&
-		   this.unidade.equals(p.unidade) &&
-		   this.valorUnidade == p.valorUnidade 
-		   )
-			return true;
-		return false;
-	}
 
 	
 	
