@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_6Ew5QCIBEea-AadZB7-_AQ" name="">
+  <packageImport xmi:id="_6bRUwCIBEea-AadZB7-_AQ">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_-lLJYCIBEea-AadZB7-_AQ" name="MateriaPrimaPk">
+    <packagedElement xmi:type="uml:Class" xmi:id="_D7_dECICEea-AadZB7-_AQ" name="MateriaPrima">
+      <ownedAttribute xmi:id="_anrf8CIEEea-AadZB7-_AQ" name="state" type="_tcKvICIDEea-AadZB7-_AQ"/>
+      <ownedAttribute xmi:id="_89IMgCIMEea-AadZB7-_AQ" name="nome">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_CBv88CINEea-AadZB7-_AQ" name="tipo">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_SQ99kCINEea-AadZB7-_AQ" name="descricao">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_C2zVoCINEea-AadZB7-_AQ" name="unidade">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_6KuXUCIBEea-AadZB7-_AQ" name="MatriaPrimaStateMachine">
+        <region xmi:id="_6NQt8CIBEea-AadZB7-_AQ" name="MateriaPrimaRegion">
+          <transition xmi:id="_C2VAECIDEea-AadZB7-_AQ" name="init2mostrando" source="_7NHzACICEea-AadZB7-_AQ" target="_8PSaoCICEea-AadZB7-_AQ"/>
+          <transition xmi:id="_FTY4YCIDEea-AadZB7-_AQ" name="mostrando2cadastrando" source="_8PSaoCICEea-AadZB7-_AQ" target="_-F4I0CICEea-AadZB7-_AQ">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_va2iACIGEea-AadZB7-_AQ" name="cadastrar" specification="_7w_0wCIFEea-AadZB7-_AQ"/>
+            <trigger xmi:id="_uftIYCIGEea-AadZB7-_AQ" event="_42E7wCIFEea-AadZB7-_AQ"/>
+          </transition>
+          <transition xmi:id="_HceEwCIDEea-AadZB7-_AQ" name="mostrando2alterando" source="_8PSaoCICEea-AadZB7-_AQ" target="__aZEsCICEea-AadZB7-_AQ">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_xOtsUCIGEea-AadZB7-_AQ" name="alterar" specification="_A1wvICIGEea-AadZB7-_AQ"/>
+            <trigger xmi:id="_wYU24CIGEea-AadZB7-_AQ" event="_-eIJYCIFEea-AadZB7-_AQ"/>
+          </transition>
+          <transition xmi:id="_LAwq4CIDEea-AadZB7-_AQ" name="cadastrando2mostrando" guard="_wFTeICIPEea-AadZB7-_AQ" source="_-F4I0CICEea-AadZB7-_AQ" target="_8PSaoCICEea-AadZB7-_AQ">
+            <ownedRule xmi:id="_wFTeICIPEea-AadZB7-_AQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_wsMfACIPEea-AadZB7-_AQ" value="(nome>0)"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_yn00UCIGEea-AadZB7-_AQ" name="fazerCadastro" specification="_cPbO8CIGEea-AadZB7-_AQ"/>
+            <trigger xmi:id="_x60kYCIGEea-AadZB7-_AQ" event="_HVo8oCIGEea-AadZB7-_AQ"/>
+          </transition>
+          <transition xmi:id="_Mw-EQCIDEea-AadZB7-_AQ" name="alterando2mostrando" guard="_zu0igCIPEea-AadZB7-_AQ" source="__aZEsCICEea-AadZB7-_AQ" target="_8PSaoCICEea-AadZB7-_AQ">
+            <ownedRule xmi:id="_zu0igCIPEea-AadZB7-_AQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_0W2y4CIPEea-AadZB7-_AQ" value="(nome>0)"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_z_dVoCIGEea-AadZB7-_AQ" name="fazerAlteracoes" specification="_c3tW8CIGEea-AadZB7-_AQ"/>
+            <trigger xmi:id="_zg5xYCIGEea-AadZB7-_AQ" event="_WbikwCIGEea-AadZB7-_AQ"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_7NHzACICEea-AadZB7-_AQ" name="init"/>
+          <subvertex xmi:type="uml:State" xmi:id="_8PSaoCICEea-AadZB7-_AQ" name="mostrando" stateInvariant="_pSjY8CIEEea-AadZB7-_AQ">
+            <ownedRule xmi:id="_pSjY8CIEEea-AadZB7-_AQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_qIficCIEEea-AadZB7-_AQ" value="state=State::mostrando"/>
+            </ownedRule>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_-F4I0CICEea-AadZB7-_AQ" name="cadastrando" stateInvariant="_2_LhACIEEea-AadZB7-_AQ">
+            <ownedRule xmi:id="_2_LhACIEEea-AadZB7-_AQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_4B6wYCIEEea-AadZB7-_AQ" value="state=State::cadastrando"/>
+            </ownedRule>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="__aZEsCICEea-AadZB7-_AQ" name="alterando" stateInvariant="_ASHE8CIFEea-AadZB7-_AQ">
+            <ownedRule xmi:id="_ASHE8CIFEea-AadZB7-_AQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_BK6VMCIFEea-AadZB7-_AQ" value="state=State::alterando"/>
+            </ownedRule>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_7w_0wCIFEea-AadZB7-_AQ" name="cadastrarOp" method="_va2iACIGEea-AadZB7-_AQ" postcondition="_3O0JYCINEea-AadZB7-_AQ">
+        <ownedRule xmi:id="_3O0JYCINEea-AadZB7-_AQ">
+          <specification xmi:type="uml:LiteralString" xmi:id="_36BpkCINEea-AadZB7-_AQ" value="(nome=nomeVal) and  (tipo=tipoVal) and (descricao=descricaoVal) and (unidade=unidadeVal)"/>
+        </ownedRule>
+        <ownedParameter xmi:id="_Ye1OACINEea-AadZB7-_AQ" name="nomeVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_ZNtGMCINEea-AadZB7-_AQ" name="tipoVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_Z_xcUCINEea-AadZB7-_AQ" name="descricaoVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_akyN4CINEea-AadZB7-_AQ" name="unidadeVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_A1wvICIGEea-AadZB7-_AQ" name="alterarOp" method="_xOtsUCIGEea-AadZB7-_AQ" postcondition="_2Mc4ACIOEea-AadZB7-_AQ">
+        <ownedRule xmi:id="_2Mc4ACIOEea-AadZB7-_AQ">
+          <specification xmi:type="uml:LiteralString" xmi:id="_3m7R8CIOEea-AadZB7-_AQ" value="(nome=nomeVal1) and  (tipo=tipoVal1) and (descricao=descricaoVal1) and (unidade=unidadeVal1)"/>
+        </ownedRule>
+        <ownedParameter xmi:id="_qFZmoCIOEea-AadZB7-_AQ" name="nomeVal1">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_q-xeoCIOEea-AadZB7-_AQ" name="tipoVal1">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_rh72ECIOEea-AadZB7-_AQ" name="descricaoVal1">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_sZX0YCIOEea-AadZB7-_AQ" name="unidadeVal1">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_cPbO8CIGEea-AadZB7-_AQ" name="fazerCadastroOp" method="_yn00UCIGEea-AadZB7-_AQ"/>
+      <ownedOperation xmi:id="_c3tW8CIGEea-AadZB7-_AQ" name="fazerAlteracoesOp" method="_z_dVoCIGEea-AadZB7-_AQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_tcKvICIDEea-AadZB7-_AQ" name="State">
+      <ownedLiteral xmi:id="_ubaloCIDEea-AadZB7-_AQ" name="mostrando"/>
+      <ownedLiteral xmi:id="_u9YqQCIDEea-AadZB7-_AQ" name="cadastrando"/>
+      <ownedLiteral xmi:id="_vtQA8CIDEea-AadZB7-_AQ" name="alterando"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_42E7wCIFEea-AadZB7-_AQ" name="cadastrarEvent" operation="_7w_0wCIFEea-AadZB7-_AQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_-eIJYCIFEea-AadZB7-_AQ" name="alterarEvent" operation="_A1wvICIGEea-AadZB7-_AQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_HVo8oCIGEea-AadZB7-_AQ" name="fazerCadastroEvent" operation="_cPbO8CIGEea-AadZB7-_AQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_WbikwCIGEea-AadZB7-_AQ" name="fazerAlteracoesEvent" operation="_c3tW8CIGEea-AadZB7-_AQ"/>
+  </packagedElement>
+</uml:Model>
