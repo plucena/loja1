@@ -30,18 +30,6 @@
             </md-input-container>
 
             <md-input-container class="md-block">
-                <label>Unidade (obrigatório)</label>
-                <md-select id="select-unidade" name="unidade" required ng-model="materiaPrima.unidade">
-                    <md-option ng-repeat="unidade in unidades" value="{{unidade.sigla}}" selected="{{unidade.sigla === materiaPrima.unidade ? 'selected' : '' }}">
-                        {{unidade.nome}} ({{unidade.sigla}})
-                    </md-option>
-                </md-select>
-                <div ng-messages="materiaPrimaForm.unidade.$error" ng-if="materiaPrimaForm.unidade.$dirty">
-                    <div ng-message="required">Unidade é um campo obrigatório!</div>
-                </div>
-            </md-input-container>
-
-            <md-input-container class="md-block">
                 <md-button id="button-salvarMateriaPrima" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!materiaPrimaForm.$valid">{{buttonAction}}</md-button>
             </md-input-container>
 

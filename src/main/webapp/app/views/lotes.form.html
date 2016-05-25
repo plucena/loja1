@@ -3,7 +3,103 @@
     
         <form name="loteForm" ng-submit="salvarLote()">
 
-            
+            <md-input-container class="md-block" ng-if="edicao">
+                <label>SKU</label>
+                <input id="input-sku" name="sku" ng-model="lote.sku" type="text" disabled>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>Preço (obrigatório)</label>
+                <input id="input-preco" name="preco" required min="0" ng-model="lote.preco" type="number" step="any">
+                <div ng-messages="loteForm.preco.$error" ng-if="loteForm.preco.$dirty">
+                    <div ng-message="min">O Preço não pode ser negativo!</div>
+                    <div ng-message="required">Unidade é um campo obrigatório!</div>
+                </div>
+            </md-input-container>
+
+            <div layout-gt-sm="row" div class="md-inline-form">
+
+                <md-input-container class="md-block" flex>
+                    <label>Unidade (obrigatório)</label>
+                    <md-select id="select-unidade" name="unidade" required ng-model="materiaPrima.unidade">
+                        <md-option ng-repeat="unidade in unidades" value="{{unidade.sigla}}" id="unidade-{{unidade.sigla}}">
+                            {{unidade.nome}} ({{unidade.sigla}})
+                        </md-option>
+                    </md-select>
+                    <div ng-messages="loteForm.unidade.$error" ng-if="loteForm.unidade.$dirty">
+                        <div ng-message="required">Unidade é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>Quantidade (obrigatório)</label>
+                    <input id="input-quantidade" name="quantidade" required min="0" ng-model="lote.quantidade" type="number">
+                    <div ng-messages="loteForm.quantidade.$error" ng-if="loteForm.quantidade.$dirty">
+                        <div ng-message="min">A Quantidade não pode ser negativa!</div>
+                        <div ng-message="required">A Quantidade é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+            </div>
+
+            <div layout-gt-sm="row" div class="md-inline-form">
+
+                <md-input-container class="md-block" flex>
+                    <label>Data de Entrada</label>
+                    <input id="input-dataEntrada" name="dataEntrada" ng-model="lote.dataEntrada" type="date">
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>Data de Saída</label>
+                    <input id="input-dataSaida" name="dataSaida" ng-model="lote.dataSaida" type="date" min="{{lote.dataEntrada}}">
+                    <div ng-messages="loteForm.dataSaida.$error" ng-if="loteForm.dataSaida.$dirty">
+                        <div ng-message="min">A Data de Saída não pode ser menor que a data de Entrada!</div>
+                    </div>
+                </md-input-container>
+
+            </div>
+
+            <div layout-gt-sm="row" div class="md-inline-form">
+
+                <md-input-container class="md-block" flex>
+                    <label>Fornecedor (obrigatório)</label>
+                    <md-select id="select-fornecedor" name="fornecedor.cnpj" required ng-model="lote.fornecedor.cnpj">
+                        <md-option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.cnpj}}" id="fornecedor-{{fornecedor.cnpj}}">
+                            {{fornecedor.nome}} (CNPJ: {{fornecedor.cnpj.substring(0, 2) + '.' + fornecedor.cnpj.substring(2, 5) + '.' + fornecedor.cnpj.substring(5, 8) + '/' + fornecedor.cnpj.substring(8, 12) + '-' + fornecedor.cnpj.substring(12, 14)}})
+                        </md-option>
+                    </md-select>
+                    <div ng-messages="loteForm.fornecedor.cnpj.$error" ng-if="loteForm.fornecedor.cnpj.$dirty">
+                        <div ng-message="required">Fornecedor é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>Matéria-prima (obrigatório)</label>
+                    <md-select id="select-materiaPrima" name="materiaPrima.sku" required ng-model="lote.materiaPrima.sku">
+                        <md-option ng-repeat="materiaPrima in materiasPrimas" value="{{materiaPrima.sku}}" id="materiaPrima-{{materiaPrima.sku}}">
+                            {{materiaPrima.nome}} (SKU: {{materiaPrima.sku}})
+                        </md-option>
+                    </md-select>
+                    <div ng-messages="loteForm.materiaPrima.sku.$error" ng-if="loteForm.materiaPrima.sku.$dirty">
+                        <div ng-message="required">Matéria-prima é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+            </div>
+
+            <md-input-container class="md-block" flex>
+                <md-radio-group ng-model="lote.status">
+                    <md-radio-button value="ENCOMENDADO" class="md-primary">Encomendado</md-radio-button>
+                    <md-radio-button value="EM_ESTOQUE" class="md-primary">Em Estoque</md-radio-button>
+                    <md-radio-button value="EM_PRODUCAO" class="md-primary">Em Produção</md-radio-button>
+                    <md-radio-button value="FINALIZADO" class="md-primary">Finalizado</md-radio-button>
+                    <md-radio-button value="CANCELADO" class="md-primary">Cancelado</md-radio-button>
+                </md-radio-group>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button id="button-salvarLote" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!loteForm.$valid">{{buttonAction}}</md-button>
+            </md-input-container>
 
         </form>
 

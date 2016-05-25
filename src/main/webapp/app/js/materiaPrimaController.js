@@ -2,14 +2,6 @@ app.controller('materiaPrimaController', ['$scope', '$rootScope', '$location', '
 
     $scope.isLoading = true;
 
-    if (!$rootScope.selectedIndexMateriasPrimas) {
-        $rootScope.selectedIndexMateriasPrimas = 0;
-    }
-
-    $scope.setSelectedIndexMateriasPrimas = function (index) {
-        $rootScope.selectedIndexMateriasPrimas = index;
-    }
-
     $scope.materiasPrimas = [];
     $scope.materiasPrimas = MateriaPrimaFactory.listar(
         {},
@@ -85,20 +77,5 @@ app.controller('formMateriaPrimaController', ['$scope', '$routeParams', '$locati
                 });
         }
     }
-
-    $scope.unidades = [
-        {
-            sigla:"Kg",
-            nome:"Quilo"
-        },
-        {
-            sigla:"m",
-            nome:"Metro"
-        },
-        {
-            sigla:"Un",
-            nome:"Unidade"
-        }
-    ];
 
 }]);
