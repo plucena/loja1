@@ -1,4 +1,4 @@
-package net.mybluemix.parteg;
+package net.mybluemix.parteg.fornecedor;
 
 import org.junit.*;
 import static org.junit.Assert.*;

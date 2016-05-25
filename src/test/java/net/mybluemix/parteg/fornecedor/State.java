@@ -1,4 +1,4 @@
-package net.mybluemix.parteg;
+package net.mybluemix.parteg.fornecedor;
 
 public enum State {
 	

@@ -1,4 +1,4 @@
-package MateriaPrimaPk;
+package net.mybluemix.parteg.materiaprima;
 
 import java.util.Random;
 

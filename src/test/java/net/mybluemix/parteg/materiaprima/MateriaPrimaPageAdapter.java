@@ -1,4 +1,4 @@
-package MateriaPrimaPk;
+package net.mybluemix.parteg.materiaprima;
 
 public class MateriaPrimaPageAdapter implements AdapterInterface {
 

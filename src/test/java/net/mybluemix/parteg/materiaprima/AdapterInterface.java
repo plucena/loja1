@@ -1,4 +1,4 @@
-package MateriaPrimaPk;
+package net.mybluemix.parteg.materiaprima;
 
 public interface AdapterInterface {
 	
