@@ -47,7 +47,7 @@
                 <md-input-container class="md-block" flex>
                     <label>Fornecedor (obrigatório)</label>
                     <md-select id="select-fornecedor" name="fornecedor.cnpj" required ng-model="lote.fornecedor.cnpj">
-                        <md-option ng-repeat="fornecedor in fornecedores" value="{{fornecedor.cnpj}}" id="fornecedor-{{fornecedor.cnpj}}">
+                        <md-option ng-repeat="fornecedor in fornecedores | filter: {ativo: true}" value="{{fornecedor.cnpj}}" id="fornecedor-{{fornecedor.cnpj}}">
                             {{fornecedor.nome}} (CNPJ: {{fornecedor.cnpj.substring(0, 2) + '.' + fornecedor.cnpj.substring(2, 5) + '.' + fornecedor.cnpj.substring(5, 8) + '/' + fornecedor.cnpj.substring(8, 12) + '-' + fornecedor.cnpj.substring(12, 14)}})
                         </md-option>
                     </md-select>
