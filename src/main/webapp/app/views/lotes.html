@@ -16,8 +16,6 @@
                                 <tr md-row>
                                     <th md-column md-numeric><span>SKU</span></th>
                                     <th md-column><span>Preço</span></th>
-                                    <th md-column><span>Entrada</span></th>
-                                    <th md-column><span>Saída</span></th>
                                     <th md-column><span>Quantidade</span></th>
                                     <th md-column><span>Fornecedor</span></th>
                                     <th md-column><span>Matéria-prima</span></th>
@@ -27,8 +25,6 @@
                                 <tr md-row ng-repeat="lote in lotes | filter: { status: 'ENCOMENDADO' }" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
                                     <td md-cell>{{lote.sku}}</td>
                                     <td md-cell>{{lote.preco}}</td>
-                                    <td md-cell>{{lote.dataEntrada}}</td>
-                                    <td md-cell>{{lote.dataSaida}}</td>
                                     <td md-cell>{{lote.quantidade}} {{lote.unidade}}(s)</td>
                                     <td md-cell>CNPJ: {{lote.fornecedor.cnpj}}</td>
                                     <td md-cell>SKU: {{lote.materiaPrima.sku}}</td>
@@ -50,8 +46,6 @@
                                 <tr md-row>
                                     <th md-column md-numeric><span>SKU</span></th>
                                     <th md-column><span>Preço</span></th>
-                                    <th md-column><span>Entrada</span></th>
-                                    <th md-column><span>Saída</span></th>
                                     <th md-column><span>Quantidade</span></th>
                                     <th md-column><span>Fornecedor</span></th>
                                     <th md-column><span>Matéria-prima</span></th>
@@ -61,8 +55,6 @@
                                 <tr md-row ng-repeat="lote in lotes | filter: { status: 'EM_ESTOQUE' }" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
                                     <td md-cell>{{lote.sku}}</td>
                                     <td md-cell>{{lote.preco}}</td>
-                                    <td md-cell>{{lote.dataEntrada}}</td>
-                                    <td md-cell>{{lote.dataSaida}}</td>
                                     <td md-cell>{{lote.quantidade}} {{lote.unidade}}(s)</td>
                                     <td md-cell>CNPJ: {{lote.fornecedor.cnpj}}</td>
                                     <td md-cell>SKU: {{lote.materiaPrima.sku}}</td>
@@ -84,8 +76,6 @@
                                 <tr md-row>
                                     <th md-column md-numeric><span>SKU</span></th>
                                     <th md-column><span>Preço</span></th>
-                                    <th md-column><span>Entrada</span></th>
-                                    <th md-column><span>Saída</span></th>
                                     <th md-column><span>Quantidade</span></th>
                                     <th md-column><span>Fornecedor</span></th>
                                     <th md-column><span>Matéria-prima</span></th>
@@ -95,8 +85,6 @@
                                 <tr md-row ng-repeat="lote in lotes | filter: { status: 'EM_PRODUCAO' }" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
                                     <td md-cell>{{lote.sku}}</td>
                                     <td md-cell>{{lote.preco}}</td>
-                                    <td md-cell>{{lote.dataEntrada}}</td>
-                                    <td md-cell>{{lote.dataSaida}}</td>
                                     <td md-cell>{{lote.quantidade}} {{lote.unidade}}(s)</td>
                                     <td md-cell>CNPJ: {{lote.fornecedor.cnpj}}</td>
                                     <td md-cell>SKU: {{lote.materiaPrima.sku}}</td>
@@ -118,8 +106,6 @@
                                 <tr md-row>
                                     <th md-column md-numeric><span>SKU</span></th>
                                     <th md-column><span>Preço</span></th>
-                                    <th md-column><span>Entrada</span></th>
-                                    <th md-column><span>Saída</span></th>
                                     <th md-column><span>Quantidade</span></th>
                                     <th md-column><span>Fornecedor</span></th>
                                     <th md-column><span>Matéria-prima</span></th>
@@ -129,8 +115,6 @@
                                 <tr md-row ng-repeat="lote in lotes | filter: { status: 'FINALIZADO' }" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
                                     <td md-cell>{{lote.sku}}</td>
                                     <td md-cell>{{lote.preco}}</td>
-                                    <td md-cell>{{lote.dataEntrada}}</td>
-                                    <td md-cell>{{lote.dataSaida}}</td>
                                     <td md-cell>{{lote.quantidade}} {{lote.unidade}}(s)</td>
                                     <td md-cell>CNPJ: {{lote.fornecedor.cnpj}}</td>
                                     <td md-cell>SKU: {{lote.materiaPrima.sku}}</td>

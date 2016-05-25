@@ -30,7 +30,7 @@ app.controller('loteController', ['$scope', '$rootScope', '$location', '$http', 
 
 }]);
 
-app.controller('formLoteController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'FornecedorFactory', 'MateriaPrimaFactory', 'LoteFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, FornecedorFactory, MateriaPrimaFactory, LoteFactory) {
+app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'FornecedorFactory', 'MateriaPrimaFactory', 'LoteFactory', function($scope, $rootScope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, FornecedorFactory, MateriaPrimaFactory, LoteFactory) {
 
     $scope.showToast = function(message) {
         $mdToast.show(
@@ -42,6 +42,10 @@ app.controller('formLoteController', ['$scope', '$routeParams', '$location', '$h
                 .theme("success-toast")
         );
     };
+
+    $scope.setselectedIndexLotes = function (index) {
+        $rootScope.selectedIndexLotes = index;
+    }
 
     $scope.buttonAction = 'Cadastrar';
     $scope.edicao = false;
@@ -85,6 +89,29 @@ app.controller('formLoteController', ['$scope', '$routeParams', '$location', '$h
 
         $scope.lote.cnpj = $scope.lote.fornecedor.cnpj;
         $scope.lote.materiaprima_sku = $scope.lote.materiaPrima.sku;
+
+        switch ($scope.lote.status)
+        {
+            case "ENCOMENDADO":
+                $scope.setselectedIndexLotes(0);
+                break;
+
+            case "EM_ESTOQUE":
+                $scope.setselectedIndexLotes(1);
+                break;
+
+            case "EM_PRODUCAO":
+                $scope.setselectedIndexLotes(2);
+                break;
+
+            case "FINALIZADO":
+                $scope.setselectedIndexLotes(3);
+                break;
+
+            case "CANCELADO":
+                $scope.setselectedIndexLotes(4);
+                break;
+        }
 
         if($scope.edicao) {
             LoteFactory.editar(

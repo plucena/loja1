@@ -21,7 +21,7 @@
 
                 <md-input-container class="md-block" flex>
                     <label>Unidade (obrigatório)</label>
-                    <md-select id="select-unidade" name="unidade" required ng-model="materiaPrima.unidade">
+                    <md-select id="select-unidade" name="unidade" required ng-model="lote.unidade">
                         <md-option ng-repeat="unidade in unidades" value="{{unidade.sigla}}" id="unidade-{{unidade.sigla}}">
                             {{unidade.nome}} ({{unidade.sigla}})
                         </md-option>
@@ -37,23 +37,6 @@
                     <div ng-messages="loteForm.quantidade.$error" ng-if="loteForm.quantidade.$dirty">
                         <div ng-message="min">A Quantidade não pode ser negativa!</div>
                         <div ng-message="required">A Quantidade é um campo obrigatório!</div>
-                    </div>
-                </md-input-container>
-
-            </div>
-
-            <div layout-gt-sm="row" div class="md-inline-form">
-
-                <md-input-container class="md-block" flex>
-                    <label>Data de Entrada</label>
-                    <input id="input-dataEntrada" name="dataEntrada" ng-model="lote.dataEntrada" type="date">
-                </md-input-container>
-
-                <md-input-container class="md-block" flex>
-                    <label>Data de Saída</label>
-                    <input id="input-dataSaida" name="dataSaida" ng-model="lote.dataSaida" type="date" min="{{lote.dataEntrada}}">
-                    <div ng-messages="loteForm.dataSaida.$error" ng-if="loteForm.dataSaida.$dirty">
-                        <div ng-message="min">A Data de Saída não pode ser menor que a data de Entrada!</div>
                     </div>
                 </md-input-container>
 
@@ -89,11 +72,25 @@
 
             <md-input-container class="md-block" flex>
                 <md-radio-group ng-model="lote.status">
-                    <md-radio-button value="ENCOMENDADO" class="md-primary">Encomendado</md-radio-button>
-                    <md-radio-button value="EM_ESTOQUE" class="md-primary">Em Estoque</md-radio-button>
-                    <md-radio-button value="EM_PRODUCAO" class="md-primary">Em Produção</md-radio-button>
-                    <md-radio-button value="FINALIZADO" class="md-primary">Finalizado</md-radio-button>
-                    <md-radio-button value="CANCELADO" class="md-primary">Cancelado</md-radio-button>
+                    <md-radio-button value="ENCOMENDADO" class="md-primary">
+                        Encomendado
+                    </md-radio-button>
+
+                    <md-radio-button value="EM_ESTOQUE" class="md-primary">
+                        Em Estoque
+                    </md-radio-button>
+
+                    <md-radio-button value="EM_PRODUCAO" class="md-primary">
+                        Em Produção
+                    </md-radio-button>
+
+                    <md-radio-button value="FINALIZADO" class="md-primary">
+                        Finalizado
+                    </md-radio-button>
+
+                    <md-radio-button value="CANCELADO" class="md-primary">
+                        Cancelado
+                    </md-radio-button>
                 </md-radio-group>
             </md-input-container>
 
