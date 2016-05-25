@@ -46,7 +46,7 @@ md-sidenav md-list.usuario md-list-item md-icon {
 }*/
 
 md-sidenav md-list.navegacao md-list-item.active {
-    background-color: #ececec;
+    background-color: #F3E5F5;
 }
 
 md-sidenav md-list.navegacao md-list-item a {
