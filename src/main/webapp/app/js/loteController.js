@@ -48,6 +48,8 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
     }
 
     $scope.buttonAction = 'Cadastrar';
+    $scope.lote = {};
+    $scope.lote.status = 'ENCOMENDADO';
     $scope.edicao = false;
 
     $scope.isLoadingFornecedores = true;
