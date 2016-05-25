@@ -49,6 +49,7 @@ app.controller('formFornecedorController', ['$scope', '$routeParams', '$location
     $scope.edicao = false;
 
     if($routeParams.cnpj) {
+        $scope.isLoading = true;
         $scope.fornecedor = FornecedorFactory.fornecedor(
             {cnpj: $routeParams.cnpj},
             function success() {
@@ -61,6 +62,7 @@ app.controller('formFornecedorController', ['$scope', '$routeParams', '$location
 
                 $scope.edicao = true;
                 $scope.buttonAction = 'Salvar';
+                $scope.isLoading = false;
 
             },
             function err() {

@@ -1,7 +1,7 @@
 <md-card>
     <md-card-content>
     
-        <form name="fornecedorForm" ng-submit="salvarFornecedor()">
+        <form name="fornecedorForm" ng-submit="salvarFornecedor()" ng-show="!isLoading">
 
             <md-input-container class="md-block">
                 <label>CNPJ (obrigatório)</label>
@@ -88,6 +88,8 @@
             </md-input-container>
 
         </form>
+
+        <md-progress-linear md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
 
     </md-card-content>
 </md-card>

@@ -77,13 +77,14 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
         });
 
     if($routeParams.sku) {
+        $scope.isLoading = true;
         $scope.lote = LoteFactory.lote(
             {sku: $routeParams.sku},
             function success() {
 
                 $scope.edicao = true;
                 $scope.buttonAction = 'Salvar';
-
+                
                 switch($scope.lote.status)
                 {
                     case "ENCOMENDADO":
@@ -126,6 +127,8 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
                         $scope.canceladoDisabled = true;
                         break;
                 }
+
+                $scope.isLoading = false;
 
             },
 
