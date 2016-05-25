@@ -100,7 +100,7 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
                         $scope.emEstoqueDisabled = false;
                         $scope.emProducaoDisabled = false;
                         $scope.finalizadoDisabled = true;
-                        $scope.canceladoDisabled = false;
+                        $scope.canceladoDisabled = true;
                         break;
 
                     case "EM_PRODUCAO":
@@ -108,7 +108,7 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
                         $scope.emEstoqueDisabled = true;
                         $scope.emProducaoDisabled = false;
                         $scope.finalizadoDisabled = false;
-                        $scope.canceladoDisabled = false;
+                        $scope.canceladoDisabled = true;
                         break;
 
                     case "FINALIZADO":
