@@ -24,7 +24,7 @@
                                 </tr>
                             </thead>
                             <tbody md-body>
-                                <tr md-row ng-repeat="lote in lotes" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
+                                <tr md-row ng-repeat="lote in lotes | filter: { status: 'ENCOMENDADO' }" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
                                     <td md-cell>{{lote.sku}}</td>
                                     <td md-cell>{{lote.preco}}</td>
                                     <td md-cell>{{lote.dataEntrada}}</td>
@@ -58,7 +58,7 @@
                                 </tr>
                             </thead>
                             <tbody md-body>
-                                <tr md-row ng-repeat="lote in lotes" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
+                                <tr md-row ng-repeat="lote in lotes | filter: { status: 'EM_ESTOQUE' }" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
                                     <td md-cell>{{lote.sku}}</td>
                                     <td md-cell>{{lote.preco}}</td>
                                     <td md-cell>{{lote.dataEntrada}}</td>
@@ -92,7 +92,7 @@
                                 </tr>
                             </thead>
                             <tbody md-body>
-                                <tr md-row ng-repeat="lote in lotes" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
+                                <tr md-row ng-repeat="lote in lotes | filter: { status: 'EM_PRODUCAO' }" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
                                     <td md-cell>{{lote.sku}}</td>
                                     <td md-cell>{{lote.preco}}</td>
                                     <td md-cell>{{lote.dataEntrada}}</td>
@@ -126,7 +126,7 @@
                                 </tr>
                             </thead>
                             <tbody md-body>
-                                <tr md-row ng-repeat="lote in lotes" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
+                                <tr md-row ng-repeat="lote in lotes | filter: { status: 'FINALIZADO' }" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
                                     <td md-cell>{{lote.sku}}</td>
                                     <td md-cell>{{lote.preco}}</td>
                                     <td md-cell>{{lote.dataEntrada}}</td>
@@ -160,7 +160,7 @@
                                 </tr>
                             </thead>
                             <tbody md-body>
-                                <tr md-row ng-repeat="lote in lotes" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
+                                <tr md-row ng-repeat="lote in lotes | filter: { status: 'CANCELADO' }" ng-click="editarLote(lote.sku)" id="{{lote.sku}}">
                                     <td md-cell>{{lote.sku}}</td>
                                     <td md-cell>{{lote.preco}}</td>
                                     <td md-cell>{{lote.dataEntrada}}</td>

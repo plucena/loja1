@@ -83,6 +83,9 @@ app.controller('formLoteController', ['$scope', '$routeParams', '$location', '$h
 
     $scope.salvarLote = function () {
 
+        $scope.lote.cnpj = $scope.lote.fornecedor.cnpj;
+        $scope.lote.materiaprima_sku = $scope.lote.materiaPrima.sku;
+
         if($scope.edicao) {
             LoteFactory.editar(
                 $scope.lote,
@@ -102,6 +105,7 @@ app.controller('formLoteController', ['$scope', '$routeParams', '$location', '$h
                 },
                 function err() {
                     console.log('Erro ao cadastrar lote!');
+                    console.log($scope.lote);
                 });
         }
     }
