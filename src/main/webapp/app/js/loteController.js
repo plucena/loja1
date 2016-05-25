@@ -84,6 +84,49 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
                 $scope.edicao = true;
                 $scope.buttonAction = 'Salvar';
 
+                switch($scope.lote.status)
+                {
+                    case "ENCOMENDADO":
+                        $scope.encomendadoDisabled = false;
+                        $scope.emEstoqueDisabled = false;
+                        $scope.emProducaoDisabled = true;
+                        $scope.finalizadoDisabled = true;
+                        $scope.canceladoDisabled = false;
+                        break;
+
+                    case "EM_ESTOQUE":
+                        $scope.encomendadoDisabled = true;
+                        $scope.emEstoqueDisabled = false;
+                        $scope.emProducaoDisabled = false;
+                        $scope.finalizadoDisabled = true;
+                        $scope.canceladoDisabled = false;
+                        break;
+
+                    case "EM_PRODUCAO":
+                        $scope.encomendadoDisabled = true;
+                        $scope.emEstoqueDisabled = true;
+                        $scope.emProducaoDisabled = false;
+                        $scope.finalizadoDisabled = false;
+                        $scope.canceladoDisabled = false;
+                        break;
+
+                    case "FINALIZADO":
+                        $scope.encomendadoDisabled = true;
+                        $scope.emEstoqueDisabled = true;
+                        $scope.emProducaoDisabled = true;
+                        $scope.finalizadoDisabled = true;
+                        $scope.canceladoDisabled = true;
+                        break;
+
+                    case "CANCELADO":
+                        $scope.encomendadoDisabled = true;
+                        $scope.emEstoqueDisabled = true;
+                        $scope.emProducaoDisabled = true;
+                        $scope.finalizadoDisabled = true;
+                        $scope.canceladoDisabled = true;
+                        break;
+                }
+
             },
 
             function err() {
