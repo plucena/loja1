@@ -46,7 +46,8 @@
 
                 <md-input-container class="md-block" flex>
                     <label>Fornecedor (obrigatório)</label>
-                    <md-select id="select-fornecedor" name="fornecedor.cnpj" required ng-model="lote.fornecedor.cnpj">
+                    <md-progress-circular md-mode="indeterminate" ng-show="isLoadingFornecedores"></md-progress-circular>
+                    <md-select id="select-fornecedor" name="fornecedor.cnpj" required ng-model="lote.fornecedor.cnpj" ng-show="!isLoadingFornecedores">
                         <md-option ng-repeat="fornecedor in fornecedores | filter: {ativo: true}" value="{{fornecedor.cnpj}}" id="fornecedor-{{fornecedor.cnpj}}">
                             {{fornecedor.nome}} (CNPJ: {{fornecedor.cnpj.substring(0, 2) + '.' + fornecedor.cnpj.substring(2, 5) + '.' + fornecedor.cnpj.substring(5, 8) + '/' + fornecedor.cnpj.substring(8, 12) + '-' + fornecedor.cnpj.substring(12, 14)}})
                         </md-option>
@@ -58,7 +59,8 @@
 
                 <md-input-container class="md-block" flex>
                     <label>Matéria-prima (obrigatório)</label>
-                    <md-select id="select-materiaPrima" name="materiaPrima.sku" required ng-model="lote.materiaPrima.sku">
+                    <md-progress-circular md-mode="indeterminate" ng-show="isLoadingMateriasPrimas"></md-progress-circular>
+                    <md-select id="select-materiaPrima" name="materiaPrima.sku" required ng-model="lote.materiaPrima.sku" ng-show="!isLoadingMateriasPrimas">
                         <md-option ng-repeat="materiaPrima in materiasPrimas" value="{{materiaPrima.sku}}" id="materiaPrima-{{materiaPrima.sku}}">
                             {{materiaPrima.nome}} (SKU: {{materiaPrima.sku}})
                         </md-option>

@@ -50,21 +50,25 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
     $scope.buttonAction = 'Cadastrar';
     $scope.edicao = false;
 
+    $scope.isLoadingFornecedores = true;
     $scope.fornecedores = [];
     $scope.fornecedores = FornecedorFactory.listar(
         {},
         function success() {
             console.log('Sucesso ao buscar fornecedores!');
+            $scope.isLoadingFornecedores = false;
         },
         function err() {
             console.log('Erro ao buscar fornecedores!');
         });
 
+    $scope.isLoadingMateriasPrimas = true;
     $scope.materiasPrimas = [];
     $scope.materiasPrimas = MateriaPrimaFactory.listar(
         {},
         function success() {
             console.log('Sucesso ao buscar matérias-primas!');
+            $scope.isLoadingMateriasPrimas = false;
         },
         function err() {
             console.log('Erro ao buscar matérias-primas!');
