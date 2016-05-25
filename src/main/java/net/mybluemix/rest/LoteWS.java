@@ -46,8 +46,7 @@ public class LoteWS {
     	Gson gson = new Gson();
 		LoteTO mp =  gson.fromJson(json, LoteTO.class);
     	LoteDAO mpd = new LoteDAO();
-    	// retrieve Fornecedor and MateriaPrima
-    	//mpd.create(mp);
+    	mpd.create(mp);
     }
     
 	

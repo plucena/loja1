@@ -5,6 +5,7 @@ import java.util.List;
 import net.mybluemix.entity.Fornecedor;
 import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
+import net.mybluemix.transferobject.LoteTO;
 
 public class LoteDAO extends BaseDAO<Lote> {
 
@@ -28,6 +29,17 @@ public class LoteDAO extends BaseDAO<Lote> {
 		javax.persistence.TypedQuery<Lote> query = manager.createQuery(
 		        "SELECT c FROM Lote c WHERE c.sku = :sku", Lote.class);
 		    return query.setParameter("sku", sku).getSingleResult();
+	}
+	
+	
+	public void create(LoteTO loteto) throws Exception{
+		Fornecedor f = new FornecedorDAO().find(loteto.cnpj);
+		MateriaPrima m = new MateriaPrimaDAO().find(loteto.materiaprima_sku);
+		//public Lote(Long sku, float preco, Fornecedor fornecedor,
+		//		MateriaPrima materiaPrima, String status, float quantidade, String unidade) {
+		
+		Lote lote = new Lote(loteto.sku, loteto.preco, f, m, loteto.status, loteto.quantidade, loteto.unidade);
+		super.create(lote);
 	}
 
 }

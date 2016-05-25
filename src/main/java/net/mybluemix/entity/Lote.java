@@ -19,7 +19,7 @@ public class Lote {
 	@Id
     @GeneratedValue
 	public Long sku;
-	private String preco;
+	private float preco;
 	
 	
 	@ManyToOne
@@ -31,7 +31,7 @@ public class Lote {
 
 	
 	
-	private String Status;
+	private String status;
 	private float quantidade;
 	private String unidade; 
 
@@ -53,11 +53,11 @@ public class Lote {
 		this.sku = sku;
 	}
 	
-	public String getPreco() {
+	public float getPreco() {
 		return preco;
 	}
 	
-	public void setPreco(String preco) {
+	public void setPreco(float preco) {
 		this.preco = preco;
 	}
 
@@ -78,11 +78,11 @@ public class Lote {
 	}
 
 	public String getStatus() {
-		return Status;
+		return status;
 	}
 
 	public void setStatus(String status) {
-		Status = status;
+		this.status = status;
 	}
 
 	public float getQuantidade() {
@@ -97,18 +97,19 @@ public class Lote {
 		this.sku = sku;
 	}
 
-	public Lote(Long sku, String preco, Fornecedor fornecedor,
-			MateriaPrima materiaPrima, String status, float quantidade) {
+	public Lote(Long sku, float preco, Fornecedor fornecedor,
+			MateriaPrima materiaPrima, String status, float quantidade, String unidade) {
 		super();
 		this.sku = sku;
 		this.preco = preco;
 		this.fornecedor = fornecedor;
 		this.materiaPrima = materiaPrima;
-		Status = status;
+		this.status = status;
 		this.quantidade = quantidade;
 		this.unidade = unidade;
 	}
 
+	
 	public Lote() {
 		super();
 		// TODO Auto-generated constructor stub
