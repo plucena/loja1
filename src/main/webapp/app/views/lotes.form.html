@@ -10,10 +10,10 @@
 
             <md-input-container class="md-block" flex>
                 <label>Preço (obrigatório)</label>
-                <input id="input-preco" name="preco" required min="0" ng-model="lote.preco" type="number" step="any">
+                <input id="input-preco" name="preco" required min="0" ng-model="lote.preco" type="number" step="any" ng-disabled="edicao">
                 <div ng-messages="loteForm.preco.$error" ng-if="loteForm.preco.$dirty">
                     <div ng-message="min">O Preço não pode ser negativo!</div>
-                    <div ng-message="required">Unidade é um campo obrigatório!</div>
+                    <div ng-message="required">Preço é um campo obrigatório!</div>
                 </div>
             </md-input-container>
 
@@ -21,7 +21,7 @@
 
                 <md-input-container class="md-block" flex>
                     <label>Unidade (obrigatório)</label>
-                    <md-select id="select-unidade" name="unidade" required ng-model="lote.unidade">
+                    <md-select id="select-unidade" name="unidade" required ng-model="lote.unidade" ng-disabled="edicao">
                         <md-option ng-repeat="unidade in unidades" value="{{unidade.sigla}}" id="unidade-{{unidade.sigla}}">
                             {{unidade.nome}} ({{unidade.sigla}})
                         </md-option>
@@ -33,7 +33,7 @@
 
                 <md-input-container class="md-block" flex>
                     <label>Quantidade (obrigatório)</label>
-                    <input id="input-quantidade" name="quantidade" required min="0" ng-model="lote.quantidade" type="number">
+                    <input id="input-quantidade" name="quantidade" required min="0" ng-model="lote.quantidade" type="number" ng-disabled="edicao">
                     <div ng-messages="loteForm.quantidade.$error" ng-if="loteForm.quantidade.$dirty">
                         <div ng-message="min">A Quantidade não pode ser negativa!</div>
                         <div ng-message="required">A Quantidade é um campo obrigatório!</div>
@@ -47,7 +47,7 @@
                 <md-input-container class="md-block" flex>
                     <label>Fornecedor (obrigatório)</label>
                     <md-progress-circular md-mode="indeterminate" ng-show="isLoadingFornecedores"></md-progress-circular>
-                    <md-select id="select-fornecedor" name="fornecedor.cnpj" required ng-model="lote.fornecedor.cnpj" ng-show="!isLoadingFornecedores">
+                    <md-select id="select-fornecedor" name="fornecedor.cnpj" required ng-model="lote.fornecedor.cnpj" ng-show="!isLoadingFornecedores" ng-disabled="edicao">
                         <md-option ng-repeat="fornecedor in fornecedores | filter: {ativo: true}" value="{{fornecedor.cnpj}}" id="fornecedor-{{fornecedor.cnpj}}">
                             {{fornecedor.nome}} (CNPJ: {{fornecedor.cnpj.substring(0, 2) + '.' + fornecedor.cnpj.substring(2, 5) + '.' + fornecedor.cnpj.substring(5, 8) + '/' + fornecedor.cnpj.substring(8, 12) + '-' + fornecedor.cnpj.substring(12, 14)}})
                         </md-option>
@@ -60,7 +60,7 @@
                 <md-input-container class="md-block" flex>
                     <label>Matéria-prima (obrigatório)</label>
                     <md-progress-circular md-mode="indeterminate" ng-show="isLoadingMateriasPrimas"></md-progress-circular>
-                    <md-select id="select-materiaPrima" name="materiaPrima.sku" required ng-model="lote.materiaPrima.sku" ng-show="!isLoadingMateriasPrimas">
+                    <md-select id="select-materiaPrima" name="materiaPrima.sku" required ng-model="lote.materiaPrima.sku" ng-show="!isLoadingMateriasPrimas" ng-disabled="edicao">
                         <md-option ng-repeat="materiaPrima in materiasPrimas" value="{{materiaPrima.sku}}" id="materiaPrima-{{materiaPrima.sku}}">
                             {{materiaPrima.nome}} (SKU: {{materiaPrima.sku}})
                         </md-option>
@@ -74,23 +74,23 @@
 
             <md-input-container class="md-block" ng-if="edicao">
                 <md-radio-group ng-model="lote.status">
-                    <md-radio-button value="ENCOMENDADO" class="md-primary">
+                    <md-radio-button value="ENCOMENDADO" class="md-primary" ng-disabled="encomendadoDisabled">
                         Encomendado
                     </md-radio-button>
 
-                    <md-radio-button value="EM_ESTOQUE" class="md-primary">
+                    <md-radio-button value="EM_ESTOQUE" class="md-primary" ng-disabled="emEstoqueDisabled">
                         Em Estoque
                     </md-radio-button>
 
-                    <md-radio-button value="EM_PRODUCAO" class="md-primary">
+                    <md-radio-button value="EM_PRODUCAO" class="md-primary" ng-disabled="emProducaoDisabled">
                         Em Produção
                     </md-radio-button>
 
-                    <md-radio-button value="FINALIZADO" class="md-primary">
+                    <md-radio-button value="FINALIZADO" class="md-primary" ng-disabled="finalizadoDisabled">
                         Finalizado
                     </md-radio-button>
 
-                    <md-radio-button value="CANCELADO" class="md-primary">
+                    <md-radio-button value="CANCELADO" class="md-primary" ng-disabled="canceladoDisabled">
                         Cancelado
                     </md-radio-button>
                 </md-radio-group>
