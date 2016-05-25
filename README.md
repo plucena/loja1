@@ -95,12 +95,12 @@ Content-Type: application/json
 POST http://loja.mybluemix.net/api/lote/create
 
         {
-        "preco": "500",
+        "preco": 120,
+        "cnpj": "010203",
+        "materiaprima_sku": 2,
         "status": "EM_ESTOQUE",
-        "quantidade": 10,
-        "unidade", "m",
-        "cnpj": "111222",
-        "materiaprima_sku": 1"
+        "quantidade": 15,
+        "unidade": "m"
         }
 
 * Update lote
@@ -109,12 +109,12 @@ POST http://loja.mybluemix.net/api/lote/update/{$sku}
  
         {
         "sku": 1,
-        "preco": "500",
-        "status": "EM_ESTOQUE",
-        "quantidade": 10,
-        "unidade", "m",
-        "cnpj": "111222",
-        "materiaprima_sku": 1"
+        "preco": 120,
+        "cnpj": "010203",
+        "materiaprima_sku": 2,
+        "status": "EM_PRODUCAO",
+        "quantidade": 15,
+        "unidade": "m"
         }
 
 **Fornecedor**
