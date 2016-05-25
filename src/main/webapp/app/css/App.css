@@ -15,11 +15,7 @@ h1 {
     text-transform: uppercase;
     padding: 16px 40px;
     margin: 0;
-}
-
-h1 a {
-    text-decoration: none;
-    color: inherit;
+    cursor: default;
 }
 
 h1 span {
