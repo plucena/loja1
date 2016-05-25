@@ -49,23 +49,17 @@ public class LoteWS {
     	mpd.create(mp);
     }
     
-	
-	/*
-	 @POST
-		@Path("/lote/add/{sku}")
-		@Consumes("application/json")
-	    public void addLot(String json, @PathParam("sku") Integer sku) throws Exception{
-	    	Long lsku  = new Long(sku);
-	    	Gson gson = new Gson();
-			Lote lote =  gson.fromJson(json, Lote.class);
-			LoteDAO ldao = new LoteDAO();
-			ldao.create(lote);
-	    	MateriaPrimaDAO mpd = new MateriaPrimaDAO();
-	    	MateriaPrima mp = mpd.find(sku);
-	    	//if(mp!=null)
-	    	//	mp.addLotes(lote);
-	    	//mpd.update(mp, lsku);
-	    }
-	*/
+
+	@POST
+	@Path("/update")
+	@Consumes("application/json")
+    public void update(String json) throws Exception{
+    	Gson gson = new Gson();
+		LoteTO mp =  gson.fromJson(json, LoteTO.class);
+    	LoteDAO mpd = new LoteDAO();
+    	mpd.update(mp);
+    }
+
+
 	
 }

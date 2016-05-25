@@ -2,6 +2,8 @@ package net.mybluemix.dao;
 
 import java.util.List;
 
+import javax.persistence.EntityTransaction;
+
 import net.mybluemix.entity.Fornecedor;
 import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
@@ -34,12 +36,24 @@ public class LoteDAO extends BaseDAO<Lote> {
 	
 	public void create(LoteTO loteto) throws Exception{
 		Fornecedor f = new FornecedorDAO().find(loteto.cnpj);
-		MateriaPrima m = new MateriaPrimaDAO().find(loteto.materiaprima_sku);
-		//public Lote(Long sku, float preco, Fornecedor fornecedor,
-		//		MateriaPrima materiaPrima, String status, float quantidade, String unidade) {
-		
+		MateriaPrima m = new MateriaPrimaDAO().find(loteto.materiaprima_sku);	
 		Lote lote = new Lote(loteto.sku, loteto.preco, f, m, loteto.status, loteto.quantidade, loteto.unidade);
 		super.create(lote);
 	}
 
+	
+	public void update(LoteTO loteto) throws Exception{
+		Fornecedor f = new FornecedorDAO().find(loteto.cnpj);
+		MateriaPrima m = new MateriaPrimaDAO().find(loteto.materiaprima_sku);	
+		EntityTransaction tx = manager.getTransaction();
+    	tx.begin();
+		Lote lote =  manager.find(Lote.class, loteto.sku);
+		lote.setPreco(loteto.preco);
+		lote.setStatus(loteto.status);
+		if(f!=null) lote.setFornecedor(f);
+		if(m!=null) lote.setMateriaPrima(m);
+		lote.setQuantidade(loteto.quantidade);
+		lote.setUnidade(loteto.unidade);
+    	tx.commit();
+	}
 }
