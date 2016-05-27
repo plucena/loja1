@@ -2,9 +2,9 @@ package net.mybluemix.parteg.materiaprima;
 
 public interface AdapterInterface {
 	
-	boolean cadastrarEvent(String nome, String tipo, String descricao, String unidade);
+	boolean cadastrarEvent(Integer sku, String nome, String tipo, String descricao);
 	
-	boolean alterarEvent(String nome, String tipo, String descricao, String unidade);
+	boolean alterarEvent(Integer sku, String nome, String tipo, String descricao);
 	
 	boolean fazerCadastroEvent();
 	

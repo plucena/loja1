@@ -7,8 +7,7 @@ public class Dados implements AdapterInterfaceDados{
 	@Override
 	public String dado_nome(Integer nome) {
 		String nomeOk = getNomeAleatoria (nome);
-		if (nome > 0)   		return nomeOk;
-		else         		    return " ";
+		return nomeOk;
 	}
 
 	@Override
@@ -24,9 +23,11 @@ public class Dados implements AdapterInterfaceDados{
 	}
 
 	@Override
-	public String dado_unidade(Integer unidade) {
-		String unidadeOk = getUnidadeAleatoria (unidade);
-		return unidadeOk;
+	public Integer dado_sku(Integer sku) {
+		Integer skuOk = sku;
+		if(skuOk < 0)
+			skuOk *= -1;
+		return skuOk;
 	}
 
 	String getNomeAleatoria (int nome){
@@ -70,23 +71,6 @@ public class Dados implements AdapterInterfaceDados{
 		}}
 		return cadenaAleatoria;
 	}
-	
-	
-	String getUnidadeAleatoria (int unidade){
-		String cadenaAleatoria = "";
-		long seed = unidade;
-		Random r = new Random(seed);
-		int i = 0;
-		while (i < 4){
-		char c = (char)r.nextInt(255);
-		if ((c >='a' && c <='z')){
-		cadenaAleatoria += c;
-		i ++;
-		}}
-		return cadenaAleatoria;
-	}
-	
-	
 	
 	
 }

@@ -8,16 +8,15 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 	public Integer nome;
 	public Integer tipo;
 	public Integer descricao;
-	public Integer unidade;
 
 	public AdapterInterface adapter;
 	public AdapterInterfaceDados dados;
 
 	
+	public Integer skuOk;
 	public String nomeOk;
 	public String tipoOk;
 	public String descricaoOk;
-	public String unidadeOk;
 	
 	
 	
@@ -54,14 +53,12 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 				nome      = ((Integer)in_colObject[1]).intValue();
 				tipo      = ((Integer)in_colObject[2]).intValue();
 				descricao = ((Integer)in_colObject[3]).intValue();
-				unidade   = ((Integer)in_colObject[4]).intValue();
 				
 				nomeOk      = dados.dado_tipo(nome);
 				tipoOk      = dados.dado_tipo(tipo);
 				descricaoOk = dados.dado_descricao(descricao);
-				unidadeOk   = dados.dado_unidade(unidade);
 				
-				if(cadastrar(nomeOk, tipoOk, descricaoOk, unidadeOk))
+				if(cadastrar(skuOk ,nomeOk, tipoOk, descricaoOk))
 					 state = State.cadastrando;
 				else
 					 state = State.mostrando;
@@ -75,14 +72,13 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 				nome      = ((Integer)in_colObject[1]).intValue();
 				tipo      = ((Integer)in_colObject[2]).intValue();
 				descricao = ((Integer)in_colObject[3]).intValue();
-				unidade   = ((Integer)in_colObject[4]).intValue();
+
 				
 				nomeOk      = dados.dado_nome(nome);
 				tipoOk      = dados.dado_tipo(tipo);
 				descricaoOk = dados.dado_descricao(descricao);
-				unidadeOk   = dados.dado_unidade(unidade);
 				
-				if(alterar(nomeOk, tipoOk, descricaoOk, unidadeOk))
+				if(alterar(skuOk ,nomeOk, tipoOk, descricaoOk))
 					 state = State.alterando;
 				else
 					 state = State.mostrando;
@@ -109,10 +105,10 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 		}
 	}
 	
-	public Boolean cadastrar(String nome, String tipo, String descricao, String unidade)
+	public Boolean cadastrar(Integer sku, String nome, String tipo, String descricao)
 	{
 	  	//return true;
-	  	return adapter.cadastrarEvent(nome, tipo, descricao, unidade);
+	  	return adapter.cadastrarEvent(sku ,nome, tipo, descricao);
 	}
 	
 
@@ -123,10 +119,10 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 	}
 	
 
-	public Boolean alterar(String nome, String tipo, String descricao, String unidade)
+	public Boolean alterar(Integer sku, String nome, String tipo, String descricao)
 	{
 	  	//return true;
-	  	return adapter.alterarEvent(nome, tipo, descricao, unidade);
+	  	return adapter.alterarEvent(sku ,nome, tipo, descricao);
 	}
 	
 
