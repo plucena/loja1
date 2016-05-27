@@ -92,31 +92,33 @@ Content-Type: application/json
 
 POST http://loja.mybluemix.net/api/lote/create
 
-{  
-   "preco":999.0,
-   "materiaPrima":{  
-      "sku":5,
-      "nome":"Tecido Lilaz",
-      "tipo":"Tecidos Baratinhos",
-      "descricao":"O tecido da moda"
-   },
-   "fornecedor":{  
-      "cnpj":"12345678000123",
-      "nome":"China Tecidos",
-      "email":"china@china.com",
-      "telefone":"+77 22 23 24",
-      "prazoEntregaDias":1000,
-      "endereco_Pais":null,
-      "endereco_Estado":"AP",
-      "endereco_Cidade":"FabricLand",
-      "endereco_Logradouro":"Rua Sete de Setembro, 341",
-      "endereco_CEP":"22222333",
-      "ativo":true
-   },
-   "status":"CANCELADO",
-   "quantidade":999.0,
-   "unidade":"Kg"
-}
+Content-Type: application/json
+
+    {  
+       "preco":999.0,
+       "materiaPrima":{  
+          "sku":5,
+          "nome":"Tecido Lilaz",
+          "tipo":"Tecidos Baratinhos",
+          "descricao":"O tecido da moda"
+       },
+       "fornecedor":{  
+          "cnpj":"12345678000123",
+          "nome":"China Tecidos",
+          "email":"china@china.com",
+          "telefone":"+77 22 23 24",
+          "prazoEntregaDias":1000,
+          "endereco_Pais":null,
+          "endereco_Estado":"AP",
+          "endereco_Cidade":"FabricLand",
+          "endereco_Logradouro":"Rua Sete de Setembro, 341",
+          "endereco_CEP":"22222333",
+          "ativo":true
+       },
+       "status":"CANCELADO",
+       "quantidade":999.0,
+       "unidade":"Kg"
+    }
 
 
 
@@ -124,32 +126,34 @@ POST http://loja.mybluemix.net/api/lote/create
 
 POST http://loja.mybluemix.net/api/lote/update/{$sku}
 
-{  
-   "sku":5,
-   "preco":999.0,
-   "materiaPrima":{  
-      "sku":5,
-      "nome":"Tecido Lilaz",
-      "tipo":"Tecidos Baratinhos",
-      "descricao":"O tecido da moda"
-   },
-   "fornecedor":{  
-      "cnpj":"12345678000123",
-      "nome":"China Tecidos",
-      "email":"china@china.com",
-      "telefone":"+77 22 23 24",
-      "prazoEntregaDias":1000,
-      "endereco_Pais":null,
-      "endereco_Estado":"AP",
-      "endereco_Cidade":"FabricLand",
-      "endereco_Logradouro":"Rua Sete de Setembro, 341",
-      "endereco_CEP":"22222333",
-      "ativo":true
-   },
-   "status":"CANCELADO",
-   "quantidade":999.0,
-   "unidade":"Kg"
-} 
+Content-Type: application/json
+
+    {  
+       "sku":5,
+       "preco":999.0,
+       "materiaPrima":{  
+          "sku":5,
+          "nome":"Tecido Lilaz",
+          "tipo":"Tecidos Baratinhos",
+          "descricao":"O tecido da moda"
+       },
+       "fornecedor":{  
+          "cnpj":"12345678000123",
+          "nome":"China Tecidos",
+          "email":"china@china.com",
+          "telefone":"+77 22 23 24",
+          "prazoEntregaDias":1000,
+          "endereco_Pais":null,
+          "endereco_Estado":"AP",
+          "endereco_Cidade":"FabricLand",
+          "endereco_Logradouro":"Rua Sete de Setembro, 341",
+          "endereco_CEP":"22222333",
+          "ativo":true
+       },
+       "status":"CANCELADO",
+       "quantidade":999.0,
+       "unidade":"Kg"
+    } 
 
 **Fornecedor**
 
