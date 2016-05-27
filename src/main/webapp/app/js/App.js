@@ -114,8 +114,9 @@ app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialo
         $mdSidenav(menuId).toggle();
     };
 
-    $scope.closeSidenav = function(menuId) {
+    $scope.closeSidenav = function(menuId, item, event) {
         $mdSidenav(menuId).close();
+        $scope.activeItem = item;
     }
   
     $scope.navegacao = [
@@ -135,6 +136,8 @@ app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialo
             icon: 'content:ic_archive_24px'
         }
     ];
+
+    $scope.activeItem = $scope.navegacao[0];
   
 }]);
 

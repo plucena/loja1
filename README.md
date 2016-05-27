@@ -64,7 +64,6 @@ Content-Type: application/json
          "nome": "Tecido de Bolinha Amarelinho",
         "tipo": "Tecido Especial",
         "descricao": "Ana Maria likes",
-        "unidade": "m"
         }
 
 * Update MateriaPrima
@@ -78,7 +77,6 @@ Content-Type: application/json
         "nome": "Tecido de Bolinha Amarelinho",
         "tipo": "Tecido Especial",
         "descricao": "Ana Maria likes",
-        "unidade": "m"
         }
 
 
@@ -94,28 +92,64 @@ Content-Type: application/json
 
 POST http://loja.mybluemix.net/api/lote/create
 
-        {
-        "preco": 120,
-        "cnpj": "010203",
-        "materiaprima_sku": 2,
-        "status": "EM_ESTOQUE",
-        "quantidade": 15,
-        "unidade": "m"
-        }
+{  
+   "preco":999.0,
+   "materiaPrima":{  
+      "sku":5,
+      "nome":"Tecido Lilaz",
+      "tipo":"Tecidos Baratinhos",
+      "descricao":"O tecido da moda"
+   },
+   "fornecedor":{  
+      "cnpj":"12345678000123",
+      "nome":"China Tecidos",
+      "email":"china@china.com",
+      "telefone":"+77 22 23 24",
+      "prazoEntregaDias":1000,
+      "endereco_Pais":null,
+      "endereco_Estado":"AP",
+      "endereco_Cidade":"FabricLand",
+      "endereco_Logradouro":"Rua Sete de Setembro, 341",
+      "endereco_CEP":"22222333",
+      "ativo":true
+   },
+   "status":"CANCELADO",
+   "quantidade":999.0,
+   "unidade":"Kg"
+}
+
+
 
 * Update lote
 
 POST http://loja.mybluemix.net/api/lote/update/{$sku}
- 
-        {
-        "sku": 1,
-        "preco": 120,
-        "cnpj": "010203",
-        "materiaprima_sku": 2,
-        "status": "EM_PRODUCAO",
-        "quantidade": 15,
-        "unidade": "m"
-        }
+
+{  
+   "sku":5,
+   "preco":999.0,
+   "materiaPrima":{  
+      "sku":5,
+      "nome":"Tecido Lilaz",
+      "tipo":"Tecidos Baratinhos",
+      "descricao":"O tecido da moda"
+   },
+   "fornecedor":{  
+      "cnpj":"12345678000123",
+      "nome":"China Tecidos",
+      "email":"china@china.com",
+      "telefone":"+77 22 23 24",
+      "prazoEntregaDias":1000,
+      "endereco_Pais":null,
+      "endereco_Estado":"AP",
+      "endereco_Cidade":"FabricLand",
+      "endereco_Logradouro":"Rua Sete de Setembro, 341",
+      "endereco_CEP":"22222333",
+      "ativo":true
+   },
+   "status":"CANCELADO",
+   "quantidade":999.0,
+   "unidade":"Kg"
+} 
 
 **Fornecedor**
 
