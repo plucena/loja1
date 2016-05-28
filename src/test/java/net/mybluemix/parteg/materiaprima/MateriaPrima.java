@@ -8,6 +8,7 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 	public Integer nome;
 	public Integer tipo;
 	public Integer descricao;
+	public Integer sku;
 
 	public AdapterInterface adapter;
 	public AdapterInterfaceDados dados;
@@ -53,17 +54,17 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 				nome      = ((Integer)in_colObject[1]).intValue();
 				tipo      = ((Integer)in_colObject[2]).intValue();
 				descricao = ((Integer)in_colObject[3]).intValue();
+				sku       = ((Integer)in_colObject[4]).intValue();
 				
 				nomeOk      = dados.dado_tipo(nome);
 				tipoOk      = dados.dado_tipo(tipo);
 				descricaoOk = dados.dado_descricao(descricao);
+				skuOk = dados.dado_sku(sku);
 				
-				if(cadastrar(skuOk ,nomeOk, tipoOk, descricaoOk)){
-					 System.out.println("TESTANDO1!!!");
+				if(cadastrar(skuOk, nomeOk, tipoOk, descricaoOk)){
 					 state = State.cadastrando;
 				}
 				else{
-					 System.out.println("TESTANDO2!!!");
 					 state = State.mostrando;
 				}
 			}

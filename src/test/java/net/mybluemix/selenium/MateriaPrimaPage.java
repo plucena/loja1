@@ -25,11 +25,9 @@ public class MateriaPrimaPage {
 		element = findWithDelay(By.id(sku.toString()), driver);
 		if (element.getText().contains(sku.toString())) {
 			if (click)
-				System.out.println("ACHOU!");
 				element.click();
 			return true;
 		} else {
-			System.out.println("Não ACHOU!");
 			return false;
 		}
 	}
@@ -69,7 +67,8 @@ public class MateriaPrimaPage {
 					element = driver.findElement(by);
 					return element;
 				} catch (Exception e2) {
-					Thread.sleep(interval);
+					Thread.sleep(interval); //Lançando uma Exception aqui!!!
+											//Parece que não achou nada!
 				}
 			}
 		}

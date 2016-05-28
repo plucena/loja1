@@ -3,8 +3,14 @@ package net.mybluemix.parteg.materiaprima;
 import net.mybluemix.selenium.MateriaPrimaPage;
 
 public class MateriaPrimaPageAdapter implements AdapterInterface {
-	
+
 	private MateriaPrimaPage materiaPrimaPage;
+	
+	public MateriaPrimaPageAdapter() {
+		this.materiaPrimaPage = new MateriaPrimaPage();
+	}
+	
+	
 
 	@Override
 	public boolean cadastrarEvent(Integer sku, String nome, String tipo, String descricao) {

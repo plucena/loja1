@@ -50,7 +50,6 @@ public class TestCases_All_Transitions{
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		
 	}
-	
 	@Test
 	public void test2()
 	{
@@ -329,5 +328,4 @@ public class TestCases_All_Transitions{
 		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
 		
 	}
-	
 }
