@@ -10,7 +10,7 @@ public class MateriaPrimaPageAdapter implements AdapterInterface {
 	public boolean cadastrarEvent(Integer sku, String nome, String tipo, String descricao) {
 		try {
 			if (!materiaPrimaPage.encontrarMateriaPrima(sku, true)) {
-				materiaPrimaPage.clicarBotao("novoFornecedor");
+				materiaPrimaPage.clicarBotao("novaMateriaPrima");
 				materiaPrimaPage.preencher("sku", sku.toString());
 			} else {
 				Thread.sleep(3000);
@@ -19,7 +19,7 @@ public class MateriaPrimaPageAdapter implements AdapterInterface {
 			materiaPrimaPage.preencher("nome", nome);
 			materiaPrimaPage.preencher("descricao", descricao);
 			materiaPrimaPage.preencher("tipo", tipo);
-			
+			materiaPrimaPage.clicarBotao("salvarMateriaPrima");
 			return materiaPrimaPage.encontrarMateriaPrima(sku, false);
 			
 		} catch (Exception e) {

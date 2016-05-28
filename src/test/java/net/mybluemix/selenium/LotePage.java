@@ -5,31 +5,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class MateriaPrimaPage {
-
-	private String url = "http://loja.mybluemix.net/app/#/materias-primas";
+public class LotePage {
+	
+	private String url = "http://loja.mybluemix.net/app/#/lotes";
 	private WebDriver driver;
 	private WebElement element = null;
-
-	public MateriaPrimaPage() {
+	
+	public LotePage() {
 		driver = new FirefoxDriver();
 		driver.get(this.url);
 	}
-
+	
 	public void fecharPagina() {
 		driver.close();
 	}
 
-	public boolean encontrarMateriaPrima(Integer sku, boolean click)
+	public boolean encontrarLote(Integer sku, boolean click)//Mudar o SKU para um outro Identificador.
 			throws InterruptedException {
 		element = findWithDelay(By.id(sku.toString()), driver);
 		if (element.getText().contains(sku.toString())) {
 			if (click)
-				System.out.println("ACHOU!");
 				element.click();
 			return true;
 		} else {
-			System.out.println("Não ACHOU!");
 			return false;
 		}
 	}
@@ -37,11 +35,11 @@ public class MateriaPrimaPage {
 	public void clicarBotao(String botao) throws InterruptedException {
 		String idBotao = null;
 		switch (botao) {
-		case "novoMateriaPrima":
-			idBotao = "button-novaMateriaPrima";
+		case "novoLote":
+			idBotao = "button-novoLote";
 			break;
-		case "salvarMateriaPrima":
-			idBotao = "button-salvarMateriaPrima";
+		case "salvarLote":
+			idBotao = "button-salvarLote";
 			break;
 		}
 		element = findWithDelay(By.id(idBotao), driver);
@@ -75,5 +73,6 @@ public class MateriaPrimaPage {
 		}
 		return element;
 	}
+
 
 }

@@ -58,10 +58,14 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 				tipoOk      = dados.dado_tipo(tipo);
 				descricaoOk = dados.dado_descricao(descricao);
 				
-				if(cadastrar(skuOk ,nomeOk, tipoOk, descricaoOk))
+				if(cadastrar(skuOk ,nomeOk, tipoOk, descricaoOk)){
+					 System.out.println("TESTANDO1!!!");
 					 state = State.cadastrando;
-				else
+				}
+				else{
+					 System.out.println("TESTANDO2!!!");
 					 state = State.mostrando;
+				}
 			}
 			
 			
