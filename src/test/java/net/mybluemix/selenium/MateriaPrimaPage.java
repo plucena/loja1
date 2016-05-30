@@ -20,22 +20,26 @@ public class MateriaPrimaPage {
 		driver.close();
 	}
 
-	public boolean encontrarMateriaPrima(Integer sku, boolean click)
-			throws InterruptedException {
-		element = findWithDelay(By.id(sku.toString()), driver);
+	public boolean encontrarMateriaPrima(Integer sku, boolean click){
+		try{
+		element = findWithDelay(By.id(sku.toString()), driver); //Esse "element" tem o valor de NULL quando não encontra o elemento.
 		if (element.getText().contains(sku.toString())) {
 			if (click)
 				element.click();
 			return true;
 		} else {
+			return false; //Quando chegará nessa linha?
+		}
+		}catch(Exception e){
 			return false;
 		}
+		
 	}
 
 	public void clicarBotao(String botao) throws InterruptedException {
 		String idBotao = null;
 		switch (botao) {
-		case "novoMateriaPrima":
+		case "novaMateriaPrima":
 			idBotao = "button-novaMateriaPrima";
 			break;
 		case "salvarMateriaPrima":
@@ -59,7 +63,7 @@ public class MateriaPrimaPage {
 			throws InterruptedException {
 		int interval = 50;
 		try {
-			element = driver.findElement(by);
+			element = driver.findElement(by); //Aqui tá recebendo NULL quando não acha.
 			return element;
 		} catch (Exception e1) {
 			for (int milis = 0; milis < 3000; milis = milis + interval) {
@@ -72,7 +76,7 @@ public class MateriaPrimaPage {
 				}
 			}
 		}
-		return element;
+		return element; //NULL quando não acha.
 	}
 
 }

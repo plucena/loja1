@@ -1,15 +1,62 @@
 package net.mybluemix.parteg.lote;
 
+import net.mybluemix.selenium.LotePage;
+
 
 
 public class LotePageAdapter  implements AdapterInterface{
 
+	private LotePage lotePage;
+	
+	public LotePageAdapter(){
+		this.lotePage = new LotePage();
+	}
+	
 	@Override
-	public boolean cadastrarEvent(Integer fornecedores, Integer materiaPrima, Integer quantidade, Integer unidade,
+	public boolean cadastrarEvent(Integer fornecedor, Integer materiaPrima, Integer quantidade, Integer unidade,
 			Integer preco) {
-		// TODO Auto-generated method stub
+		try {
+			if (!lotePage.encontrarLote(fornecedor, materiaPrima, true)) {
+				lotePage.clicarBotao("novoLote");
+			} else {
+				Thread.sleep(3000);
+			}
+			String unidadeAuxiliar = mapINT_to_Sigla(unidade % 3);
+			
+			lotePage.selecionar("fornecedor", fornecedor.toString());
+			lotePage.selecionar("materiaPrima", materiaPrima.toString());
+			lotePage.preencher("quantidade", quantidade.toString());
+			lotePage.selecionar("unidade", unidadeAuxiliar.toString());
+			lotePage.preencher("preco", preco.toString());
+			lotePage.clicarBotao("salvarLote");
+			return lotePage.encontrarLote(sku, false);
+			
+		} catch (InterruptedException e) {
+			return false;
+		}
 		return false;
 	}
+	
+	private String mapINT_to_Sigla(int number) {
+		String sigla = "";
+		switch (number) {
+		case 0:
+			sigla = "Kg";
+			break;
+		case 1:
+			sigla = "m";
+			break;
+		case 2:
+			sigla = "Un";
+			break;
+		default:
+			sigla = "Kg";
+			break;
+		}
+		return sigla;
+	}
+
+
 
 	@Override
 	public boolean fazerCadastroEvent() {

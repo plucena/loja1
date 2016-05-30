@@ -58,7 +58,7 @@ public class TestCases_All_Transitions{
 		Integer nomeVal11 = 972613;
 		Integer tipoVal11 = 711655;
 		Integer descricaoVal11 = -106192;
-		Integer skuVal11 = -335120;
+		Integer skuVal11 = 6;
 		assertEquals(true, (oTestObject.state == State.mostrando));
 		oTestObject.handleEvent("alterarEvent", nomeVal11, tipoVal11, descricaoVal11, skuVal11);
 		assertEquals(true, (oTestObject.nome.intValue() == nomeVal11.intValue()));

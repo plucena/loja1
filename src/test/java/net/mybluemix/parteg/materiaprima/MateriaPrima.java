@@ -67,6 +67,8 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 				else{
 					 state = State.mostrando;
 				}
+				//O test1 vai ficar no State "Mostrando" durante a execucação da Linha 23, já que é gerado 
+				//uma Exception durante a execução do cadastrar, aí o assert falha na Linha 27. 
 			}
 			
 			
@@ -77,11 +79,12 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 				nome      = ((Integer)in_colObject[1]).intValue();
 				tipo      = ((Integer)in_colObject[2]).intValue();
 				descricao = ((Integer)in_colObject[3]).intValue();
-
+				sku       = ((Integer)in_colObject[4]).intValue();
 				
 				nomeOk      = dados.dado_nome(nome);
 				tipoOk      = dados.dado_tipo(tipo);
 				descricaoOk = dados.dado_descricao(descricao);
+				skuOk = dados.dado_sku(sku);
 				
 				if(alterar(skuOk ,nomeOk, tipoOk, descricaoOk))
 					 state = State.alterando;

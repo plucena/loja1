@@ -15,9 +15,8 @@ public class MateriaPrimaPageAdapter implements AdapterInterface {
 	@Override
 	public boolean cadastrarEvent(Integer sku, String nome, String tipo, String descricao) {
 		try {
-			if (!materiaPrimaPage.encontrarMateriaPrima(sku, true)) {
+			if (!materiaPrimaPage.encontrarMateriaPrima(sku, true)) { //Quando não encontrasse o ideal num era cadastrar?
 				materiaPrimaPage.clicarBotao("novaMateriaPrima");
-				materiaPrimaPage.preencher("sku", sku.toString());
 			} else {
 				Thread.sleep(3000);
 			}
@@ -28,7 +27,7 @@ public class MateriaPrimaPageAdapter implements AdapterInterface {
 			materiaPrimaPage.clicarBotao("salvarMateriaPrima");
 			return materiaPrimaPage.encontrarMateriaPrima(sku, false);
 			
-		} catch (Exception e) {
+		} catch (InterruptedException e) {
 			return false;
 		}
 	}
@@ -40,13 +39,11 @@ public class MateriaPrimaPageAdapter implements AdapterInterface {
 
 	@Override
 	public boolean fazerCadastroEvent() {
-		
 		return false;
 	}
 
 	@Override
 	public boolean fazerAlteracoesEvent() {
-		
 		return false;
 	}
 
