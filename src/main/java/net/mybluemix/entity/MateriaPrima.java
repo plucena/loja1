@@ -27,7 +27,9 @@ public class MateriaPrima {
 
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.TABLE)
+	
+	
     private Long sku;
 	private String nome;
 	public String tipo;

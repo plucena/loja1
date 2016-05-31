@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 public class Lote {
 	
 	@Id
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	public Long sku;
 	private float preco;
 	
