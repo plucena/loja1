@@ -27,7 +27,7 @@ public class MateriaPrima {
 
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
     private Long sku;
 	private String nome;
 	public String tipo;
