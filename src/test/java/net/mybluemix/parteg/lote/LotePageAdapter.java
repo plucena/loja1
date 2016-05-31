@@ -2,41 +2,59 @@ package net.mybluemix.parteg.lote;
 
 import net.mybluemix.selenium.LotePage;
 
-
-
-public class LotePageAdapter  implements AdapterInterface{
+public class LotePageAdapter implements AdapterInterface {
 
 	private LotePage lotePage;
-	
-	public LotePageAdapter(){
+
+	public LotePageAdapter() {
 		this.lotePage = new LotePage();
 	}
-	
+
 	@Override
-	public boolean cadastrarEvent(Integer fornecedor, Integer materiaPrima, Integer quantidade, Integer unidade,
-			Integer preco) {
-		try {
-			if (!lotePage.encontrarLote(fornecedor, materiaPrima, true)) {
+	public boolean cadastrarEvent(Integer fornecedor, Integer materiaPrima,
+			Integer quantidade, Integer unidade, Integer preco) {
+		if (quantidade == null || unidade == null || preco == null) {
+			try {
 				lotePage.clicarBotao("novoLote");
-			} else {
 				Thread.sleep(3000);
+				lotePage.selecionar("fornecedor", "00975141632796");
+				lotePage.selecionar("materiaPrima", "5");
+				lotePage.preencher("quantidade", quantidade.toString());
+				lotePage.selecionar("unidade", mapINT_to_Sigla(unidade));
+				lotePage.preencher("preco", preco.toString());
+				lotePage.clicarBotao("salvarLote");
+				if (lotePage.listarEncomendados(false)) {
+					return false;
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
-			String unidadeAuxiliar = mapINT_to_Sigla(unidade % 3);
-			
-			lotePage.selecionar("fornecedor", fornecedor.toString());
-			lotePage.selecionar("materiaPrima", materiaPrima.toString());
-			lotePage.preencher("quantidade", quantidade.toString());
-			lotePage.selecionar("unidade", unidadeAuxiliar.toString());
-			lotePage.preencher("preco", preco.toString());
-			lotePage.clicarBotao("salvarLote");
-			return lotePage.encontrarLote(sku, false);
-			
-		} catch (InterruptedException e) {
-			return false;
+
+			lotePage.navegarParaLote();
+			return true;
+		} else {
+
+			try {
+				lotePage.clicarBotao("novoLote");
+				Thread.sleep(3000);
+				lotePage.selecionar("fornecedor", "00975141632796");
+				lotePage.selecionar("materiaPrima", "5");
+				lotePage.preencher("quantidade", quantidade.toString());
+				lotePage.selecionar("unidade", mapINT_to_Sigla(unidade));
+				lotePage.preencher("preco", preco.toString());
+				lotePage.clicarBotao("salvarLote");
+				if (lotePage.listarEncomendados(false)) {
+					return true;
+				} else {
+					return false;
+				}
+
+			} catch (InterruptedException e) {
+				return false;
+			}
 		}
-		return false;
 	}
-	
+
 	private String mapINT_to_Sigla(int number) {
 		String sigla = "";
 		switch (number) {
@@ -56,77 +74,216 @@ public class LotePageAdapter  implements AdapterInterface{
 		return sigla;
 	}
 
-
+	@Override
+	public boolean fazerCadastroEvent() { // pronto
+		return true;
+	}
 
 	@Override
-	public boolean fazerCadastroEvent() {
-		// TODO Auto-generated method stub
+	public boolean alterarEncomendadosEvent(Boolean next, Boolean cancel) { // aba
+																			// encomendados
+																			// next
+																			// =
+																			// estoque
+		try {
+			lotePage.listarEncomendados(true);
+			Thread.sleep(1000);
+			lotePage.editar();
+			if (cancel) {
+				lotePage.radioButton("CANCELADO");
+				lotePage.clicarBotao("salvarLote");
+				if (lotePage.listarCancelados(false)) {
+					return true;
+				} else {
+					return false;
+				}
+			} else if (next) {
+				lotePage.radioButton("EM_ESTOQUE");
+				lotePage.clicarBotao("salvarLote");
+				if (lotePage.listarEmEstoque(false)) {
+					return true;
+				} else {
+					return false;
+				}
+			} else {
+				if (lotePage.listarEncomendados(false)) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
-	public boolean alterarEncomendadosEvent(Boolean next, Boolean cancel) {
-		// TODO Auto-generated method stub
+	public boolean alterarEmEstoqueEvent(Boolean next) { // aba em estoque next
+															// = produção
+		try {
+			lotePage.listarEmEstoque(true);
+			Thread.sleep(1000);
+			lotePage.editar();
+			if (next) {
+				lotePage.radioButton("PRODUCAO");
+				lotePage.clicarBotao("salvarLote");
+			} else {
+				lotePage.clicarBotao("salvarLote");
+			}
+			if (lotePage.listarEmProducao(false)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
-	public boolean alterarEmEstoqueEvent(Boolean next) {
-		// TODO Auto-generated method stub
+	public boolean alterarEmProducaoEvent(Boolean next) { // aba produção next =
+															// finalizado
+		try {
+			lotePage.listarEmProducao(true);
+			Thread.sleep(1000);
+			lotePage.editar();
+			if (next) {
+				lotePage.radioButton("FINALIZADO");
+				lotePage.clicarBotao("salvarLote");
+			} else {
+				lotePage.clicarBotao("salvarLote");
+			}
+			if (lotePage.listarFinalizados(false)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
-	public boolean alterarEmProducaoEvent(Boolean next) {
-		// TODO Auto-generated method stub
+	public boolean alterarFinalizadosEvent() { // clica em qualquer um e salva
+		try {
+			lotePage.listarFinalizados(true);
+			Thread.sleep(1000);
+			lotePage.editar();
+			lotePage.clicarBotao("salvarLote");
+			if (lotePage.listarFinalizados(false)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
-	public boolean alterarFinalizadosEvent() {
-		// TODO Auto-generated method stub
+	public boolean alterarCanceladosEvent() { // / clica em qualquer um e salva
+		try {
+			lotePage.listarCancelados(true);
+			Thread.sleep(1000);
+			lotePage.editar();
+			lotePage.clicarBotao("salvarLote");
+			if (lotePage.listarCancelados(false)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
-	public boolean alterarCanceladosEvent() {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public boolean fazerAlteracoesEvent() {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean fazerAlteracoesEvent() { // ja faz no cadastro
+		return true;
 	}
 
 	@Override
 	public boolean mostrarEncomendadosEvent() {
-		// TODO Auto-generated method stub
+		try {
+			lotePage.listarEncomendados(true);
+			Thread.sleep(500);
+			if (lotePage.listarEncomendados(false)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean mostrarEmEstoqueEvent() {
-		// TODO Auto-generated method stub
+		try {
+			lotePage.listarEmEstoque(true);
+			Thread.sleep(500);
+			if (lotePage.listarEmEstoque(false)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean mostrarEmProducaoEvent() {
-		// TODO Auto-generated method stub
+		try {
+			lotePage.listarEmProducao(true);
+			Thread.sleep(500);
+			if (lotePage.listarEmProducao(false)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean mostrarCanceladosEvent() {
-		// TODO Auto-generated method stub
+		try {
+			lotePage.listarCancelados(true);
+			Thread.sleep(500);
+			if (lotePage.listarCancelados(false)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
 	@Override
 	public boolean mostrarFinalizadosEvent() {
-		// TODO Auto-generated method stub
+		try {
+			lotePage.listarFinalizados(true);
+			Thread.sleep(500);
+			if (lotePage.listarFinalizados(false)) {
+				return true;
+			} else {
+				return false;
+			}
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		return false;
 	}
 
