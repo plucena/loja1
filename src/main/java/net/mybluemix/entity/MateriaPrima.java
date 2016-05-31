@@ -30,7 +30,7 @@ public class MateriaPrima {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE)
-    private String sku;
+    private Long sku;
 	private String nome;
 	public String tipo;
 	private String descricao; 
@@ -40,12 +40,12 @@ public class MateriaPrima {
 	}
 	
     @JsonProperty
-	public String getSku() {
+	public Long getSku() {
 		return sku;
 	}
 
     @JsonProperty
-	public void setSku(String sku) {
+	public void setSku(Long sku) {
 		this.sku = sku;
 	}
 
@@ -82,7 +82,7 @@ public class MateriaPrima {
    
 
    
-	public MateriaPrima(String sku, String nome, String tipo, String descricao,
+	public MateriaPrima(Long sku, String nome, String tipo, String descricao,
 			String unidade) {
 		super();
 		this.sku = sku;
