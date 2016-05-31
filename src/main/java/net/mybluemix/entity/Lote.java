@@ -21,8 +21,9 @@ import org.hibernate.annotations.GenericGenerator;
 public class Lote {
 	
 	@Id
-	@GeneratedValue(generator = "uuid2")
-	@GenericGenerator(name = "uuid2", strategy = "uuid2")
+	//@GeneratedValue(generator = "uuid2")
+	//@GenericGenerator(name = "uuid2", strategy = "uuid2")
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	public Long sku;
 	private float preco;
 	
