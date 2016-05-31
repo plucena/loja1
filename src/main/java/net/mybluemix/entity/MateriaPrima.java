@@ -34,7 +34,7 @@ public class MateriaPrima {
 		    table="GENERATOR_TABLE",
 		    pkColumnName = "key",
 		    valueColumnName = "next",
-		    pkColumnValue="course",
+		    pkColumnValue="standard",
 		    allocationSize=30
 		)	
     private Long sku;

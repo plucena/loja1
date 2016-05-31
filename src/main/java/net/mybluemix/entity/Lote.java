@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.TableGenerator;
 import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
@@ -19,6 +20,15 @@ public class Lote {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="standard")
+	@TableGenerator(
+		    name="standard",
+		    table="GENERATOR_TABLE",
+		    pkColumnName = "key",
+		    valueColumnName = "next",
+		    pkColumnValue="standard",
+		    allocationSize=30
+		)
+
 	public Long sku;
 	private float preco;
 	
