@@ -20,20 +20,13 @@ public class MateriaPrimaPage {
 		driver.close();
 	}
 
-	public boolean encontrarMateriaPrima(Integer sku, boolean click){
-		try{
-		element = findWithDelay(By.id(sku.toString()), driver); //Esse "element" tem o valor de NULL quando não encontra o elemento.
-		if (element.getText().contains(sku.toString())) {
-			if (click)
-				element.click();
-			return true;
-		} else {
-			return false; //Quando chegará nessa linha?
-		}
-		}catch(Exception e){
+	public boolean encontrarMateriaPrima(String nome) {
+		try {
+			element = findWithDelay(By.tagName("table"), driver);
+			return element.getText().contains(nome);
+		} catch (Exception e) {
 			return false;
 		}
-		
 	}
 
 	public void clicarBotao(String botao) throws InterruptedException {
@@ -49,6 +42,12 @@ public class MateriaPrimaPage {
 		element = findWithDelay(By.id(idBotao), driver);
 		element.click();
 	}
+	
+	public void editar() throws InterruptedException {
+		element = findWithDelay(By.xpath("//tr[@class='md-row ng-scope']"), driver);
+		element.click();
+
+	}
 
 	public void preencher(String campo, String valor)
 			throws InterruptedException {
@@ -63,7 +62,8 @@ public class MateriaPrimaPage {
 			throws InterruptedException {
 		int interval = 50;
 		try {
-			element = driver.findElement(by); //Aqui tá recebendo NULL quando não acha.
+			element = driver.findElement(by); // Aqui tá recebendo NULL quando
+												// não acha.
 			return element;
 		} catch (Exception e1) {
 			for (int milis = 0; milis < 3000; milis = milis + interval) {
@@ -71,12 +71,12 @@ public class MateriaPrimaPage {
 					element = driver.findElement(by);
 					return element;
 				} catch (Exception e2) {
-					Thread.sleep(interval); //Lançando uma Exception aqui!!!
-											//Parece que não achou nada!
+					Thread.sleep(interval); // Lançando uma Exception aqui!!!
+											// Parece que não achou nada!
 				}
 			}
 		}
-		return element; //NULL quando não acha.
+		return element; // NULL quando não acha.
 	}
 
 }

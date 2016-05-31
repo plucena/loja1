@@ -8,13 +8,11 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 	public Integer nome;
 	public Integer tipo;
 	public Integer descricao;
-	public Integer sku;
 
 	public AdapterInterface adapter;
 	public AdapterInterfaceDados dados;
 
 	
-	public Integer skuOk;
 	public String nomeOk;
 	public String tipoOk;
 	public String descricaoOk;
@@ -54,14 +52,12 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 				nome      = ((Integer)in_colObject[1]).intValue();
 				tipo      = ((Integer)in_colObject[2]).intValue();
 				descricao = ((Integer)in_colObject[3]).intValue();
-				sku       = ((Integer)in_colObject[4]).intValue();
 				
 				nomeOk      = dados.dado_tipo(nome);
 				tipoOk      = dados.dado_tipo(tipo);
 				descricaoOk = dados.dado_descricao(descricao);
-				skuOk = dados.dado_sku(sku);
 				
-				if(cadastrar(skuOk, nomeOk, tipoOk, descricaoOk)){
+				if(cadastrar(nomeOk, tipoOk, descricaoOk)){
 					 state = State.cadastrando;
 				}
 				else{
@@ -79,14 +75,12 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 				nome      = ((Integer)in_colObject[1]).intValue();
 				tipo      = ((Integer)in_colObject[2]).intValue();
 				descricao = ((Integer)in_colObject[3]).intValue();
-				sku       = ((Integer)in_colObject[4]).intValue();
 				
 				nomeOk      = dados.dado_nome(nome);
 				tipoOk      = dados.dado_tipo(tipo);
 				descricaoOk = dados.dado_descricao(descricao);
-				skuOk = dados.dado_sku(sku);
 				
-				if(alterar(skuOk ,nomeOk, tipoOk, descricaoOk))
+				if(alterar(nomeOk, tipoOk, descricaoOk))
 					 state = State.alterando;
 				else
 					 state = State.mostrando;
@@ -113,30 +107,26 @@ public class MateriaPrima extends java.lang.Object implements java.lang.Cloneabl
 		}
 	}
 	
-	public Boolean cadastrar(Integer sku, String nome, String tipo, String descricao)
+	public Boolean cadastrar(String nome, String tipo, String descricao)
 	{
-	  	//return true;
-	  	return adapter.cadastrarEvent(sku ,nome, tipo, descricao);
+	  	return adapter.cadastrarEvent(nome, tipo, descricao);
 	}
 	
 
 	public Boolean fazerCadastro()
 	{
-	  	//return true;
 	  	return adapter.fazerCadastroEvent();
 	}
 	
 
-	public Boolean alterar(Integer sku, String nome, String tipo, String descricao)
+	public Boolean alterar(String nome, String tipo, String descricao)
 	{
-	  	//return true;
-	  	return adapter.alterarEvent(sku ,nome, tipo, descricao);
+	  	return adapter.alterarEvent(nome, tipo, descricao);
 	}
 	
 
 	public Boolean fazerAlteracoes()
 	{
-	  	//return true;
 	  	return adapter.fazerAlteracoesEvent();
 	}
 	

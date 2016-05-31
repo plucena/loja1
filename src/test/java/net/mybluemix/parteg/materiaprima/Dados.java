@@ -22,14 +22,6 @@ public class Dados implements AdapterInterfaceDados{
 		return descricaoOk;
 	}
 
-	@Override
-	public Integer dado_sku(Integer sku) {
-		Integer skuOk = sku;
-		if(skuOk < 0)
-			skuOk *= -1;
-		return skuOk;
-	}
-
 	String getNomeAleatoria (int nome){
 		String cadenaAleatoria = "";
 		long seed = nome;

@@ -5,46 +5,60 @@ import net.mybluemix.selenium.MateriaPrimaPage;
 public class MateriaPrimaPageAdapter implements AdapterInterface {
 
 	private MateriaPrimaPage materiaPrimaPage;
-	
+
 	public MateriaPrimaPageAdapter() {
 		this.materiaPrimaPage = new MateriaPrimaPage();
 	}
-	
-	
 
 	@Override
-	public boolean cadastrarEvent(Integer sku, String nome, String tipo, String descricao) {
+	public boolean cadastrarEvent(String nome, String tipo, String descricao) {
 		try {
-			if (!materiaPrimaPage.encontrarMateriaPrima(sku, true)) { //Quando não encontrasse o ideal num era cadastrar?
-				materiaPrimaPage.clicarBotao("novaMateriaPrima");
-			} else {
-				Thread.sleep(3000);
-			}
-			
+			materiaPrimaPage.clicarBotao("novaMateriaPrima");
 			materiaPrimaPage.preencher("nome", nome);
 			materiaPrimaPage.preencher("descricao", descricao);
 			materiaPrimaPage.preencher("tipo", tipo);
 			materiaPrimaPage.clicarBotao("salvarMateriaPrima");
-			return materiaPrimaPage.encontrarMateriaPrima(sku, false);
-			
+			if(materiaPrimaPage.encontrarMateriaPrima(nome)){
+				materiaPrimaPage.fecharPagina();
+				return true;
+			}else{
+				return false;	
+			}
+
 		} catch (InterruptedException e) {
 			return false;
 		}
 	}
 
 	@Override
-	public boolean alterarEvent(Integer sku,String nome, String tipo, String descricao) {
-		return this.cadastrarEvent(sku, nome, tipo, descricao);
+	public boolean alterarEvent(String nome, String tipo, String descricao) {
+		try {
+			materiaPrimaPage.editar();
+			Thread.sleep(1000);
+			materiaPrimaPage.preencher("nome", nome);
+			materiaPrimaPage.preencher("descricao", descricao);
+			materiaPrimaPage.preencher("tipo", tipo);
+			materiaPrimaPage.clicarBotao("salvarMateriaPrima");
+			if(materiaPrimaPage.encontrarMateriaPrima(nome)){
+				materiaPrimaPage.fecharPagina();
+				return true;
+			}else{
+				return false;	
+			}		
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	@Override
 	public boolean fazerCadastroEvent() {
-		return false;
+		return true;
 	}
 
 	@Override
 	public boolean fazerAlteracoesEvent() {
-		return false;
+		return true;
 	}
 
 }

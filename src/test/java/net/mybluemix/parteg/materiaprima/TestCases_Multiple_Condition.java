@@ -23,7 +23,6 @@ public class TestCases_Multiple_Condition{
 		assertEquals(true, (oTestObject.nome.intValue() == nomeVal11.intValue()));
 		assertEquals(true, (oTestObject.tipo.intValue() == tipoVal11.intValue()));
 		assertEquals(true, (oTestObject.descricao.intValue() == descricaoVal11.intValue()));
-		assertEquals(true, (oTestObject.unidade.intValue() == unidadeVal11.intValue()));
 		assertEquals(true, (oTestObject.state == State.alterando));
 		assertEquals(true, (oTestObject.nome.intValue() <= 0));
 		oTestObject.handleEvent("fazerAlteracoesEvent");
@@ -44,7 +43,6 @@ public class TestCases_Multiple_Condition{
 		assertEquals(true, (oTestObject.nome.intValue() == nomeVal11.intValue()));
 		assertEquals(true, (oTestObject.tipo.intValue() == tipoVal11.intValue()));
 		assertEquals(true, (oTestObject.descricao.intValue() == descricaoVal11.intValue()));
-		assertEquals(true, (oTestObject.unidade.intValue() == unidadeVal11.intValue()));
 		assertEquals(true, (oTestObject.state == State.alterando));
 		assertEquals(true, (oTestObject.nome.intValue() <= 0));
 		oTestObject.handleEvent("fazerAlteracoesEvent");
@@ -65,7 +63,6 @@ public class TestCases_Multiple_Condition{
 		assertEquals(true, (oTestObject.nome.intValue() == nomeVal1.intValue()));
 		assertEquals(true, (oTestObject.tipo.intValue() == tipoVal1.intValue()));
 		assertEquals(true, (oTestObject.descricao.intValue() == descricaoVal1.intValue()));
-		assertEquals(true, (oTestObject.unidade.intValue() == unidadeVal1.intValue()));
 		assertEquals(true, (oTestObject.state == State.cadastrando));
 		assertEquals(true, (oTestObject.nome.intValue() > 0));
 		oTestObject.handleEvent("fazerCadastroEvent");
@@ -86,7 +83,6 @@ public class TestCases_Multiple_Condition{
 		assertEquals(true, (oTestObject.nome.intValue() == nomeVal1.intValue()));
 		assertEquals(true, (oTestObject.tipo.intValue() == tipoVal1.intValue()));
 		assertEquals(true, (oTestObject.descricao.intValue() == descricaoVal1.intValue()));
-		assertEquals(true, (oTestObject.unidade.intValue() == unidadeVal1.intValue()));
 		assertEquals(true, (oTestObject.state == State.cadastrando));
 		assertEquals(true, (oTestObject.nome.intValue() > 0));
 		oTestObject.handleEvent("fazerCadastroEvent");
@@ -107,7 +103,6 @@ public class TestCases_Multiple_Condition{
 		assertEquals(true, (oTestObject.nome.intValue() == nomeVal11.intValue()));
 		assertEquals(true, (oTestObject.tipo.intValue() == tipoVal11.intValue()));
 		assertEquals(true, (oTestObject.descricao.intValue() == descricaoVal11.intValue()));
-		assertEquals(true, (oTestObject.unidade.intValue() == unidadeVal11.intValue()));
 		assertEquals(true, (oTestObject.state == State.alterando));
 		assertEquals(true, (oTestObject.nome.intValue() > 0));
 		oTestObject.handleEvent("fazerAlteracoesEvent");
@@ -128,7 +123,6 @@ public class TestCases_Multiple_Condition{
 		assertEquals(true, (oTestObject.nome.intValue() == nomeVal11.intValue()));
 		assertEquals(true, (oTestObject.tipo.intValue() == tipoVal11.intValue()));
 		assertEquals(true, (oTestObject.descricao.intValue() == descricaoVal11.intValue()));
-		assertEquals(true, (oTestObject.unidade.intValue() == unidadeVal11.intValue()));
 		assertEquals(true, (oTestObject.state == State.alterando));
 		assertEquals(true, (oTestObject.nome.intValue() > 0));
 		oTestObject.handleEvent("fazerAlteracoesEvent");
@@ -149,7 +143,6 @@ public class TestCases_Multiple_Condition{
 		assertEquals(true, (oTestObject.nome.intValue() == nomeVal1.intValue()));
 		assertEquals(true, (oTestObject.tipo.intValue() == tipoVal1.intValue()));
 		assertEquals(true, (oTestObject.descricao.intValue() == descricaoVal1.intValue()));
-		assertEquals(true, (oTestObject.unidade.intValue() == unidadeVal1.intValue()));
 		assertEquals(true, (oTestObject.state == State.cadastrando));
 		assertEquals(true, (oTestObject.nome.intValue() <= 0));
 		oTestObject.handleEvent("fazerCadastroEvent");
@@ -170,7 +163,6 @@ public class TestCases_Multiple_Condition{
 		assertEquals(true, (oTestObject.nome.intValue() == nomeVal1.intValue()));
 		assertEquals(true, (oTestObject.tipo.intValue() == tipoVal1.intValue()));
 		assertEquals(true, (oTestObject.descricao.intValue() == descricaoVal1.intValue()));
-		assertEquals(true, (oTestObject.unidade.intValue() == unidadeVal1.intValue()));
 		assertEquals(true, (oTestObject.state == State.cadastrando));
 		assertEquals(true, (oTestObject.nome.intValue() <= 0));
 		oTestObject.handleEvent("fazerCadastroEvent");
