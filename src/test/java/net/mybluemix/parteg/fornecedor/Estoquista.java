@@ -196,7 +196,7 @@ public class Estoquista  extends java.lang.Object implements java.lang.Cloneable
 
 			
 				if (alterar(ativo, cnpjOk, nomeOk, emailOk, telefoneOk, prazoEntregaDiasOk, endereco_PaisOk, endereco_EstadoOk, endereco_CidadeOk, endereco_LogradouroOk, endereco_CEPOk))		
-         		state = State.alterando;
+					state = State.alterando;
 				else 
 					state = State.mostrandoAtivos;
 				

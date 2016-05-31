@@ -15,11 +15,7 @@ h1 {
     text-transform: uppercase;
     padding: 16px 40px;
     margin: 0;
-}
-
-h1 a {
-    text-decoration: none;
-    color: inherit;
+    cursor: default;
 }
 
 h1 span {
@@ -46,7 +42,7 @@ md-sidenav md-list.usuario md-list-item md-icon {
 }*/
 
 md-sidenav md-list.navegacao md-list-item.active {
-    background-color: #ececec;
+    background-color: #F3E5F5;
 }
 
 md-sidenav md-list.navegacao md-list-item a {

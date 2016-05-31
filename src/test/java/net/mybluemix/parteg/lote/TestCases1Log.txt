@@ -1,0 +1,313 @@
+### Test Case Generation Statistics
+### Test Goal Satisfaction
+ - defined 50 test goals
+ - satisfied 50 test goals (100.0 %)
+
+### unsatisfied test goals
+
+
+### satisfied test goals
+
+ - satisfied: (test goal #1 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::cadastrando
+   to node tmp6
+   triggered by fazerCadastroEvent
+   with condition truth: true
+((fornecedor > 0) and (materiaPrima > 0) and (quantidade > 0) and (unidade > 0) and (preco > 0))
+ - satisfied: (test goal #2 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: true
+((fornecedor > 0) and (materiaPrima > 0) and (quantidade > 0) and (unidade > 0) and (preco > 0))
+ - satisfied: (test goal #3 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((fornecedor > 0) and (materiaPrima > 0) and (quantidade > 0) and (unidade > 0) and (preco <= 0))
+ or ((fornecedor > 0) and (materiaPrima > 0) and (quantidade > 0) and (unidade <= 0) and (preco > 0))
+ or ((fornecedor > 0) and (materiaPrima > 0) and (quantidade > 0) and (unidade <= 0) and (preco <= 0))
+ or ((fornecedor > 0) and (materiaPrima > 0) and (quantidade <= 0) and (unidade > 0) and (preco > 0))
+ or ((fornecedor > 0) and (materiaPrima > 0) and (quantidade <= 0) and (unidade > 0) and (preco <= 0))
+ or ((fornecedor > 0) and (materiaPrima > 0) and (quantidade <= 0) and (unidade <= 0) and (preco > 0))
+ or ((fornecedor > 0) and (materiaPrima > 0) and (quantidade <= 0) and (unidade <= 0) and (preco <= 0))
+ or ((fornecedor <= 0) and (materiaPrima > 0) and (quantidade > 0) and (unidade > 0) and (preco > 0))
+ or ((fornecedor <= 0) and (materiaPrima > 0) and (quantidade > 0) and (unidade > 0) and (preco <= 0))
+ or ((fornecedor <= 0) and (materiaPrima > 0) and (quantidade > 0) and (unidade <= 0) and (preco > 0))
+ or ((fornecedor <= 0) and (materiaPrima > 0) and (quantidade > 0) and (unidade <= 0) and (preco <= 0))
+ or ((fornecedor <= 0) and (materiaPrima > 0) and (quantidade <= 0) and (unidade > 0) and (preco > 0))
+ or ((fornecedor <= 0) and (materiaPrima > 0) and (quantidade <= 0) and (unidade > 0) and (preco <= 0))
+ or ((fornecedor <= 0) and (materiaPrima > 0) and (quantidade <= 0) and (unidade <= 0) and (preco > 0))
+ or ((fornecedor <= 0) and (materiaPrima > 0) and (quantidade <= 0) and (unidade <= 0) and (preco <= 0))
+ or ((fornecedor > 0) and (materiaPrima <= 0) and (quantidade > 0) and (unidade > 0) and (preco > 0))
+ or ((fornecedor > 0) and (materiaPrima <= 0) and (quantidade > 0) and (unidade > 0) and (preco <= 0))
+ or ((fornecedor > 0) and (materiaPrima <= 0) and (quantidade > 0) and (unidade <= 0) and (preco > 0))
+ or ((fornecedor > 0) and (materiaPrima <= 0) and (quantidade > 0) and (unidade <= 0) and (preco <= 0))
+ or ((fornecedor > 0) and (materiaPrima <= 0) and (quantidade <= 0) and (unidade > 0) and (preco > 0))
+ or ((fornecedor > 0) and (materiaPrima <= 0) and (quantidade <= 0) and (unidade > 0) and (preco <= 0))
+ or ((fornecedor > 0) and (materiaPrima <= 0) and (quantidade <= 0) and (unidade <= 0) and (preco > 0))
+ or ((fornecedor > 0) and (materiaPrima <= 0) and (quantidade <= 0) and (unidade <= 0) and (preco <= 0))
+ or ((fornecedor <= 0) and (materiaPrima <= 0) and (quantidade > 0) and (unidade > 0) and (preco > 0))
+ or ((fornecedor <= 0) and (materiaPrima <= 0) and (quantidade > 0) and (unidade > 0) and (preco <= 0))
+ or ((fornecedor <= 0) and (materiaPrima <= 0) and (quantidade > 0) and (unidade <= 0) and (preco > 0))
+ or ((fornecedor <= 0) and (materiaPrima <= 0) and (quantidade > 0) and (unidade <= 0) and (preco <= 0))
+ or ((fornecedor <= 0) and (materiaPrima <= 0) and (quantidade <= 0) and (unidade > 0) and (preco > 0))
+ or ((fornecedor <= 0) and (materiaPrima <= 0) and (quantidade <= 0) and (unidade > 0) and (preco <= 0))
+ or ((fornecedor <= 0) and (materiaPrima <= 0) and (quantidade <= 0) and (unidade <= 0) and (preco > 0))
+ or ((fornecedor <= 0) and (materiaPrima <= 0) and (quantidade <= 0) and (unidade <= 0) and (preco <= 0))
+ - satisfied: (test goal #4 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::cancelados
+   call event mostrarFinalizadosEvent
+ - satisfied: (test goal #5 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::cancelados
+   call event cadastrarEvent
+ - satisfied: (test goal #6 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::cancelados
+   to node tmp11
+   triggered by alterarCanceladosEvent
+ - satisfied: (test goal #7 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::cancelados
+   call event alterarCanceladosEvent
+ - satisfied: (test goal #8 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::cancelados
+   to node tmp24
+   triggered by mostrarFinalizadosEvent
+ - satisfied: (test goal #9 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::cancelados
+   to node tmp5
+   triggered by cadastrarEvent
+ - satisfied: (test goal #10 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::finalizados
+   to node tmp10
+   triggered by alterarFinalizadosEvent
+ - satisfied: (test goal #11 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::finalizados
+   call event mostrarEmProducaoEvent
+ - satisfied: (test goal #12 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::finalizados
+   call event alterarFinalizadosEvent
+ - satisfied: (test goal #13 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::finalizados
+   to node tmp4
+   triggered by cadastrarEvent
+ - satisfied: (test goal #14 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::finalizados
+   to node tmp22
+   triggered by mostrarEmProducaoEvent
+ - satisfied: (test goal #15 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::finalizados
+   call event mostrarCanceladosEvent
+ - satisfied: (test goal #16 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::finalizados
+   call event cadastrarEvent
+ - satisfied: (test goal #17 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::finalizados
+   to node tmp23
+   triggered by mostrarCanceladosEvent
+ - satisfied: (test goal #18 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::emProducao
+   to node tmp3
+   triggered by cadastrarEvent
+ - satisfied: (test goal #19 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::emProducao
+   call event mostrarFinalizadosEvent
+ - satisfied: (test goal #20 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::emProducao
+   to node tmp9
+   triggered by alterarEmProducaoEvent
+ - satisfied: (test goal #21 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::emProducao
+   to node tmp21
+   triggered by mostrarFinalizadosEvent
+ - satisfied: (test goal #22 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::emProducao
+   to node tmp20
+   triggered by mostrarEmEstoqueEvent
+ - satisfied: (test goal #23 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::emProducao
+   call event alterarEmProducaoEvent
+ - satisfied: (test goal #24 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::emProducao
+   call event cadastrarEvent
+ - satisfied: (test goal #25 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::emProducao
+   call event mostrarEmEstoqueEvent
+ - satisfied: (test goal #26 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::emEstoque
+   to node tmp18
+   triggered by mostrarEncomendadosEvent
+ - satisfied: (test goal #27 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::emEstoque
+   call event mostrarEncomendadosEvent
+ - satisfied: (test goal #28 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::emEstoque
+   to node tmp8
+   triggered by alterarEmEstoqueEvent
+ - satisfied: (test goal #29 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::emEstoque
+   call event cadastrarEvent
+ - satisfied: (test goal #30 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::emEstoque
+   call event mostrarEmProducaoEvent
+ - satisfied: (test goal #31 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::emEstoque
+   to node tmp2
+   triggered by cadastrarEvent
+ - satisfied: (test goal #32 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::emEstoque
+   call event alterarEmEstoqueEvent
+ - satisfied: (test goal #33 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::emEstoque
+   to node tmp19
+   triggered by mostrarEmProducaoEvent
+ - satisfied: (test goal #34 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::alterando
+   call event fazerAlteracoesEvent
+   with condition truth: true
+((status = 2) and (next = true) and (status < 3) and (next <> false))
+ or ((status > 2) and (next <> true) and (status = 3) and (next = false))
+ or ((status = 3) and (next = false))
+ or ((status = 2) and (next <> false))
+ - satisfied: (test goal #35 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::alterando
+   to node tmp14
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((status = 2) and (next = true) and (status < 3) and (next <> false))
+ or ((status > 2) and (next <> true) and (status = 3) and (next = false))
+ or ((status = 3) and (next = false))
+ or ((status = 2) and (next <> false))
+ - satisfied: (test goal #36 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::alterando
+   to node tmp15
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((status = 3) and (next = true) and (status < 4))
+ or ((status > 3) and (next = true) and (status = 4))
+ or ((status > 3) and (next <> true) and (status = 4))
+ or ((next <> true) and (status = 4))
+ or ((next = true) and (status = 4))
+ or ((status = 3) and (next = true))
+ - satisfied: (test goal #37 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::alterando
+   to node tmp13
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((status = 1) and (next = true) and (cancel = false) and (status < 2) and (next <> false))
+ or ((status > 1) and (next <> true) and (cancel = false) and (status = 2) and (next = false))
+ or ((status > 1) and (next <> true) and (cancel <> false) and (status = 2) and (next = false))
+ or ((cancel <> false) and (status = 2) and (next = false))
+ or ((cancel = false) and (status = 2) and (next = false))
+ or ((status = 1) and (cancel = false) and (next <> false))
+ - satisfied: (test goal #38 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::alterando
+   call event fazerAlteracoesEvent
+   with condition truth: true
+((status = 5) and (status > 1) and (next <> false) and (cancel = true) and (status > 1) and (next = true) and (cancel = true) and (status > 1) and (next <> false) and (cancel <> false))
+ or ((status = 3) and (next = true) and (status < 4) and (status > 1) and (next <> false) and (cancel <> false))
+ or ((status > 3) and (next = true) and (status = 4) and (status > 1) and (next <> false) and (cancel <> false))
+ or ((status = 2) and (next = true) and (status < 3) and (next <> false) and (status > 1) and (next <> false) and (cancel <> false))
+ or ((status = 5) and (status > 1) and (next <> false) and (cancel <> true) and (status > 1) and (next = true) and (cancel <> true) and (status > 1) and (next <> false) and (cancel = false))
+ or ((status = 3) and (next = true) and (status < 4) and (status > 1) and (next <> false) and (cancel = false))
+ or ((status > 3) and (next = true) and (status = 4) and (status > 1) and (next <> false) and (cancel = false))
+ or ((status = 2) and (next = true) and (status < 3) and (next <> false) and (status > 1) and (next <> false) and (cancel = false))
+ or ((status < 5) and (status = 1) and (next <> false) and (cancel = true) and (status = 1) and (next = true) and (cancel = true) and (status = 1) and (next <> false) and (cancel <> false))
+ or ((status = 1) and (next = true) and (cancel = false) and (status < 2) and (next <> false) and (status = 1) and (next <> false) and (cancel = false))
+ or ((status = 5) and (status > 1) and (next = false) and (cancel = true) and (status > 1) and (next <> true) and (cancel = true) and (status > 1) and (next = false) and (cancel <> false))
+ or ((status > 3) and (next <> true) and (status = 4) and (status > 1) and (next = false) and (cancel <> false))
+ or ((status > 2) and (next <> true) and (status = 3) and (next = false) and (status > 1) and (next = false) and (cancel <> false))
+ or ((status > 1) and (next <> true) and (cancel <> false) and (status = 2) and (next = false) and (status > 1) and (next = false) and (cancel <> false))
+ or ((status = 5) and (status > 1) and (next = false) and (cancel <> true) and (status > 1) and (next <> true) and (cancel <> true) and (status > 1) and (next = false) and (cancel = false))
+ or ((status > 3) and (next <> true) and (status = 4) and (status > 1) and (next = false) and (cancel = false))
+ or ((status > 2) and (next <> true) and (status = 3) and (next = false) and (status > 1) and (next = false) and (cancel = false))
+ or ((status > 1) and (next <> true) and (cancel = false) and (status = 2) and (next = false) and (status > 1) and (next = false) and (cancel = false))
+ or ((status < 5) and (status = 1) and (next = false) and (cancel = true) and (status = 1) and (next <> true) and (cancel = true) and (status = 1) and (next = false) and (cancel <> false))
+ or ((status < 1) and (next = false) and (cancel = false))
+ or ((status < 1) and (next = false) and (cancel <> false))
+ or ((status < 1) and (next <> false) and (cancel = false))
+ or ((status < 1) and (next <> false) and (cancel <> false))
+ or ((status = 1) and (next = false) and (cancel <> false))
+ or ((status > 1) and (next = false) and (cancel = false))
+ or ((status > 1) and (next = false) and (cancel <> false))
+ or ((status = 1) and (next <> false) and (cancel = false))
+ or ((status = 1) and (next <> false) and (cancel <> false))
+ or ((status > 1) and (next <> false) and (cancel = false))
+ or ((status > 1) and (next <> false) and (cancel <> false))
+ - satisfied: (test goal #39 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::alterando
+   call event fazerAlteracoesEvent
+   with condition truth: true
+((status = 1) and (next = false) and (cancel = false))
+ - satisfied: (test goal #40 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::alterando
+   to node tmp16
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((status = 5) and (status > 1) and (next = false) and (cancel = true) and (status > 1) and (next <> true) and (cancel = true))
+ or ((status = 5) and (status > 1) and (next <> false) and (cancel = true) and (status > 1) and (next = true) and (cancel = true))
+ or ((status = 5) and (status > 1) and (next = false) and (cancel <> true) and (status > 1) and (next <> true) and (cancel <> true))
+ or ((status = 5) and (status > 1) and (next <> false) and (cancel <> true) and (status > 1) and (next = true) and (cancel <> true))
+ or ((status < 5) and (status = 1) and (next = false) and (cancel = true) and (status = 1) and (next <> true) and (cancel = true))
+ or ((status < 5) and (status = 1) and (next <> false) and (cancel = true) and (status = 1) and (next = true) and (cancel = true))
+ or ((status = 1) and (next = true) and (cancel = true))
+ or ((status = 1) and (next <> true) and (cancel = true))
+ or ((status = 5) and (next = true) and (cancel <> true))
+ or ((status = 5) and (next <> true) and (cancel <> true))
+ or ((status = 5) and (next = true) and (cancel = true))
+ or ((status = 5) and (next <> true) and (cancel = true))
+ - satisfied: (test goal #41 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::alterando
+   to node tmp12
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((status = 1) and (next = false) and (cancel = false))
+ - satisfied: (test goal #42 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::alterando
+   call event fazerAlteracoesEvent
+   with condition truth: true
+((status = 5) and (status > 1) and (next <> false) and (cancel = true) and (status > 1) and (next = true) and (cancel = true) and (status > 3) and (next <> false))
+ or ((status = 5) and (status > 1) and (next <> false) and (cancel <> true) and (status > 1) and (next = true) and (cancel <> true) and (status > 3) and (next <> false))
+ or ((status > 3) and (next = true) and (status = 4) and (status > 3) and (next <> false))
+ or ((status < 5) and (status = 1) and (next <> false) and (cancel = true) and (status = 1) and (next = true) and (cancel = true) and (status < 2) and (next <> false))
+ or ((status = 1) and (next = true) and (cancel = false) and (status < 2) and (next <> false) and (status < 2) and (next <> false))
+ or ((status = 3) and (next = true) and (status < 4) and (status = 3) and (next <> false))
+ or ((status = 5) and (status > 1) and (next = false) and (cancel = true) and (status > 1) and (next <> true) and (cancel = true) and (status > 3) and (next = false))
+ or ((status = 5) and (status > 1) and (next = false) and (cancel <> true) and (status > 1) and (next <> true) and (cancel <> true) and (status > 3) and (next = false))
+ or ((status > 3) and (next <> true) and (status = 4) and (status > 3) and (next = false))
+ or ((status < 5) and (status = 1) and (next = false) and (cancel = true) and (status = 1) and (next <> true) and (cancel = true) and (status < 2) and (next = false))
+ or ((status = 1) and (next = false) and (cancel = false) and (status < 2) and (next = false))
+ or ((status > 1) and (next <> true) and (cancel = false) and (status = 2) and (next = false) and (status = 2) and (next = false))
+ or ((status > 1) and (next <> true) and (cancel <> false) and (status = 2) and (next = false) and (status = 2) and (next = false))
+ or ((status = 2) and (next = false))
+ or ((status < 2) and (next = false))
+ or ((status > 3) and (next = false))
+ or ((status = 3) and (next <> false))
+ or ((status < 2) and (next <> false))
+ or ((status > 3) and (next <> false))
+ - satisfied: (test goal #43 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::encomendados
+   to node tmp17
+   triggered by mostrarEmEstoqueEvent
+ - satisfied: (test goal #44 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::encomendados
+   call event mostrarEmEstoqueEvent
+ - satisfied: (test goal #45 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::encomendados
+   to node tmp7
+   triggered by alterarEncomendadosEvent
+ - satisfied: (test goal #46 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::encomendados
+   call event cadastrarEvent
+ - satisfied: (test goal #47 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::encomendados
+   to node tmp1
+   triggered by cadastrarEvent
+ - satisfied: (test goal #48 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::encomendados
+   call event alterarEncomendadosEvent
+ - satisfied: (test goal #49 - traversed transition) 
+   from node LoteStateMachine::LoteRegion::init
+   to node LoteStateMachine::LoteRegion::encomendados
+   triggered by default
+ - satisfied: (test goal #50 - satisfied guard) 
+   from node LoteStateMachine::LoteRegion::init
+   call event default

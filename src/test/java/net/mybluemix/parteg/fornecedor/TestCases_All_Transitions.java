@@ -9,7 +9,7 @@ public class TestCases_All_Transitions{
 	public static junit.framework.Test suite(){
 		return new junit.framework.JUnit4TestAdapter(TestCases_All_Transitions.class);
 	}
-	
+
 	@Test
 	public void test1()
 	{
@@ -50,7 +50,6 @@ public class TestCases_All_Transitions{
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		
 	}
-	
 	@Test
 	public void test2()
 	{
@@ -210,7 +209,7 @@ public class TestCases_All_Transitions{
 		assertEquals(true, (oTestObject.state == State.mostrandoAtivos));
 		
 	}
-	
+
 	@Test
 	public void test6()
 	{
@@ -329,5 +328,4 @@ public class TestCases_All_Transitions{
 		assertEquals(true, (oTestObject.state == State.mostrandoInativos));
 		
 	}
-	
 }

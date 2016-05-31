@@ -39,12 +39,14 @@ app.controller('formMateriaPrimaController', ['$scope', '$routeParams', '$locati
     $scope.edicao = false;
 
     if($routeParams.sku) {
+        $scope.isLoading = true;
         $scope.materiaPrima = MateriaPrimaFactory.materiaPrima(
             {sku: $routeParams.sku},
             function success() {
 
                 $scope.edicao = true;
                 $scope.buttonAction = 'Salvar';
+                $scope.isLoading = false;
 
             },
 
