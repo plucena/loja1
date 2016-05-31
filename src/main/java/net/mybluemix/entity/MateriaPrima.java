@@ -27,7 +27,7 @@ public class MateriaPrima {
 
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.TABLE)
+	@GeneratedValue(strategy=GenerationType.TABLE, generator="standard")
 	
 	
     private Long sku;
