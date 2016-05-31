@@ -12,6 +12,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.JoinColumn;
+import javax.persistence.TableGenerator;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.hibernate.annotations.LazyCollection;
@@ -28,8 +29,14 @@ public class MateriaPrima {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.TABLE, generator="standard")
-	
-	
+	@TableGenerator(
+		    name="standard",
+		    table="GENERATOR_TABLE",
+		    pkColumnName = "key",
+		    valueColumnName = "next",
+		    pkColumnValue="course",
+		    allocationSize=30
+		)	
     private Long sku;
 	private String nome;
 	public String tipo;
