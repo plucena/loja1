@@ -1,8 +1,8 @@
 package net.mybluemix.parteg.lote;
 
-import org.junit.*;
-import org.junit.runners.*;
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+
+import org.junit.Test;
 
 // JUnit 4.3
 //@FixMethodOrder(MethodSorters.NAME_ASCENDING)

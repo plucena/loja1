@@ -16,7 +16,7 @@ public class LotePageAdapter implements AdapterInterface {
 		if (quantidade == null || unidade == null || preco == null) {
 			try {
 				lotePage.clicarBotao("novoLote");
-				Thread.sleep(3000);
+				Thread.sleep(1500);
 				lotePage.selecionar("fornecedor", "00975141632796");
 				lotePage.selecionar("materiaPrima", "5");
 				lotePage.preencher("quantidade", quantidade.toString());
@@ -36,7 +36,7 @@ public class LotePageAdapter implements AdapterInterface {
 
 			try {
 				lotePage.clicarBotao("novoLote");
-				Thread.sleep(3000);
+				Thread.sleep(1500);
 				lotePage.selecionar("fornecedor", "00975141632796");
 				lotePage.selecionar("materiaPrima", "5");
 				lotePage.preencher("quantidade", quantidade.toString());
@@ -172,6 +172,7 @@ public class LotePageAdapter implements AdapterInterface {
 			lotePage.listarFinalizados(true);
 			Thread.sleep(1000);
 			lotePage.editar();
+			Thread.sleep(500);
 			lotePage.clicarBotao("salvarLote");
 			if (lotePage.listarFinalizados(false)) {
 				return true;
@@ -190,6 +191,7 @@ public class LotePageAdapter implements AdapterInterface {
 			lotePage.listarCancelados(true);
 			Thread.sleep(1000);
 			lotePage.editar();
+			Thread.sleep(500);
 			lotePage.clicarBotao("salvarLote");
 			if (lotePage.listarCancelados(false)) {
 				return true;
