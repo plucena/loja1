@@ -1,13 +1,15 @@
 package net.mybluemix.parteg.lote;
 
 import org.junit.*;
+import org.junit.runners.*;
 import static org.junit.Assert.*;
 
 // JUnit 4.3
-public class TestCases{
+//@FixMethodOrder(MethodSorters.NAME_ASCENDING)
+public class TestCases_All_Transitions{
 	
 	public static junit.framework.Test suite(){
-		return new junit.framework.JUnit4TestAdapter(TestCases.class);
+		return new junit.framework.JUnit4TestAdapter(TestCases_All_Transitions.class);
 	}
 	
 	@Test
@@ -318,7 +320,7 @@ public class TestCases{
 		assertEquals(true, (oTestObject.state == State.encomendados));
 		
 	}
-	
+
 	@Test
 	public void test10()
 	{
@@ -356,7 +358,7 @@ public class TestCases{
 		assertEquals(true, (oTestObject.state == State.finalizados));
 		
 	}
-	
+
 	@Test
 	public void test11()
 	{
@@ -407,6 +409,7 @@ public class TestCases{
 		assertEquals(true, (oTestObject.state == State.emEstoque));
 		
 	}
+	
 	
 	@Test
 	public void test13()

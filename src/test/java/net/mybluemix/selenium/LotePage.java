@@ -137,9 +137,16 @@ public class LotePage {
 	}
 
 	public void editar() throws InterruptedException {
+		try{
 		element = findWithDelay(By.xpath("//tr[@class='md-row ng-scope']"),
-				driver);
+					driver);
 		element.click();
+		}catch(Exception e){ //Adicionei daqui para baixo! Pega o último elemento do *Em Produção*
+			element = findWithDelay(By.xpath("//md-content"), 
+			driver); 
+			element.click();
+		}
+		
 
 	}
 

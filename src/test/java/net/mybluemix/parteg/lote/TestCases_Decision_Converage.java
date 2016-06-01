@@ -4,10 +4,10 @@ import org.junit.*;
 import static org.junit.Assert.*;
 
 // JUnit 4.3
-public class TestCases1{
+public class TestCases_Decision_Converage{
 	
 	public static junit.framework.Test suite(){
-		return new junit.framework.JUnit4TestAdapter(TestCases1.class);
+		return new junit.framework.JUnit4TestAdapter(TestCases_Decision_Converage.class);
 	}
 	
 	@Test

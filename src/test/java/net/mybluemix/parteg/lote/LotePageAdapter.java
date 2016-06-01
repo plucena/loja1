@@ -126,7 +126,7 @@ public class LotePageAdapter implements AdapterInterface {
 			Thread.sleep(1000);
 			lotePage.editar();
 			if (next) {
-				lotePage.radioButton("PRODUCAO");
+				lotePage.radioButton("EM_PRODUCAO");
 				lotePage.clicarBotao("salvarLote");
 			} else {
 				lotePage.clicarBotao("salvarLote");
