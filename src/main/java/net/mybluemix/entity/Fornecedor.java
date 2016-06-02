@@ -122,6 +122,7 @@ public class Fornecedor {
     	this.nome = f.nome;
     	this.prazoEntregaDias = f.prazoEntregaDias;
     	this.telefone = f.telefone;
+    	this.endereco_Logradouro = f.endereco_Logradouro;
     }
 	
 	
