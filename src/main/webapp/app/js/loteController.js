@@ -97,8 +97,8 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
 
                     case "EM_ESTOQUE":
                         $scope.encomendadoDisabled = true;
-                        $scope.emEstoqueDisabled = false;
-                        $scope.emProducaoDisabled = false;
+                        $scope.emEstoqueDisabled = true;
+                        $scope.emProducaoDisabled = true;
                         $scope.finalizadoDisabled = true;
                         $scope.canceladoDisabled = true;
                         break;
@@ -106,8 +106,8 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
                     case "EM_PRODUCAO":
                         $scope.encomendadoDisabled = true;
                         $scope.emEstoqueDisabled = true;
-                        $scope.emProducaoDisabled = false;
-                        $scope.finalizadoDisabled = false;
+                        $scope.emProducaoDisabled = true;
+                        $scope.finalizadoDisabled = true;
                         $scope.canceladoDisabled = true;
                         break;
 
