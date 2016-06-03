@@ -27,20 +27,6 @@ md-sidenav  {
     max-width: 250px;
 }
 
-/*md-sidenav md-list.usuario md-list-item {
-    padding-left: 42px;
-}
-
-md-sidenav md-list.usuario md-list-item a {
-    text-decoration: none;
-    color: inherit;
-}
-
-md-sidenav md-list.usuario md-list-item md-icon {
-    width: 18px;
-    height: 18px;
-}*/
-
 md-sidenav md-list.navegacao md-list-item.active {
     background-color: #F3E5F5;
 }
@@ -70,6 +56,7 @@ md-sidenav md-list.navegacao md-list-item a md-icon {
 
 md-content {
     height:100%;
+    overflow-x: hidden;
 }
 
 md-content md-card {
