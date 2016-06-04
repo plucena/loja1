@@ -93,6 +93,29 @@ app.config(function($routeProvider) {
         parent      : '#/lotes'
     })
 
+    .when('/receitas', {
+        templateUrl : 'views/receitas.html',
+        controller  : 'receitaController',
+        title       : 'Receitas',
+        isChild     : false
+    })
+
+    .when('/receitas/nova', {
+        templateUrl : 'views/receitas.form.html',
+        controller  : 'formReceitaController',
+        title       : 'Cadastrar Receita',
+        isChild     : true,
+        parent      : '#/receitas'
+    })
+
+    .when('/receitas/editar/:sku', {
+        templateUrl : 'views/receitas.form.html',
+        controller  : 'formReceitaController',
+        title       : 'Editar Receita',
+        isChild     : true,
+        parent      : '#/receitas'
+    })
+
     .when('/produtos', {
         templateUrl : 'views/produtos.html',
         controller  : 'produtoController',
@@ -114,29 +137,6 @@ app.config(function($routeProvider) {
         title       : 'Editar Produto',
         isChild     : true,
         parent      : '#/produtos'
-    })
-
-    .when('/estoque', {
-        templateUrl : 'views/estoque.html',
-        controller  : 'estoqueController',
-        title       : 'Estoque',
-        isChild     : false
-    })
-
-    .when('/estoque/novo', {
-        templateUrl : 'views/estoque.form.html',
-        controller  : 'formEstoqueController',
-        title       : 'Cadastrar Estoque',
-        isChild     : true,
-        parent      : '#/estoque'
-    })
-
-    .when('/estoque/editar/:sku', {
-        templateUrl : 'views/estoque.form.html',
-        controller  : 'formEstoqueController',
-        title       : 'Editar Etoque',
-        isChild     : true,
-        parent      : '#/estoque'
     })
 
 });
@@ -182,15 +182,15 @@ app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialo
             icon: 'content:ic_archive_24px'
         },
         {
+            link : 'receitas',
+            title: 'Receitas',
+            icon: 'device:ic_storage_24px'
+        },
+        {
             link : 'produtos',
             title: 'Produtos',
             icon: 'maps:ic_local_mall_24px'
-        },
-        {
-            link : 'estoque',
-            title: 'Estoque',
-            icon: 'device:ic_storage_24px'
-        },
+        }
     ];
 
     $scope.activeItem = $scope.navegacao[0];
@@ -204,10 +204,10 @@ app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialo
     } else if (window.location.href.indexOf("lotes") > -1)
     {
         $scope.activeItem = $scope.navegacao[2];
-    } else if (window.location.href.indexOf("produtos") > -1)
+    } else if (window.location.href.indexOf("receitas") > -1)
     {
         $scope.activeItem = $scope.navegacao[3];
-    } else if (window.location.href.indexOf("estoque") > -1)
+    } else if (window.location.href.indexOf("produtos") > -1)
     {
         $scope.activeItem = $scope.navegacao[4];
     }

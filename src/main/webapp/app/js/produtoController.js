@@ -2,6 +2,14 @@ app.controller('produtoController', ['$scope', '$rootScope', '$location', '$http
 
     $scope.isLoading = true;
 
+    if (!$rootScope.selectedIndexProduto) {
+        $rootScope.selectedIndexProduto = 0;
+    }
+
+    $scope.setselectedIndexProduto = function (index) {
+        $rootScope.selectedIndexProduto = index;
+    }
+
     $scope.produtos = [];
     $scope.produtos = ProdutoFactory.listar(
         {},
@@ -49,11 +57,11 @@ app.controller('formProdutoController', ['$scope', '$routeParams', '$location', 
                 $scope.isLoading = false;
 
             },
-
             function err() {
                 console.log('Erro ao buscar produto!');
             });
     }
+
 
     $scope.salvarProduto = function () {
 

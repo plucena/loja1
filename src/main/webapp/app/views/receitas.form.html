@@ -1,0 +1,41 @@
+<md-card>
+    <md-card-content>
+    
+        <form name="receitaForm" ng-submit="salvarReceita()" ng-show="!isLoading">
+
+            <md-input-container class="md-block" ng-if="edicao">
+                <label>SKU</label>
+                <input id="input-sku" name="sku" ng-model="receita.sku" type="text" disabled>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Nome (obrigatório)</label>
+                <input id="input-nome" name="nome" required ng-model="receita.nome" type="text">
+                <div ng-messages="receitaForm.nome.$error" ng-if="receitaForm.nome.$dirty">
+                    <div ng-message="required">Nome é um campo obrigatório!</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Descrição</label>
+                <textarea id="input-descricao" name="descricao" ng-model="receita.descricao" md-maxlength="255" rows="5"></textarea>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <label>Tipo (obrigatório)</label>
+                <input id="input-tipo" name="tipo" required ng-model="receita.tipo" type="text">
+                <div ng-messages="receitaForm.tipo.$error" ng-if="receitaForm.tipo.$dirty">
+                    <div ng-message="required">Tipo é um campo obrigatório!</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button id="button-salvarReceita" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!receitaForm.$valid">{{buttonAction}}</md-button>
+            </md-input-container>
+
+        </form>
+
+        <md-progress-linear md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
+
+    </md-card-content>
+</md-card>

@@ -5,27 +5,57 @@
             <md-icon md-svg-icon="content:ic_add_24px" aria-label="Plus"></md-icon>
         </md-button>
 
-        <p ng-show="!isLoading" ng-if="produtos.length == 0">Não há produtos.</p>
-        <md-table-container ng-if="produtos.length != 0">
-            <table md-table>
-                <thead md-head>
-                    <tr md-row>
-                        <th md-column md-numeric><span>SKU</span></th>
-                        <th md-column><span>Nome</span></th>
-                        <th md-column><span>Descrição</span></th>
-                        <th md-column><span>Tipo</span></th>
-                    </tr>
-                </thead>
-                <tbody md-body>
-                    <tr md-row ng-repeat="produto in produtos" ng-click="editarProduto(produto.sku)" id="{{produto.sku}}">
-                        <td md-cell>{{produto.sku}}</td>
-                        <td md-cell>{{produto.nome}}</td>
-                        <td md-cell>{{produto.descricao}}</td>
-                        <td md-cell>{{produto.tipo}}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </md-table-container>
+
+        <md-tabs md-dynamic-height md-border-bottom md-selected="selectedIndexProduto">
+            <md-tab label="Em Produção" md-on-select="setSelectedIndexProduto(0)">
+                <md-content class="md-padding">
+
+                    <p ng-show="!isLoading" ng-if="(produtos|filter:{status:'EM_PRODUCAO'}).length == 0">Não há produtos em produção.</p>
+                    <md-table-container ng-if="(produtos|filter:{status:'EM_PRODUCAO'}).length != 0">
+                        <table md-table>
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column md-numeric><span>SKU</span></th>
+                                    <th md-column><span>...</span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="produto in produtos | filter: { status: 'EM_PRODUCAO' }" ng-click="editarProduto(produto.sku)" id="{{produto.sku}}">
+                                    <td md-cell>{{produto.sku}}</td>
+                                    <td md-cell></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+
+                </md-content>
+            </md-tab>
+                
+
+            <md-tab label="Finalizados" md-on-select="setSelectedIndexProduto(1)">
+                <md-content class="md-padding">
+                    
+                    <p ng-show="!isLoading" ng-if="(produtos|filter:{status:'FINALIZADO'}).length == 0">Não há produtos finalizados.</p>
+                    <md-table-container ng-if="(produtos|filter:{status:'FINALIZADO'}).length != 0">
+                        <table md-table>
+                            <thead md-head>
+                                <tr md-row>
+                                    <th md-column md-numeric><span>SKU</span></th>
+                                    <th md-column><span>...</span></th>
+                                </tr>
+                            </thead>
+                            <tbody md-body>
+                                <tr md-row ng-repeat="produto in produtos | filter: { status: 'FINALIZADO' }" ng-click="editarProduto(produto.sku)" id="{{produto.sku}}">
+                                    <td md-cell>{{produto.sku}}</td>
+                                    <td md-cell></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </md-table-container>
+
+                </md-content>
+            </md-tab>
+        </md-tabs>
 
         <md-progress-linear md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
 

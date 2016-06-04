@@ -67,6 +67,29 @@ app.factory('LoteFactory', function ($resource) {
     })
 });
 
+app.factory('ReceitaFactory', function ($resource) {
+    return $resource('http://loja.mybluemix.net/api/receita/:sku', {
+        sku : '@sku'},
+        { 
+        listar: {
+            url: 'http://loja.mybluemix.net/api/receita',
+            method: 'GET',
+            isArray: true
+        },
+        novo: {
+            url: 'http://loja.mybluemix.net/api/receita/create',
+            method: 'POST'
+        },
+        editar: {
+            url: 'http://loja.mybluemix.net/api/receita/update',
+            method: 'POST'
+        },
+        receita: {
+            method: 'GET'
+        }
+    })
+});
+
 app.factory('ProdutoFactory', function ($resource) {
     return $resource('http://loja.mybluemix.net/api/produto/:sku', {
         sku : '@sku'},
@@ -85,29 +108,6 @@ app.factory('ProdutoFactory', function ($resource) {
             method: 'POST'
         },
         produto: {
-            method: 'GET'
-        }
-    })
-});
-
-app.factory('EstoqueFactory', function ($resource) {
-    return $resource('http://loja.mybluemix.net/api/estoque/:sku', {
-        sku : '@sku'},
-        { 
-        listar: {
-            url: 'http://loja.mybluemix.net/api/estoque',
-            method: 'GET',
-            isArray: true
-        },
-        novo: {
-            url: 'http://loja.mybluemix.net/api/estoque/create',
-            method: 'POST'
-        },
-        editar: {
-            url: 'http://loja.mybluemix.net/api/estoque/update',
-            method: 'POST'
-        },
-        estoque: {
             method: 'GET'
         }
     })

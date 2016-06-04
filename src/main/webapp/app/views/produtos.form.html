@@ -9,27 +9,6 @@
             </md-input-container>
 
             <md-input-container class="md-block">
-                <label>Nome (obrigatório)</label>
-                <input id="input-nome" name="nome" required ng-model="produto.nome" type="text">
-                <div ng-messages="produtoForm.nome.$error" ng-if="produtoForm.nome.$dirty">
-                    <div ng-message="required">Nome é um campo obrigatório!</div>
-                </div>
-            </md-input-container>
-
-            <md-input-container class="md-block">
-                <label>Descrição</label>
-                <textarea id="input-descricao" name="descricao" ng-model="produto.descricao" md-maxlength="255" rows="5"></textarea>
-            </md-input-container>
-
-            <md-input-container class="md-block">
-                <label>Tipo (obrigatório)</label>
-                <input id="input-tipo" name="tipo" required ng-model="produto.tipo" type="text">
-                <div ng-messages="produtoForm.tipo.$error" ng-if="produtoForm.tipo.$dirty">
-                    <div ng-message="required">Tipo é um campo obrigatório!</div>
-                </div>
-            </md-input-container>
-
-            <md-input-container class="md-block">
                 <md-button id="button-salvarProduto" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!produtoForm.$valid">{{buttonAction}}</md-button>
             </md-input-container>
 
