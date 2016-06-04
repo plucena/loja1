@@ -28,7 +28,7 @@ md-sidenav  {
 }
 
 md-sidenav md-list.navegacao md-list-item.active {
-    background-color: #F3E5F5;
+    background-color: rgba(158,158,158, 0.2);
 }
 
 md-sidenav md-list.navegacao md-list-item a {

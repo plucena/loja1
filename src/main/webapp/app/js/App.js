@@ -93,6 +93,52 @@ app.config(function($routeProvider) {
         parent      : '#/lotes'
     })
 
+    .when('/produtos', {
+        templateUrl : 'views/produtos.html',
+        controller  : 'produtoController',
+        title       : 'Produtos',
+        isChild     : false
+    })
+
+    .when('/produtos/novo', {
+        templateUrl : 'views/produtos.form.html',
+        controller  : 'formProdutoController',
+        title       : 'Cadastrar Produto',
+        isChild     : true,
+        parent      : '#/produtos'
+    })
+
+    .when('/produtos/editar/:sku', {
+        templateUrl : 'views/produtos.form.html',
+        controller  : 'formProdutoController',
+        title       : 'Editar Produto',
+        isChild     : true,
+        parent      : '#/produtos'
+    })
+
+    .when('/estoque', {
+        templateUrl : 'views/estoque.html',
+        controller  : 'estoqueController',
+        title       : 'Estoque',
+        isChild     : false
+    })
+
+    .when('/estoque/novo', {
+        templateUrl : 'views/estoque.form.html',
+        controller  : 'formEstoqueController',
+        title       : 'Cadastrar Estoque',
+        isChild     : true,
+        parent      : '#/estoque'
+    })
+
+    .when('/estoque/editar/:sku', {
+        templateUrl : 'views/estoque.form.html',
+        controller  : 'formEstoqueController',
+        title       : 'Editar Etoque',
+        isChild     : true,
+        parent      : '#/estoque'
+    })
+
 });
 
 app.run(['$rootScope', function($rootScope) {
@@ -134,32 +180,55 @@ app.controller('mainController', ['$scope', '$location', '$mdSidenav', '$mdDialo
             link : 'lotes',
             title: 'Lotes',
             icon: 'content:ic_archive_24px'
-        }
+        },
+        {
+            link : 'produtos',
+            title: 'Produtos',
+            icon: 'maps:ic_local_mall_24px'
+        },
+        {
+            link : 'estoque',
+            title: 'Estoque',
+            icon: 'device:ic_storage_24px'
+        },
     ];
 
     $scope.activeItem = $scope.navegacao[0];
+
+    if(window.location.href.indexOf("fornecedores") > -1)
+    {
+        $scope.activeItem = $scope.navegacao[0];
+    } else if (window.location.href.indexOf("materias-primas") > -1)
+    {
+        $scope.activeItem = $scope.navegacao[1];
+    } else if (window.location.href.indexOf("lotes") > -1)
+    {
+        $scope.activeItem = $scope.navegacao[2];
+    } else if (window.location.href.indexOf("produtos") > -1)
+    {
+        $scope.activeItem = $scope.navegacao[3];
+    } else if (window.location.href.indexOf("estoque") > -1)
+    {
+        $scope.activeItem = $scope.navegacao[4];
+    }
   
 }]);
 
 app.config(function($mdIconProvider) {
     $mdIconProvider
-      .iconSet('action', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-action.svg', 24)
-      .iconSet('alert', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-alert.svg', 24)
-      .iconSet('av', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-av.svg', 24)
-      .iconSet('communication', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-communication.svg', 24)
+      // .iconSet('action', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-action.svg', 24)
+      // .iconSet('alert', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-alert.svg', 24)
+      // .iconSet('av', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-av.svg', 24)
+      // .iconSet('communication', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-communication.svg', 24)
       .iconSet('content', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-content.svg', 24)
       .iconSet('device', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-device.svg', 24)
-      .iconSet('editor', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-editor.svg', 24)
-      .iconSet('file', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-file.svg', 24)
-      .iconSet('hardware', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-hardware.svg', 24)
-      .iconSet('image', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-image.svg', 24)
+      // .iconSet('editor', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-editor.svg', 24)
+      // .iconSet('file', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-file.svg', 24)
+      // .iconSet('hardware', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-hardware.svg', 24)
+      // .iconSet('image', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-image.svg', 24)
       .iconSet('maps', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-maps.svg', 24)
       .iconSet('navigation', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-navigation.svg', 24)
-      .iconSet('notification', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-notification.svg', 24)
-      .iconSet('social', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-social.svg', 24)
-      .iconSet('toggle', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-toggle.svg', 24)
-    
-      // Illustrated user icons used in the docs https://material.angularjs.org/latest/#/demo/material.components.gridList
-      .iconSet('avatars', 'https://raw.githubusercontent.com/angular/material/master/docs/app/icons/avatar-icons.svg', 24)
-      .defaultIconSet('https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-action.svg', 24);
+      // .iconSet('notification', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-notification.svg', 24)
+      // .iconSet('social', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-social.svg', 24)
+      // .iconSet('toggle', 'https://raw.githubusercontent.com/google/material-design-icons/master/sprites/svg-sprite/svg-sprite-toggle.svg', 24)
 });

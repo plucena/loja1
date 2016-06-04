@@ -1,0 +1,83 @@
+app.controller('produtoController', ['$scope', '$rootScope', '$location', '$http', '$mdDialog', '$mdToast', 'ProdutoFactory', function($scope, $rootScope, $location, $http, $mdDialog, $mdToast, ProdutoFactory) {
+
+    $scope.isLoading = true;
+
+    $scope.produtos = [];
+    $scope.produtos = ProdutoFactory.listar(
+        {},
+        function success() {
+            $scope.isLoading = false;
+        },
+        function err() {
+            console.log('Erro ao buscar produtos!');
+        });
+
+    $scope.editarProduto = function (produtoSKU) {
+        $location.path('/produtos/editar/' + produtoSKU);
+    };
+
+    $scope.novoProduto = function () {
+        $location.path('/produtos/novo');
+    };
+
+}]);
+
+app.controller('formProdutoController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'ProdutoFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, ProdutoFactory) {
+
+    $scope.showToast = function(message) {
+        $mdToast.show(
+            $mdToast.simple()
+                .textContent(message)
+                .hideDelay(3000)
+                // .parent($document[0].querySelector('md-card'))
+                .position('top right left')
+                .theme("success-toast")
+        );
+    };
+
+    $scope.buttonAction = 'Cadastrar';
+    $scope.edicao = false;
+
+    if($routeParams.sku) {
+        $scope.isLoading = true;
+        $scope.produto = ProdutoFactory.produto(
+            {sku: $routeParams.sku},
+            function success() {
+
+                $scope.edicao = true;
+                $scope.buttonAction = 'Salvar';
+                $scope.isLoading = false;
+
+            },
+
+            function err() {
+                console.log('Erro ao buscar produto!');
+            });
+    }
+
+    $scope.salvarProduto = function () {
+
+        if($scope.edicao) {
+            ProdutoFactory.editar(
+                $scope.produto,
+                function success() {
+                    $scope.showToast('Produto editado com sucesso!');
+                    $location.path('/produtos');
+                },
+                function err() {
+                    console.log('Erro ao editar produto!');
+                });
+        } else {
+            ProdutoFactory.novo(
+                $scope.produto,
+                function success() {
+                    $scope.showToast('Produto cadastrado com sucesso!');
+                    $location.path('/produtos');
+                },
+                function err() {
+                    console.log('Erro ao cadastrar produto!');
+                });
+        }
+    }
+
+}]);

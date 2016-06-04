@@ -1,0 +1,20 @@
+<md-card>
+    <md-card-content>
+    
+        <form name="estoqueForm" ng-submit="salvarEstoque()" ng-show="!isLoading">
+
+            <md-input-container class="md-block" ng-if="edicao">
+                <label>SKU</label>
+                <input id="input-sku" name="sku" ng-model="estoque.sku" type="text" disabled>
+            </md-input-container>
+
+            <md-input-container class="md-block">
+                <md-button id="button-salvarEstoque" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!estoqueForm.$valid">{{buttonAction}}</md-button>
+            </md-input-container>
+
+        </form>
+
+        <md-progress-linear md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
+
+    </md-card-content>
+</md-card>

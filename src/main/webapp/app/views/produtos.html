@@ -1,0 +1,33 @@
+<md-card>
+    <md-card-content>
+
+        <md-button id="button-novoProduto" class="md-fab md-fab-bottom-right md-primary" aria-label="Add" ng-click="novoProduto()">
+            <md-icon md-svg-icon="content:ic_add_24px" aria-label="Plus"></md-icon>
+        </md-button>
+
+        <p ng-show="!isLoading" ng-if="produtos.length == 0">Não há produtos.</p>
+        <md-table-container ng-if="produtos.length != 0">
+            <table md-table>
+                <thead md-head>
+                    <tr md-row>
+                        <th md-column md-numeric><span>SKU</span></th>
+                        <th md-column><span>Nome</span></th>
+                        <th md-column><span>Descrição</span></th>
+                        <th md-column><span>Tipo</span></th>
+                    </tr>
+                </thead>
+                <tbody md-body>
+                    <tr md-row ng-repeat="produto in produtos" ng-click="editarProduto(produto.sku)" id="{{produto.sku}}">
+                        <td md-cell>{{produto.sku}}</td>
+                        <td md-cell>{{produto.nome}}</td>
+                        <td md-cell>{{produto.descricao}}</td>
+                        <td md-cell>{{produto.tipo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </md-table-container>
+
+        <md-progress-linear md-mode="indeterminate" ng-show="isLoading"></md-progress-linear>
+
+    </md-card-content>
+</md-card>
