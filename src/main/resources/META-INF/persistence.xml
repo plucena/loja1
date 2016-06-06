@@ -4,7 +4,11 @@
     version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
     <persistence-unit name="persistenceUnit"
         transaction-type="RESOURCE_LOCAL">
- 
+         <class>net.mybluemix.entity.Fornecedor</class>
+        <class>net.mybluemix.entity.ItemReceita</class>
+        <class>net.mybluemix.entity.Lote</class>
+        <class>net.mybluemix.entity.Produto</class>
+        <class>net.mybluemix.entity.Receita</class>
         <class>net.mybluemix.entity.MateriaPrima</class>
         <properties>
  

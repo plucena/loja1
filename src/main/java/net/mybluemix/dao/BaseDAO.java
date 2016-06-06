@@ -22,7 +22,11 @@ public class BaseDAO<T>{
     	this.connect();
     }
 
-    private void connect() {
+    public BaseDAO() {
+		// TODO Auto-generated constructor stub
+	}
+
+	private void connect() {
     	EntityManagerFactory factory = Persistence.createEntityManagerFactory("persistenceUnit");
         manager = factory.createEntityManager();
     }
