@@ -99,7 +99,6 @@ Content-Type: application/json
         "nome": "Bermuda Surfista",
         "tipo": "Academia",
         "descricao": "Bermuda Fitness",
-        "precounitario": 100,
         "receita": [
                 {
                      "quantidade": 100,
@@ -126,7 +125,6 @@ Content-Type: application/json
         "nome": "Bermuda Surfista",
         "tipo": "Academia",
         "descricao": "Bermuda Fitness",
-        "precounitario": 100,
         "receita": [
                 {
                  "id": 1,
