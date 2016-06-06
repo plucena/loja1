@@ -46,6 +46,24 @@ mvn tomcat7:redeploy
 API
 ==========
 
+**Produto**
+
+* List all Produto
+GET http://loja.mybluemix.net/api/produto
+
+* List a Produto
+GET http://loja.mybluemix.net/api/produto/{$sku}
+
+**Receita**
+
+* List a Receita
+GET http://loja.mybluemix.net/api/receita
+
+* List a Produto
+GET http://loja.mybluemix.net/api/receita/{$sku}
+
+
+
 **MateriaPrima**
 
 * List all MateriaPrima
