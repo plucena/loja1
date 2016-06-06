@@ -16,11 +16,47 @@ public class ItemReceita {
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	public Long id;
 	public float quantidade;
+	public String unidade;
+
 	
 	@ManyToOne
 	public MateriaPrima materiaPrima;
 	
+	public ItemReceita(){
+		
+	}
+
 	
+	
+	
+	public Long getId() {
+		return id;
+	}
+
+
+
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+
+
+
+	public String getUnidade() {
+		return unidade;
+	}
+
+
+
+
+	public void setUnidade(String unidade) {
+		this.unidade = unidade;
+	}
+
+
+
+
 	public float getQuantidade() {
 		return quantidade;
 	}

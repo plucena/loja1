@@ -31,7 +31,7 @@ public class Receita {
 	@ManyToMany
 	  @JoinTable(
 	      name="ITEM_RECEITA",
-	      joinColumns=@JoinColumn(name="ITEMRECEITA_ID", referencedColumnName="sku")
+	      joinColumns=@JoinColumn(name="RECEITA_SKU", referencedColumnName="sku")
 	      )
 	private List<ItemReceita> receita = new LinkedList<ItemReceita>();
 	
