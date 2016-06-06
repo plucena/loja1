@@ -26,7 +26,6 @@ public class Receita {
 	private String nome;
 	public String tipo;
 	private String descricao; 
-	private float precounitario;
 	
 	@ManyToMany
 	  @JoinTable(
@@ -81,13 +80,7 @@ public class Receita {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	public float getPrecounitario() {
-		return precounitario;
-	}
 	
-	public void setPrecounitario(float precounitario) {
-		this.precounitario = precounitario;
-	}
 
 	public Receita(Long sku, String nome, String tipo, String descricao,
 			float precounitario, List<ItemReceita> receita) {
@@ -96,7 +89,6 @@ public class Receita {
 		this.nome = nome;
 		this.tipo = tipo;
 		this.descricao = descricao;
-		this.precounitario = precounitario;
 		this.receita = receita;
 	}
 	
@@ -105,7 +97,6 @@ public class Receita {
 		this.nome = p.nome;
 		this.tipo = p.tipo;
 		this.descricao = p.descricao;
-		this.precounitario = p.precounitario;
 		this.receita = p.receita;
 	}
 	
