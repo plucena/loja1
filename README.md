@@ -54,6 +54,8 @@ GET http://loja.mybluemix.net/api/produto
 * List a Produto
 GET http://loja.mybluemix.net/api/produto/{$sku}
 
+==========
+
 **Receita**
 
 * List a Receita
@@ -64,6 +66,8 @@ GET http://loja.mybluemix.net/api/receita/{$sku}
 
 * Create a Receita
 POST  http://loja.mybluemix.net/api/receita/create
+
+Content-Type: application/json
 
        {
         "nome": "Bermuda Surfista",
@@ -89,6 +93,8 @@ POST  http://loja.mybluemix.net/api/receita/create
 * Update a Receita
 POST  http://loja.mybluemix.net/api/receita/update
 
+Content-Type: application/json
+
         {
         "sku": 201,
         "nome": "Bermuda Surfista",
@@ -111,8 +117,7 @@ POST  http://loja.mybluemix.net/api/receita/update
                 ]
         }
 
-
-
+==========
 
 **MateriaPrima**
 
@@ -147,6 +152,7 @@ Content-Type: application/json
         "descricao": "Ana Maria likes",
         }
 
+==========
 
 
 **Lote**
@@ -222,6 +228,10 @@ Content-Type: application/json
        "quantidade":999.0,
        "unidade":"Kg"
     } 
+
+
+==========
+
 
 **Fornecedor**
 
