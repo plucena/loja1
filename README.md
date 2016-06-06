@@ -54,6 +54,34 @@ GET http://loja.mybluemix.net/api/produto
 * List a Produto
 GET http://loja.mybluemix.net/api/produto/{$sku}
 
+* Create a Produto
+POST http://loja.mybluemix.net/api/produto/create
+
+Content-Type: application/json
+
+       {
+       "lotes": [3047424, XXXXX, YYYYY]
+       "receita" : 200,
+       "status": "EM_ESTOQUE",
+       "preco": 150
+       }
+
+* Update a Produto
+POST http://loja.mybluemix.net/api/produto/update
+
+Content-Type: application/json
+
+       {
+       "sku": 203,
+       "lotes": [3047424, XXXXX, YYYYY]
+       "receita" : 200,
+       "status": "EM_ESTOQUE",
+       "preco": 150
+       }
+
+
+==========
+
 **Receita**
 
 * List a Receita
@@ -62,7 +90,60 @@ GET http://loja.mybluemix.net/api/receita
 * List a Produto
 GET http://loja.mybluemix.net/api/receita/{$sku}
 
+* Create a Receita
+POST  http://loja.mybluemix.net/api/receita/create
 
+Content-Type: application/json
+
+       {
+        "nome": "Bermuda Surfista",
+        "tipo": "Academia",
+        "descricao": "Bermuda Fitness",
+        "precounitario": 100,
+        "receita": [
+                {
+                     "quantidade": 100,
+                     "unidade": "kg",
+                     "materiaPrima": 229376
+                },
+                {
+                     "quantidade": 50,
+                     "unidade": "kg",
+                     "materiaPrima": 327680
+                }
+               ]
+        }
+ 
+
+
+* Update a Receita
+POST  http://loja.mybluemix.net/api/receita/update
+
+Content-Type: application/json
+
+        {
+        "sku": 201,
+        "nome": "Bermuda Surfista",
+        "tipo": "Academia",
+        "descricao": "Bermuda Fitness",
+        "precounitario": 100,
+        "receita": [
+                {
+                 "id": 1,
+                 "quantidade": 100,
+                 "unidade": "kg",
+                "materiaPrima": 229376
+                },
+                {
+                "id": 2,
+                "quantidade": 50,
+                "unidade": "kg",
+                "materiaPrima": 327680
+                }
+                ]
+        }
+
+==========
 
 **MateriaPrima**
 
@@ -97,6 +178,7 @@ Content-Type: application/json
         "descricao": "Ana Maria likes",
         }
 
+==========
 
 
 **Lote**
@@ -172,6 +254,10 @@ Content-Type: application/json
        "quantidade":999.0,
        "unidade":"Kg"
     } 
+
+
+==========
+
 
 **Fornecedor**
 
