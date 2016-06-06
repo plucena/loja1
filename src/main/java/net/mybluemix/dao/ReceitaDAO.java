@@ -7,6 +7,9 @@ import javax.persistence.EntityTransaction;
 import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
 import net.mybluemix.entity.Receita;
+import net.mybluemix.transferobject.ReceitaTO;
+import net.mybluemix.transferobject.ItemReceitaTO;
+
 
 public class ReceitaDAO extends BaseDAO<Receita> {
 	
@@ -19,6 +22,18 @@ public class ReceitaDAO extends BaseDAO<Receita> {
 		super(Receita.class);
 	}
 
+	public void create(ReceitaTO rt){
+		System.out.println(rt.nome);
+		System.out.println(rt.descricao);
+		System.out.println(rt.tipo);
+		if(rt.receita != null)
+			for(ItemReceitaTO item: rt.receita) {
+				System.out.println(item.materiaPrima);
+				System.out.println(item.quantidade);
+				System.out.println(item.unidade);
+			}				
+	}
+	
 	public Receita find(Long  sku) {
 		javax.persistence.TypedQuery<Receita> query = manager.createQuery(
 		        "SELECT c FROM Receita c WHERE c.sku = :sku", Receita.class);

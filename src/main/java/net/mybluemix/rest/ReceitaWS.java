@@ -20,6 +20,7 @@ import net.mybluemix.entity.Fornecedor;
 import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
 import net.mybluemix.entity.Receita;
+import net.mybluemix.transferobject.ReceitaTO;
 
 
 @Path("receita")
@@ -47,7 +48,7 @@ public class ReceitaWS {
 	@Consumes("application/json")
     public void create(String json) throws Exception{
     	Gson gson = new Gson();
-		Receita mp =  gson.fromJson(json, Receita.class);
+		ReceitaTO mp =  gson.fromJson(json, ReceitaTO.class);
     	ReceitaDAO mpd = new ReceitaDAO();
     	mpd.create(mp);
     }	
