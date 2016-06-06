@@ -59,11 +59,11 @@ POST http://loja.mybluemix.net/api/produto/create
 
 Content-Type: application/json
 
-       {
-       "lotes": [3047424, XXXXX, YYYYY]
-       "receita" : 200,
-       "status": "EM_ESTOQUE",
-       "preco": 150
+      {
+        "lotes": [3112960, 3276800],
+        "receita" : 200,
+         "status": "EM_ESTOQUE",
+        "preco": 150
        }
 
 * Update a Produto
@@ -99,7 +99,6 @@ Content-Type: application/json
         "nome": "Bermuda Surfista",
         "tipo": "Academia",
         "descricao": "Bermuda Fitness",
-        "precounitario": 100,
         "receita": [
                 {
                      "quantidade": 100,
@@ -126,7 +125,6 @@ Content-Type: application/json
         "nome": "Bermuda Surfista",
         "tipo": "Academia",
         "descricao": "Bermuda Fitness",
-        "precounitario": 100,
         "receita": [
                 {
                  "id": 1,
