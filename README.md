@@ -72,16 +72,16 @@ POST  http://loja.mybluemix.net/api/receita/create
         "precounitario": 100,
         "receita": [
                 {
-                 "quantidade": 100,
-                 "unidade": "kg",
-                "materiaPrima": 229376,
+                     "quantidade": 100,
+                     "unidade": "kg",
+                     "materiaPrima": 229376
                 },
                 {
-                "quantidade": 50,
-                "unidade": "kg",
-                "materiaPrima": 327680,
+                     "quantidade": 50,
+                     "unidade": "kg",
+                     "materiaPrima": 327680
                 }
-                ]
+               ]
         }
  
 
@@ -100,13 +100,13 @@ POST  http://loja.mybluemix.net/api/receita/update
                  "id": 1,
                  "quantidade": 100,
                  "unidade": "kg",
-                "materiaPrima": 229376,
+                "materiaPrima": 229376
                 },
                 {
                 "id": 2,
                 "quantidade": 50,
                 "unidade": "kg",
-                "materiaPrima": 327680,
+                "materiaPrima": 327680
                 }
                 ]
         }
