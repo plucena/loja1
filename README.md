@@ -72,19 +72,20 @@ POST  http://loja.mybluemix.net/api/receita/create
         "descricao": "Bermuda Fitness",
         "precounitario": 100,
         "receita": [
-        {
-            "id": 1,
-            "quantidade": 100,
-            "unidade": "kg",
-            "materiaPrima": 229376,
-        },
-        {
-            "id": 2,
-            "quantidade": 50,
-            "unidade": "kg",
-            "materiaPrima": 327680,
-        }    
-    }
+                {
+                 "id": 1,
+                 "quantidade": 100,
+                 "unidade": "kg",
+                "materiaPrima": 229376,
+                },
+                {
+                "id": 2,
+                "quantidade": 50,
+                "unidade": "kg",
+                "materiaPrima": 327680,
+                }
+                ]
+        }
 
 
 
