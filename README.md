@@ -63,6 +63,8 @@ GET http://loja.mybluemix.net/api/receita
 GET http://loja.mybluemix.net/api/receita/{$sku}
 
 * Create a Receita
+POST  http://loja.mybluemix.net/api/receita/create
+
 
        {
         "nome": "Bermuda Surfista",
