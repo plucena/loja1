@@ -1,5 +1,6 @@
 package net.mybluemix.dao;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.EntityTransaction;
@@ -8,6 +9,7 @@ import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
 import net.mybluemix.entity.Produto;
 import net.mybluemix.entity.Receita;
+import net.mybluemix.transferobject.ProdutoTO;
 
 public class ProdutoDAO extends BaseDAO<Produto> {
 	
@@ -37,4 +39,15 @@ public class ProdutoDAO extends BaseDAO<Produto> {
     	m.update(f);
     	tx.commit();
     }
+	
+	public void create(ProdutoTO pt) throws Exception{
+		List<Lote> lotes = new LinkedList<Lote>();
+		LoteDAO ldao = new LoteDAO();
+		if(pt.lotes!=null)
+			for(Long l: pt.lotes)
+				lotes.add(ldao.find(l));
+		Receita r = new ReceitaDAO().find(pt.receita); 
+		Produto p = new Produto(lotes, r, pt.status, pt.preco);
+		super.create(p);
+	}
 }
