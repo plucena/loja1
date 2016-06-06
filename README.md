@@ -54,6 +54,32 @@ GET http://loja.mybluemix.net/api/produto
 * List a Produto
 GET http://loja.mybluemix.net/api/produto/{$sku}
 
+* Create a Produto
+POST http://loja.mybluemix.net/api/produto/create
+
+Content-Type: application/json
+
+       {
+       "lotes": [3047424, XXXXX, YYYYY]
+       "receita" : 200,
+       "status": "EM_ESTOQUE",
+       "preco": 150
+       }
+
+* Update a Produto
+POST http://loja.mybluemix.net/api/produto/update
+
+Content-Type: application/json
+
+       {
+       "sku": 203,
+       "lotes": [3047424, XXXXX, YYYYY]
+       "receita" : 200,
+       "status": "EM_ESTOQUE",
+       "preco": 150
+       }
+
+
 ==========
 
 **Receita**
