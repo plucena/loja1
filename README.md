@@ -59,11 +59,11 @@ POST http://loja.mybluemix.net/api/produto/create
 
 Content-Type: application/json
 
-       {
-       "lotes": [3047424, XXXXX, YYYYY]
-       "receita" : 200,
-       "status": "EM_ESTOQUE",
-       "preco": 150
+      {
+        "lotes": [3112960, 3276800],
+        "receita" : 200,
+         "status": "EM_ESTOQUE",
+        "preco": 150
        }
 
 * Update a Produto
