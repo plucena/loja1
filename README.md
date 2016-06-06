@@ -63,7 +63,30 @@ GET http://loja.mybluemix.net/api/receita
 GET http://loja.mybluemix.net/api/receita/{$sku}
 
 * Create a Receita
-POST  http://loja.mybluemix.net/api/receita/create
+
+       {
+        "nome": "Bermuda Surfista",
+        "tipo": "Academia",
+        "descricao": "Bermuda Fitness",
+        "precounitario": 100,
+        "receita": [
+                {
+                 "quantidade": 100,
+                 "unidade": "kg",
+                "materiaPrima": 229376,
+                },
+                {
+                "quantidade": 50,
+                "unidade": "kg",
+                "materiaPrima": 327680,
+                }
+                ]
+        }
+ 
+
+
+* Update a Receita
+POST  http://loja.mybluemix.net/api/receita/update
 
         {
         "sku": 201,
