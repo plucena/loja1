@@ -22,7 +22,7 @@ app.controller('receitaController', ['$scope', '$rootScope', '$location', '$http
 
 }]);
 
-app.controller('formReceitaController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'ReceitaFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, ReceitaFactory) {
+app.controller('formReceitaController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'ReceitaFactory', 'MateriaPrimaFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, ReceitaFactory, MateriaPrimaFactory) {
 
     $scope.showToast = function(message) {
         $mdToast.show(
@@ -36,7 +36,31 @@ app.controller('formReceitaController', ['$scope', '$routeParams', '$location', 
     };
 
     $scope.buttonAction = 'Cadastrar';
+    $scope.receita = {};
+    $scope.receita.receita = [];
+    $scope.receita.receita[0] = {};
+
+    $scope.novoItemReceita = function () {
+        $scope.receita.receita.push({});
+    };
+
+    $scope.removerItemReceita = function (index) {
+        $scope.receita.receita.splice(index, 1);
+    };
+
     $scope.edicao = false;
+
+    $scope.isLoadingMateriasPrimas = true;
+    $scope.materiasPrimas = [];
+    $scope.materiasPrimas = MateriaPrimaFactory.listar(
+        {},
+        function success() {
+            console.log('Sucesso ao buscar matérias-primas!');
+            $scope.isLoadingMateriasPrimas = false;
+        },
+        function err() {
+            console.log('Erro ao buscar matérias-primas!');
+        });
 
     if($routeParams.sku) {
         $scope.isLoading = true;
@@ -79,5 +103,20 @@ app.controller('formReceitaController', ['$scope', '$routeParams', '$location', 
                 });
         }
     }
+
+    $scope.unidades = [
+        {
+            sigla:"Kg",
+            nome:"Quilo"
+        },
+        {
+            sigla:"m",
+            nome:"Metro"
+        },
+        {
+            sigla:"Un",
+            nome:"Unidade"
+        }
+    ];
 
 }]);

@@ -14,6 +14,7 @@
                         <th md-column><span>Nome</span></th>
                         <th md-column><span>Descrição</span></th>
                         <th md-column><span>Tipo</span></th>
+                        <th md-column><span>Matérias-primas</span></th>
                     </tr>
                 </thead>
                 <tbody md-body>
@@ -22,6 +23,14 @@
                         <td md-cell>{{receita.nome}}</td>
                         <td md-cell>{{receita.descricao}}</td>
                         <td md-cell>{{receita.tipo}}</td>
+                        <td md-cell>
+                            <span ng-repeat="itemReceita in receita.receita">
+                                <br>
+                                SKU: {{itemReceita.materiaPrima.sku}}<br>
+                                {{itemReceita.materiaPrima.nome}}<br>
+                                Quantidade: {{itemReceita.quantidade}} <span ng-if="itemReceita.unidade">{{itemReceita.unidade}}(s)</span><br><br ng-if="$last">
+                            </span>
+                        </td>
                     </tr>
                 </tbody>
             </table>

@@ -184,7 +184,6 @@ app.controller('formLoteController', ['$scope', '$rootScope', '$routeParams', '$
                 },
                 function err() {
                     console.log('Erro ao cadastrar lote!');
-                    console.log($scope.lote);
                 });
         }
     }

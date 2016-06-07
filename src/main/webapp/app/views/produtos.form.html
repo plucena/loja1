@@ -9,6 +9,58 @@
             </md-input-container>
 
             <md-input-container class="md-block">
+                <label>Preço (obrigatório)</label>
+                <input id="input-preco" name="preco" required min="0" ng-model="produto.preco" type="number" ng-disabled="edicao">
+                <div ng-messages="produtoForm.preco.$error" ng-if="produtoForm.preco.$dirty">
+                    <div ng-message="min">O preço não pode ser negativo!</div>
+                    <div ng-message="required">O preço é um campo obrigatório!</div>
+                </div>
+            </md-input-container>
+
+            <md-input-container class="md-block" flex>
+                <label>Receita (obrigatório)</label>
+                <md-progress-circular md-mode="indeterminate" ng-show="isLoadingReceitas"></md-progress-circular>
+                <md-select id="select-receita" name="produto.receita.sku" required ng-model="produto.receita.sku" ng-show="!isLoadingReceitas" ng-disabled="edicao">
+                    <md-option ng-repeat="receita in receitas" value="{{receita.sku}}" id="receita-{{receita.sku}}">
+                        {{receita.nome}} (SKU: {{receita.sku}})
+                    </md-option>
+                </md-select>
+                <div ng-messages="produtoForm.receita.sku.$error" ng-if="produtoForm.receita.sku.$dirty">
+                    <div ng-message="required">Receita é um campo obrigatório!</div>
+                </div>
+            </md-input-container>
+
+
+            <!-- <div layout-gt-sm="row" class="md-inline-form" ng-repeat="lote in produto.lotes">
+
+                <md-input-container class="md-block" flex>
+                    <label>Lote (obrigatório)</label>
+                    <md-progress-circular md-mode="indeterminate" ng-show="isLoadingLotes"></md-progress-circular>
+                    <md-select id="select-produto.lotes[{{$index}}].sku" name="produto.lotes[{{$index}}].sku" required ng-model="produto.lotes[$index].sku" ng-show="!isLoadingLotes" disabled>
+                        <md-option ng-repeat="lote2 in lotes" value="{{lote2.sku}}" id="lote-{{lote2.sku}}">
+                            SKU: {{lote2.sku}} (Quantidade: {{lote2.quantidade}})
+                        </md-option>
+                    </md-select>
+                    <div ng-messages="produtoForm.produto.lotes[{{$index}}].sku.$error" ng-if="produtoForm.produto.lotes[{{$index}}].sku.$dirty">
+                        <div ng-message="required">Lote é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+            </div> -->
+
+            <md-input-container class="md-block" ng-if="edicao">
+                <md-radio-group ng-model="produto.status">
+                    <md-radio-button value="EM_PRODUCAO" class="md-primary" ng-disabled="emProducaoDisabled">
+                        Em Produção
+                    </md-radio-button>
+
+                    <md-radio-button value="EM_ESTOQUE" class="md-primary" ng-disabled="emEstoqueDisabled">
+                        Em Estoque
+                    </md-radio-button>
+                </md-radio-group>
+            </md-input-container>
+
+            <md-input-container class="md-block">
                 <md-button id="button-salvarProduto" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!produtoForm.$valid">{{buttonAction}}</md-button>
             </md-input-container>
 

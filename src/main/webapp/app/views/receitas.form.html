@@ -29,6 +29,52 @@
                 </div>
             </md-input-container>
 
+            <div layout-gt-sm="row" class="md-inline-form" ng-repeat="itemReceita in receita.receita">
+
+                <md-input-container class="md-block" flex>
+                    <label>Matéria-prima (obrigatório)</label>
+                    <md-progress-circular md-mode="indeterminate" ng-show="isLoadingMateriasPrimas"></md-progress-circular>
+                    <md-select id="select-receita.receita[{{$index}}].materiaPrima" name="receita.receita[{{$index}}].materiaPrima.sku" required ng-model="receita.receita[$index].materiaPrima.sku" ng-show="!isLoadingMateriasPrimas">
+                        <md-option ng-repeat="materiaPrima in materiasPrimas" value="{{materiaPrima.sku}}" id="receita.receita[{{$index}}].materiaPrima-{{materiaPrima.sku}}">
+                            {{materiaPrima.nome}} (SKU: {{materiaPrima.sku}})
+                        </md-option>
+                    </md-select>
+                    <div ng-messages="receitaForm.receita.receita[$index].materiaPrima.sku.$error" ng-if="receitaForm.receita.receita[$index].materiaPrima.sku.$dirty">
+                        <div ng-message="required">Matéria-prima é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>Unidade (obrigatório)</label>
+                    <md-select id="select-receita.receita[{{$index}}].unidade" name="receita.receita[{{$index}}].unidade" required ng-model="receita.receita[$index].unidade">
+                        <md-option ng-repeat="unidade in unidades" value="{{unidade.sigla}}" id="receita.receita[{{$index}}].unidade-{{unidade.sigla}}">
+                            {{unidade.nome}} ({{unidade.sigla}})
+                        </md-option>
+                    </md-select>
+                    <div ng-messages="receitaForm.receita.receita[$index].unidade.$error" ng-if="receitaForm.receita.receita[$index].unidade.$dirty">
+                        <div ng-message="required">Unidade é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block" flex>
+                    <label>Quantidade (obrigatório)</label>
+                    <input id="input-receita.receita[$index].quantidade" name="receita.receita[$index].quantidade" required min="0" ng-model="receita.receita[$index].quantidade" type="number">
+                    <div ng-messages="receitaForm.receita.receita[$index].quantidade.$error" ng-if="receitaForm.receita.receita[$index].quantidade.$dirty">
+                        <div ng-message="min">A quantidade não pode ser negativa!</div>
+                        <div ng-message="required">A quantidade é um campo obrigatório!</div>
+                    </div>
+                </md-input-container>
+
+                <md-input-container class="md-block">
+                    <md-button id="button-removerItemReceita" class="md-raised md-secondary" aria-label="Remover Matéria-prima" ng-disabled="$first" ng-click="removerItemReceita($index)">Remover</md-button>
+                </md-input-container>
+
+            </div>
+
+            <md-input-container>
+                <md-button id="button-novoItemReceita" class="md-raised md-secondary" aria-label="Nova Matéria-prima" ng-click="novoItemReceita()">Nova Matéria-prima</md-button>
+            </md-input-container>
+
             <md-input-container class="md-block">
                 <md-button id="button-salvarReceita" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!receitaForm.$valid">{{buttonAction}}</md-button>
             </md-input-container>

@@ -30,7 +30,7 @@ app.controller('produtoController', ['$scope', '$rootScope', '$location', '$http
 
 }]);
 
-app.controller('formProdutoController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'ProdutoFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, ProdutoFactory) {
+app.controller('formProdutoController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'ReceitaFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, ReceitaFactory) {
 
     $scope.showToast = function(message) {
         $mdToast.show(
@@ -44,7 +44,33 @@ app.controller('formProdutoController', ['$scope', '$routeParams', '$location', 
     };
 
     $scope.buttonAction = 'Cadastrar';
+
+    $scope.produto = {};
+    $scope.produto.lotes = [];
+    $scope.produto.lotes[0] = {};
+    $scope.produto.status = "EM_PRODUCAO";
+
+    $scope.novoLote = function () {
+        $scope.produto.lotes.push({});
+    };
+
+    $scope.removerLote = function (index) {
+        $scope.produto.lotes.splice(index, 1);
+    };
+
     $scope.edicao = false;
+
+    $scope.isLoadingReceitas = true;
+    $scope.receitas = [];
+    $scope.receitas = ReceitaFactory.listar(
+        {},
+        function success() {
+            console.log('Sucesso ao buscar receitas!');
+            $scope.isLoadingReceitas = false;
+        },
+        function err() {
+            console.log('Erro ao buscar receitas!');
+        });
 
     if($routeParams.sku) {
         $scope.isLoading = true;
@@ -54,6 +80,20 @@ app.controller('formProdutoController', ['$scope', '$routeParams', '$location', 
 
                 $scope.edicao = true;
                 $scope.buttonAction = 'Salvar';
+
+                switch($scope.produto.status)
+                {
+                    case "EM_PRODUCAO":
+                        $scope.emEstoqueDisabled = false;
+                        $scope.emProducaoDisabled = false;
+                        break;
+
+                    case "EM_ESTOQUE":
+                        $scope.emEstoqueDisabled = true;
+                        $scope.emProducaoDisabled = true;
+                        break;
+                }
+
                 $scope.isLoading = false;
 
             },
