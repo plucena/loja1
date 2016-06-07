@@ -46,8 +46,6 @@ app.controller('formProdutoController', ['$scope', '$routeParams', '$location', 
     $scope.buttonAction = 'Cadastrar';
 
     $scope.produto = {};
-    $scope.produto.lotes = [];
-    $scope.produto.lotes[0] = {};
     $scope.produto.status = "EM_PRODUCAO";
 
     $scope.novoLote = function () {
