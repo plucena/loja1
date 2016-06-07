@@ -1,9 +1,11 @@
 package net.mybluemix.dao;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.persistence.EntityTransaction;
 
+import net.mybluemix.entity.ItemReceita;
 import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
 import net.mybluemix.entity.Receita;
@@ -22,16 +24,31 @@ public class ReceitaDAO extends BaseDAO<Receita> {
 		super(Receita.class);
 	}
 
-	public void create(ReceitaTO rt){
-		System.out.println(rt.nome);
-		System.out.println(rt.descricao);
-		System.out.println(rt.tipo);
+	public void create(ReceitaTO rt) throws Exception{
+		try
+		{
+		List<ItemReceita> receita = new LinkedList<ItemReceita>();
+		MateriaPrimaDAO mp = new MateriaPrimaDAO();
+		ItemReceitaDAO ird = new ItemReceitaDAO();
+		
+		
 		if(rt.receita != null)
 			for(ItemReceitaTO item: rt.receita) {
-				System.out.println(item.materiaPrima);
-				System.out.println(item.quantidade);
-				System.out.println(item.unidade);
-			}				
+				MateriaPrima m = mp.find(item.materiaPrima);
+				ItemReceita itemr = new ItemReceita(item.quantidade, item.unidade, m);
+				//ird.create(itemr);
+				receita.add(itemr);
+				// salva Item no BD
+			}
+		
+		Receita r = new Receita(rt.nome, rt.tipo, rt.descricao, receita);
+		new ReceitaDAO().create(r);
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+			throw(e);
+		}
+		
 	}
 	
 	public Receita find(Long  sku) {

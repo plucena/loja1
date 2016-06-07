@@ -3,6 +3,7 @@ package net.mybluemix.entity;
 import java.util.LinkedList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -27,9 +28,9 @@ public class Receita {
 	public String tipo;
 	private String descricao; 
 	
-	@ManyToMany
+	@ManyToMany(cascade=CascadeType.ALL)
 	  @JoinTable(
-	      name="ITEM_RECEITA",
+	      name="ITEM_RECEITAS",
 	      joinColumns=@JoinColumn(name="RECEITA_SKU", referencedColumnName="sku")
 	      )
 	private List<ItemReceita> receita = new LinkedList<ItemReceita>();
@@ -82,10 +83,9 @@ public class Receita {
 	}
 	
 
-	public Receita(Long sku, String nome, String tipo, String descricao,
-			float precounitario, List<ItemReceita> receita) {
+	public 	Receita(String nome, String tipo, String descricao,
+			 List<ItemReceita> receita) {
 		super();
-		this.sku = sku;
 		this.nome = nome;
 		this.tipo = tipo;
 		this.descricao = descricao;
