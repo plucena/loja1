@@ -6,7 +6,9 @@ This project is associated to Continuos Integration Server: https://hub.jazz.net
 
 Commits to API are automatically published to - http://loja.mybluemix.net/api/
 
-ScrumBoard is https://hub.jazz.net/ccm38/web/projects/plucena%20%7C%20ECMApp#action=com.ibm.team.dashboard.viewDashboard
+Commits to UI are automatically published to - http://loja.mybluemix.net/app/
+
+ScrumBoard is zenhub.io
 
 Communication channel is: https://estoqueapp.slack.com
 
