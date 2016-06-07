@@ -30,7 +30,7 @@ app.controller('produtoController', ['$scope', '$rootScope', '$location', '$http
 
 }]);
 
-app.controller('formProdutoController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'ReceitaFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, ReceitaFactory) {
+app.controller('formProdutoController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'ProdutoFactory', 'ReceitaFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, ProdutoFactory, ReceitaFactory) {
 
     $scope.showToast = function(message) {
         $mdToast.show(
