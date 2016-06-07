@@ -47,6 +47,10 @@
 
             </div>
 
+            <md-input-container ng-if="!edicao && (produto.receita &&!produto.lotes)">
+                <p>Não há lotes disponíveis para produzir essa receita.</p>
+            </md-input-container>
+
             <md-input-container class="md-block" ng-if="edicao">
                 <md-radio-group ng-model="produto.status">
                     <md-radio-button value="EM_PRODUCAO" class="md-primary" ng-disabled="emProducaoDisabled">

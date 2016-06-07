@@ -79,6 +79,8 @@ app.controller('formProdutoController', ['$scope', '$routeParams', '$location', 
                 $scope.edicao = true;
                 $scope.buttonAction = 'Salvar';
 
+                // $scoppe.produto.lotes = $scope.receitas.receitasCompativeis;
+
                 switch($scope.produto.status)
                 {
                     case "EM_PRODUCAO":
