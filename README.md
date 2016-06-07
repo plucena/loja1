@@ -95,23 +95,23 @@ POST  http://loja.mybluemix.net/api/receita/create
 
 Content-Type: application/json
 
-       {
-        "nome": "Bermuda Surfista",
-        "tipo": "Academia",
-        "descricao": "Bermuda Fitness",
-        "receita": [
-                {
-                     "quantidade": 100,
-                     "unidade": "kg",
-                     "materiaPrima": 229376
-                },
-                {
-                     "quantidade": 50,
-                     "unidade": "kg",
-                     "materiaPrima": 327680
-                }
-               ]
-        }
+      {
+    "nome": "Top da Hora",
+    "tipo": "Academia",
+    "descricao": "Coolest thing",
+    "receita": [
+            {
+                 "quantidade": 100,
+                 "unidade": "kg",
+                 "materiaPrima": 229376
+            },
+            {
+                 "quantidade": 50,
+                 "unidade": "kg",
+                 "materiaPrima": 327680
+            }
+           ]
+    }
  
 
 
