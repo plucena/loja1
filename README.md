@@ -97,23 +97,35 @@ POST  http://loja.mybluemix.net/api/receita/create
 
 Content-Type: application/json
 
+     {
+      "nome": "Calça Musculação",
+      "tipo": "Academia",
+      "descricao": "Coolest thing ever",
+      "receita": [
       {
-    "nome": "Top da Hora",
-    "tipo": "Academia",
-    "descricao": "Coolest thing",
-    "receita": [
-            {
-                 "quantidade": 100,
-                 "unidade": "kg",
-                 "materiaPrima": 229376
-            },
-            {
-                 "quantidade": 50,
-                 "unidade": "kg",
-                 "materiaPrima": 327680
-            }
-           ]
-    }
+      "id": 131072,
+      "quantidade": 100,
+      "unidade": "Kg",
+      "materiaPrima": {
+      "sku": 229376,
+      "nome": "Malha branca elastano",
+      "tipo": "Elastano",
+      "descricao": "Malha importada com elastano na cor branca"   
+      }
+      },
+      {
+      "id": 131073,
+      "quantidade": 50,
+      "unidade": "Kg",
+      "materiaPrima": {
+      "sku": 327680,
+      "nome": "Tecido branco de seda",
+      "tipo": "Seda",
+      "descricao": "Tecido nacional de seda na cor branca"
+      }
+      }
+      ]
+      }
  
 
 
