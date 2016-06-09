@@ -33,8 +33,9 @@ public class ReceitaDAO extends BaseDAO<Receita> {
 		
 		
 		if(rt.receita != null)
-			for(ItemReceitaTO item: rt.receita) {
-				MateriaPrima m = mp.find(item.materiaPrima);
+			for(ItemReceita item: rt.receita) {
+				//MateriaPrima m = mp.find(item.materiaPrima.getSku());
+				MateriaPrima m = item.materiaPrima;
 				ItemReceita itemr = new ItemReceita(item.quantidade, item.unidade, m);
 				//ird.create(itemr);
 				receita.add(itemr);
