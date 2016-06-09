@@ -44,9 +44,10 @@ public class ProdutoDAO extends BaseDAO<Produto> {
 		List<Lote> lotes = new LinkedList<Lote>();
 		LoteDAO ldao = new LoteDAO();
 		if(pt.lotes!=null)
-			for(Long l: pt.lotes)
-				lotes.add(ldao.find(l));
-		Receita r = new ReceitaDAO().find(pt.receita); 
+			for(Lote l: pt.lotes)
+				//lotes.add(ldao.find(l));
+				lotes.add(l);
+		Receita r = pt.receita; 
 		Produto p = new Produto(lotes, r, pt.status, pt.preco);
 		super.create(p);
 	}
