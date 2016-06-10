@@ -35,7 +35,7 @@
                     <label>Matéria-prima (obrigatório)</label>
                     <md-progress-circular md-mode="indeterminate" ng-show="isLoadingMateriasPrimas"></md-progress-circular>
                     <md-select id="select-receita.receita[{{$index}}].materiaPrima" name="receita.receita[{{$index}}].materiaPrima.sku" required ng-model="receita.receita[$index].materiaPrima.sku" ng-show="!isLoadingMateriasPrimas">
-                        <md-option ng-repeat="materiaPrima in materiasPrimas" value="{{materiaPrima.sku}}" id="receita.receita[{{$index}}].materiaPrima-{{materiaPrima.sku}}">
+                        <md-option ng-repeat="materiaPrima in materiasPrimas" value="{{materiaPrima.sku}}" id="receita.receita[{{$parent.$index}}].materiaPrima-{{materiaPrima.sku}}">
                             {{materiaPrima.nome}} (SKU: {{materiaPrima.sku}})
                         </md-option>
                     </md-select>
