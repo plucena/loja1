@@ -37,6 +37,19 @@ public class Produto {
 	String status;
 	float preco;
 	
+	public long quantidadeProduzida;
+	
+	
+	public long getQuantidadeProduzida() {
+		return quantidadeProduzida;
+	}
+
+
+	public void setQuantidadeProduzida(long quantidadeProduzida) {
+		this.quantidadeProduzida = quantidadeProduzida;
+	}
+
+
 	public Produto() {
 		
 	}

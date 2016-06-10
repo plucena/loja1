@@ -37,6 +37,7 @@ public class ProdutoDAO extends BaseDAO<Produto> {
     	tx.begin();
     	Produto m = manager.find(Produto.class, key);
     	m.update(f);
+    	manager.merge(m);
     	tx.commit();
     }
 	
