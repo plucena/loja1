@@ -58,7 +58,7 @@
 
                 <md-input-container class="md-block" flex>
                     <label>Quantidade (obrigatório)</label>
-                    <input id="input-receita.receita[$index].quantidade" name="receita.receita[$index].quantidade" required min="0" ng-model="receita.receita[$index].quantidade" type="number">
+                    <input id="input-receita.receita[{{$index}}].quantidade" name="receita.receita[$index].quantidade" required min="0" ng-model="receita.receita[$index].quantidade" type="number">
                     <div ng-messages="receitaForm.receita.receita[$index].quantidade.$error" ng-if="receitaForm.receita.receita[$index].quantidade.$dirty">
                         <div ng-message="min">A quantidade não pode ser negativa!</div>
                         <div ng-message="required">A quantidade é um campo obrigatório!</div>
