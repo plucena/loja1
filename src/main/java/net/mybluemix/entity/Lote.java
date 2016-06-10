@@ -29,7 +29,7 @@ public class Lote {
 	
 	
 	@ManyToOne
-	private MateriaPrima materiaPrima;
+	public MateriaPrima materiaPrima;
 	
 
 	@ManyToOne 
