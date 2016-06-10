@@ -36,7 +36,7 @@ public class ReceitaPage {
 
 	public boolean encontrarReceita(String nome, boolean click)
 			throws InterruptedException {
-		element = findWithDelay(By.id(nome), driver);
+		element = findWithDelay(By.tagName("table"), driver);
 		if (element.getText().contains(nome)) {
 			if (click)
 				element.click();
@@ -87,9 +87,27 @@ public class ReceitaPage {
 
 	}
 
+	public boolean duasMateriasPrimas() {
+		try {
+			element = findWithDelay(
+					By.id("select-receita.receita[1].materiaPrima"), driver);
+			if (element == null) {
+				return false;
+			} else {
+				return true;
+			}
+
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+			return false;
+		}
+
+	}
+
 	private WebElement findWithDelay(By by, WebDriver driver)
 			throws InterruptedException {
 		int interval = 50;
+		element = null;
 		try {
 			element = driver.findElement(by);
 			return element;
