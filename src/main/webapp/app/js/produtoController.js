@@ -100,11 +100,25 @@ app.controller('formProdutoController', ['$scope', '$routeParams', '$location', 
             $scope.produto.receita,
             function success() {
                 $scope.isLoading = false;
+
+                var lookup = {};
+                for (var i = 0; i < $scope.receitas.length; i++) {
+                    lookup[$scope.receitas[i].sku] = $scope.receitas[i];
+                }
+
+                $scope.quantidadeProduzida = Math.floor($scope.produto.lotes[0].quantidade/lookup[$scope.produto.receita.sku].receita[0].quantidade);
+                
+                for (var i = 1; i < $scope.produto.lotes.length; i++) {
+                    if(Math.floor($scope.produto.lotes[i].quantidade/lookup[$scope.produto.receita.sku].receita[i].quantidade) < $scope.quantidadeProduzida)
+                    {
+                        $scope.quantidadeProduzida = Math.floor($scope.produto.lotes[i].quantidade/lookup[$scope.produto.receita.sku].receita[i].quantidade);
+                    }
+
+                }
             },
             function err() {
                 console.log('Erro ao buscar lotes!');
             });
-        console.log($scope.produto.lotes);
     };
 
     $scope.salvarProduto = function () {

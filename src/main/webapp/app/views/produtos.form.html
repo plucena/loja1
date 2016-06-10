@@ -20,12 +20,12 @@
             <md-input-container class="md-block" flex>
                 <label>Receita (obrigatório)</label>
                 <md-progress-circular md-mode="indeterminate" ng-show="isLoadingReceitas"></md-progress-circular>
-                <md-select id="select-receita" name="produto.receita.sku" required ng-model="produto.receita.sku" ng-change="listarLotes(produto.receita)" ng-show="!isLoadingReceitas" ng-disabled="edicao">
+                <md-select id="select-receita" name="produto.receita" required ng-model="produto.receita.sku" ng-change="listarLotes()" ng-show="!isLoadingReceitas" ng-disabled="edicao">
                     <md-option ng-repeat="receita in receitas" value="{{receita.sku}}" id="receita-{{receita.sku}}">
                         {{receita.nome}} (SKU: {{receita.sku}})
                     </md-option>
                 </md-select>
-                <div ng-messages="produtoForm.receita.sku.$error" ng-if="produtoForm.receita.sku.$dirty">
+                <div ng-messages="produtoForm.receita.$error" ng-if="produtoForm.receita.$dirty">
                     <div ng-message="required">Receita é um campo obrigatório!</div>
                 </div>
             </md-input-container>
@@ -46,6 +46,10 @@
 
             <md-input-container ng-if="!edicao && (produto.receita && !produto.lotes.length)">
                 <p>Não há lotes disponíveis para produzir essa receita.</p>
+            </md-input-container>
+
+            <md-input-container ng-if="!edicao && (produto.receita && produto.lotes.length)">
+                <p>Com esses lotes poderão ser produzidos {{quantidadeProduzida}} produtos.</p>
             </md-input-container>
 
             <md-input-container class="md-block" ng-if="edicao">
