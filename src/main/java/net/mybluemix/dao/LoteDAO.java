@@ -33,6 +33,12 @@ public class LoteDAO extends BaseDAO<Lote> {
 		    return query.setParameter("sku", sku).getSingleResult();
 	}
 	
+	public Lote find(Long  sku, float quantidade) {
+		javax.persistence.TypedQuery<Lote> query = manager.createQuery(
+		        "SELECT c FROM Lote c WHERE c.sku = :sku AND c.status = 'EM_ESTOQUE' AND c.quantidade >= :quantidade ", Lote.class);
+		    	query.setParameter("sku", sku);
+		    	return query.setParameter("quantidade", quantidade).getSingleResult();
+	}
 	
 	public void create(LoteTO loteto) throws Exception{
 		Fornecedor f = new FornecedorDAO().find(loteto.cnpj);

@@ -1,5 +1,6 @@
 package net.mybluemix.rest;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import javax.ws.rs.core.MediaType;
@@ -18,6 +19,7 @@ import net.mybluemix.dao.MateriaPrimaDAO;
 import net.mybluemix.dao.ProdutoDAO;
 import net.mybluemix.dao.ReceitaDAO;
 import net.mybluemix.entity.Fornecedor;
+import net.mybluemix.entity.ItemReceita;
 import net.mybluemix.entity.Lote;
 import net.mybluemix.entity.MateriaPrima;
 import net.mybluemix.entity.Receita;
@@ -45,6 +47,21 @@ public class ProdutoWS {
     	return mpd.find(sku);
     }
 
+    @GET
+    @Path("/findLotes/{sku}")
+    public List<Lote>  FindLotes(@PathParam("sku") Long sku){
+    	List<Lote> lotes = new LinkedList<Lote>(); 	  
+    	LoteDAO ldao = new LoteDAO();
+    	ProdutoDAO mpd = new ProdutoDAO();
+    	Produto p =  mpd.find(sku);
+    	for(ItemReceita item: p.getReceita().getReceita()){
+    		Lote l =  ldao.find(item.getMateriaPrima().getSku(), item.getQuantidade());
+    		if(l!=null) 
+    			lotes.add(l);
+    	}
+    	return lotes;
+    }
+    
 
     @POST
 	@Path("/create")
