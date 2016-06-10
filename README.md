@@ -118,13 +118,58 @@ POST http://loja.mybluemix.net/api/produto/update
 
 Content-Type: application/json
 
-       {
-       "sku": 203,
-       "lotes": [3047424, XXXXX, YYYYY]
-       "receita" : 200,
-       "status": "EM_ESTOQUE",
-       "preco": 150
-       }
+     {  
+     "sku": x,
+      "lotes":[  
+      {  
+         "sku":3276800,
+         "preco":60,
+         "materiaPrima":{  
+            "sku":655360,
+            "nome":"BotÃ£o Paris Colorido",
+            "tipo":"BotÃ£o",
+            "descricao":"BotÃ£o padrÃ£o Paris nas cores azul, vermelha, amarela e verde"
+         },
+         "fornecedor":{  
+            "cnpj":"23122345000107",
+            "nome":"SantaconstÃ¢ncia Tecelagem",
+            "email":"staconstancia@gmail.com",
+            "telefone":"11 2982-7900",
+            "prazoEntregaDias":70,
+            "endereco_Pais":null,
+            "endereco_Estado":"SP",
+            "endereco_Cidade":"SÃ£o Paulo",
+            "endereco_Logradouro":"Rua Soldado Amarilho GonÃ§alves de Queiroz, 77 - Parque Novo Mundo",
+            "endereco_CEP":"02147901",
+            "ativo":true
+         },
+         "status":"ENCOMENDADO",
+         "quantidade":500,
+         "unidade":"Un"
+      }
+      ],
+      "status":"EM_PRODUCAO",
+      "preco":2500,
+      "receita":{  
+            "sku":200,
+            "nome":"Bermuda Legal",
+            "tipo":"Academia",
+            "descricao":"Bermuda Fitness",
+            "receita":[  
+            {  
+                  "id":163840,
+                  "quantidade":100,
+                  "unidade":"Un",
+                  "materiaPrima":{  
+                  "sku":229376,
+                   "nome":"Malha branca elastano",
+                  "tipo":"Elastano",
+                  "descricao":"Malha importada com elastano na cor branca"
+                  }
+            }
+            ]
+      }
+      }
 
 
 ==========
@@ -139,6 +184,9 @@ GET http://loja.mybluemix.net/api/receita/{$sku}
 
 * Create a Receita
 POST  http://loja.mybluemix.net/api/receita/create
+
+* Lotes disponiveis Receita
+GET  http://loja.mybluemix.net/api/receita/lotes/327680
 
 Content-Type: application/json
 
