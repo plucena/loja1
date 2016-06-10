@@ -63,10 +63,24 @@ public class ReceitaDAO extends BaseDAO<Receita> {
 	}
 	
 	public void update(Receita f, Long key) throws Exception {
-    	EntityTransaction tx = manager.getTransaction();
+    	
+		List<ItemReceita> itemsInserir =  f.getReceita();
+		List<ItemReceita> itemsProntos = new  LinkedList<ItemReceita>();
+		ItemReceitaDAO ird = new ItemReceitaDAO();
+				
+		
+		for(ItemReceita itemAInserir: itemsInserir) {
+			ItemReceita itemPronto = ird.find(itemAInserir.getId());
+			itemsProntos.add(itemPronto);
+		}
+		
+		
+		EntityTransaction tx = manager.getTransaction();
     	tx.begin();
-    	Receita m = manager.find(Receita.class, key);
+    	Receita m = manager.find(Receita.class, key);	
+		f.setReceita(itemsProntos);
     	m.update(f);
+    	manager.merge(m);
     	tx.commit();
     }
 }
