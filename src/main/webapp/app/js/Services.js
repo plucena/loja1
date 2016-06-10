@@ -90,6 +90,17 @@ app.factory('ReceitaFactory', function ($resource) {
     })
 });
 
+app.factory('LotesReceitaFactory', function ($resource) {
+    return $resource('http://loja.mybluemix.net/api/receita/lotes/:sku', {
+        sku : '@sku'},
+        { 
+        listar: {
+            method: 'GET',
+            isArray: true
+        }
+    })
+});
+
 app.factory('ProdutoFactory', function ($resource) {
     return $resource('http://loja.mybluemix.net/api/produto/:sku', {
         sku : '@sku'},

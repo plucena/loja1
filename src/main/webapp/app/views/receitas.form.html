@@ -47,7 +47,7 @@
                 <md-input-container class="md-block" flex>
                     <label>Unidade (obrigatório)</label>
                     <md-select id="select-receita.receita[{{$index}}].unidade" name="receita.receita[{{$index}}].unidade" required ng-model="receita.receita[$index].unidade">
-                        <md-option ng-repeat="unidade in unidades" value="{{unidade.sigla}}" id="receita.receita[{{$index}}].unidade-{{unidade.sigla}}">
+                        <md-option ng-repeat="unidade in unidades" value="{{unidade.sigla}}" id="receita.receita[{{$parent.$index}}].unidade-{{unidade.sigla}}">
                             {{unidade.nome}} ({{unidade.sigla}})
                         </md-option>
                     </md-select>

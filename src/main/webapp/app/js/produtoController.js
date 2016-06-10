@@ -30,7 +30,7 @@ app.controller('produtoController', ['$scope', '$rootScope', '$location', '$http
 
 }]);
 
-app.controller('formProdutoController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'ProdutoFactory', 'ReceitaFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, ProdutoFactory, ReceitaFactory) {
+app.controller('formProdutoController', ['$scope', '$routeParams', '$location', '$http', '$mdDialog', '$mdToast', '$document', 'ProdutoFactory', 'ReceitaFactory', 'LotesReceitaFactory', function($scope, $routeParams, $location, $http, $mdDialog, $mdToast, $document, ProdutoFactory, ReceitaFactory, LotesReceitaFactory) {
 
     $scope.showToast = function(message) {
         $mdToast.show(
@@ -47,14 +47,6 @@ app.controller('formProdutoController', ['$scope', '$routeParams', '$location', 
 
     $scope.produto = {};
     $scope.produto.status = "EM_PRODUCAO";
-
-    $scope.novoLote = function () {
-        $scope.produto.lotes.push({});
-    };
-
-    $scope.removerLote = function (index) {
-        $scope.produto.lotes.splice(index, 1);
-    };
 
     $scope.edicao = false;
 
@@ -102,6 +94,18 @@ app.controller('formProdutoController', ['$scope', '$routeParams', '$location', 
             });
     }
 
+    $scope.listarLotes = function () {
+        $scope.produto.lotes = [];
+        $scope.produto.lotes = LotesReceitaFactory.listar(
+            $scope.produto.receita,
+            function success() {
+                $scope.isLoading = false;
+            },
+            function err() {
+                console.log('Erro ao buscar lotes!');
+            });
+        console.log($scope.produto.lotes);
+    };
 
     $scope.salvarProduto = function () {
 

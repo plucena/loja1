@@ -20,7 +20,7 @@
             <md-input-container class="md-block" flex>
                 <label>Receita (obrigatório)</label>
                 <md-progress-circular md-mode="indeterminate" ng-show="isLoadingReceitas"></md-progress-circular>
-                <md-select id="select-receita" name="produto.receita.sku" required ng-model="produto.receita.sku" ng-show="!isLoadingReceitas" ng-disabled="edicao">
+                <md-select id="select-receita" name="produto.receita.sku" required ng-model="produto.receita.sku" ng-change="listarLotes(produto.receita)" ng-show="!isLoadingReceitas" ng-disabled="edicao">
                     <md-option ng-repeat="receita in receitas" value="{{receita.sku}}" id="receita-{{receita.sku}}">
                         {{receita.nome}} (SKU: {{receita.sku}})
                     </md-option>
@@ -40,14 +40,11 @@
                             SKU: {{lote.sku}} (Quantidade: {{lote.quantidade}})
                         </md-option>
                     </md-select>
-                    <div ng-messages="produtoForm.produto.lotes[{{$index}}].sku.$error" ng-if="produtoForm.produto.lotes[{{$index}}].sku.$dirty">
-                        <div ng-message="required">Lote é um campo obrigatório!</div>
-                    </div>
                 </md-input-container>
 
             </div>
 
-            <md-input-container ng-if="!edicao && (produto.receita &&!produto.lotes)">
+            <md-input-container ng-if="!edicao && (produto.receita && !produto.lotes.length)">
                 <p>Não há lotes disponíveis para produzir essa receita.</p>
             </md-input-container>
 
@@ -64,7 +61,7 @@
             </md-input-container>
 
             <md-input-container class="md-block">
-                <md-button id="button-salvarProduto" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!produtoForm.$valid">{{buttonAction}}</md-button>
+                <md-button id="button-salvarProduto" class="md-raised md-primary" aria-label="Salvar" type="submit" ng-disabled="!produtoForm.$valid || !produto.lotes.length">{{buttonAction}}</md-button>
             </md-input-container>
 
         </form>
