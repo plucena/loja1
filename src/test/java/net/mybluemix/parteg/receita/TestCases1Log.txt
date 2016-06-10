@@ -1,0 +1,123 @@
+### Test Case Generation Statistics
+### Test Goal Satisfaction
+ - defined 12 test goals
+ - satisfied 12 test goals (100.0 %)
+
+### unsatisfied test goals
+
+
+### satisfied test goals
+
+ - satisfied: (test goal #1 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #2 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ or ((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #3 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #4 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #5 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   to node tmp3
+   triggered by fazerCadastroEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #6 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::alternado
+   to node tmp4
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #7 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   call event alterarEvent
+ - satisfied: (test goal #8 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   to node tmp1
+   triggered by cadastrarEvent
+ - satisfied: (test goal #9 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   call event cadastrarEvent
+ - satisfied: (test goal #10 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   to node tmp2
+   triggered by alterarEvent
+ - satisfied: (test goal #11 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::init
+   call event default
+ - satisfied: (test goal #12 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::init
+   to node receitaStateMachine::receitaRegion::mostrando
+   triggered by default

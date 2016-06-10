@@ -1,0 +1,103 @@
+### Test Case Generation Statistics
+### Test Goal Satisfaction
+ - defined 20 test goals
+ - satisfied 20 test goals (100.0 %)
+
+### unsatisfied test goals
+
+
+### satisfied test goals
+
+ - satisfied: (test goal #1 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #2 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #3 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #4 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #5 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #6 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #7 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::alternado
+   to node tmp4
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #8 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #9 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   to node tmp3
+   triggered by fazerCadastroEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #10 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #11 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #12 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #13 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #14 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #15 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   call event alterarEvent
+ - satisfied: (test goal #16 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   to node tmp2
+   triggered by alterarEvent
+ - satisfied: (test goal #17 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   to node tmp1
+   triggered by cadastrarEvent
+ - satisfied: (test goal #18 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   call event cadastrarEvent
+ - satisfied: (test goal #19 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::init
+   to node receitaStateMachine::receitaRegion::mostrando
+   triggered by default
+ - satisfied: (test goal #20 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::init
+   call event default

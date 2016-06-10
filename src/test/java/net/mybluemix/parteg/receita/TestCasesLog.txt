@@ -1,0 +1,34 @@
+### Test Case Generation Statistics
+### Test Goal Satisfaction
+ - defined 5 test goals
+ - satisfied 5 test goals (100.0 %)
+
+### unsatisfied test goals
+
+
+### satisfied test goals
+
+ - satisfied: (test goal #1 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::alternado
+   to node tmp4
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #2 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   to node tmp3
+   triggered by fazerCadastroEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #3 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   to node tmp2
+   triggered by alterarEvent
+ - satisfied: (test goal #4 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   to node tmp1
+   triggered by cadastrarEvent
+ - satisfied: (test goal #5 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::init
+   to node receitaStateMachine::receitaRegion::mostrando
+   triggered by default

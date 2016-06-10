@@ -1,0 +1,363 @@
+### Test Case Generation Statistics
+### Test Goal Satisfaction
+ - defined 72 test goals
+ - satisfied 72 test goals (100.0 %)
+
+### unsatisfied test goals
+
+
+### satisfied test goals
+
+ - satisfied: (test goal #1 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #2 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #3 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #4 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #5 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #6 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #7 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #8 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #9 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #10 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #11 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #12 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #13 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #14 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #15 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #16 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #17 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #18 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #19 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #20 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #21 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #22 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #23 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #24 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #25 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #26 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #27 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #28 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #29 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #30 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #31 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #32 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #33 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #34 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #35 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #36 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #37 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #38 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #39 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #40 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #41 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #42 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #43 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #44 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #45 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #46 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #47 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #48 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #49 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #50 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #51 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #52 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #53 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #54 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #55 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #56 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::alternado
+   to node tmp4
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #57 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #58 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #59 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #60 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku <= 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #61 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo > 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #62 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo > 0) and (sku > 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #63 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome <= 0) and (tipo <= 0) and (sku > 0) and (unidade > 0) and (quantidade <= 0))
+ - satisfied: (test goal #64 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   to node tmp3
+   triggered by fazerCadastroEvent
+   with condition truth: true
+((nome > 0) and (tipo > 0) and (sku > 0) and (unidade > 0) and (quantidade > 0))
+ - satisfied: (test goal #65 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::alternado
+   call event fazerAlteracoesEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade > 0))
+ - satisfied: (test goal #66 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((nome > 0) and (tipo <= 0) and (sku <= 0) and (unidade <= 0) and (quantidade <= 0))
+ - satisfied: (test goal #67 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   to node tmp2
+   triggered by alterarEvent
+ - satisfied: (test goal #68 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   to node tmp1
+   triggered by cadastrarEvent
+ - satisfied: (test goal #69 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   call event cadastrarEvent
+ - satisfied: (test goal #70 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::mostrando
+   call event alterarEvent
+ - satisfied: (test goal #71 - satisfied guard) 
+   from node receitaStateMachine::receitaRegion::init
+   call event default
+ - satisfied: (test goal #72 - traversed transition) 
+   from node receitaStateMachine::receitaRegion::init
+   to node receitaStateMachine::receitaRegion::mostrando
+   triggered by default
