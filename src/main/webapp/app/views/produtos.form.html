@@ -49,7 +49,7 @@
             </md-input-container>
 
             <md-input-container ng-if="!edicao && (produto.receita && produto.lotes.length)">
-                <p>Poderão ser produzidos <b>{{quantidadeProduzida}}</b> produtos.</p>
+                <p>Poderão ser produzidos <b>{{quantidadeProduzida}}</b> produtos (estimativa).</p>
             </md-input-container>
 
             <md-input-container class="md-block" ng-if="edicao">
@@ -62,6 +62,15 @@
                         Em Estoque
                     </md-radio-button>
                 </md-radio-group>
+            </md-input-container>
+
+            <md-input-container class="md-block" ng-if="edicao && produto.status == 'EM_ESTOQUE'">
+                <label>Quantidade produzida (obrigatório)</label>
+                <input id="input-quantidadeProduzida" name="quantidadeProduzida" required min="0" ng-model="produto.quantidadeProduzida" type="number" ng-disabled="emEstoqueDisabled">
+                <div ng-messages="produtoForm.quantidadeProduzida.$error" ng-if="produtoForm.quantidadeProduzida.$dirty">
+                    <div ng-message="min">A quantidade produzida não pode ser negativa!</div>
+                    <div ng-message="required">A quanidade produzida é um campo obrigatório!</div>
+                </div>
             </md-input-container>
 
             <md-input-container class="md-block">

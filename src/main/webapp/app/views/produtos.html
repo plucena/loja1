@@ -53,6 +53,7 @@
                                 <tr md-row>
                                     <th md-column md-numeric><span>SKU</span></th>
                                     <th md-column><span>Preço</span></th>
+                                    <th md-column><span>Quantidade Produzida</span></th>
                                     <th md-column><span>Receita</span></th>
                                     <th md-column><span>Lote(s)</span></th>
                                 </tr>
@@ -61,6 +62,7 @@
                                 <tr md-row ng-repeat="produto in produtos | filter: { status: 'EM_ESTOQUE' }" ng-click="editarProduto(produto.sku)" id="{{produto.sku}}">
                                     <td md-cell>{{produto.sku}}</td>
                                     <td md-cell>{{produto.preco}}</td>
+                                    <td md-cell>{{produto.quantidadeProduzida}}</td>
                                     <td md-cell>{{produto.receita.nome}} (SKU: {{produto.receita.sku}})</td>
                                     <td md-cell>
                                         <span ng-repeat="lote in produto.lotes">
