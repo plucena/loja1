@@ -92,6 +92,7 @@ Content-Type: application/json
       ],
       "status":"EM_PRODUCAO",
       "preco":2500,
+      "quantidadeProduzida": 0,
       "receita":{  
             "sku":200,
             "nome":"Bermuda Legal",
@@ -150,6 +151,7 @@ Content-Type: application/json
       ],
       "status":"EM_PRODUCAO",
       "preco":2500,
+      "quantidadeProduzida": 0,
       "receita":{  
             "sku":200,
             "nome":"Bermuda Legal",
