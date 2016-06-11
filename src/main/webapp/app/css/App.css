@@ -63,6 +63,11 @@ md-content md-card {
     margin:24px;
 }
 
+tbody tr:hover {
+    cursor: pointer;
+    background-color: rgba(158,158,158, 0.2);
+}
+
 /* Forms */
 
 md-toast.md-success-toast-theme .md-toast-content {
