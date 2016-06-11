@@ -70,4 +70,15 @@ public class LoteDAO extends BaseDAO<Lote> {
 		lote.setUnidade(loteto.unidade);
     	tx.commit();
 	}
+	
+	public void update(Lote loteto) throws Exception{
+		EntityTransaction tx = manager.getTransaction();
+    	tx.begin();
+		Lote lote =  manager.find(Lote.class, loteto.sku);
+		lote.setPreco(loteto.preco);
+		lote.setStatus(loteto.status);
+		lote.setQuantidade(loteto.quantidade);
+		lote.setUnidade(loteto.unidade);
+    	tx.commit();
+	}
 }

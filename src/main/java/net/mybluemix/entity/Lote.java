@@ -25,7 +25,7 @@ public class Lote {
 	//@GenericGenerator(name = "uuid2", strategy = "uuid2")
 	@GeneratedValue(strategy=GenerationType.TABLE)
 	public Long sku;
-	private float preco;
+	public float preco;
 	
 	
 	@ManyToOne
@@ -33,13 +33,13 @@ public class Lote {
 	
 
 	@ManyToOne 
-	private Fornecedor fornecedor;
+	public Fornecedor fornecedor;
 
 	
 	
-	private String status;
-	private float quantidade;
-	private String unidade; 
+	public String status;
+	public float quantidade;
+	public String unidade; 
 
 	
 	

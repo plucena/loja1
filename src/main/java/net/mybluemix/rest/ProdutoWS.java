@@ -57,6 +57,11 @@ public class ProdutoWS {
 		ProdutoTO mp =  gson.fromJson(json, ProdutoTO.class);
     	ProdutoDAO mpd = new ProdutoDAO();
     	mpd.create(mp);
+    	LoteDAO ldao = new LoteDAO(); 
+		for(Lote l: mp.lotes) {
+			l.setStatus("");
+			ldao.update(l);
+		}	
     }
     
     @POST
