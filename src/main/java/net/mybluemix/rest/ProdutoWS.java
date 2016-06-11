@@ -59,7 +59,7 @@ public class ProdutoWS {
     	mpd.create(mp);
     	LoteDAO ldao = new LoteDAO(); 
 		for(Lote l: mp.lotes) {
-			l.setStatus("");
+			l.setStatus("EM_PRODUCAO");
 			ldao.update(l);
 		}	
     }
