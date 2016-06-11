@@ -128,27 +128,27 @@ public class Receita extends java.lang.Object implements java.lang.Cloneable{
 	
 	public Boolean cadastrar(String nome, String descricao, String tipo, Integer sku, String unidade, Integer quantidade, Boolean incluir, Integer sku2, String unidade2, Integer quantidade2)
 	{
-	  	return true;
-	  	//return adapter.cadastrarEvent(nome, descricao, tipo, sku, unidade, quantidade, incluir, sku2, unidade2, quantidade2);
+	  	//return true;
+	  	return adapter.cadastrarEvent(nome, descricao, tipo, sku, unidade, quantidade, incluir, sku2, unidade2, quantidade2);
 	}
 	
 	public Boolean alterar(String nome, String descricao, String tipo, Integer sku, String unidade, Integer quantidade, Boolean incluir, Integer sku2, String unidade2, Integer quantidade2)
 	{
-	  	return true;
-		//return adapter.alterarEvent(nome, descricao, tipo, sku, unidade, quantidade, incluir, sku2, unidade2, quantidade2);
+	  	//return true;
+		return adapter.alterarEvent(nome, descricao, tipo, sku, unidade, quantidade, incluir, sku2, unidade2, quantidade2);
 	}
 	
 	public Boolean fazerCadastro()
 	{
-	   return true;
-	   //return adapter.fazerCadastroEvent();
+	   //return true;
+	   return adapter.fazerCadastroEvent();
 	}
 	
 
 	public Boolean fazerAlteracoes()
 	{
-	  	return true;
-	  	//return adapter.fazerAlteracoesEvent();
+	  	//return true;
+	  	return adapter.fazerAlteracoesEvent();
 	}	
 	
 	
