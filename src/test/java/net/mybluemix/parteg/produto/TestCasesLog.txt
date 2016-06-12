@@ -1,0 +1,108 @@
+### Test Case Generation Statistics
+### Test Goal Satisfaction
+ - defined 23 test goals
+ - satisfied 23 test goals (100.0 %)
+
+### unsatisfied test goals
+
+
+### satisfied test goals
+
+ - satisfied: (test goal #1 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((preco > 0) and (receita <= 0))
+ - satisfied: (test goal #2 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: true
+((preco > 0) and (receita > 0))
+ - satisfied: (test goal #3 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((preco <= 0) and (receita <= 0))
+ - satisfied: (test goal #4 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::cadastrando
+   call event fazerCadastroEvent
+   with condition truth: false
+((preco <= 0) and (receita > 0))
+ - satisfied: (test goal #5 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::cadastrando
+   to node tmp3
+   triggered by fazerCadastroEvent
+   with condition truth: true
+((preco > 0) and (receita > 0))
+ - satisfied: (test goal #6 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::emEstoque
+   to node tmp6
+   triggered by alterarEmEstoqueEvent
+ - satisfied: (test goal #7 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::emEstoque
+   to node tmp9
+   triggered by mostrarEmProducaoEvent
+ - satisfied: (test goal #8 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::emEstoque
+   call event alterarEmEstoqueEvent
+ - satisfied: (test goal #9 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::emEstoque
+   to node tmp5
+   triggered by cadastrarEvent
+ - satisfied: (test goal #10 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::emEstoque
+   call event cadastrarEvent
+ - satisfied: (test goal #11 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::emEstoque
+   call event mostrarEmProducaoEvent
+ - satisfied: (test goal #12 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::alterando
+   call event fazerAlteracoesEvent
+   with condition truth: true
+((next = true) and (next <> false))
+ or ((next <> false))
+ - satisfied: (test goal #13 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::alterando
+   to node tmp7
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((next = true))
+ - satisfied: (test goal #14 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::alterando
+   to node tmp4
+   triggered by fazerAlteracoesEvent
+   with condition truth: true
+((next = false))
+ - satisfied: (test goal #15 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::alterando
+   call event fazerAlteracoesEvent
+   with condition truth: true
+((next = false))
+ - satisfied: (test goal #16 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::emProducao
+   to node tmp8
+   triggered by mostrarEmEstoqueEvent
+ - satisfied: (test goal #17 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::emProducao
+   call event mostrarEmEstoqueEvent
+ - satisfied: (test goal #18 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::emProducao
+   call event alterarEmProducaoEvent
+ - satisfied: (test goal #19 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::emProducao
+   call event cadastrarEvent
+ - satisfied: (test goal #20 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::emProducao
+   to node tmp1
+   triggered by cadastrarEvent
+ - satisfied: (test goal #21 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::emProducao
+   to node tmp2
+   triggered by alterarEmProducaoEvent
+ - satisfied: (test goal #22 - satisfied guard) 
+   from node produtoStateMachine::produtoRegion::init
+   call event default
+ - satisfied: (test goal #23 - traversed transition) 
+   from node produtoStateMachine::produtoRegion::init
+   to node produtoStateMachine::produtoRegion::emProducao
+   triggered by default

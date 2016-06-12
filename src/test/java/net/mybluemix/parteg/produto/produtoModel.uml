@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20131001" xmlns:xmi="http://www.omg.org/spec/XMI/20131001" xmlns:uml="http://www.eclipse.org/uml2/5.0.0/UML" xmi:id="_be7vsC5HEeacY9WhToNzKA" name="">
+  <packageImport xmi:id="_blC-wC5HEeacY9WhToNzKA">
+    <importedPackage xmi:type="uml:Model" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#_0"/>
+  </packageImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="_NrrcgC9KEea8FKkFcmD4hQ" name="produtoPk">
+    <packagedElement xmi:type="uml:Class" xmi:id="_QiZK8C9KEea8FKkFcmD4hQ" name="Produto">
+      <ownedAttribute xmi:id="_EsgL8C9TEea8FKkFcmD4hQ" name="state" type="_Vebi8C9REea8FKkFcmD4hQ"/>
+      <ownedAttribute xmi:id="_5H-TYDADEea0bdQeoyqxdA" name="receita">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_57EkQDADEea0bdQeoyqxdA" name="preco">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+      </ownedAttribute>
+      <ownedAttribute xmi:id="_72NbQDADEea0bdQeoyqxdA" name="next">
+        <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+      </ownedAttribute>
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="_bfFgsC5HEeacY9WhToNzKA" name="produtoStateMachine">
+        <region xmi:id="_bfFgsS5HEeacY9WhToNzKA" name="produtoRegion">
+          <transition xmi:id="_JoP78C9NEea8FKkFcmD4hQ" name="init2emProducao" source="_3tyhgC9MEea8FKkFcmD4hQ" target="_5E76oC9MEea8FKkFcmD4hQ"/>
+          <transition xmi:id="_lHpQUC9NEea8FKkFcmD4hQ" name="emProducao2cadastrando" source="_5E76oC9MEea8FKkFcmD4hQ" target="_B6j3gC9NEea8FKkFcmD4hQ">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_Gf8XIC9hEea8FKkFcmD4hQ" name="cadastrar" specification="_XUYB0C9aEea8FKkFcmD4hQ"/>
+            <trigger xmi:id="_F4MaoC9hEea8FKkFcmD4hQ" event="_omCMUC9ZEea8FKkFcmD4hQ"/>
+          </transition>
+          <transition xmi:id="_gB6soC9NEea8FKkFcmD4hQ" name="emProducao2alterando" source="_5E76oC9MEea8FKkFcmD4hQ" target="_DOjO8C9NEea8FKkFcmD4hQ">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_Hv_CsC9hEea8FKkFcmD4hQ" name="alterarEmProducao" specification="_YAJisC9aEea8FKkFcmD4hQ"/>
+            <trigger xmi:id="_HFLLIC9hEea8FKkFcmD4hQ" event="_rkCOgC9ZEea8FKkFcmD4hQ"/>
+          </transition>
+          <transition xmi:id="_maZRoC9NEea8FKkFcmD4hQ" name="cadastrando2emProducao" guard="_eRvl4DAFEea0bdQeoyqxdA" source="_B6j3gC9NEea8FKkFcmD4hQ" target="_5E76oC9MEea8FKkFcmD4hQ">
+            <ownedRule xmi:id="_eRvl4DAFEea0bdQeoyqxdA">
+              <specification xmi:type="uml:LiteralString" xmi:id="_e_DX0DAFEea0bdQeoyqxdA" value="(preco>0) and (receita>0)"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_JJvq8C9hEea8FKkFcmD4hQ" name="fazerCadastro" specification="_YhulwC9aEea8FKkFcmD4hQ"/>
+            <trigger xmi:id="_IYGLkC9hEea8FKkFcmD4hQ" event="_tC4yIC9ZEea8FKkFcmD4hQ"/>
+          </transition>
+          <transition xmi:id="_i66TAC9NEea8FKkFcmD4hQ" name="alterando2emProducao" guard="_2L4jcDAIEea0bdQeoyqxdA" source="_DOjO8C9NEea8FKkFcmD4hQ" target="_5E76oC9MEea8FKkFcmD4hQ">
+            <ownedRule xmi:id="_2L4jcDAIEea0bdQeoyqxdA">
+              <specification xmi:type="uml:LiteralString" xmi:id="_21nc8DAIEea0bdQeoyqxdA" value="next=false"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_K5jbsC9hEea8FKkFcmD4hQ" name="fazerAlteracoes" specification="_ZGh78C9aEea8FKkFcmD4hQ"/>
+            <trigger xmi:id="_J_uQsC9hEea8FKkFcmD4hQ" event="_t8Yl8C9ZEea8FKkFcmD4hQ"/>
+          </transition>
+          <transition xmi:id="_4qhaEC9NEea8FKkFcmD4hQ" name="emEstoque2cadastrando" source="_9MbUcC9MEea8FKkFcmD4hQ" target="_B6j3gC9NEea8FKkFcmD4hQ">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_MEFVIC9hEea8FKkFcmD4hQ" name="cadastrar" specification="_XUYB0C9aEea8FKkFcmD4hQ"/>
+            <trigger xmi:id="_LhRjAC9hEea8FKkFcmD4hQ" event="_omCMUC9ZEea8FKkFcmD4hQ"/>
+          </transition>
+          <transition xmi:id="_So4uoC9QEea8FKkFcmD4hQ" name="emEstoque2alterando" source="_9MbUcC9MEea8FKkFcmD4hQ" target="_DOjO8C9NEea8FKkFcmD4hQ">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_NSOjQC9hEea8FKkFcmD4hQ" name="alterarEmEstoque" specification="_aVYUsC9aEea8FKkFcmD4hQ"/>
+            <trigger xmi:id="_Mtb0IC9hEea8FKkFcmD4hQ" event="_90rXQC_8Eea0bdQeoyqxdA"/>
+          </transition>
+          <transition xmi:id="_WlB0EC9QEea8FKkFcmD4hQ" name="alterando2emEstoque" guard="_5QGiYDAIEea0bdQeoyqxdA" source="_DOjO8C9NEea8FKkFcmD4hQ" target="_9MbUcC9MEea8FKkFcmD4hQ">
+            <ownedRule xmi:id="_5QGiYDAIEea0bdQeoyqxdA">
+              <specification xmi:type="uml:LiteralString" xmi:id="_54MdIDAIEea0bdQeoyqxdA" value="next=true"/>
+            </ownedRule>
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_Okh4oC9hEea8FKkFcmD4hQ" name="fazerAlteracoes" specification="_ZGh78C9aEea8FKkFcmD4hQ"/>
+            <trigger xmi:id="_N96kkC9hEea8FKkFcmD4hQ" event="_t8Yl8C9ZEea8FKkFcmD4hQ"/>
+          </transition>
+          <transition xmi:id="_ie3v4C9QEea8FKkFcmD4hQ" name="emProducao2emEstoque" source="_5E76oC9MEea8FKkFcmD4hQ" target="_9MbUcC9MEea8FKkFcmD4hQ">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_P-cR4C9hEea8FKkFcmD4hQ" name="mostrarEmEstoque" specification="_aVYUsC9aEea8FKkFcmD4hQ"/>
+            <trigger xmi:id="_PSdVoC9hEea8FKkFcmD4hQ" event="_5Yom0C9ZEea8FKkFcmD4hQ"/>
+          </transition>
+          <transition xmi:id="_jGWmoC9QEea8FKkFcmD4hQ" name="emEstoque2emProducao" source="_9MbUcC9MEea8FKkFcmD4hQ" target="_5E76oC9MEea8FKkFcmD4hQ">
+            <effect xmi:type="uml:FunctionBehavior" xmi:id="_RjNQQC9hEea8FKkFcmD4hQ" name="mostrarEmProducao" specification="_bTtlMC9aEea8FKkFcmD4hQ"/>
+            <trigger xmi:id="_QlE0EC9hEea8FKkFcmD4hQ" event="_6TNYsC9ZEea8FKkFcmD4hQ"/>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="_3tyhgC9MEea8FKkFcmD4hQ" name="init"/>
+          <subvertex xmi:type="uml:State" xmi:id="_5E76oC9MEea8FKkFcmD4hQ" name="emProducao" stateInvariant="_KOqM8C9TEea8FKkFcmD4hQ">
+            <ownedRule xmi:id="_KOqM8C9TEea8FKkFcmD4hQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_NPIUUC9TEea8FKkFcmD4hQ" value="state=State::emProducao"/>
+            </ownedRule>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_9MbUcC9MEea8FKkFcmD4hQ" name="emEstoque" stateInvariant="_K4LrEC9TEea8FKkFcmD4hQ">
+            <ownedRule xmi:id="_K4LrEC9TEea8FKkFcmD4hQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_ODRHAC9TEea8FKkFcmD4hQ" value="state=State::emEstoque"/>
+            </ownedRule>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_B6j3gC9NEea8FKkFcmD4hQ" name="cadastrando" stateInvariant="_Lhz24C9TEea8FKkFcmD4hQ">
+            <ownedRule xmi:id="_Lhz24C9TEea8FKkFcmD4hQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_Pr4DkC9TEea8FKkFcmD4hQ" value="state=State::cadastrando"/>
+            </ownedRule>
+          </subvertex>
+          <subvertex xmi:type="uml:State" xmi:id="_DOjO8C9NEea8FKkFcmD4hQ" name="alterando" stateInvariant="_MV174C9TEea8FKkFcmD4hQ">
+            <ownedRule xmi:id="_MV174C9TEea8FKkFcmD4hQ">
+              <specification xmi:type="uml:LiteralString" xmi:id="_O8xh4C9TEea8FKkFcmD4hQ" value="state=State::alterando"/>
+            </ownedRule>
+          </subvertex>
+        </region>
+      </ownedBehavior>
+      <ownedOperation xmi:id="_XUYB0C9aEea8FKkFcmD4hQ" name="cadastrarOp" method="_Gf8XIC9hEea8FKkFcmD4hQ _MEFVIC9hEea8FKkFcmD4hQ" postcondition="_9Q3l8DAEEea0bdQeoyqxdA">
+        <ownedRule xmi:id="_9Q3l8DAEEea0bdQeoyqxdA">
+          <specification xmi:type="uml:LiteralString" xmi:id="_-SI1sDAEEea0bdQeoyqxdA" value="(preco=precoVal) and (receita=receitaVal)"/>
+        </ownedRule>
+        <ownedParameter xmi:id="_8hL1cDAEEea0bdQeoyqxdA" name="precoVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+        <ownedParameter xmi:id="_15ZhwDAHEea0bdQeoyqxdA" name="receitaVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_YAJisC9aEea8FKkFcmD4hQ" name="alterarEmProducaoOp" method="_Hv_CsC9hEea8FKkFcmD4hQ" postcondition="_lIKjwDAIEea0bdQeoyqxdA">
+        <ownedRule xmi:id="_lIKjwDAIEea0bdQeoyqxdA">
+          <specification xmi:type="uml:LiteralString" xmi:id="_lryOMDAIEea0bdQeoyqxdA" name="" value="next=nextVal"/>
+        </ownedRule>
+        <ownedParameter xmi:id="_kgxzoDAIEea0bdQeoyqxdA" name="nextVal">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Boolean"/>
+        </ownedParameter>
+      </ownedOperation>
+      <ownedOperation xmi:id="_JUN8sC_9Eea0bdQeoyqxdA" name="alterarEmEstoqueOp" postcondition="_rPIiADAIEea0bdQeoyqxdA">
+        <ownedRule xmi:id="_rPIiADAIEea0bdQeoyqxdA">
+          <specification xmi:type="uml:LiteralString" xmi:id="_sA59MDAIEea0bdQeoyqxdA" value="next=true"/>
+        </ownedRule>
+      </ownedOperation>
+      <ownedOperation xmi:id="_YhulwC9aEea8FKkFcmD4hQ" name="fazerCadastroOp" method="_JJvq8C9hEea8FKkFcmD4hQ"/>
+      <ownedOperation xmi:id="_ZGh78C9aEea8FKkFcmD4hQ" name="fazerAlteracoesOp" method="_K5jbsC9hEea8FKkFcmD4hQ _Okh4oC9hEea8FKkFcmD4hQ"/>
+      <ownedOperation xmi:id="_aVYUsC9aEea8FKkFcmD4hQ" name="mostrarEmEstoqueOp" method="_P-cR4C9hEea8FKkFcmD4hQ _NSOjQC9hEea8FKkFcmD4hQ"/>
+      <ownedOperation xmi:id="_bTtlMC9aEea8FKkFcmD4hQ" name="mostrarEmProducaoOp" method="_RjNQQC9hEea8FKkFcmD4hQ"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:Enumeration" xmi:id="_Vebi8C9REea8FKkFcmD4hQ" name="State">
+      <ownedLiteral xmi:id="_WPlTEC9REea8FKkFcmD4hQ" name="emProducao"/>
+      <ownedLiteral xmi:id="_W6tTsC9REea8FKkFcmD4hQ" name="emEstoque"/>
+      <ownedLiteral xmi:id="_XwCZMC9REea8FKkFcmD4hQ" name="cadastrando"/>
+      <ownedLiteral xmi:id="_YZHycC9REea8FKkFcmD4hQ" name="alterando"/>
+    </packagedElement>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_omCMUC9ZEea8FKkFcmD4hQ" name="cadastrarEvent" operation="_XUYB0C9aEea8FKkFcmD4hQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_rkCOgC9ZEea8FKkFcmD4hQ" name="alterarEmProducaoEvent" operation="_YAJisC9aEea8FKkFcmD4hQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_90rXQC_8Eea0bdQeoyqxdA" name="alterarEmEstoqueEvent" operation="_JUN8sC_9Eea0bdQeoyqxdA"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_tC4yIC9ZEea8FKkFcmD4hQ" name="fazerCadastroEvent" operation="_YhulwC9aEea8FKkFcmD4hQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_t8Yl8C9ZEea8FKkFcmD4hQ" name="fazerAlteracoesEvent" operation="_ZGh78C9aEea8FKkFcmD4hQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_6TNYsC9ZEea8FKkFcmD4hQ" name="mostrarEmProducaoEvent" operation="_bTtlMC9aEea8FKkFcmD4hQ"/>
+    <packagedElement xmi:type="uml:CallEvent" xmi:id="_5Yom0C9ZEea8FKkFcmD4hQ" name="mostrarEmEstoqueEvent" operation="_aVYUsC9aEea8FKkFcmD4hQ"/>
+  </packagedElement>
+</uml:Model>
