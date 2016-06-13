@@ -71,6 +71,13 @@ public class ProdutoWS {
     	Gson gson = new Gson();
 		Produto f=  gson.fromJson(json, Produto.class);	
     	ProdutoDAO fd = new ProdutoDAO();
+    	if(f.getStatus().equalsIgnoreCase("EM_ESTOQUE")) {
+    		LoteDAO ldao = new LoteDAO(); 
+    		for(Lote l: f.getLotes()) {
+    			l.setStatus("FINALIZADO");
+    			ldao.update(l);
+    		}
+    	}		
     	fd.update(f, f.getSku());
     }
     
