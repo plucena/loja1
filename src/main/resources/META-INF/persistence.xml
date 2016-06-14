@@ -13,7 +13,7 @@
         <properties>
  
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
-            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://134.168.29.175:3306/ecm" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://169.44.119.163:3306/ecm" />
             <property name="javax.persistence.jdbc.user" value="root" />
             <property name="javax.persistence.jdbc.password" value="unasp" />
             <property name="hbm2ddl.auto" value="create" />
