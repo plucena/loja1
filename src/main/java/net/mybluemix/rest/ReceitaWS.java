@@ -56,6 +56,8 @@ public class ReceitaWS {
     		Lote l =  ldao.find(item.getMateriaPrima().getSku(), item.getQuantidade());
     		if(l!=null) 
     			lotes.add(l);
+    		else 
+    			System.out.println("ALERT NULL LOTE");
     	}
     	return lotes;
     }

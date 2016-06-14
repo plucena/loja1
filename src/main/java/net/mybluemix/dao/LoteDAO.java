@@ -41,9 +41,11 @@ public class LoteDAO extends BaseDAO<Lote> {
 		System.out.println("**************************");
 
 		javax.persistence.TypedQuery<Lote> query = manager.createQuery(squery, Lote.class);
-		return query.getSingleResult();
+		List<Lote> lotes =  query.getResultList();
+		return lotes.get(0);
 		}
 		catch(Exception e) {
+			e.printStackTrace();
 			return null;
 		}
 	}
