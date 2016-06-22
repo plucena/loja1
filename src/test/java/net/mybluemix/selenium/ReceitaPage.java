@@ -3,7 +3,7 @@ package net.mybluemix.selenium;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.*;
 
 public class ReceitaPage {
 
@@ -12,7 +12,7 @@ public class ReceitaPage {
 	private WebElement element = null;
 
 	public ReceitaPage() {
-		driver = new FirefoxDriver();
+		driver = new ChromeDriver();
 		driver.get(this.url);
 	}
 

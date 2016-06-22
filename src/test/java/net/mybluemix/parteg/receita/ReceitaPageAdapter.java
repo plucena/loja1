@@ -27,7 +27,7 @@ public class ReceitaPageAdapter implements AdapterInterface {
 				receitaPage.preencher("nome", nome);
 				receitaPage.preencher("descricao", descricao);
 				receitaPage.preencher("tipo", tipo);
-				receitaPage.selecionar("receita.receita[0].materiaPrima", "229376");
+				receitaPage.selecionar("receita.receita[0].materiaPrima", "1");
 				receitaPage.selecionar("receita.receita[0].unidade",
 						mapINT_to_Sigla(Integer.parseInt(unidade)));
 				receitaPage.preencher("receita.receita[0].quantidade",
@@ -36,7 +36,7 @@ public class ReceitaPageAdapter implements AdapterInterface {
 					if(!receitaPage.duasMateriasPrimas()){
 						receitaPage.clicarBotao("novoItemReceita");	
 					}
-					receitaPage.selecionar("receita.receita[1].materiaPrima", "262144");
+					receitaPage.selecionar("receita.receita[1].materiaPrima", "32768");
 					receitaPage.selecionar("receita.receita[1].unidade", mapINT_to_Sigla(Integer.parseInt(unidade2)));
 					receitaPage.preencher("receita.receita[1].quantidade", quantidade2.toString());
 				}
@@ -91,7 +91,7 @@ public class ReceitaPageAdapter implements AdapterInterface {
 				receitaPage.preencher("nome", nome);
 				receitaPage.preencher("descricao", descricao);
 				receitaPage.preencher("tipo", tipo);
-				receitaPage.selecionar("receita.receita[0].materiaPrima", "229376");
+				receitaPage.selecionar("receita.receita[0].materiaPrima", "1");
 				receitaPage.selecionar("receita.receita[0].unidade",
 						mapINT_to_Sigla(Integer.parseInt(unidade)));
 				receitaPage.preencher("receita.receita[0].quantidade",
@@ -100,7 +100,7 @@ public class ReceitaPageAdapter implements AdapterInterface {
 					if(!receitaPage.duasMateriasPrimas()){
 						receitaPage.clicarBotao("novoItemReceita");	
 					}
-					receitaPage.selecionar("receita.receita[1].materiaPrima", "262144");
+					receitaPage.selecionar("receita.receita[1].materiaPrima", "32768");
 					receitaPage.selecionar("receita.receita[1].unidade", mapINT_to_Sigla(Integer.parseInt(unidade2)));
 					receitaPage.preencher("receita.receita[1].quantidade", quantidade2.toString());
 				}
